@@ -1,0 +1,13 @@
+<template>
+  <nav>
+    <router-link to="/" exact>Home</router-link>|
+    <router-link to="/posts" exact>Posts</router-link>
+    <hr>
+  </nav>
+</template>
+<script>
+
+export default {
+  name: 'AppHeader'
+}
+</script>
