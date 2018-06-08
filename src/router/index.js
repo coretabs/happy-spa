@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import NotFound from '@/components/NotFound'
 import Posts from '@/components/Posts'
+import Profile from '@/components/Profile'
+import ListPosts from '@/components/ListPosts'
+
 Vue.use(Router)
 
 export default new Router({
@@ -17,6 +20,16 @@ export default new Router({
       path: '/posts',
       name: 'Posts',
       component: Posts
+    },
+    {
+      path: '/listposts',
+      name: 'ListPosts',
+      component: ListPosts
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
     },
     {
       path: '*',
