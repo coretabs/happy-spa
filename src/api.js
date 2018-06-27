@@ -9,8 +9,19 @@ const appService = {
         .then(res => {
           resolve(res.data)
         })
-        .catch(error => {
-          reject(error)
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+  getPost (id) {
+    return new Promise((resolve, reject) => {
+      axios.get(`/api/v1/posts/${id}/`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(res => {
+          reject(res)
         })
     })
   }
