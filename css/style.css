@@ -207,30 +207,30 @@ body {
     font-weight: bold;
 }
 
-.signInHeader input, .signInHeader .control button {
+.contentPageHeader input, .contentPageHeader .control button {
     border-radius: 50px;
     
 }
-.signInHeader {
+.contentPageHeader {
     width: 80%;
     margin: 0 auto;
 }
-.signInHeader .control button {
+.contentPageHeader .control button {
     width: 100%;
     margin: 0 auto;
     background-color: #ffe600;
     margin-top: 10px;
 }
-.signInHeader .control button:hover {
+.contentPageHeader .control button:hover {
     background-color: #ffe600cf;
 }
-.signInHeader .control .button.is-success:active {
+.contentPageHeader .control .button.is-success:active {
     background-color: #ffe600;
 }
-.signInHeader .control .button.is-success:focus:not(:active) {
+.contentPageHeader .control .button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
-.signInHeader input, .signInHeader .icon, .signInHeader .control button {
+.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button {
     height: 3rem!important;
     font-weight: bold;
 }
@@ -312,6 +312,25 @@ body {
     height: 15px;
     vertical-align: middle;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
