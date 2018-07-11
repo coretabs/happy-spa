@@ -139,7 +139,7 @@ body {
     background: none!important;
     padding: 0!important;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     left: 50%;
     top: 90%;
     position: absolute;
@@ -173,7 +173,7 @@ body {
 
 /*           ****** sign in page ******               */
 
-.signInPage {
+.grayContentPage {
     background-color: #fafafa;
     direction: rtl;
 }
@@ -234,11 +234,7 @@ body {
     height: 3rem!important;
     font-weight: bold;
 }
-.eyePWD {
-    pointer-events: painted!important;
-    cursor: pointer;
-    left: 0;
-}
+
 .forgettingLink {
     text-align: center;
     display: block;
