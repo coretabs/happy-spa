@@ -1,0 +1,321 @@
+html {
+    background: none;
+}
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*           ****** home page ******                   */
+.homePage {
+	background-color: #ffe600;    
+}
+/*                   circle                            */
+.centralCircle {
+    width: 100%;
+    left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.circle {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+.centralCircle h1 {
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 21px auto 5px;
+}
+
+/*             slide words home page                */
+
+ figure {
+    height: 50px;
+	position: relative;
+	margin: 0;
+	left: 0;
+	width: 500%;
+	animation: 30s slidy infinite;
+}
+ figure img {
+	width: 100%;
+}
+ figure .slider {
+	width: 20%;
+	float: left;
+}
+
+ .slider >  p {
+	width: 130px;
+	height: 130px;
+	display: block;
+	border-radius: 50%;
+	margin: auto auto 15px;
+	transform-style: preserve-3d;
+}
+.opinion p {
+	text-align: center;
+	color: #4e5052;
+	font-size: 20px;
+	width: 70%;
+    margin: 0 auto;
+}
+
+@keyframes slidy{
+	0%{
+		left: 0%;
+	}
+
+	8%{
+		left: 0%;
+	}
+	10%{
+		left: -100%;
+	}
+	18%{
+		left: -100%;
+	}
+	20%{
+		left: -200%;
+	}
+	28%{
+		left: -200%;
+	}
+	30%{
+		left: -300%;
+	}
+	38%{
+		left: -300%;
+	}
+	40%{
+		left: -400%;
+	}
+	48%{
+		left: -400%;
+	}
+	50%{
+		left: 0%;
+	}
+	58%{
+		left: 0%;
+	}
+	60%{
+		left: -100%;
+	}
+	68%{
+		left: -100%;
+	}
+	70%{
+		left: -200%;
+	}
+	78%{
+		left: -200%;
+	}
+	80%{
+		left: -300%;
+	}
+	88%{
+		left: -300%;
+	}
+    90%{
+        left: -400%;
+    }
+    98%{
+        left: -400%;
+    }
+}
+
+/*                   footer home page                */
+
+.footer {
+    background: none!important;
+    padding: 0!important;
+    margin: 0 auto;
+    width: 100%;
+    left: 50%;
+    top: 90%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.buttonStarted{
+    padding: 20px 0px;
+    text-align: center;
+}
+.buttonStarted a {
+    text-decoration: none;
+    color: #4e5052;
+    background-color: white;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 50px;
+    padding: 15px 37%;
+    font-family: Arial, 'lucida Sans Unicode';
+}
+.paraFooter {
+    margin: 30px auto;
+    text-align: center;
+    color: #4e5052;
+}
+.paraFooter a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #4e5052;
+}
+
+/*           ****** sign in page ******               */
+
+.signInPage {
+    background-color: #fafafa;
+    direction: rtl;
+}
+
+/*                  main sign in                       */
+
+.mianSginIn {
+    width: 100%;
+}
+
+.mianSginIn img {
+    width: 100%;
+    height: 180px;
+}
+.mianSginIn a {
+    position: absolute;
+    color: #485d67;
+    font-size: 25px;
+    margin-right: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 5;
+}
+.mianSginIn p {
+    width: 100%;
+    text-align: center;
+    color: #485d67;
+    font-size: 25px;
+    position: absolute;
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+.signInHeader input, .signInHeader .control button {
+    border-radius: 50px;
+    
+}
+.signInHeader {
+    width: 80%;
+    margin: 0 auto;
+}
+.signInHeader .control button {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffe600;
+    margin-top: 10px;
+}
+.signInHeader .control button:hover {
+    background-color: #ffe600cf;
+}
+.signInHeader .control .button.is-success:active {
+    background-color: #ffe600;
+}
+.signInHeader .control .button.is-success:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
+}
+.signInHeader input, .signInHeader .icon, .signInHeader .control button {
+    height: 3rem!important;
+    font-weight: bold;
+}
+.eyePWD {
+    pointer-events: painted!important;
+    cursor: pointer;
+    left: 0;
+}
+.forgettingLink {
+    text-align: center;
+    display: block;
+    color: #485d67;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.noteSginIn {
+    text-align: center;
+    color: #dae1e4;
+    font-size: 13px;
+    font-weight: bold;
+}
+.underline::after {
+	content: "";
+    display: inline-flex;
+    width: 17%;
+    height: 2px;
+    background-color: #dae1e4;
+    margin: 5px auto;
+    margin-right: 5px;
+}
+.underline::before {
+	content: "";
+    display: inline-flex;
+    width: 17%;
+    height: 2px;
+    background-color: #dae1e4;
+    margin: 5px auto;
+    margin-left: 5px;
+}
+.buttonsSginIn {
+    display: flex;
+    margin: 25px auto;
+}
+.buttonSIN {
+    display: inline-table;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+.buttonSIN img {
+    height: 20px;
+}
+.buttonSIN a {
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 50px;
+    padding: 15px 15%;
+    width: 50%;
+    font-weight: bold;
+}
+.buttonFacebook {
+    border: 2px solid #6179ab;
+    color: #6179ab;
+}
+.buttonFacebook .svg-inline--fa.fa-w-9 {
+    padding-right: 10px;
+    width: auto;
+}
+.buttonFacebook:hover {
+    background-color: #6179ab;
+    color: white;
+}
+.buttonGoogle {
+    border: 2px solid #bfcacf;
+    color: #bfcacf;
+}
+.buttonGoogle:hover {
+    background-color: #bfcacf;
+    color: white;
+}
+.buttonGoogle img {
+    padding-right: 10px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+
+
