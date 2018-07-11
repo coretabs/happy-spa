@@ -171,12 +171,15 @@ body {
     color: #4e5052;
 }
 
-/*           ****** sign in page ******               */
+
+/* background for Sign-up, login, forget password, Reset password, Email sent, manage links, personal info step and verification step */
 
 .grayContentPage {
     background-color: #fafafa;
     direction: rtl;
 }
+
+/*           ****** sign in page ******               */
 
 /*                  main sign in                       */
 
@@ -207,6 +210,7 @@ body {
     font-weight: bold;
 }
 
+/*     style content for name, passward, email and some buttons like login*/
 .contentPageHeader input, .contentPageHeader .control button {
     border-radius: 50px;
     
@@ -234,7 +238,7 @@ body {
     height: 3rem!important;
     font-weight: bold;
 }
-
+/*           forgetting link          */
 .forgettingLink {
     text-align: center;
     display: block;
@@ -242,6 +246,8 @@ body {
     text-decoration: underline;
     font-weight: bold;
 }
+
+/*            note for another login         */
 .noteSginIn {
     text-align: center;
     color: #dae1e4;
@@ -266,6 +272,8 @@ body {
     margin: 5px auto;
     margin-left: 5px;
 }
+
+/*        buttons for google and ficebook        */
 .buttonsSginIn {
     display: flex;
     margin: 25px auto;
@@ -313,7 +321,15 @@ body {
     vertical-align: middle;
 }
 
+/*         ****** forget assword ******         */
 
+/*          note for email             */
+.paraContent {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 
 
