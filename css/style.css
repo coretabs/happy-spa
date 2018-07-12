@@ -341,6 +341,16 @@ body {
     margin: 0 auto 25px;
 }
 
+/*        ****** verification-step ******        */
+
+.contentCenter {
+    margin-top: 50px;
+}
+.iconCenter {
+    margin-top: 10px;
+    color: white!important;
+    font-size: 20px;
+}
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
