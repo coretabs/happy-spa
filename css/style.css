@@ -335,7 +335,19 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+.mainPoster {
+    width: 50%;
+    display: block;
+    margin: 0 auto 25px;
+}
 
+
+/*           ****** media ******                 */
+@media(min-width:1000px) {
+    .mainPoster {
+        width: 200px;
+    }
+}
 
 
 
