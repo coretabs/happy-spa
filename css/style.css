@@ -352,6 +352,45 @@ body {
     font-size: 20px;
 }
 
+/*      ****** personal info step ******        */
+
+/*           personal picture           */
+
+.personalPicture {
+    text-align: center;
+    font-size: 25px;
+    border: 2px #ffe600 dashed;
+    border-radius: 50%;
+    width: 100px;
+    margin: 0 auto 25px;
+    height: 100px;
+}
+.personalPicture:hover .file-cta {
+    background: #fafafa;
+    border: 0;
+}
+.personalPicture .fa-camera {
+    margin: 35px;
+    color: #ffe600;
+}
+.personalPicture .file-cta {
+    background: none;
+    border: none;
+    padding: 1.2em 1em!important;
+}
+.personalPicture .file-icon {
+    margin: 0;
+}
+/*           ****** media ******                 */
+@media(min-width:1000px) {
+    .mainPoster {
+        width: 200px;
+    }
+}
+
+
+
+
 /*           ****** media ******                 */
 @media(min-width:1000px) {
     .mainPoster {
