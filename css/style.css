@@ -337,6 +337,7 @@ body {
 }
 .mainPoster {
     width: 50%;
+    height: 116px;
     display: block;
     margin: 0 auto 25px;
 }
@@ -395,6 +396,7 @@ body {
 @media(min-width:1000px) {
     .mainPoster {
         width: 200px;
+        height: 116px;
     }
 }
 
