@@ -389,6 +389,71 @@ body {
     }
 }
 
+/*           ****** manage links page ******               */
+
+/*                  Recycle Bin icon                       */
+.contentPageHeader ul li {
+    margin-top: 20px;
+}
+.linkMSM {
+    width: 90%;
+    margin: auto;
+    margin-right: 0;
+}
+.linkSSM {
+    display: flex;
+}
+.linkSM {
+    width: 60%!important;
+}
+.linkSM-input {
+    border-radius: 40px 0 0 40px!important;
+    box-shadow: none;
+    font-size: 12px;
+}
+.linkSSM .select {
+    height:  3rem!important;
+    width: 100%;
+}
+.linkSM-para {
+    width: 50%!important;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: white;
+    font-size: 12px;
+}
+.linkMSM select {
+    border: none;
+    border-radius: 0 40px 40px 0;
+    height: 3rem!important;
+    width: 100%;
+    background-color: #ffe600;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
+.linkSM .linkSM-para {
+    background-color: #ffe600!important;
+}
+.RBR {
+    pointer-events: painted!important;
+    cursor: pointer;
+    left: -40px;
+}
+.linkAD {
+    margin-right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.linkAD a {
+    color: #ffe600!important;
+}
+.linkAD span {
+    font-size: 30px;
+    vertical-align: sub;
+    font-weight: 400;
+}
+
 
 
 
