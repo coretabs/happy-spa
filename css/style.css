@@ -183,15 +183,15 @@ body {
 
 /*                  main sign in                       */
 
-.mianSginIn {
+.mianHeader {
     width: 100%;
 }
 
-.mianSginIn img {
+.mianHeader img {
     width: 100%;
     height: 180px;
 }
-.mianSginIn a {
+.mianHeader a {
     position: absolute;
     color: #485d67;
     font-size: 25px;
@@ -200,7 +200,7 @@ body {
     cursor: pointer;
     z-index: 5;
 }
-.mianSginIn p {
+.mianHeader p {
     width: 100%;
     text-align: center;
     color: #485d67;
