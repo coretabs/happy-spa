@@ -454,6 +454,95 @@ body {
     font-weight: 400;
 }
 
+/*           ****** more page ******               */
+.withApp{
+    direction: rtl;
+    background-color: #fafafa;
+}
+/*                  top header                    */
+.topHeader {
+    top: 0;
+}
+.topHeader, .bottomFooter {
+    width: 100%;
+    height: 50px;
+    box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.20);
+    position: fixed;
+    background-color: white;
+}
+.topHeader a {
+    position: fixed;
+    color: #485d67;
+    font-size: 23px;
+    margin-right: 15px;
+    margin-top: 9px;
+    cursor: pointer;
+    z-index: 5;
+}
+.topHeader p {
+    width: 100%;
+    text-align: center;
+    color: #485d67;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+/*                  head content                    */
+.headContent {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: white;
+}
+.headContainer {
+    width: 95%;
+    margin: 0 auto;
+}
+.headContent ul li {
+    direction: ltr;
+    margin: 0.5em 0;
+}
+.headContent ul hr {
+    margin: 0;
+}
+.headElements {
+    color: #b0bec5;
+}
+.signOutElements {
+    color: #485d67;
+}
+.headElements svg:not(:root).svg-inline--fa, .signOutElements svg:not(:root).svg-inline--fa {
+    margin-left: 5px;
+}
+
+/*                  bottom footer                    */
+.bottomFooter {
+    bottom: 0;
+}
+.bottomFooter ul {
+    width: 100%;
+}
+.bottomFooter ul li {
+    display: inline-block;
+    width: 18.5%;
+    text-align: center;
+    padding: 10px;
+}
+.bottomFooter ul li a {
+    font-size: 20px;
+    color: #b0bec5;
+}
+.bottomFooter ul li .actieFooterLink {
+    color: #ffe600;
+}
+.bottomFooter ul li .plusIcon {
+    border: 2px solid;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+
 
 
 
