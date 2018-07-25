@@ -211,7 +211,7 @@ body {
 }
 
 /*     style content for name, passward, email and some buttons like login*/
-.contentPageHeader input, .contentPageHeader .control button {
+.contentPageHeader input, .contentPageHeader .control button, .footer .control button {
     border-radius: 50px;
     
 }
@@ -219,22 +219,22 @@ body {
     width: 80%;
     margin: 0 auto;
 }
-.contentPageHeader .control button {
+.contentPageHeader .control button, .footer .control button {
     width: 100%;
     margin: 0 auto;
     background-color: #ffe600;
     margin-top: 10px;
 }
-.contentPageHeader .control button:hover {
+.contentPageHeader .control button:hover, .footer .control button:hover {
     background-color: #ffe600cf;
 }
-.contentPageHeader .control .button.is-success:active {
+.contentPageHeader .control .button.is-success:active, .footer .control button.is-success:active {
     background-color: #ffe600;
 }
-.contentPageHeader .control .button.is-success:focus:not(:active) {
+.contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
-.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button {
+.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button {
     height: 3rem!important;
     font-weight: bold;
 }
@@ -382,12 +382,6 @@ body {
 .personalPicture .file-icon {
     margin: 0;
 }
-/*           ****** media ******                 */
-@media(min-width:1000px) {
-    .mainPoster {
-        width: 200px;
-    }
-}
 
 /*           ****** manage links page ******               */
 
@@ -455,9 +449,14 @@ body {
 }
 
 /*           ****** more page ******               */
-.withApp{
+.withApp , .withAppW {
     direction: rtl;
+}
+.withApp {
     background-color: #fafafa;
+}
+.withAppW {
+    background-color: white;
 }
 /*                  top header                    */
 .topHeader {
@@ -469,6 +468,7 @@ body {
     box-shadow: 0rem 0rem 1rem rgba(0,0,0,0.20);
     position: fixed;
     background-color: white;
+    z-index: 15;
 }
 .topHeader a {
     position: fixed;
@@ -503,7 +503,7 @@ body {
     direction: ltr;
     margin: 0.5em 0;
 }
-.headContent ul hr {
+hr {
     margin: 0;
 }
 .headElements {
@@ -542,6 +542,119 @@ body {
     padding: 5px 10px;
 }
 
+/*           ****** post something ******               */
+
+/*                  share button                     */
+.topHeader .share {
+    left: 0;
+    margin-left: 15px;
+    top: 0;
+    font-size: 18px;
+    border: 2px solid #ffe600;
+    background: #ffe600;
+    color: white;
+    border-radius: 50px;
+    padding: 0px 30px;
+}
+
+/*                   person post                    */
+.personPost {
+    display: inline-flex;
+}
+.personPost img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.personPost .personName {
+    padding-top: 3px;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #485d67;
+}
+/*                  image person post                     */
+.imagePost {
+    background-color: #eceff1;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    color: #485d67;
+}
+.imagePost .myImage {
+    display: inline-block;
+    width: 32.2%;
+    text-align: center;
+    padding: 5px 0;
+    position: relative;
+    z-index: 9;
+}
+.myImage input[type="file"], .funPost input[type="file"] {
+    opacity: 0;
+    z-index: 10;
+    position: absolute;
+    cursor: pointer;
+}
+.myImage input[type="file"] {
+    width: 100%;
+    height: 100%;
+    right: 0;
+}
+.myImage img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.myImage a {
+    color: #485d67;
+    background-color: white;
+    padding: 5px 8px;
+    border-radius: 50%;
+}
+
+.funPost {
+    margin-top: 20px;
+    position: relative;
+}
+.funPost input[type="file"], .funPost svg:not(:root).svg-inline--fa {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    color: #dbdbdb;
+    cursor: pointer;
+    z-index: 10;
+}
+.funPost textarea {
+    height: 10em;    
+}
+.funPost textarea, .addWasm input {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+
+}
+.addWasm, .addPerson {
+    margin: 10px auto;
+}
+
+.addPerson {
+    display: inline-flex;
+}
+.addPerson img, .addPersonPlus {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 5px;
+}
+.addPersonPlus {
+    text-align: center;
+    font-size: 30px;
+    color: #ffe600;
+    border: 2px dashed;
+}
 
 
 
@@ -553,6 +666,7 @@ body {
         height: 116px;
     }
 }
+
 
 
 
