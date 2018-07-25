@@ -641,6 +641,7 @@ hr {
 
 .addPerson {
     width: 100%;
+    margin-bottom: 50px;
 }
 .addPerson a {
     display: inline-block
