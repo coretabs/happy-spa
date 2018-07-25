@@ -640,7 +640,10 @@ hr {
 }
 
 .addPerson {
-    display: inline-flex;
+    width: 100%;
+}
+.addPerson a {
+    display: inline-block
 }
 .addPerson img, .addPersonPlus {
     height: 50px;
@@ -654,6 +657,13 @@ hr {
     font-size: 30px;
     color: #ffe600;
     border: 2px dashed;
+    vertical-align: top;
+    position: relative;
+}
+.addPersonPlus span {
+    position: absolute;
+    left: 13px;
+    bottom: 3px;
 }
 
 
