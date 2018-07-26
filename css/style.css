@@ -494,10 +494,11 @@ body {
 .headContent {
     width: 100%;
     margin-top: 50px;
+	margin-bottom: 50px;
     padding: 10px 0;
     background-color: white;
 }
-.headContainer {
+.headContainer, .addTags {
     width: 95%;
     margin: 0 auto;
 }
@@ -642,10 +643,6 @@ hr {
     margin: 10px auto;
 }
 
-.addPerson {
-    width: 100%;
-    margin-bottom: 50px;
-}
 .addPerson a {
     display: inline-block
 }
@@ -670,8 +667,60 @@ hr {
     bottom: 3px;
 }
 
+/*              ****** post something add tags ******               */
+.bodyTag {
+	height: 25em;
+}
+.ageTitle {
+	position: relative;
+}
+.ageTitle a {
+	position: absolute;
+    color: #485d67;
+    font-size: 23px;
+    cursor: pointer;
+    z-index: 5;
+    line-height: 0;
+    left: 0;
+}
+.ageTitle h2 {
+	text-align: center;
+	font-weight: bold;
+}
+.addTagWasm input {
+	border-radius: 50px;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.paraTag {
+	font-size: 15px;
+}
 
-
+.wasm {
+	font-size: 12px;
+	text-align: center;
+	width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px!important;
+}
+.wasm a {
+	width: 18%;
+    display: inline-block;
+    color: #b0bec5;
+    background-color: white;
+    padding: 4px 0;
+    border-radius: 50px;
+}
+.wasm .sp {
+	margin: 0 2px;
+}
+.wasm a span {
+	
+}
+.wasm svg:not(:root).svg-inline--fa {
+	margin-left: 2px;
+	font-size: 10px;
+}
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
