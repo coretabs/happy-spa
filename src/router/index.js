@@ -6,6 +6,7 @@ import Posts from '@/components/Posts'
 import Post from '@/components/Post'
 import Profile from '@/components/Profile'
 import ListPosts from '@/components/ListPosts'
+import LoginPage from '@/components/login/LoginPage'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '*',
       name: 'NotFound',
       component: NotFound
+    },
+    {
+      path: '/login',
+      name: 'LoginPage',
+      component: LoginPage
     }
   ]
 })

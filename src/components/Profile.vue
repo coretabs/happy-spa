@@ -1,7 +1,7 @@
 <template>
   <main>
     <div v-for="profile in profiles" :key="profile.id">
-      <div v-for="(value, key) in profile">
+      <div v-for="(value, key) in profile" :key='key'>
         {{ key }}: {{ value }}
       </div>
     </div>

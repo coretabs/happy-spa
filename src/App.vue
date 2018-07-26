@@ -1,8 +1,8 @@
 <template>
   <div id='app'>
-    <app-header/>
+    <!-- <app-header/> -->
     <router-view/>
-    <app-footer/>
+    <!-- <app-footer/> -->
   </div>
 </template>
 
@@ -12,8 +12,8 @@ import AppFooter from '@/components/AppFooter.vue'
 export default {
   name: 'App',
   components: {
-    'app-header': AppHeader,
-    'app-footer': AppFooter
+  //  'app-header': AppHeader,
+  //  'app-footer': AppFooter
   }
 }
 </script>
@@ -25,6 +25,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
