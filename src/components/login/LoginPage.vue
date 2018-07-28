@@ -1,9 +1,11 @@
 <template>
     <div class="grayContentPage">        
         <div class="mianHeader">
-            <a href="#">
-                <i class="fas fa-arrow-right"></i>
-            </a>
+            <router-link to = "/">
+                <a>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </router-link>
             <p>تسجيل الدخول</p>
             <img src="@/../image/mainWhite.png">
         </div>
@@ -37,7 +39,9 @@
                     </button>
                 </p>
             </div>
-            <a href="#" class="forgettingLink">هل نسيت كلمة المرور؟</a>
+            <router-link to = "/forgot">
+                <a class="forgettingLink">هل نسيت كلمة المرور؟</a>
+            </router-link>
         </div>
             
         <footer class="footer">
@@ -64,7 +68,9 @@
             <div class="paraFooter">
                 <p>
                   ليس لديك حساب؟
-                    <a href="#">تسجيل</a>
+                  <router-link to="/singup">
+                    <a>تسجيل</a>
+                  </router-link>
                 </p>
             </div>
         </footer>
@@ -72,5 +78,3 @@
 </template>
 
 <script src='./script.js'></script>
-
-<style src='./style.css'></style>

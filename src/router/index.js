@@ -7,6 +7,7 @@ import Post from '@/components/Post'
 import Profile from '@/components/Profile'
 import ListPosts from '@/components/ListPosts'
 import LoginPage from '@/components/login/LoginPage'
+import Forgot from '@/components/ForgotPassword/Forgot'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/login',
       name: 'LoginPage',
       component: LoginPage
+    },
+    {
+      path : '/forgot',
+      name : 'Forgot',
+      component : Forgot
     }
   ]
 })
