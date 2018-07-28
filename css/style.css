@@ -677,7 +677,7 @@ hr {
 .bodyTag {
 	height: 25em;
 }
-.ageTitle, .answer {
+.ageTitle, .answer, .mySend {
 	position: relative;
 }
 .ageTitle a {
@@ -747,7 +747,7 @@ hr {
 	font-size: 20px;
     font-weight: bold;
 }
-.aboutMe p, .aboutMyInfo, .mySocial a, .opinionComments a, .timeComments p {
+.aboutMe p, .aboutMyInfo, .mySocial a, .opinionComments a, .timeComments p, .mySend .myMenu a, .allCommunion .communion a, .allCommunion .share4All a {
     color: #cdd6da;
 }
 .reverse {
@@ -796,7 +796,7 @@ hr {
 .backgroundSend .personPost a, .communion a, .share4All a {
 	color: white;
 }
-.communion {
+.communion, .mySend {
 	width: 90%;	
 }
 .communion, .share4All {
@@ -821,6 +821,7 @@ hr {
 }
 .answer {
     border-radius: 10px;
+	padding: 0 0 10px;
 }
 .answer .personPost {
 	position: inherit;
@@ -833,12 +834,51 @@ hr {
     color: #485d67;
 }
 .answerPara p, .opinionComments {
-    padding: 5px 30px 15px;	
+    padding: 5px 30px 5px;	
 }
 
 .spaceFooter {
 	margin-bottom: 70px;
 }
+
+/*              ****** home ******               */
+.spaceHeader {
+	margin-top: 50px;
+}
+.mySend div {
+	margin: 0;
+}
+.mySend {
+	padding-top: 10px;
+	margin: 0 auto;	
+}
+
+.imageSend, .imageSend img {
+	height: 12em
+}
+
+.allCommunion {
+	display: flex;
+	padding: 10px;
+}
+.allCommunion div {
+	position: inherit;
+}
+
+.noRadius {
+	border-radius: 0;
+}
+.fullWidth {
+	width: 100%!important;
+}
+
+
+
+
+
+
+
+
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
