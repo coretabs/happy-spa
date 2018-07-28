@@ -416,6 +416,9 @@ body {
     border-color: white;
     font-size: 12px;
 }
+.select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: white;
+}
 .linkMSM select {
     border: none;
     border-radius: 0 40px 40px 0;
@@ -446,6 +449,16 @@ body {
     font-size: 30px;
     vertical-align: sub;
     font-weight: 400;
+}
+
+.footerAcc {
+	background-color: #fafafa!important;
+	height: 100%;
+    max-width: 100%;
+    left: 10%;
+	transform: none;
+    position: fixed;
+    z-index: 10;
 }
 
 /*           ****** more page ******               */
