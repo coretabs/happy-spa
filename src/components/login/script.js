@@ -1,5 +1,8 @@
 import axios from 'axios'
-export default {       
+import { mapState , mapMutations } from 'vuex'
+
+export default {
+        
     name : 'LoginPage',
     data : () => {
         return {
@@ -7,7 +10,6 @@ export default {
             password : '',
             passwordType : 'password',
             iconChenge : this.passwordType === 'password' ? 'fa-eye-slash' : 'fas fa-eye',
-            
             info : ''
         }
     },
@@ -29,12 +31,19 @@ export default {
                         password : this.password
                     } 
                 }
-                console.log(this.info)
-            axios.post('https://corefun-api.herokuapp.com/api/v1/auth/login/' ,this.info)
-            .then(re => console.log(re))
-            .catch(er => console.log(er))
+                axios.post('https://corefun-api.herokuapp.com/api/v1/auth/login/' ,this.info)
+                .then(re => {
+                    console.log(re)
+                    this.$store.commit('setUserInfo', re.data)
+                    console.log(this.userInfo)
+                })
+                .catch(er => console.log(er))
             }
         },
-        
+    },
+    computed : {
+        ...mapState([
+            'userInfo'
+        ])
     }
 }

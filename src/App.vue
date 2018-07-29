@@ -4,6 +4,7 @@
     <transition name="pages-anim"> <!-- enter-active-class="animated slideInLeft" > <leave-active-class="animated slideOutRight"-->
       <router-view/>
     </transition>
+    
     <!-- <app-footer/> -->
   </div>
 </template>
@@ -17,14 +18,9 @@ export default {
   //  'app-header': AppHeader,
   //  'app-footer': AppFooter
   },
-  data : () => {
-    return {
-      emailValidate : /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    }
-  },
   methods : {
     validateEmail(mail) {
-      return this.emailValidate.test(mail);
+      return this.$store.state.emailValidate.test(mail);
     }
   }
 }
