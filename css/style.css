@@ -9,10 +9,15 @@ body {
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
+}
+.height-0 {
+	height: 100vh;
+}
+.height-2 {
 	height: 102vh;
 }
-.fullHeight {
-	height: 102vh;
+.height-5 {
+	height: 105vh;
 }
 /*                   circle                            */
 .centralCircle {

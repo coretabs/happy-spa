@@ -1,5 +1,5 @@
 <template>
-  <div class="homePage">
+  <div class="homePage height-2">
 
     <div class="centralCircle">
       <div class="circle">

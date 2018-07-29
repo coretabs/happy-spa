@@ -1,10 +1,8 @@
 <template>
-    <div class="grayContentPage">        
+    <div class="grayContentPage height-5">        
         <div class="mianHeader">
             <router-link to = "/">
-                <a>
                     <i class="fas fa-arrow-right"></i>
-                </a>
             </router-link>
             <p>تسجيل الدخول</p>
             <img src="@/../image/mainWhite.png">
