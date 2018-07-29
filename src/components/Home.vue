@@ -51,7 +51,7 @@
     <div class="footer">
       <div class="buttonStarted">
         <router-link to="/signup"> 
-          <a>فلنبدأ</a>
+          فلنبدأ
         </router-link>
       </div>
     

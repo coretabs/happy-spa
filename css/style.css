@@ -8,7 +8,11 @@ body {
 }
 /*           ****** home page ******                   */
 .homePage {
-	background-color: #ffe600;    
+	background-color: #ffe600;
+	height: 102vh;
+}
+.fullHeight {
+	height: 102vh;
 }
 /*                   circle                            */
 .centralCircle {
