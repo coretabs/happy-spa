@@ -1,11 +1,9 @@
 <template>
-    <div class="grayContentPage">
+    <div class="grayContentPage height-0">
         
         <div class="mianHeader">
             <router-link to = "login">
-                <a>
                     <i class="fas fa-arrow-right"></i>
-                </a>
             </router-link>
             <p>هل نسيت كلمة المرور؟</p>
             <img src="@/../image/mainWhite.png">
