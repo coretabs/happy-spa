@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import NotFound from '@/components/NotFound'
 import Posts from '@/components/Posts'
 import Post from '@/components/Post'
-import Profile from '@/components/Profile'
+import Profile from '@/components/profile/Profile'
 import ListPosts from '@/components/ListPosts'
 import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
@@ -37,7 +37,10 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile
+      component: Profile,
+      children : [
+        {'path' : ':id'}
+      ]
     },
     {
       path: '*',
