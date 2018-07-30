@@ -801,13 +801,25 @@ hr {
 }
 
 
-.backgroundSend {
-	background-image: url(../image/lake.jpg);
-    background-size: cover;
+.backgroundSend, .backgroundSend .bgImageSend {
     border-radius: 15px 15px 0 0;
     height: 15em;
+	width: 100%;
 	position: relative;
 }
+.backgroundSend .personPost {
+	position: absolute;
+    top: 10px;
+}
+.backgroundSend .myMenu {
+	position: absolute;
+    top: 10px;
+    left: 0;
+}
+.backgroundSend .myMenu a {
+	position: unset;
+}
+
 .myMenu a, .communion, .share4All {
 	position: absolute;
 	color: white;
