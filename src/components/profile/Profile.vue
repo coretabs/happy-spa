@@ -9,13 +9,13 @@
         
     <div class="backList">
       <div class="aboutMe center">
-        <a href="#"><img src="@/../image/cat.jpg"></a>
-        <a href="#"><h1>locy cat</h1></a>
-        <a href="#"><p class="reverse">@locyCat</p></a>
+        <a href="#"><img :src="usr.logo"></a>
+        <a href="#"><h1>{{user.name}}</h1></a>
+        <a href="#"><p class="reverse">{{user.username}}</p></a>
       </div>
       
       <div class="description">
-        <h2 class="center">Many fur / cute, social</h2>
+        <h2 class="center">{{bio}}</h2>
       </div>
       
       <div class="aboutMyInfo center">

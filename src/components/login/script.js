@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { mapState , mapMutations } from 'vuex'
-
+import Cookies from 'js-cookie';
 export default {
         
     name : 'LoginPage',
@@ -36,6 +36,7 @@ export default {
                     console.log(re)
                     this.$store.commit('setUserInfo', re.data)
                     console.log(this.userInfo)
+                    Cookies.set('logedinUser' , re.data , { expires: 365 })
                 })
                 .catch(er => console.log(er))
             }
@@ -45,5 +46,10 @@ export default {
         ...mapState([
             'userInfo'
         ])
+    },
+    created () {
+        if (Cookies.getJSON('logedinUser')) {
+            this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}`)
+        }
     }
 }
