@@ -590,9 +590,11 @@ hr {
 .personPost {
     display: inline-flex;
 }
-.personPost img {
+.personPost img, .signImage img, .Notification .persons2Post .persons2Image {
     height: 40px;
-    width: 40px;
+    width: 40px;	
+}
+.personPost img, .signImage img {
 	border: 2px solid white;
     border-radius: 50%;
 }
@@ -603,6 +605,7 @@ hr {
     font-weight: bold;
     color: #485d67;
 }
+
 /*                  image person post                     */
 .imagePost {
     background-color: #eceff1;
@@ -751,7 +754,7 @@ hr {
 }
 
 /*              ****** profile ******               */
-.left {
+.left, .backgroundSend .myMenu, .signImage {
 	left: 0;
 }
 .backList {
@@ -807,14 +810,9 @@ hr {
 	width: 100%;
 	position: relative;
 }
-.backgroundSend .personPost {
+.backgroundSend .personPost, .backgroundSend .myMenu {
 	position: absolute;
     top: 10px;
-}
-.backgroundSend .myMenu {
-	position: absolute;
-    top: 10px;
-    left: 0;
 }
 .backgroundSend .myMenu a {
 	position: unset;
@@ -870,7 +868,9 @@ hr {
 .answerPara p, .opinionComments {
     padding: 5px 30px 5px;	
 }
-
+.spaceFooterS {
+	margin-bottom: 50px;
+}
 .spaceFooter {
 	margin-bottom: 70px;
 }
@@ -936,10 +936,53 @@ hr {
     padding: 15px;
 }
 
+/*           ****** Notification ******                 */
+.Notification ul li {
+	background-color: white;
+}
+.Notification .personPost p {
+	color: #485d67;
+	height: max-content;
+	padding-right: 10px;
+	line-height: 1;
+}
+.Notification .personPost p .morePoster {
+	color: #485d67;
+	font-size: 15px;
+}
+.Notification .personPost p a {
+	line-height: 1.5;
+	padding-right: 0;
+}
+.Notification .personPost p span {
+	font-size: 12px;
+    color: #cdd6da;
+}
+.signImage, .persons2Post .persons2Image img {
+	position: absolute;
+}
+.Notification .persons2Post .persons2Image {
+	display: inline-flex;
+    flex-direction: row-reverse;
+}
+.Notification .persons2Post .persons2Image img {
+	margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+    width: 30px;
+}
+.persons2Post .persons2Image .imageOne {
+	z-index: 12;
+}
+.persons2Post .persons2Image .imageTwo {
+	z-index: 8;
+    margin-right: -15px;
+}
 
-
-
-
+.persons2Post .persons2Image .imageThree {
+	z-index: 9;
+	margin-right: -7.5px;
+}
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
