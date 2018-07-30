@@ -42,6 +42,8 @@
     
     <div class="backList">
       <div class="backgroundSend">
+	  	<img src="image/lake.jpg" class="bgImageSend">
+	  
         <div class="myMenu">
           <a href="#" class="left">
             <span>الوقت</span>
@@ -122,6 +124,8 @@
       
     <div class="backList">
       <div class="backgroundSend">
+	  	<img src="image/lake.jpg" class="bgImageSend">
+	  
         <div class="myMenu">
           <a href="#" class="left">
             <span>الوقت</span>
