@@ -909,8 +909,9 @@ hr {
 }
 .settingPara p {
 	margin-top: 15px;
-    color: #ffe600;
-    background-color: #485d67;
+    background-color: #ffe600;
+    color: #485d67;
+	font-weight: bold;
     display: table;
     padding: 2px 15px 15px;
     border-radius: 10px 10px 0 0;
