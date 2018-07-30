@@ -895,22 +895,24 @@ hr {
 }
 
 /*           ****** setting ******                 */
-.setting {
-	background-image: url(../image/background.jpg)
-}
 .setting .headContent {
 	background: none;
+}
+.setting .backList a:hover {
+	background-color: #fbfbfb;
 }
 .settingList {
 	box-shadow: 0rem 0.25rem 1rem rgba(0,0,0,0.2);
 	position: relative;
 	margin-top: 45px;
+	overflow: hidden;
 	z-index: 10;
 }
 .settingPara p {
 	margin-top: 15px;
-    color: #ffe600;
-    background-color: #485d67;
+    background-color: #ffe600;
+    color: #485d67;
+	font-weight: bold;
     display: table;
     padding: 2px 15px 15px;
     border-radius: 10px 10px 0 0;
