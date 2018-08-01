@@ -762,7 +762,7 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a {
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p {
 	color: #485d67!important;
 }
 .aboutMe h1 {
@@ -823,22 +823,17 @@ hr {
 	position: unset;
 }
 
-.bgTextSend .funPost {
+.bgTextSend .textSend {
 	padding-top: 3.5em;
 }
-.bgTextSend .funPost textarea {
-	height: 2em;
-	padding: 0 20px;
-	font-weight: bold;
+.bgTextSend .textSend p {
+	padding: 15px 0;
 }
-.bgTextSend .funPost input[type="file"], .bgTextSend .funPost svg:not(:root).svg-inline--fa {
-	height: 15px;
-    width: 15px;
-}
+
 .bgTextSend .communion {
 	padding: 15px;
 }
-.bgTextAndImageSend .bgImage {
+.bgTextAndImageSend .bgImage, .bgTextSend .textSend, .bgTextSend hr {
 	width: 90%;
     margin: 10px auto 0;
 }
@@ -980,7 +975,7 @@ hr {
 	color: #485d67;
 	font-size: 15px;
 }
-.Notification .personPost p a {
+.Notification .personPost p a, .bgTextSend .textSend p {
 	line-height: 1.5;
 	padding-right: 0;
 }
