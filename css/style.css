@@ -395,8 +395,12 @@ body {
 /*           ****** manage links page ******               */
 
 /*                  Recycle Bin icon                       */
-.contentPageHeader ul li {
-    margin-top: 20px;
+.enterMail {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.enterMail .paraContent {
+	text-align: right;
 }
 .linkMSM {
     width: 90%;
