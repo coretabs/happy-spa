@@ -243,7 +243,7 @@ body {
 .contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
-.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button {
+.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea {
     height: 3rem!important;
     font-weight: bold;
 }
@@ -754,7 +754,7 @@ hr {
 .left, .backgroundSend .myMenu, .signImage {
 	left: 0;
 }
-.backList {
+.backList, .contentPageHeader textarea {
 	background-color: white;
     border-radius: 15px;
 	margin-bottom: 20px;
