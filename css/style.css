@@ -481,7 +481,7 @@ body {
     background-color: white;
 }
 /*                  top header                    */
-.topHeader {
+.topHeader, .backgroundSend .personPost {
     top: 0;
 }
 .box-shadow {
@@ -501,7 +501,7 @@ body {
     cursor: pointer;
     z-index: 5;
 }
-.topHeader a, .personPost, .myMenu a, .share4All a {
+.topHeader a, .personPost, .myMenu a, .share4All a, .fa-smile {
     margin-right: 15px;
 	margin-left: 15px;
     margin-top: 10px;
@@ -537,9 +537,6 @@ hr {
 }
 .headElements {
     color: #b0bec5;
-}
-.signOutElements {
-    color: #485d67;
 }
 .headElements svg:not(:root).svg-inline--fa, .signOutElements svg:not(:root).svg-inline--fa {
     margin-left: 5px;
@@ -590,9 +587,11 @@ hr {
 .personPost {
     display: inline-flex;
 }
-.personPost img {
+.personPost img, .signImage img, .Notification .persons2Post .persons2Image {
     height: 40px;
-    width: 40px;
+    width: 40px;	
+}
+.personPost img, .signImage img {
 	border: 2px solid white;
     border-radius: 50%;
 }
@@ -603,6 +602,7 @@ hr {
     font-weight: bold;
     color: #485d67;
 }
+
 /*                  image person post                     */
 .imagePost {
     background-color: #eceff1;
@@ -751,7 +751,7 @@ hr {
 }
 
 /*              ****** profile ******               */
-.left {
+.left, .backgroundSend .myMenu, .signImage {
 	left: 0;
 }
 .backList {
@@ -762,14 +762,14 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a {
-	color: #485d67;
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a {
+	color: #485d67!important;
 }
 .aboutMe h1 {
 	font-size: 20px;
     font-weight: bold;
 }
-.aboutMe p, .aboutMyInfo, .mySocial a, .opinionComments a, .timeComments p, .mySend .myMenu a, .allCommunion .communion a, .allCommunion .share4All a, .settingList a {
+.aboutMe p, .aboutMyInfo, .mySocial a, .mySend .myMenu a, .allCommunion .communion a, .allCommunion .share4All a, .settingList a {
     color: #cdd6da;
 }
 .reverse {
@@ -787,7 +787,7 @@ hr {
 	font-size: 10px;
     margin: 10px auto;
 }
-.aboutMyInfo div, .mySocial a, .aboutMe a img, .communion a, .bodyWasm div, .listComments div {
+.aboutMyInfo div, .mySocial a, .aboutMe a img, .communion a, .bodyWasm div {
 	display: inline-block;
 }
 .aboutMyInfo .place, .aboutMyInfo .birth {
@@ -800,37 +800,65 @@ hr {
 	text-align: center;
 }
 
-
-.backgroundSend, .backgroundSend .bgImageSend {
+.backgroundSend {
+	height: auto;
+	line-height: 0.75;
+}
+.backgroundSend .bgImageSend img {
+    height: 15em;	
+}
+.backgroundSend, .backgroundSend .bgImageSend img {
     border-radius: 15px 15px 0 0;
-    height: 15em;
 	width: 100%;
 	position: relative;
 }
-.backgroundSend .personPost {
-	position: absolute;
-    top: 10px;
+.absolute, .backgroundSend .personPost, .backgroundSend .myMenu {
+	position: absolute;	
 }
 .backgroundSend .myMenu {
-	position: absolute;
     top: 10px;
-    left: 0;
+	line-height: 1.5;
 }
 .backgroundSend .myMenu a {
 	position: unset;
 }
 
-.myMenu a, .communion, .share4All {
+.bgTextSend .funPost {
+	padding-top: 3.5em;
+}
+.bgTextSend .funPost textarea {
+	height: 2em;
+	padding: 0 20px;
+	font-weight: bold;
+}
+.bgTextSend .funPost input[type="file"], .bgTextSend .funPost svg:not(:root).svg-inline--fa {
+	height: 15px;
+    width: 15px;
+}
+.bgTextSend .communion {
+	padding: 15px;
+}
+.bgTextAndImageSend .bgImage {
+	width: 90%;
+    margin: 10px auto 0;
+}
+.bgTextAndImageSend .bgImage img {
+	border-radius: 10px;
+    height: 12em;
+    width: 100%;
+}
+
+.myMenu a, .bgImageSend .communion, .share4All {
 	position: absolute;
 	color: white;
 }
 .myMenu span {
 	vertical-align: text-bottom;
 }
-.backgroundSend .personPost a, .communion a, .share4All a {
-	color: white;
+.whiteColor, .communion a, .share4All a {
+	color: white!important;
 }
-.communion, .mySend {
+.mySend {
 	width: 90%;	
 }
 .communion, .share4All {
@@ -839,19 +867,19 @@ hr {
 .communion a {
 	width: 20%;
 }
-.communion span, .opinionComments span {
+.communion span {
 	padding-right: 5px;
 }
 
 .bodyWasm, .answer {
 	background-color: #eceff1;
 }
-.bodyWasm .wasm, .opinionComments {
+.bodyWasm .wasm {
 	width: 80%;
 }
 
 .bodyAnswer {
-	padding: 10px 40px 0px 20px;
+	padding: 10px 40px 10px 20px;
 }
 .answer {
     border-radius: 10px;
@@ -867,10 +895,12 @@ hr {
 	line-height: 0;
     color: #485d67;
 }
-.answerPara p, .opinionComments {
+.answerPara p {
     padding: 5px 30px 5px;	
 }
-
+.spaceFooterS {
+	margin-bottom: 50px;
+}
 .spaceFooter {
 	margin-bottom: 70px;
 }
@@ -936,10 +966,53 @@ hr {
     padding: 15px;
 }
 
+/*           ****** Notification ******                 */
+.Notification ul li {
+	background-color: white;
+}
+.Notification .personPost p {
+	color: #485d67;
+	height: max-content;
+	padding-right: 10px;
+	line-height: 1;
+}
+.Notification .personPost p .morePoster {
+	color: #485d67;
+	font-size: 15px;
+}
+.Notification .personPost p a {
+	line-height: 1.5;
+	padding-right: 0;
+}
+.Notification .personPost p span {
+	font-size: 12px;
+    color: #cdd6da;
+}
+.signImage, .persons2Post .persons2Image img {
+	position: absolute;
+}
+.Notification .persons2Post .persons2Image {
+	display: inline-flex;
+    flex-direction: row-reverse;
+}
+.Notification .persons2Post .persons2Image img {
+	margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+    width: 30px;
+}
+.persons2Post .persons2Image .imageOne {
+	z-index: 12;
+}
+.persons2Post .persons2Image .imageTwo {
+	z-index: 8;
+    margin-right: -15px;
+}
 
-
-
-
+.persons2Post .persons2Image .imageThree {
+	z-index: 9;
+	margin-right: -7.5px;
+}
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
