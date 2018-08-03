@@ -37,7 +37,9 @@ export default {
                     this.$store.commit('setUserInfo', re.data)
                     console.log(this.userInfo)
                     Cookies.set('logedinUser' , re.data , { expires: 365 })
+                    this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}`)
                 })
+                
                 .catch(er => console.log(er))
             }
         },
