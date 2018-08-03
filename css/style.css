@@ -230,9 +230,8 @@ body {
 }
 .contentPageHeader .control button, .footer .control button {
     width: 100%;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: #ffe600;
-    margin-top: 10px;
 }
 .contentPageHeader .control button:hover, .footer .control button:hover {
     background-color: #ffe600cf;
@@ -392,6 +391,9 @@ body {
 /*           ****** manage links page ******               */
 
 /*                  Recycle Bin icon                       */
+.contentPageHeader ul li {
+	margin-top: 20px;
+}
 .enterMail {
     padding-top: 15px;
     padding-bottom: 15px;
