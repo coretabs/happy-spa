@@ -146,7 +146,7 @@ export default {
     }
   },
   created () {
-    axios.get(`https://corefun-api.herokuapp.com/api/v1/auth/user/${this.$route.params.id}`)
+    axios.get(`https://corefun-api.herokuapp.com/api/v1/auth/user/${this.$route.params.id}/`)
     .then( re => console.log(re))
   }
 }

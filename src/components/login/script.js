@@ -37,7 +37,7 @@ export default {
                     this.$store.commit('setUserInfo', re.data)
                     console.log(this.userInfo)
                     Cookies.set('logedinUser' , re.data , { expires: 365 })
-                    this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}`)
+                    this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}/`)
                 })
                 
                 .catch(er => console.log(er))
@@ -51,7 +51,7 @@ export default {
     },
     created () {
         if (Cookies.getJSON('logedinUser')) {
-            this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}`)
+            this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}/`)
         }
     }
 }
