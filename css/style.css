@@ -220,19 +220,18 @@ body {
 }
 
 /*     style content for name, passward, email and some buttons like login*/
-.contentPageHeader input, .contentPageHeader .control button, .footer .control button {
+.contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
     border-radius: 50px;
     
 }
-.contentPageHeader {
+.contentPageHeader, .bodyComments .communion, #bodyComments .reply {
     width: 80%;
     margin: 0 auto;
 }
 .contentPageHeader .control button, .footer .control button {
     width: 100%;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: #ffe600;
-    margin-top: 10px;
 }
 .contentPageHeader .control button:hover, .footer .control button:hover {
     background-color: #ffe600cf;
@@ -353,9 +352,6 @@ body {
 
 /*        ****** verification-step ******        */
 
-.contentCenter {
-    margin-top: 50px;
-}
 .iconCenter {
     margin-top: 10px;
     color: white!important;
@@ -395,6 +391,9 @@ body {
 /*           ****** manage links page ******               */
 
 /*                  Recycle Bin icon                       */
+.contentPageHeader ul li {
+	margin-top: 20px;
+}
 .enterMail {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -539,15 +538,15 @@ body {
 hr {
     margin: 0;
 }
-.headElements {
-    color: #b0bec5;
+.headElements, #bodyComments .communion a {
+    color: #b0bec5!important;
 }
 .headElements svg:not(:root).svg-inline--fa, .signOutElements svg:not(:root).svg-inline--fa {
     margin-left: 5px;
 }
 
 /*                  bottom footer                    */
-.bottomFooter {
+.bottomFooter, #bodyComments .myMenu a {
     bottom: 0;
 }
 .bottomFooter ul {
@@ -703,7 +702,7 @@ hr {
 .bodyTag {
 	height: 25em;
 }
-.ageTitle, .answer, .mySend {
+.ageTitle, .answer, .mySend, #bodyComments .bodyAnswer {
 	position: relative;
 }
 .ageTitle a {
@@ -905,7 +904,7 @@ hr {
 }
 
 /*              ****** home ******               */
-.spaceHeader {
+.spaceHeader, .contentCenter {
 	margin-top: 50px;
 }
 .mySend div {
@@ -1013,6 +1012,50 @@ hr {
 	margin-right: -7.5px;
 }
 
+/*           ****** Comments ******                 */
+
+.spaceFooterB {
+	margin-bottom: 110px;
+}
+#bodyComments .communion a, #bodyComments .bodyAnswer {
+	font-size: 12px;
+}
+#bodyComments .bodyAnswer .personPost img, .personChat img {
+	height: 30px;
+	width: 30px;
+}
+#bodyComments .reply .personPost img {
+	height: 25px;
+	width: 25px;
+}
+.footerAndChat {
+	height: auto
+}
+.chat {
+	padding: 7px 15px;
+    background-color: #eceff1;
+}
+.footerAndChat .chat textarea {
+	padding-right: 2.25em;
+	padding-left: 4.5em;
+	font-weight: bold;
+}
+.chat a {
+	height: 100%!important;
+	pointer-events: painted!important;		
+}
+.iconLeft a {
+	display: inline-block;
+}
+.chat .left {
+	position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+.chat .left a {
+	position: initial!important;
+}
 /*           ****** media ******                 */
 @media(min-width:1000px) {
     .mainPoster {
