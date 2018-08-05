@@ -1,6 +1,6 @@
 <template>
   <div class="grayContentPage spaceFooter">
-  <!--  <header class="topHeader box-shadow">
+   <header class="topHeader box-shadow">
       <a href="#" class="left">
           <i class="fas fa-ellipsis-v"></i>
       </a>
@@ -9,9 +9,9 @@
         
     <div class="backList">
       <div class="aboutMe center">
-        <a href="#"><img :src="user.avatar_url"></a>
-        <a href="#"><h1>{{user.name}}</h1></a>
-        <a href="#"><p class="reverse">{{user.username}}</p></a>
+        <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
+        <h1 id="h">{{user.name}}</h1>
+        <p class="reverse">{{user.username}}</p>
       </div>
       
       <div class="description">
@@ -21,7 +21,7 @@
       <div class="aboutMyInfo center">
         <div class="place">
           <i class="fas fa-map-marker-alt"></i>
-          <span>{{user.profile.location}}/span>
+          <span>{{user.profile.location}}</span>
         </div>
         <div class="birth">
           <i class="far fa-calendar"></i>
@@ -31,47 +31,52 @@
       
       <hr>
       
-      <div class="mySocial center" v-if="user.link.length >= 1">
-        <a><i class="fab fa-twitter"></i></a>
-        <a><i class="fab fa-facebook-f"></i></a>
-        <a><i class="fab fa-google-plus-g"></i></a>
-        <a><i class="fas fa-globe-americas"></i></a>
+      <!--
+      <div class="mySocial center" v-if="user.profile.link.length != 0">
+        <a v-if='user.profile.link[0].TW' :href="user.profile.link[0].TW"><i class="fab fa-twitter"></i></a>
+        <a v-if='user.profile.link[1].FB' :href="user.profile.link[1].FB"><i class="fab fa-facebook-f"></i></a>
+        <a v-if='user.profile.link[2].GB' :href="user.profile.link[2].GB"><i class="fab fa-google-plus-g"></i></a>
+        <a ><i class="fas fa-globe-americas"></i></a>
       </div>
-      
+      -->
+
     </div>
 
-    <div class="backList" v-for="post in user.posts">
+    <div class="backList" v-for="post in user.posts" :key="post.id">
       <div class="backgroundSend">
-        <img src="image/lake.jpg" class="bgImageSend">
-        
+        <div class="bgTextSend bgTextAndImageSend">
+          <div class="textSend">
+          <p v-if="post.content != ''"> {{ post.content }}</p>
+          </div>
+          <div class="bgImage" v-if="post.mediafile">
+            <img :src="post.mediafile">
+          </div>
+          <div class="communion center fullWidth">
+            <a href="#"><i class="fas fa-thumbs-up"></i><span>{{ post.likes_count  }}</span></a>
+            <a href="#"><i class="fas fa-thumbs-down"></i><span>{{ post.dislikes_count }}</span></a>
+            <a href="#"><i class="fas fa-comments"></i><span>{{ post.comments_count }}</span></a>
+          </div>
+        </div>
+          
         <div class="myMenu">
-          <a href="#" class="left">
-            <span>الوقت</span>
+          <a href="#" class="left darkBlue">
+            <span>{{post.created.substring(0, 10)}}</span>
             <i class="fas fa-ellipsis-v"></i>
           </a>
         </div>
           
         <div class="personPost">
-          <a href="#">
-            <img src="image/cat.jpg">
+          <a :href="user.avatar_url">
+            <img :src="user.avatar_url">
           </a>
-          <a href="#" class="personName">اسم المستخدم</a>
+          <a href='#h' class="personName">{{user.username}} </a>
             </div>
         
-        <div class="communion center">
-        <a href="#"><i class="fas fa-thumbs-up"></i><span>120</span></a>
-        <a href="#"><i class="fas fa-thumbs-down"></i><span>120</span></a>
-        <a href="#"><i class="fas fa-comments"></i><span>120</span></a>
-        <a href="#"><i class="fas fa-share"></i><span>620</span></a>
-        </div>
-        
-        <div class="share4All left">
-          <a href="#"><i class="fas fa-share-alt"></i></a>
-        </div>
-        
       </div>
-
-      <div class="bodyWasm">
+      
+      
+      
+      <div class="bodyWasm" v-if="post.tags">
         
         <div class="wasm">
           <a href="#"><i class="fas fa-tag"></i>meme</a>
@@ -89,8 +94,8 @@
         </div>
         
       </div>
-
-      <div class="bodyAnswer">
+      
+      <div class="bodyAnswer" v-if="post.top_comment.content != ''">
         <div class="answer">
           <div class="personPost">
             <a href="#">
@@ -105,22 +110,9 @@
           
         </div>
         
-        <div class="listComments">
-          <div class="opinionComments">
-            <a href="#"><i class="fas fa-thumbs-up"></i><span>120</span></a>
-            <a href="#"><i class="fas fa-thumbs-down"></i><span>120</span></a>
-            <a href="#"><i class="fas fa-comments"></i><span>120</span></a>
-          </div>
-
-          <div class="timeComments">
-            <p>الوقت</p>
-          </div>
-        </div>
-        
       </div>
-
-      </div>
-
+      
+    </div>
 
     <footer class="bottomFooter box-shadow">
       <ul>
@@ -130,7 +122,7 @@
         <li><a href="#"><i class="fas fa-compass"></i></a></li>
         <li><a href="#"><i class="fas fa-user"></i></a></li>
       </ul>
-    </footer> -->    
+    </footer>  
   </div> 
 </template>
 
@@ -147,7 +139,10 @@ export default {
   },
   created () {
     axios.get(`https://corefun-api.herokuapp.com/api/v1/auth/user/${this.$route.params.id}/`)
-    .then( re => console.log(re))
+    .then( re => {
+      this.user = re.data;
+      console.clear()
+    })
   }
 }
 </script>
