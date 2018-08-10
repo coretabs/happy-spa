@@ -6,6 +6,46 @@ body {
     margin: 0;
     padding: 0;
 }
+
+#overlay{
+  height:100%;
+  width:100%;
+  background-color: white;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index: 20;
+	cursor:pointer;
+	display:block
+ }
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    
+    border: 2px solid #b0bec5;
+    border-top:3px solid #ffe600;
+    border-radius: 100%;
+    
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+    
+    animation: spinner 1s infinite linear;
+}
+	
+@keyframes spinner {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+		}
+}
+
+
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
@@ -724,15 +764,16 @@ hr {
     padding-left: 1em;
 }
 .paraTag, .showAll a {
-	font-size: 15px;
+	font-size: 10px;
+    font-weight: bold;
 }
 
 .wasm {
-	font-size: 12px;
+	font-size: 10px;
 	text-align: center;
 	width: 100%;
-    margin-top: 10px;
-    margin-bottom: 5px!important;
+    margin: 5px auto!important;
+	font-weight: bold;
 }
 .wasm a {
 	width: 18%;
@@ -748,9 +789,9 @@ hr {
 .wasm a span {
 	
 }
-.wasm svg:not(:root).svg-inline--fa {
-	margin-left: 2px;
-	font-size: 10px;
+.wasm svg:not(:root).svg-inline--fa, .wasm .material-icons {
+    vertical-align: sub;
+    font-size: 13px;
 }
 
 /*              ****** profile ******               */
@@ -873,7 +914,11 @@ hr {
 	background-color: #eceff1;
 }
 .bodyWasm .wasm {
-	width: 80%;
+	width: 82%;
+}
+.showAll {
+	text-align: center;
+    width: 15%;
 }
 
 .bodyAnswer {
@@ -925,6 +970,10 @@ hr {
 }
 .allCommunion div {
 	position: inherit;
+}
+.communion i {
+	font-size: 18px;
+    vertical-align: sub;
 }
 
 .noRadius {
