@@ -281,7 +281,7 @@ body {
 }
 
 /*     style content for name, passward, email and some buttons like login*/
-.contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
+.borderRadius50,.contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
     border-radius: 50px;
     
 }
@@ -289,7 +289,7 @@ body {
     width: 80%;
     margin: 0 auto;
 }
-.contentPageHeader .control button, .footer .control button {
+.contentPageHeader .control button, .footer .control button, .lastDivision .control button {
     width: 100%;
     margin: 5px auto;
     background-color: #ffe600;
@@ -303,7 +303,7 @@ body {
 .contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
-.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea {
+.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea, .lastDivision .control button {
     height: 3rem!important;
     font-weight: bold;
 }
@@ -481,6 +481,7 @@ body {
     width: 60%!important;
 }
 .linkSM-input {
+	color: #485d67;
     border-radius: 40px 0 0 40px!important;
     box-shadow: none;
     font-size: 12px;
@@ -504,7 +505,7 @@ body {
     border-radius: 0 40px 40px 0;
     height: 3rem!important;
     width: 100%;
-    background-color: #ffe600;
+    background-color: #cfd8dc;
     color: white;
     font-weight: bold;
     font-size: 12px;
@@ -512,7 +513,11 @@ body {
 .linkSM .linkSM-para {
     background-color: #ffe600!important;
 }
+.select select:not([multiple]) {
+    padding-right: 4.5em;
+}
 .RBR {
+	color: #cfd8dc!important;
     pointer-events: painted!important;
     cursor: pointer;
     left: -40px;
@@ -522,7 +527,7 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
-.linkAD a {
+.golden {
     color: #ffe600!important;
 }
 .linkAD span {
@@ -539,6 +544,9 @@ body {
 	transform: none;
     position: fixed;
     z-index: 10;
+}
+.width80 {
+	width: 80%;
 }
 
 /*           ****** more page ******               */
@@ -834,7 +842,7 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p {
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a {
 	color: #485d67!important;
 }
 .aboutMe h1 {
