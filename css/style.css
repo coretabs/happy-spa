@@ -258,6 +258,27 @@ body {
     padding-top: 50px;
     font-weight: bold;
 }
+.fontSize15 {
+	font-size: 15px!important;
+}
+.fontSize18 {
+	font-size: 18px!important;
+}
+.fontSize20 {
+	font-size: 20px!important;
+}
+.fontSize24 {
+	font-size: 24px!important;
+}
+
+/*           ****** sign up page ******               */
+
+.lastDivision {
+	background: none!important;
+    padding: 0!important;
+    margin: 10% auto 0;
+    overflow: hidden;
+}
 
 /*     style content for name, passward, email and some buttons like login*/
 .contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
@@ -292,6 +313,13 @@ body {
     left: 0;
 }
 /*           forgetting link          */
+.noteConditions {
+	color: #485d67;
+	text-align: center;
+}
+.noteConditions .forgettingLink {
+	display: initial;
+}
 .forgettingLink {
     text-align: center;
     display: block;
