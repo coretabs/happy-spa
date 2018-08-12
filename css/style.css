@@ -1,10 +1,20 @@
+@font-face {
+	font-family: 'dubai';
+	src: url(../fonts/DubaiFont/webfonts/DubaiW23-Medium.ttf);
+	font-style: normal;
+	font-weight: bold;
+}
 html {
     background: none;
 }
 body {
+	font-family: dubai!important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong, img {
+	font-family: dubai!important;
 }
 
 #overlay{
@@ -294,13 +304,13 @@ body {
     margin: 5px auto;
     background-color: #ffe600;
 }
-.contentPageHeader .control button:hover, .footer .control button:hover {
+.contentPageHeader .control button:hover, .footer .control button:hover, .lastDivision .control button:hover {
     background-color: #ffe600cf;
 }
-.contentPageHeader .control .button.is-success:active, .footer .control button.is-success:active {
+.contentPageHeader .control .button.is-success:active, .footer .control button.is-success:active, .lastDivision .control button.is-success:active {
     background-color: #ffe600;
 }
-.contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active) {
+.contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active), .lastDivision .control button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
 .contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea, .lastDivision .control button {
