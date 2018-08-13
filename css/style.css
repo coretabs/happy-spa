@@ -12,30 +12,6 @@ body {
     margin: 0;
     padding: 0;
 }
-<<<<<<< HEAD
-/*                loding                              */
-
-.overlay{
-    height:100%;
-    width:100%;
-    background-color: white;
-    position:fixed;
-    left:0;
-    top:0;
-    z-index: 20;
-    cursor:pointer;
-    display:block
-}
-
-.spinner {
-    width: 80px;
-    height: 80px;
-
-    border: 2px solid #b0bec5;
-    border-top:3px solid #ffe600;
-    border-radius: 100%;
-
-=======
 header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong, img {
 	font-family: dubai!important;
 }
@@ -60,38 +36,25 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     border-top:3px solid #ffe600;
     border-radius: 100%;
     
->>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
     position: absolute;
     top:0;
     bottom:0;
     left:0;
     right: 0;
     margin: auto;
-<<<<<<< HEAD
-
-animation: spinner 1s infinite linear;
-}
-    
-=======
     
     animation: spinner 1s infinite linear;
 }
 	
->>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
 @keyframes spinner {
     from{
         transform: rotate(0deg);
     }to{
         transform: rotate(360deg);
-<<<<<<< HEAD
-    }
-}
-=======
 		}
 }
 
 
->>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
@@ -291,9 +254,9 @@ animation: spinner 1s infinite linear;
     cursor: pointer;
     z-index: 5;
 }
-.mianHeader a i {
-	font-size: 30px;
-	font-weight: bold;
+.mianHeader a i, header a i {
+	font-size: 30px!important;
+	font-weight: bold!important;
 }
 .mianHeader p {
     width: 100%;
@@ -318,6 +281,12 @@ animation: spinner 1s infinite linear;
 }
 .fontSize24 {
 	font-size: 24px!important;
+}
+.fontSize28 {
+	font-size: 28px!important;
+}
+.fontSize30 {
+	font-size: 30px!important;
 }
 
 /*           ****** sign up page ******               */
@@ -460,8 +429,7 @@ animation: spinner 1s infinite linear;
     margin-bottom: 20px;
 }
 .mainPoster {
-    width: 50%;
-    height: 116px;
+    width: 80%;
     display: block;
     margin: 0 auto 25px;
 }
@@ -469,7 +437,6 @@ animation: spinner 1s infinite linear;
 /*        ****** verification-step ******        */
 
 .iconCenter {
-    margin-top: 10px;
     color: white!important;
     font-size: 20px;
 }
@@ -659,6 +626,10 @@ animation: spinner 1s infinite linear;
     font-weight: bold;
     padding: 10px 0;
 }
+.settings p {
+	text-align: right;
+	padding: 10px 75px;
+}
 
 /*                  head content                    */
 .headContent {
@@ -697,11 +668,7 @@ hr {
     display: inline-block;
     width: 18.5%;
     text-align: center;
-    padding: 10px;
-}
-.bottomFooter ul li a {
-    font-size: 20px;
-    color: #b0bec5;
+    padding: 5px 10px;
 }
 .bottomFooter ul li .actieFooterLink {
     color: #ffe600;
@@ -709,7 +676,7 @@ hr {
 .bottomFooter ul li .plusIcon {
     border: 2px solid;
     border-radius: 50%;
-    padding: 5px 10px;
+    padding: 2px 2.5px;
 }
 
 /*           ****** post something ******               */
@@ -907,7 +874,7 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a {
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a {
 	color: #485d67!important;
 }
 .aboutMe h1 {
@@ -1206,11 +1173,28 @@ hr {
 .chat .left a {
 	position: initial!important;
 }
+
+/*           ****** reset password ******                 */
+.button.noWrite {
+	background-color: #eceff1!important;
+	color: #8c8c8c!important;
+}
+.contentPageHeader .control .button.noWrite:focus:not(:active) {
+	box-shadow: none;
+}
+
+.button.write {
+	background-color: #ffe600!important;
+	color: white!important;
+}
+.contentPageHeader .control .button.write:focus:not(:active) {
+	box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
+}
+
 /*           ****** media ******                 */
 @media(min-width:1000px) {
     .mainPoster {
         width: 200px;
-        height: 116px;
     }
 }
 
