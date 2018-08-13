@@ -36,11 +36,13 @@ export default new Router({
     },
     {
       path: '/profile',
+      name: 'profile-login',
+      component: LoginPage
+    },
+    {
+      path: '/profile/:id',
       name: 'Profile',
       component: Profile,
-      children : [
-        {'path' : ':id'}
-      ]
     },
     {
       path: '*',

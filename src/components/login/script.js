@@ -31,7 +31,7 @@ export default {
                         password : this.password
                     } 
                 }
-                axios.post('https://corefun-api.herokuapp.com/api/v1/auth/login/' ,this.info)
+                axios.post('https://corefun.herokuapp.com/api/v1/auth/login/' ,this.info)
                 .then(re => {
                     console.log(re)
                     this.$store.commit('setUserInfo', re.data)

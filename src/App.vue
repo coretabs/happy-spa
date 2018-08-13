@@ -1,11 +1,8 @@
 <template>
   <div id='app'>
-    <!-- <app-header/> -->
-    <transition name="pages-anim"> <!-- enter-active-class="animated slideInLeft" > <leave-active-class="animated slideOutRight"-->
+    <transition name="pages-anim">
       <router-view/>
     </transition>
-    
-    <!-- <app-footer/> -->
   </div>
 </template>
 
@@ -14,10 +11,6 @@ import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 export default {
   name: 'App',
-  components: {
-  //  'app-header': AppHeader,
-  //  'app-footer': AppFooter
-  },
   methods : {
     validateEmail(mail) {
       return this.$store.state.emailValidate.test(mail);

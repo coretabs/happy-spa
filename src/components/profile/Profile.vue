@@ -1,148 +1,135 @@
 <template>
-  <div class="grayContentPage spaceFooter">
-   <header class="topHeader box-shadow">
-      <a href="#" class="left">
-          <i class="fas fa-ellipsis-v"></i>
-      </a>
-      <p>logo</p>
-    </header> 
-        
-    <div class="backList">
-      <div class="aboutMe center">
-        <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
-        <h1 id="h">{{user.name}}</h1>
-        <p class="reverse">{{user.username}}</p>
-      </div>
-      
-      <div class="description">
-        <h2 class="center">{{user.profile.bio}}</h2>
-      </div>
-      
-      <div class="aboutMyInfo center">
-        <div class="place">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>{{user.profile.location}}</span>
-        </div>
-        <div class="birth">
-          <i class="far fa-calendar"></i>
-          <span>{{user.profile.birth_date}}</span>
-        </div>
-      </div>
-      
-      <hr>
-      
-      <!--
-      <div class="mySocial center" v-if="user.profile.link.length != 0">
-        <a v-if='user.profile.link[0].TW' :href="user.profile.link[0].TW"><i class="fab fa-twitter"></i></a>
-        <a v-if='user.profile.link[1].FB' :href="user.profile.link[1].FB"><i class="fab fa-facebook-f"></i></a>
-        <a v-if='user.profile.link[2].GB' :href="user.profile.link[2].GB"><i class="fab fa-google-plus-g"></i></a>
-        <a ><i class="fas fa-globe-americas"></i></a>
-      </div>
-      -->
+  <div>
+    <div class="overlay" v-show="display">
+      <div class="spinner">
+      </div> 
+    </div>	
 
-    </div>
-
-    <div class="backList" v-for="post in user.posts" :key="post.id">
-      <div class="backgroundSend">
-        <div class="bgTextSend bgTextAndImageSend">
-          <div class="textSend">
-          <p v-if="post.content != ''"> {{ post.content }}</p>
-          </div>
-          <div class="bgImage" v-if="post.mediafile">
-            <img :src="post.mediafile">
-          </div>
-          <div class="communion center fullWidth">
-            <a href="#"><i class="fas fa-thumbs-up"></i><span>{{ post.likes_count  }}</span></a>
-            <a href="#"><i class="fas fa-thumbs-down"></i><span>{{ post.dislikes_count }}</span></a>
-            <a href="#"><i class="fas fa-comments"></i><span>{{ post.comments_count }}</span></a>
-          </div>
-        </div>
-          
-        <div class="myMenu">
-          <a href="#" class="left darkBlue">
-            <span>{{post.created.substring(0, 10)}}</span>
+    <div class="grayContentPage spaceFooter" v-if="user">
+    <header class="topHeader box-shadow">
+        <a href="#" class="left">
             <i class="fas fa-ellipsis-v"></i>
-          </a>
-        </div>
+        </a>
+        <p>logo</p>
+      </header> 
           
-        <div class="personPost">
-          <a :href="user.avatar_url">
-            <img :src="user.avatar_url">
-          </a>
-          <a href='#h' class="personName">{{user.username}} </a>
-            </div>
-        
-      </div>
-      
-      
-      
-      <div class="bodyWasm" v-if="post.tags">
-        
-        <div class="wasm">
-          <a href="#"><i class="fas fa-tag"></i>meme</a>
-          <span></span>
-          <a href="#"><i class="fas fa-tag"></i>meme</a>
-          <span></span>
-          <a href="#"><i class="fas fa-tag"></i>meme</a>
-          <span></span>
-          <a href="#"><i class="fas fa-tag"></i>meme</a>
-          <span></span>
-          <a href="#"><i class="fas fa-tag"></i>meme</a>
-        </div>
-        <div class="showAll">
-          <a href="#">عرض الكل</a>
+      <div class="backList">
+        <div class="aboutMe center">
+          <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
+          <h1 id="h">{{user.name}}</h1>
+          <p class="reverse">{{user.username}}</p>
         </div>
         
-      </div>
-      
-      <div class="bodyAnswer" v-if="post.top_comment.content != ''">
-        <div class="answer">
-          <div class="personPost">
-            <a href="#">
-              <img src="image/cat.jpg">
-            </a>
-            <a href="#" class="personName">اسم المستخدم</a>
+        <div class="description" v-if="user.profile.bio">
+          <h2 class="center">{{user.profile.bio}}</h2>
+        </div>
+        
+        <div class="aboutMyInfo center">
+          <div class="place">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{user.profile.location}}</span>
           </div>
-          
-          <div class="answerPara">
-            <p>meow meow</p>
+          <div class="birth">
+            <i class="far fa-calendar"></i>
+            <span>{{user.profile.birth_date}}</span>
           </div>
-          
         </div>
         
-      </div>
-      
-    </div>
+        <hr>
+        
+        <div class="mySocial center" v-if="user.profile.link.length != 0">
+          <a v-if='TW' :href="TW"><i class="fab fa-twitter"></i></a>
+          <a v-if='FB' :href="FB"><i class="fab fa-facebook-f"></i></a>
+          <a v-if='GB' :href="GB"><i class="fab fa-google-plus-g"></i></a>
+          <a v-if='WS' :href="WS"><i class="fas fa-globe-americas"></i></a>
+        </div>
 
-    <footer class="bottomFooter box-shadow">
-      <ul>
-        <li><a href="#"><i class="fas fa-home"></i></a></li>
-        <li><a href="#"><i class="fas fa-bell"></i></a></li>
-        <li><a href="#" class="plusIcon actieFooterLink"><i class="fas fa-plus"></i></a></li>
-        <li><a href="#"><i class="fas fa-compass"></i></a></li>
-        <li><a href="#"><i class="fas fa-user"></i></a></li>
-      </ul>
-    </footer>  
-  </div> 
+      </div>
+
+      <div class="backList" v-for="post in user.posts" :key="post.id">
+        <div class="backgroundSend">
+          <div class="bgTextSend bgTextAndImageSend">
+            <div class="textSend">
+            <p v-if="post.content != ''"> {{ post.content }}</p>
+            </div>
+            <div class="bgImage" v-if="post.mediafile">
+              <img :src="post.mediafile">
+            </div>
+            <div class="communion center fullWidth">
+              <a href="#"><i class="fas fa-thumbs-up"></i><span>{{ post.likes_count  }}</span></a>
+              <a href="#"><i class="fas fa-thumbs-down"></i><span>{{ post.dislikes_count }}</span></a>
+              <a href="#"><i class="fas fa-comments"></i><span>{{ post.comments_count }}</span></a>
+            </div>
+          </div>
+            
+          <div class="myMenu">
+            <a href="#" class="left darkBlue">
+              <span>{{post.created.substring(0, 10)}}</span>
+              <i class="fas fa-ellipsis-v"></i>
+            </a>
+          </div>
+            
+          <div class="personPost">
+            <a :href="user.avatar_url">
+              <img :src="user.avatar_url">
+            </a>
+            <a href='#h' class="personName">{{user.username}} </a>
+              </div>
+          
+        </div>
+        
+        
+        
+        <div class="bodyWasm" v-if="post.tags">
+          
+          <div class="wasm">
+            <a href="#"><i class="fas fa-tag"></i>meme</a>
+            <span></span>
+            <a href="#"><i class="fas fa-tag"></i>meme</a>
+            <span></span>
+            <a href="#"><i class="fas fa-tag"></i>meme</a>
+            <span></span>
+            <a href="#"><i class="fas fa-tag"></i>meme</a>
+            <span></span>
+            <a href="#"><i class="fas fa-tag"></i>meme</a>
+          </div>
+          <div class="showAll">
+            <a href="#">عرض الكل</a>
+          </div>
+          
+        </div>
+        
+        <div class="bodyAnswer" v-if="post.top_comment.content != ''">
+          <div class="answer">
+            <div class="personPost">
+              <a href="#">
+                <img src="image/cat.jpg">
+              </a>
+              <a href="#" class="personName">اسم المستخدم</a>
+            </div>
+            
+            <div class="answerPara">
+              <p>meow meow</p>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+
+      <footer class="bottomFooter box-shadow">
+        <ul>
+          <li><a href="#"><i class="fas fa-home"></i></a></li>
+          <li><a href="#"><i class="fas fa-bell"></i></a></li>
+          <li><a href="#" class="plusIcon actieFooterLink"><i class="fas fa-plus"></i></a></li>
+          <li><a href="#"><i class="fas fa-compass"></i></a></li>
+          <li><a href="#"><i class="fas fa-user"></i></a></li>
+        </ul>
+      </footer>  
+    </div> 
+  </div>
 </template>
 
-<script>
-import axios from 'axios';
 
-export default {
-  name: 'Profile',
-  data () {
-    return {
-      user : '',
-      routeParam : this.$route.params.id
-    }
-  },
-  created () {
-    axios.get(`https://corefun-api.herokuapp.com/api/v1/auth/user/${this.$route.params.id}/`)
-    .then( re => {
-      this.user = re.data;
-      console.clear()
-    })
-  }
-}
-</script>
+<script src = './script.js'></script>
