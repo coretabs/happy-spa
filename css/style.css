@@ -2,7 +2,6 @@
 	font-family: 'dubai';
 	src: url(../fonts/DubaiFont/webfonts/DubaiW23-Medium.ttf);
 	font-style: normal;
-	font-weight: bold;
 }
 html {
     background: none;
@@ -72,10 +71,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*                   circle                            */
 .centralCircle {
     width: 100%;
-    left: 50%;
-	top: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
+    padding-top: 50%;
     overflow: hidden;
 }
 .circle {
@@ -123,7 +119,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .opinion p {
 	text-align: center;
 	color: #4e5052;
-	font-size: 20px;
+	font-size: 17px;
 	width: 70%;
     margin: 0 auto;
 }
@@ -199,10 +195,10 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     padding: 0!important;
     margin: 0 auto;
     width: 80%;
-    left: 50%;
-    top: 90%;
+    left: 0;
+    right: 0;
+    bottom: 5%;
     position: absolute;
-    transform: translate(-50%, -50%);
     overflow: hidden;
 }
 .buttonStarted{
@@ -214,13 +210,13 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     color: #4e5052;
     background-color: white;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 50px;
-    padding: 15px 37%;
+    padding: 7.5px 43%;
     font-family: Arial, 'lucida Sans Unicode';
 }
 .paraFooter {
-    margin: 30px auto;
+    padding: 30px 0;
     text-align: center;
     color: #4e5052;
 }
@@ -253,11 +249,14 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .mianHeader a {
     position: absolute;
     color: #485d67;
-    font-size: 25px;
     margin-right: 15px;
     margin-top: 10px;
     cursor: pointer;
     z-index: 5;
+}
+.mianHeader a i {
+	font-size: 30px;
+	font-weight: bold;
 }
 .mianHeader p {
     width: 100%;
@@ -277,6 +276,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .fontSize20 {
 	font-size: 20px!important;
 }
+.fontSize22 {
+	font-size: 22px!important;
+}
 .fontSize24 {
 	font-size: 24px!important;
 }
@@ -295,13 +297,12 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     border-radius: 50px;
     
 }
-.contentPageHeader, .bodyComments .communion, #bodyComments .reply {
+.contentPageHeader, .contentPageFooter, .bodyComments .communion, #bodyComments .reply {
     width: 80%;
     margin: 0 auto;
 }
 .contentPageHeader .control button, .footer .control button, .lastDivision .control button {
     width: 100%;
-    margin: 5px auto;
     background-color: #ffe600;
 }
 .contentPageHeader .control button:hover, .footer .control button:hover, .lastDivision .control button:hover {
@@ -341,7 +342,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*            note for another login         */
 .noteSginIn {
     text-align: center;
-    color: #dae1e4;
+    color: #cfd8dc;
     font-size: 13px;
     font-weight: bold;
 }
@@ -350,7 +351,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     display: inline-flex;
     width: 17%;
     height: 2px;
-    background-color: #dae1e4;
+    background-color: #cfd8dc;
     margin: 5px auto;
     margin-right: 5px;
 }
@@ -359,7 +360,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     display: inline-flex;
     width: 17%;
     height: 2px;
-    background-color: #dae1e4;
+    background-color: #cfd8dc;
     margin: 5px auto;
     margin-left: 5px;
 }
@@ -382,7 +383,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     text-decoration: none;
     font-size: 15px;
     border-radius: 50px;
-    padding: 15px 15%;
+    padding: 10px 20%;
     width: 50%;
     font-weight: bold;
 }
@@ -445,9 +446,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     font-size: 25px;
     border: 2px #ffe600 dashed;
     border-radius: 50%;
-    width: 100px;
+    width: 125px;
     margin: 0 auto 25px;
-    height: 100px;
+    height: 125px;
 }
 .personalPicture:hover .file-cta {
     background: #fafafa;
@@ -460,7 +461,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .personalPicture .file-cta {
     background: none;
     border: none;
-    padding: 1.2em 1em!important;
+    padding: 2em!important;
 }
 .personalPicture .file-icon {
     margin: 0;
@@ -478,6 +479,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .enterMail .paraContent {
 	text-align: right;
+	padding-right: 18px;
 }
 .linkMSM {
     width: 90%;
@@ -524,7 +526,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     background-color: #ffe600!important;
 }
 .select select:not([multiple]) {
-    padding-right: 4.5em;
+    padding-right: 45%;
 }
 .RBR {
 	color: #cfd8dc!important;
@@ -533,6 +535,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     left: -40px;
 }
 .linkAD {
+	margin-top: 15px;
     margin-right: 20px;
     font-size: 15px;
     font-weight: bold;
@@ -540,10 +543,10 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .golden {
     color: #ffe600!important;
 }
-.linkAD span {
-    font-size: 30px;
-    vertical-align: sub;
-    font-weight: 400;
+.linkAD .material-icons {
+    font-size: 25px;
+    padding-left: 7px;
+    vertical-align: bottom;
 }
 
 .footerAcc {
@@ -557,6 +560,21 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .width80 {
 	width: 80%;
+}
+.orderFooterTop {
+	margin-top: 15vh;
+}
+.orderFooterBottom {
+	margin-bottom: 5vh;
+}
+
+/*           ****** manage email page ******               */
+
+.control.has-icons-right .input, .control.has-icons-right .select select {
+	padding-right: 3em;
+}
+.control.has-icons-left .icon, .control.has-icons-right .icon {
+	width: 3em;
 }
 
 /*           ****** more page ******               */
