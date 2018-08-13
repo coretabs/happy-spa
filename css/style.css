@@ -1,11 +1,18 @@
+@font-face {
+	font-family: 'dubai';
+	src: url(../fonts/DubaiFont/webfonts/DubaiW23-Medium.ttf);
+	font-style: normal;
+}
 html {
     background: none;
 }
 body {
+	font-family: dubai!important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+<<<<<<< HEAD
 /*                loding                              */
 
 .overlay{
@@ -28,23 +35,63 @@ body {
     border-top:3px solid #ffe600;
     border-radius: 100%;
 
+=======
+header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong, img {
+	font-family: dubai!important;
+}
+
+#overlay{
+  height:100%;
+  width:100%;
+  background-color: white;
+  position:fixed;
+  left:0;
+  top:0;
+  z-index: 20;
+	cursor:pointer;
+	display:block
+ }
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    
+    border: 2px solid #b0bec5;
+    border-top:3px solid #ffe600;
+    border-radius: 100%;
+    
+>>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
     position: absolute;
     top:0;
     bottom:0;
     left:0;
     right: 0;
     margin: auto;
+<<<<<<< HEAD
 
 animation: spinner 1s infinite linear;
 }
     
+=======
+    
+    animation: spinner 1s infinite linear;
+}
+	
+>>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
 @keyframes spinner {
     from{
         transform: rotate(0deg);
     }to{
         transform: rotate(360deg);
+<<<<<<< HEAD
     }
 }
+=======
+		}
+}
+
+
+>>>>>>> 2c5138ab8360be6b34e87dde3c269973d2b79a99
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
@@ -61,10 +108,7 @@ animation: spinner 1s infinite linear;
 /*                   circle                            */
 .centralCircle {
     width: 100%;
-    left: 50%;
-	top: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
+    padding-top: 50%;
     overflow: hidden;
 }
 .circle {
@@ -112,7 +156,7 @@ animation: spinner 1s infinite linear;
 .opinion p {
 	text-align: center;
 	color: #4e5052;
-	font-size: 20px;
+	font-size: 17px;
 	width: 70%;
     margin: 0 auto;
 }
@@ -188,10 +232,10 @@ animation: spinner 1s infinite linear;
     padding: 0!important;
     margin: 0 auto;
     width: 80%;
-    left: 50%;
-    top: 90%;
+    left: 0;
+    right: 0;
+    bottom: 5%;
     position: absolute;
-    transform: translate(-50%, -50%);
     overflow: hidden;
 }
 .buttonStarted{
@@ -203,13 +247,13 @@ animation: spinner 1s infinite linear;
     color: #4e5052;
     background-color: white;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 50px;
-    padding: 15px 37%;
+    padding: 7.5px 43%;
     font-family: Arial, 'lucida Sans Unicode';
 }
 .paraFooter {
-    margin: 30px auto;
+    padding: 30px 0;
     text-align: center;
     color: #4e5052;
 }
@@ -242,11 +286,14 @@ animation: spinner 1s infinite linear;
 .mianHeader a {
     position: absolute;
     color: #485d67;
-    font-size: 25px;
     margin-right: 15px;
     margin-top: 10px;
     cursor: pointer;
     z-index: 5;
+}
+.mianHeader a i {
+	font-size: 30px;
+	font-weight: bold;
 }
 .mianHeader p {
     width: 100%;
@@ -257,31 +304,54 @@ animation: spinner 1s infinite linear;
     padding-top: 50px;
     font-weight: bold;
 }
+.fontSize15 {
+	font-size: 15px!important;
+}
+.fontSize18 {
+	font-size: 18px!important;
+}
+.fontSize20 {
+	font-size: 20px!important;
+}
+.fontSize22 {
+	font-size: 22px!important;
+}
+.fontSize24 {
+	font-size: 24px!important;
+}
+
+/*           ****** sign up page ******               */
+
+.lastDivision {
+	background: none!important;
+    padding: 0!important;
+    margin: 10% auto 0;
+    overflow: hidden;
+}
 
 /*     style content for name, passward, email and some buttons like login*/
-.contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
+.borderRadius50,.contentPageHeader input, .contentPageHeader .control button, .footer .control button, .footerAndChat .chat textarea, .personChat img {
     border-radius: 50px;
     
 }
-.contentPageHeader, .bodyComments .communion, #bodyComments .reply {
+.contentPageHeader, .contentPageFooter, .bodyComments .communion, #bodyComments .reply {
     width: 80%;
     margin: 0 auto;
 }
-.contentPageHeader .control button, .footer .control button {
+.contentPageHeader .control button, .footer .control button, .lastDivision .control button {
     width: 100%;
-    margin: 5px auto;
     background-color: #ffe600;
 }
-.contentPageHeader .control button:hover, .footer .control button:hover {
+.contentPageHeader .control button:hover, .footer .control button:hover, .lastDivision .control button:hover {
     background-color: #ffe600cf;
 }
-.contentPageHeader .control .button.is-success:active, .footer .control button.is-success:active {
+.contentPageHeader .control .button.is-success:active, .footer .control button.is-success:active, .lastDivision .control button.is-success:active {
     background-color: #ffe600;
 }
-.contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active) {
+.contentPageHeader .control .button.is-success:focus:not(:active), .footer .control button.is-success:focus:not(:active), .lastDivision .control button.is-success:focus:not(:active) {
     box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
-.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea {
+.contentPageHeader input, .contentPageHeader .icon, .contentPageHeader .control button, .footer .control button, .contentPageHeader textarea, .lastDivision .control button {
     height: 3rem!important;
     font-weight: bold;
 }
@@ -291,6 +361,13 @@ animation: spinner 1s infinite linear;
     left: 0;
 }
 /*           forgetting link          */
+.noteConditions {
+	color: #485d67;
+	text-align: center;
+}
+.noteConditions .forgettingLink {
+	display: initial;
+}
 .forgettingLink {
     text-align: center;
     display: block;
@@ -302,7 +379,7 @@ animation: spinner 1s infinite linear;
 /*            note for another login         */
 .noteSginIn {
     text-align: center;
-    color: #dae1e4;
+    color: #cfd8dc;
     font-size: 13px;
     font-weight: bold;
 }
@@ -311,7 +388,7 @@ animation: spinner 1s infinite linear;
     display: inline-flex;
     width: 17%;
     height: 2px;
-    background-color: #dae1e4;
+    background-color: #cfd8dc;
     margin: 5px auto;
     margin-right: 5px;
 }
@@ -320,7 +397,7 @@ animation: spinner 1s infinite linear;
     display: inline-flex;
     width: 17%;
     height: 2px;
-    background-color: #dae1e4;
+    background-color: #cfd8dc;
     margin: 5px auto;
     margin-left: 5px;
 }
@@ -343,7 +420,7 @@ animation: spinner 1s infinite linear;
     text-decoration: none;
     font-size: 15px;
     border-radius: 50px;
-    padding: 15px 15%;
+    padding: 10px 20%;
     width: 50%;
     font-weight: bold;
 }
@@ -406,9 +483,9 @@ animation: spinner 1s infinite linear;
     font-size: 25px;
     border: 2px #ffe600 dashed;
     border-radius: 50%;
-    width: 100px;
+    width: 125px;
     margin: 0 auto 25px;
-    height: 100px;
+    height: 125px;
 }
 .personalPicture:hover .file-cta {
     background: #fafafa;
@@ -421,7 +498,7 @@ animation: spinner 1s infinite linear;
 .personalPicture .file-cta {
     background: none;
     border: none;
-    padding: 1.2em 1em!important;
+    padding: 2em!important;
 }
 .personalPicture .file-icon {
     margin: 0;
@@ -439,6 +516,7 @@ animation: spinner 1s infinite linear;
 }
 .enterMail .paraContent {
 	text-align: right;
+	padding-right: 18px;
 }
 .linkMSM {
     width: 90%;
@@ -452,6 +530,7 @@ animation: spinner 1s infinite linear;
     width: 60%!important;
 }
 .linkSM-input {
+	color: #485d67;
     border-radius: 40px 0 0 40px!important;
     box-shadow: none;
     font-size: 12px;
@@ -475,7 +554,7 @@ animation: spinner 1s infinite linear;
     border-radius: 0 40px 40px 0;
     height: 3rem!important;
     width: 100%;
-    background-color: #ffe600;
+    background-color: #cfd8dc;
     color: white;
     font-weight: bold;
     font-size: 12px;
@@ -483,23 +562,28 @@ animation: spinner 1s infinite linear;
 .linkSM .linkSM-para {
     background-color: #ffe600!important;
 }
+.select select:not([multiple]) {
+    padding-right: 45%;
+}
 .RBR {
+	color: #cfd8dc!important;
     pointer-events: painted!important;
     cursor: pointer;
     left: -40px;
 }
 .linkAD {
+	margin-top: 15px;
     margin-right: 20px;
     font-size: 15px;
     font-weight: bold;
 }
-.linkAD a {
+.golden {
     color: #ffe600!important;
 }
-.linkAD span {
-    font-size: 30px;
-    vertical-align: sub;
-    font-weight: 400;
+.linkAD .material-icons {
+    font-size: 25px;
+    padding-left: 7px;
+    vertical-align: bottom;
 }
 
 .footerAcc {
@@ -510,6 +594,24 @@ animation: spinner 1s infinite linear;
 	transform: none;
     position: fixed;
     z-index: 10;
+}
+.width80 {
+	width: 80%;
+}
+.orderFooterTop {
+	margin-top: 15vh;
+}
+.orderFooterBottom {
+	margin-bottom: 5vh;
+}
+
+/*           ****** manage email page ******               */
+
+.control.has-icons-right .input, .control.has-icons-right .select select {
+	padding-right: 3em;
+}
+.control.has-icons-left .icon, .control.has-icons-right .icon {
+	width: 3em;
 }
 
 /*           ****** more page ******               */
@@ -763,15 +865,16 @@ hr {
     padding-left: 1em;
 }
 .paraTag, .showAll a {
-	font-size: 15px;
+	font-size: 10px;
+    font-weight: bold;
 }
 
 .wasm {
-	font-size: 12px;
+	font-size: 10px;
 	text-align: center;
 	width: 100%;
-    margin-top: 10px;
-    margin-bottom: 5px!important;
+    margin: 5px auto!important;
+	font-weight: bold;
 }
 .wasm a {
 	width: 18%;
@@ -787,9 +890,9 @@ hr {
 .wasm a span {
 	
 }
-.wasm svg:not(:root).svg-inline--fa {
-	margin-left: 2px;
-	font-size: 10px;
+.wasm svg:not(:root).svg-inline--fa, .wasm .material-icons {
+    vertical-align: sub;
+    font-size: 13px;
 }
 
 /*              ****** profile ******               */
@@ -804,7 +907,7 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p {
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a {
 	color: #485d67!important;
 }
 .aboutMe h1 {
@@ -912,7 +1015,11 @@ hr {
 	background-color: #eceff1;
 }
 .bodyWasm .wasm {
-	width: 80%;
+	width: 82%;
+}
+.showAll {
+	text-align: center;
+    width: 15%;
 }
 
 .bodyAnswer {
@@ -964,6 +1071,10 @@ hr {
 }
 .allCommunion div {
 	position: inherit;
+}
+.communion i {
+	font-size: 18px;
+    vertical-align: sub;
 }
 
 .noRadius {
