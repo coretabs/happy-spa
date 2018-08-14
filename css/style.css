@@ -24,8 +24,8 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
   left:0;
   top:0;
   z-index: 20;
-	cursor:pointer;
-	display:block
+  cursor:pointer;
+  display:block;
  }
 
 .spinner {
@@ -281,6 +281,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .fontSize24 {
 	font-size: 24px!important;
+}
+.fontSize26 {
+	font-size: 26px!important;
 }
 .fontSize28 {
 	font-size: 28px!important;
@@ -618,6 +621,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin-top: 10px;
 	margin-bottom: 10px;
 }
+.noMargin {
+	margin: 0!important;
+}
 .topHeader p {
     width: 100%;
     text-align: center;
@@ -640,7 +646,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     background-color: white;
 }
 .headContainer, .addTags, .backList hr {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
 }
 .headContent ul li {
@@ -671,7 +677,7 @@ hr {
     padding: 5px 10px;
 }
 .bottomFooter ul li .actieFooterLink {
-    color: #ffe600;
+    color: #ffe600!important;
 }
 .bottomFooter ul li .plusIcon {
     border: 2px solid;
@@ -742,11 +748,6 @@ hr {
     height: 100%;
     right: 0;
 }
-.myImage img {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-}
 
 .myImage a {
     color: #485d67;
@@ -754,12 +755,15 @@ hr {
     padding: 5px 8px;
     border-radius: 50%;
 }
+.myImage p {
+	padding-top: 10px;
+}
 
 .funPost {
     margin-top: 20px;
     position: relative;
 }
-.funPost input[type="file"], .funPost svg:not(:root).svg-inline--fa {
+.funPost input[type="file"], .funPost i {
     position: absolute;
     left: 0;
     top: 0;
@@ -800,10 +804,8 @@ hr {
     vertical-align: top;
     position: relative;
 }
-.addPersonPlus span {
-    position: absolute;
-    left: 13px;
-    bottom: 3px;
+.addPersonPlus i, .myImage a i {
+    vertical-align: middle;
 }
 
 /*              ****** post something add tags ******               */
@@ -858,7 +860,7 @@ hr {
 	
 }
 .wasm svg:not(:root).svg-inline--fa, .wasm .material-icons {
-    vertical-align: sub;
+    vertical-align: middle;
     font-size: 13px;
 }
 
@@ -959,8 +961,8 @@ hr {
 	position: absolute;
 	color: white;
 }
-.myMenu span {
-	vertical-align: text-bottom;
+.myMenu i {
+	vertical-align: bottom;
 }
 .whiteColor, .communion a, .share4All a {
 	color: white!important;
@@ -1019,6 +1021,9 @@ hr {
 /*              ****** home ******               */
 .spaceHeader, .contentCenter {
 	margin-top: 50px;
+}
+.spaceHeaderH {
+	margin-top: 70px;
 }
 .mySend div {
 	margin: 0;
@@ -1084,6 +1089,9 @@ hr {
 /*           ****** Notification ******                 */
 .Notification ul li {
 	background-color: white;
+}
+.Notification ul li:hover {
+	background-color: #eceff1;
 }
 .Notification .personPost p {
 	color: #485d67;
