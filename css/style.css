@@ -267,6 +267,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     padding-top: 50px;
     font-weight: bold;
 }
+.fontSize12 {
+	font-size: 12px!important;
+}
 .fontSize15 {
 	font-size: 15px!important;
 }
@@ -580,7 +583,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .control.has-icons-right .input, .control.has-icons-right .select select {
 	padding-right: 3em;
 }
-.control.has-icons-left .icon, .control.has-icons-right .icon {
+.control .has-icons-right .icon {
 	width: 3em;
 }
 
@@ -804,7 +807,7 @@ hr {
     vertical-align: top;
     position: relative;
 }
-.addPersonPlus i, .myImage a i {
+.addPersonPlus i, .myImage a i, .aboutMyInfo i {
     vertical-align: middle;
 }
 
@@ -1161,8 +1164,8 @@ hr {
     background-color: #eceff1;
 }
 .footerAndChat .chat textarea {
-	padding-right: 2.25em;
-	padding-left: 4.5em;
+	padding-right: 3em;
+    padding-left: 5em;
 	font-weight: bold;
 }
 .chat a {
@@ -1180,6 +1183,12 @@ hr {
 }
 .chat .left a {
 	position: initial!important;
+}
+.leftTextarea {
+	padding: 0 15px;
+}
+.leftTextarea a {
+	width: 1.5em!important;
 }
 
 /*           ****** reset password ******                 */
