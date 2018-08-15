@@ -436,7 +436,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .mainPoster {
     width: 80%;
-	height: 25vh;
+	height: 20vh;
     display: block;
     margin: 0 auto 25px;
 }
