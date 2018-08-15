@@ -1,9 +1,9 @@
 <template>
-    <div class="grayContentPage height-0">
+    <div class="grayContentPage">
         
         <div class="mianHeader">
             <router-link to = "login">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="material-icons">arrow_forward</i>
             </router-link>
             <p>هل نسيت كلمة المرور؟</p>
             <img src="@/../image/mainWhite.png">
@@ -19,7 +19,7 @@
             <div class="control has-icons-left has-icons-right">
                 <input class="input" type="email" placeholder="البريد الإلكتروني" v-model="fEmail">
                 <span class="icon is-small is-right">
-                <i class="fas fa-envelope"></i>
+                <i class="material-icons fontSize18">email</i>
                 </span>
             </div>
             </div>
@@ -34,7 +34,7 @@
 
         </div>
         
-        <footer class="footer">
+        <footer class="orderFooterTop orderFooterBottom">
         
         <div class="paraFooter">
                 <p>
