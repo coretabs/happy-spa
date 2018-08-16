@@ -42,7 +42,7 @@
             </router-link>
         </div>
             
-        <footer class="orderFooterTop orderFooterBottom">
+        <footer class="orderFooterTop">
             <p class="noteSginIn underline">
                 أو سجل دخولك عن طريق
             </p>
