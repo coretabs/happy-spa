@@ -1,5 +1,5 @@
 <template>
-  <div class="homePage height-2">
+  <div class="homePage">
 
     <div class="centralCircle">
       <div class="circle">
@@ -48,7 +48,7 @@
       </figure>
     </div>
 
-    <div class="footer">
+    <footer class="contentPageFooter orderFooterTop">
       <div class="buttonStarted">
         <router-link to="/signup"> 
           فلنبدأ
@@ -63,7 +63,7 @@
           </router-link>
         </p>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 

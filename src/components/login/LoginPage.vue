@@ -1,8 +1,8 @@
 <template>
-    <div class="grayContentPage height-5">        
+    <div class="grayContentPage">        
         <div class="mianHeader">
             <router-link to = "/">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="material-icons">arrow_forward</i>
             </router-link>
             <p>تسجيل الدخول</p>
             <img src="@/../image/mainWhite.png">
@@ -13,7 +13,7 @@
                 <div class="control has-icons-right">
                     <input class="input" type="text" placeholder="اسم المستخدم أو البريد الإلكتروني" v-model="username">
                     <span class="icon is-small is-right">
-                        <i class="fas fa-user"></i>
+                        <i class="material-icons fontSize20">person</i>
                     </span>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                 <p class="control has-icons-right  has-icons-left">
                     <input class="input password" id="pwd" :type="passwordType" placeholder="كلمة المرور" v-model="password">
                     <span class="icon is-small is-right" >
-                        <i class="fas fa-lock"></i>
+                        <i class="material-icons fontSize15">lock</i>
                     </span>
                     <span class="icon is-small is-left eyePWD" id="eye" @click="showPassword">
-                        <i :class="iconChenge"></i>
+                        <i class="material-icons fontSize20">remove_red_eye</i>
                     </span>
                 </p>
             </div>
@@ -42,12 +42,12 @@
             </router-link>
         </div>
             
-        <footer class="footer">
+        <footer class="orderFooterTop">
             <p class="noteSginIn underline">
                 أو سجل دخولك عن طريق
             </p>
 
-            <div class="buttonsSginIn">
+            <div class="buttonsSginIn width80">
                 <div class="buttonSIN">
                     <a href="#" class="buttonFacebook"> 
                         فيس بوك
