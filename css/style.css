@@ -309,7 +309,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     border-radius: 50px;
     
 }
-.contentPageHeader, .contentPageFooter, .bodyComments .communion, #bodyComments .reply {
+.contentPageHeader, .contentPageFooter, .bodyComments .communion, .reply {
     width: 80%;
     margin: 0 auto;
 }
@@ -619,16 +619,20 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     cursor: pointer;
     z-index: 5;
 }
-.topHeader a, .personPost, .myMenu a, .share4All a, .fa-smile {
+.topHeader a, .personPost, .share4All a, .fa-smile {
     margin-right: 15px;
 	margin-left: 15px;
     margin-top: 10px;
 	margin-bottom: 10px;
 }
+.CMTtime {
+	margin-right: 15px;
+	margin-left: 15px;
+}
 .noMargin {
 	margin: 0!important;
 }
-.topHeader p {
+.topHeader p, .moreReply {
     width: 100%;
     text-align: center;
     color: #485d67;
@@ -660,15 +664,16 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 hr {
     margin: 0;
 }
-.headElements, #bodyComments .communion a {
+.headElements{
     color: #b0bec5!important;
 }
+
 .headElements svg:not(:root).svg-inline--fa, .signOutElements svg:not(:root).svg-inline--fa {
     margin-left: 5px;
 }
 
 /*                  bottom footer                    */
-.bottomFooter, #bodyComments .myMenu a {
+.bottomFooter, .myMenu a {
     bottom: 0;
 }
 .bottomFooter ul {
@@ -708,18 +713,23 @@ hr {
 .personPost {
     display: inline-flex;
 }
-.personPost img, .signImage img, .Notification .persons2Post .persons2Image {
+.signImage img, .Notification .persons2Post .persons2Image {
     height: 40px;
     width: 40px;	
 }
+.personPost img {
+	height: 35px;
+    width: 35px;
+}
+
 .personPost img, .signImage img {
 	border: 2px solid white;
     border-radius: 50%;
 }
 .personPost .personName {
-	line-height: 2;
-    padding-top: 3px;
-    padding-right: 10px;
+	font-size: 14px;
+	line-height: 2.5;
+    padding-right: 3px;
     font-weight: bold;
     color: #485d67;
 }
@@ -816,7 +826,7 @@ hr {
 .bodyTag {
 	height: 25em;
 }
-.ageTitle, .answer, .mySend, #bodyComments .bodyAnswer {
+.ageTitle, .answer, .mySend, .bodyAnswer {
 	position: relative;
 }
 .ageTitle a {
@@ -880,7 +890,7 @@ hr {
 .aboutMe {
 	padding-top: 100px;
 }
-.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a {
+.aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a, .communion a {
 	color: #485d67!important;
 }
 .aboutMe h1 {
@@ -935,7 +945,7 @@ hr {
 }
 .backgroundSend .myMenu {
     top: 10px;
-	line-height: 1.5;
+	line-height: 2.25;
 }
 .backgroundSend .myMenu a {
 	position: unset;
@@ -961,14 +971,14 @@ hr {
     width: 100%;
 }
 
-.myMenu a, .bgImageSend .communion, .share4All {
+.CMTtime, .bgImageSend .communion, .share4All {
 	position: absolute;
 	color: white;
 }
 .myMenu i {
-	vertical-align: bottom;
+	vertical-align: middle;
 }
-.whiteColor, .communion a, .share4All a {
+.whiteColor, .share4All a {
 	color: white!important;
 }
 .mySend {
@@ -998,6 +1008,10 @@ hr {
 .bodyAnswer {
 	padding: 10px 40px 10px 20px;
 }
+.bodyAnswer .personName {
+	font-size: 12px;
+	line-height: 3;
+}
 .answer {
     border-radius: 10px;
 	padding: 0 0 10px;
@@ -1005,7 +1019,7 @@ hr {
 .answer .personPost {
 	position: inherit;
     top: 0;
-    right: -20px;
+    right: -15px;
 	margin: 0;
 }
 .answerPara p {
@@ -1013,7 +1027,8 @@ hr {
     color: #485d67;
 }
 .answerPara p {
-    padding: 5px 30px 5px;	
+    padding: 0px 20px 5px;
+    font-size: 12px;	
 }
 .spaceFooterS {
 	margin-bottom: 50px;
@@ -1101,6 +1116,7 @@ hr {
 	color: #485d67;
 	height: max-content;
 	padding-right: 10px;
+	padding-left: 40px;
 	line-height: 1;
 }
 .Notification .personPost p .morePoster {
@@ -1146,7 +1162,7 @@ hr {
 .spaceFooterB {
 	margin-bottom: 110px;
 }
-#bodyComments .communion a, #bodyComments .bodyAnswer {
+.communion a, .bodyAnswer, .moreReply {
 	font-size: 12px;
 }
 #bodyComments .bodyAnswer .personPost img, .personChat img {
