@@ -1224,6 +1224,9 @@ hr {
 .contentPageHeader .control .button.write:focus:not(:active) {
 	box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
+.wrongValue {
+	color: #ff3860;
+}
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
