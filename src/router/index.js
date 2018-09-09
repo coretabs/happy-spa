@@ -8,6 +8,7 @@ import Profile from '@/components/profile/Profile'
 import ListPosts from '@/components/ListPosts'
 import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
+import Signup from '@/components/Signup/Signup'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
       path : '/forgot',
       name : 'Forgot',
       component : Forgot
+    },
+    {
+      path:'/signup',
+      name : 'signup',
+      component : Signup
     }
   ]
 })

@@ -12,6 +12,9 @@ export default {
   methods : {
     validateEmail(mail) {
       return this.$store.state.emailValidate.test(mail);
+    },
+    validatePassword(password) {
+      return this.$store.state.passwordValidate.test(password);
     }
   }
 }
