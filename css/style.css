@@ -1225,7 +1225,7 @@ hr {
 	box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
 .wrongValue {
-	color: #ff3860;
+	color: #ff3860!important;
 }
 
 /*           ****** media ******                 */
