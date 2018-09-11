@@ -461,6 +461,18 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin: 0 auto 25px;
     height: 125px;
 }
+.personalPictureImg {
+	border: 2px #ffe600 solid!important;
+	width: 70px;
+    height: 70px;
+}
+.personalPictureImg .file-cta {
+	padding: 1em!important;
+}
+.personalPicture img {
+	height: 100%;
+	background-size: cover;
+}
 .personalPicture:hover .file-cta {
     background: #fafafa;
     border: 0;
@@ -474,6 +486,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     border: none;
     padding: 2em!important;
 }
+.personalPictureImg .file-cta {
+	padding: 1em!important;
+}
 .personalPicture .file-icon {
     margin: 0;
 }
@@ -483,6 +498,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*                  Recycle Bin icon                       */
 .contentPageHeader ul li {
 	margin-top: 20px;
+}
+.contentPageHeader .myImg {
+	display: block;
 }
 .enterMail {
     padding-top: 15px;
