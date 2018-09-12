@@ -4,7 +4,7 @@
             <router-link to = "/">
                 <i class="material-icons">arrow_forward</i>
             </router-link>
-            <p>تسجيل الدخول</p>
+            <p>حساب جديد</p>
             <img src="@/../image/mainWhite.png">
         </div>
     
@@ -16,6 +16,7 @@
                         <i class="material-icons fontSize15">mail</i>
                     </span>
                  </div>
+                 <p v-if="!isEmailValid && email" class="help is-danger">البريد غير صحيح</p>
             </div>
         
             <div class="field">
@@ -28,7 +29,7 @@
                         <i class="material-icons fontSize20">{{icon}}</i>
                     </span>
                 </p>
-                <p v-if="!isPasswordValid && password1"  class="help is-danger">كلمة المرور غير صالحة</p>
+                <p v-if="!isPasswordValid && password1"  class="help is-danger">  كلمة المرور غير صالحة<br> يجب ان تحوي رقم واحد على الأقل<br> وحرف إنجليزي واحد على الأقل<br>  وان لا تقل عن 8 عناصر</p>
             </div>
                 
             <div class ="field">
@@ -41,7 +42,7 @@
                         <i class="material-icons fontSize20">{{icon}}</i>
                     </span>
                 </p>
-                <p v-if="!isPassword2Valid && password2"  class="help is-danger">كلمة المرور غير صالحة</p>
+                <p v-if="!isPassword2Valid && password2"  class="help is-danger">كلمة المرور غير مطابقة</p>
             </div>
             
             <div class="field">
@@ -66,14 +67,14 @@
             
             <div class="buttonsSginIn">
                 <div class="buttonSIN">
-                    <a href="#" class="buttonFacebook"> 
+                    <a href="https://corefun.herokuapp.com/accounts/facebook/login/" class="buttonFacebook"> 
                         فيس بوك
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
                 
                 <div class="buttonSIN">
-                    <a href="#" class="buttonGoogle">
+                    <a href="https://corefun.herokuapp.com/accounts/google/login/" class="buttonGoogle">
                         جوجل
                         <img src="@/../image/google.svg">
                     </a>
@@ -83,91 +84,11 @@
             <div class="paraFooter">
                     <p>
                         هل لديك حساب؟
-                        <a href="#">تسجيل</a>
+                        <router-link to="/login">تسجيل الدخول</router-link>
                     </p>
                 </div>
         </footer>
     </div>
 </template>
 
-<script>
-import Cookies from 'js-cookie';
-import axios from 'axios'
-export default {
-    data : () => {
-        return {
-            isEmailValid : '',
-            email : '',
-            emailClassOject : {
-                'is-danger' : false,
-                'input':true,
-                'is-success': false
-            },
-            password1: '',
-            password2: '',
-            isPasswordValid: '',
-            isPassword2Valid: '',
-            passwordClassOject : {
-                'is-danger' : false,
-                'input':true,
-                'is-success': false,
-                'password' : true
-            },
-            password2ClassOject : {
-                'is-danger' : false,
-                'input':true,
-                'is-success': false,
-                'password' : true
-            },
-            passwordType : 'password',
-            icon : 'remove_red_eye',
-            info : {}
-        }
-    },
-    methods : {
-        showPassword () {
-            this.passwordType = this.passwordType === 'password' ?  'text' : 'password'
-            this.icon = this.passwordType === 'password' ? 'remove_red_eye' : 'visibility_off';
-        },
-        validateEmail () {
-            if (this.email) {
-                this.isEmailValid = this.$parent.validateEmail(this.email);
-            }
-
-           this.emailClassOject['is-danger'] = this.email ? !this.isEmailValid : false
-           this.emailClassOject['is-success'] = this.email ? this.isEmailValid : false
-        },
-        validatePassword () {
-            if (this.password1) {
-                this.isPasswordValid = this.$parent.validatePassword(this.password1) && this.password1 != 'password'
-            }
-
-           this.passwordClassOject['is-danger'] = this.password1 ? !this.isPasswordValid : false
-           this.passwordClassOject['is-success'] = this.password1 ? this.isPasswordValid : false
-           this.password2ClassOject['is-danger'] =  this.password2 && this.password2 != this.password1 ? true : false
-           this.password2ClassOject['is-success'] = this.password2 && this.password2 == this.password1 ? this.isPasswordValid : false
-           this.isPassword2Valid = this.isPasswordValid && this.password1 === this.password2
-        },
-        sendInfo () {
-            if (this.isEmailValid && this.isPasswordValid && this.isPassword2Valid){
-                this.info = {
-                    email : this.email,
-                    password1 : this.password1,
-                    password2 : this.password2
-                }
-                axios.post('https://corefun.herokuapp.com/api/v1/auth/registration/', this.info)
-                     .then(re => {
-                        console.log(re.data)
-                        this.$router.push('')
-                     })
-                     .catch(er => console.log(er))
-            }
-        }
-    },
-    created () {
-        if (Cookies.getJSON('logedinUser')) {
-            this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}/`)
-        }
-    }
-}
-</script>
+<script src='./script.js'></script>

@@ -11,10 +11,10 @@ export default {
   name: 'App',
   methods : {
     validateEmail(mail) {
-      return this.$store.state.emailValidate.test(mail);
+      return this.$store.state.emailRegExp.test(mail);
     },
     validatePassword(password) {
-      return this.$store.state.passwordValidate.test(password);
+      return this.$store.state.passwordRegExp.test(password);
     }
   }
 }

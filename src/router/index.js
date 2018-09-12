@@ -1,14 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import NotFound from '@/components/NotFound'
-import Posts from '@/components/Posts'
-import Post from '@/components/Post'
 import Profile from '@/components/profile/Profile'
-import ListPosts from '@/components/ListPosts'
 import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
 import Signup from '@/components/Signup/Signup'
+import Information from '@/components/Information/Information'
 
 Vue.use(Router)
 
@@ -16,24 +13,8 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/posts',
-      name: 'Posts',
-      component: Posts
-    },
-    {
-      path: '/posts/:id',
-      name: 'Post',
-      component: Post
-    },
-    {
-      path: '/listposts',
-      name: 'ListPosts',
-      component: ListPosts
+      path : '/',
+      component : Home
     },
     {
       path: '/profile',
@@ -44,11 +25,6 @@ export default new Router({
       path: '/profile/:id',
       name: 'Profile',
       component: Profile,
-    },
-    {
-      path: '*',
-      name: 'NotFound',
-      component: NotFound
     },
     {
       path: '/login',
@@ -64,6 +40,11 @@ export default new Router({
       path:'/signup',
       name : 'signup',
       component : Signup
+    },
+    {
+      path : '/information',
+      name : 'Information',
+      component : Information
     }
   ]
 })
