@@ -503,8 +503,12 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     height: 70px;
 	left: 0;
     right: 0;
-    bottom: -25px;
+    bottom: 5px;
     z-index: 2;
+	transition: all 0.5s ease 0s;
+}
+.myMainPictureAfter {
+	bottom: -25px;
 }
 .personalPictureImg .file-cta {
 	padding: 1em!important;
