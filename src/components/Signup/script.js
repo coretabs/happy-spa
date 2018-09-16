@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import axios from 'axios'
+import Corefun from "@/api";
 export default {
     data : () => {
         return {
@@ -11,8 +11,11 @@ export default {
                 'is-success': false,
                 'wrongValue' : false
             },
+            emailErrorMsg : !this.isEmailValid && this.email,
             password1: '',
+            password1ErrorMsg: !this.isPasswordValid && this.password1,
             password2: '',
+            password2ErrorMsg: !this.isPassword2Valid && this.password2,
             isPasswordValid: '',
             isPassword2Valid: '',
             passwordClassOject : {
@@ -64,12 +67,22 @@ export default {
                     password1 : this.password1,
                     password2 : this.password2
                 }
-                axios.post('https://corefun.herokuapp.com/api/v1/auth/registration/', this.info)
-                     .then(re => {
-                        console.log(re.data)
-                        this.$router.push('')
-                     })
-                     .catch(er => console.log(er))
+                Corefun.signup(this.info)
+                .then(re => {
+                    console.log(re)
+                    this.$router.push('')
+                })
+                .catch(er => console.log(er))
+            } else {
+                if (!this.isEmailValid) {
+                    this.emailErrorMsg = true
+                }
+                if (!this.isPasswordValid){
+                    this.password1ErrorMsg = true
+                }
+                if (!this.isPassword2Valid){
+                    this.password2ErrorMsg = true
+                }
             }
         }
     },

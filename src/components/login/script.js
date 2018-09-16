@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { mapState , mapMutations } from 'vuex'
 import Cookies from 'js-cookie';
+import Corefun from '@/api'
 export default {
         
     name : 'LoginPage',
@@ -31,12 +31,10 @@ export default {
                         password : this.password
                     } 
                 }
-                axios.post('https://corefun.herokuapp.com/api/v1/auth/login/' ,this.info)
+                Corefun.login(this.info)
                 .then(re => {
-                    console.log(re)
-                    this.$store.commit('setUserInfo', re.data)
-                    console.log(this.userInfo)
-                    Cookies.set('logedinUser' , re.data , { expires: 365 })
+                    this.$store.commit('setUserInfo', re)
+                    Cookies.set('logedinUser' , re , { expires: 365 })
                     this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}/`)
                 })
                 

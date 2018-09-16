@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Corefun from '@/api';
 
 export default {
   name: 'Profile',
@@ -14,9 +14,9 @@ export default {
     }
   },
   created () {
-      axios.get(`https://corefun.herokuapp.com/api/v1/auth/user/${this.$route.params.id}/`)
+      Corefun.profile(this.$route.params.id)
       .then( re => {
-        this.user = re.data
+        this.user = re
         this.links = this.user.profile.link
         this.display = false
       })

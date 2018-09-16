@@ -16,7 +16,7 @@
                         <i class="material-icons fontSize15">mail</i>
                     </span>
                  </div>
-                 <p v-if="!isEmailValid && email" class="help is-danger">البريد غير صحيح</p>
+                 <p v-if="emailErrorMsg" class="help is-danger">البريد غير صحيح</p>
             </div>
         
             <div class="field">
@@ -29,7 +29,7 @@
                         <i class="material-icons fontSize20">{{icon}}</i>
                     </span>
                 </p>
-                <p v-if="!isPasswordValid && password1"  class="help is-danger">  كلمة المرور غير صالحة<br> يجب ان تحوي رقم واحد على الأقل<br> وحرف إنجليزي واحد على الأقل<br>  وان لا تقل عن 8 عناصر</p>
+                <p v-if="password1ErrorMsg"  class="help is-danger">  كلمة المرور غير صالحة<br> يجب ان تحوي رقم واحد على الأقل<br> وحرف إنجليزي واحد على الأقل<br>  وان لا تقل عن 8 عناصر</p>
             </div>
                 
             <div class ="field">
@@ -42,7 +42,7 @@
                         <i class="material-icons fontSize20">{{icon}}</i>
                     </span>
                 </p>
-                <p v-if="!isPassword2Valid && password2"  class="help is-danger">كلمة المرور غير مطابقة</p>
+                <p v-if="password1ErrorMsg"  class="help is-danger">كلمة المرور غير مطابقة</p>
             </div>
             
             <div class="field">
