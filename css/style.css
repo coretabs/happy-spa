@@ -16,6 +16,15 @@ body {
 header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong, img {
 	font-family: dubai!important;
 }
+.t0Mb0 {
+	margin: 0 auto;
+}
+.t0Mb25 {
+	margin: 0 auto 25px;
+}
+.t0Mb50 {
+	margin: 0 auto 50px;
+}
 
 #overlay{
   height:100%;
@@ -453,19 +462,54 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 
 /*           personal picture           */
 
-.personalPicture {
+.personalPicture, .myMainPicture .myPicture img, .controlPicture {
     text-align: center;
     font-size: 25px;
     border: 2px #ffe600 dashed;
     border-radius: 50%;
     width: 125px;
-    margin: 0 auto 25px;
     height: 125px;
+	transform: scale(1);
+	transition: all 0.9s ease 0s;
+}
+.controlPicture {
+	z-index: 4;
+}
+.controlPicture:hover {
+	border: 2px #ffe600 solid;
+}
+.myMainPicture:hover .myPicture img {
+	box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.8);
+    border: #ffe600 2px solid;
+}
+.myPicture {
+	width: 125px!important;
+    height: 125px!important;
+}
+.myPicture:after {
+	content: "";
+	width: 125px;
+	height: 125px;
+	border-radius: 50%;
+	background: #ffe600;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 .personalPictureImg {
 	border: 2px #ffe600 solid!important;
 	width: 70px;
     height: 70px;
+	left: 0;
+    right: 0;
+    bottom: 5px;
+    z-index: 2;
+	transition: all 0.5s ease 0s;
+}
+.myMainPictureAfter {
+	bottom: -25px;
 }
 .personalPictureImg .file-cta {
 	padding: 1em!important;
@@ -474,7 +518,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	height: 100%;
 	background-size: cover;
 }
-.personalPicture:hover .file-cta {
+.personalPicture:hover .file-cta, .controlPicture:hover .file-cta {
     background: #fafafa;
     border: 0;
 }
@@ -482,16 +526,22 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin: 35px;
     color: #ffe600;
 }
-.personalPicture .file-cta {
+.personalPicture .file-cta, .controlPicture .file-cta {
     background: none;
     border: none;
     padding: 2em!important;
 }
+.controlPicture .file-cta {
+	padding: 0!important;
+}
 .personalPictureImg .file-cta {
 	padding: 1em!important;
 }
-.personalPicture .file-icon {
+.personalPicture .file-icon, .controlPicture .file-icon {
     margin: 0;
+}
+.personalPictureBtn {
+	top: 18px;
 }
 
 /*           ****** manage links page ******               */
@@ -845,7 +895,7 @@ hr {
 .bodyTag {
 	height: 25em;
 }
-.ageTitle, .answer, .mySend, .bodyAnswer {
+.relative, .ageTitle, .answer, .mySend, .bodyAnswer, .myPicture {
 	position: relative;
 }
 .ageTitle a {
