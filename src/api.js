@@ -1,6 +1,12 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
+
+const corefun = axios.create({
+  baseURL : 'https://corefun.herokuapp.com',
+  headers : {authorization: 'JWT' + Cookies.get('token')}
+
+})
 axios.defaults.baseURL = 'https://corefun.herokuapp.com' 
 
 const appService = {
@@ -47,10 +53,11 @@ const appService = {
   },
   information : data => {
     return new Promise((resolve, reject) => {
-      axios.defaults.headers.common.token  = Cookies.get('token')
       console.log(axios.defaults.headers.common)
 
-      axios.put('/api/v1/auth/user/' , data)
+      corefun.put('/api/v1/auth/user/' , data , {
+        headers : {authorization: `JWT ${Cookies.get('token')}`}
+      })
         .then(res => {
           resolve(res.data)
           

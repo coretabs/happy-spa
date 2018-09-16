@@ -198,10 +198,7 @@ export default {
            }
         },
         sendInformation () {
-            Corefun.information({
-                key : Cookies.getJSON('logedinUser').key,
-                user : this.userInfo
-            })
+            Corefun.information(this.userInfo)
             .then (re => {
                 console.log(re)
             })
