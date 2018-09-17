@@ -16,8 +16,8 @@
       <div class="backList box-shadow">
         <div class="aboutMe center">
           <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
-          <h1 id="h">{{user.name}}</h1>
-          <p class="reverse">{{user.username}}</p>
+          <h1 id="h">{{user.profile.displayed_name}}</h1>
+          <p class="reverse">@{{user.username}}</p>
         </div>
         
         <div class="description" v-if="user.profile.bio">
@@ -64,7 +64,7 @@
             
           <div class="myMenu">
             <a href="#" class="left darkBlue">
-              <span>{{post.created.substring(0, 10)}}</span>
+              <span>{{post.time_since}}</span>
               <i class="material-icons">more_vert</i>
             </a>
           </div>
