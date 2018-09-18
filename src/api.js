@@ -60,7 +60,7 @@ const appService = {
       })
         .then(res => {
           resolve(res.data)
-          
+          Cookies.set('logedinUser' , res.data , { expires: 365 })
         })
         .catch(err => {
           reject(err)

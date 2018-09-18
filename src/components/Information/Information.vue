@@ -148,6 +148,7 @@ export default {
     methods : {
         file(e) {
             this.userInfo.avatar = e.target.files[0];
+            console.log(e.target.files)
             this.previweUrl = URL.createObjectURL(this.userInfo.avatar)
         },
         validateFirstName () {
@@ -202,13 +203,19 @@ export default {
             .then (re => {
                 console.log(re)
             })
-            .catch(er => console.log(er))
+            .catch(er => console.log(er.response))
         }
     },
     created () {
         if (Cookies.getJSON('logedinUser')) {
             if(Cookies.getJSON('logedinUser').user.email_status){
                 this.userInfo = Cookies.getJSON('logedinUser').user
+                let name= this.userInfo.profile.displayed_name.split(' ')
+                this.userInfo.profile.first_name = name[0]
+                this.userInfo.profile.last_name = name[1]
+                if (this.userInfo.avatar_url) {
+                    this.previweUrl = this.userInfo.avatar_url
+                }
             }
         } else {
             this.$router.push('/login')
