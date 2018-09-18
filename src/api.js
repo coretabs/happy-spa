@@ -15,6 +15,7 @@ const appService = {
       axios.post('/api/v1/auth/login/' , data)
         .then(res => {
           resolve(res.data)
+          console.log(res.data)
           axios.post('/api/v1/auth/token/', data)
           .then (re => {
             Cookies.set('token' , String(re.data.token) , { expires: 365 })
@@ -60,7 +61,7 @@ const appService = {
       })
         .then(res => {
           resolve(res.data)
-          Cookies.set('logedinUser' , res.data , { expires: 365 })
+          Cookies.set('logedinUser' , { user : res.data} , { expires: 365 })
         })
         .catch(err => {
           reject(err)
