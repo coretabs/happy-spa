@@ -6,6 +6,7 @@ import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
 import Signup from '@/components/Signup/Signup'
 import Information from '@/components/Information/Information'
+import UserHome from "@/components/UserHome/UserHome";
 
 Vue.use(Router)
 
@@ -18,11 +19,6 @@ export default new Router({
     },
     {
       path: '/profile',
-      name: 'profile-login',
-      component: LoginPage
-    },
-    {
-      path: '/profile/:id',
       name: 'Profile',
       component: Profile,
     },
@@ -45,6 +41,10 @@ export default new Router({
       path : '/information',
       name : 'Information',
       component : Information
+    },
+    {
+      path : '/home',
+      component : UserHome
     }
   ]
 })

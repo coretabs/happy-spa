@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style>
-  @import '../css/style.css';
-
   .pages-anim-enter-active {
     animation: in .1s;
     animation-delay: .2s;

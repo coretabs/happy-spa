@@ -35,7 +35,11 @@ export default {
                 .then(re => {
                     this.$store.commit('setUserInfo', re)
                     Cookies.set('logedinUser' , re , { expires: 365 })
-                    this.$router.push(`/profile/${Cookies.getJSON('logedinUser').user.username}/`)
+                    if (this.$route.query.from){
+                        this.$router.push(`${this.$route.query.from}?id=${Cookies.getJSON('logedinUser').user.username}/`)
+                    } else {
+                        this.$router.push(`/profile?id=${Cookies.getJSON('logedinUser').user.username}/`)
+                    }
                 })
                 
                 .catch(er => console.log(er))

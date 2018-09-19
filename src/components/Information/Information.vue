@@ -2,7 +2,7 @@
     <div class="grayContentPage spaceFooterS">
     
         <div class="mianHeader">
-            <router-link to="/">
+            <router-link :to="'/'">
                 <i class="material-icons">arrow_forward</i>
             </router-link>
             <p>تعديل الملف الشخصي</p>
@@ -11,13 +11,13 @@
     
         <div class="contentPageHeader">
            
-            <div class="file is-boxed myImg" v-if='previweUrl || userInfo.avatarLink '>
+            <div class="file is-boxed myImg" v-if='previweUrl'>
                 <label class="file-label personalPicture">
                     <img :src='previweUrl'>
                 </label>
                 
                 <label class="file-label personalPicture personalPictureImg">
-                    <input class="file-input" @change="file($event)"  type="file" name="resume">
+                    <input class="file-input" accept="image/*"  @change="file($event)"  type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
                             <i class="material-icons golden">photo_camera</i>
@@ -28,7 +28,7 @@
 
             <div class="file is-boxed" v-if='!previweUrl && !userInfo.avatarLink '>
                 <label class="file-label personalPicture">     
-                    <input class="file-input" @change="file($event)"  type="file" name="resume">
+                    <input class="file-input" accept="image/*"  @change="file($event)"  type="file" name="resume">
                     <span class="file-cta">
                         <span class="file-icon">
                             <i class="material-icons golden">photo_camera</i>
@@ -100,127 +100,4 @@
     </div>
 </template>
 
-<script>
-import Corefun from '@/api'
-import Cookies from 'js-cookie'
-export default {
-    data : () => {
-        return {
-            userInfo : {
-                profile : {
-                    bio : '',
-                    first_name : '',
-                    last_name : '',
-                    location : '',
-                    birth_date : '',
-                    link : []
-                },
-                username : '',
-                avatar : ''
-            },
-            previweUrl :'',
-            firstNameError : '',
-            lastNameError : '',
-            usernameError : '',
-            dateError : '',
-            firstNameClasses : {
-                'is-danger' : false,
-                'wrongValue' : this['is-danger'],
-                'input' : true
-            },
-            lastNameClasses : {
-                'is-danger' : false,
-                'wrongValue' : false,
-                'input' : true
-            },
-            usernameClasses : {
-                'is-danger' : false,
-                'wrongValue' : false,
-                'input' : true
-            },
-            dateClasses : {
-                'is-danger' : false,
-                'wrongValue' : false,
-                'input' : true
-            }
-        }
-    },
-    methods : {
-        file(e) {
-            this.userInfo.avatar = e.target.files[0];
-            console.log(e.target.files)
-            this.previweUrl = URL.createObjectURL(this.userInfo.avatar)
-        },
-        validateFirstName () {
-            if (this.userInfo.profile.first_name && this.userInfo.profile.first_name.length >= 3) {
-                this.firstNameError = false
-                this.firstNameClasses['is-danger'] = false
-                this.firstNameClasses['wrongValue'] = false
-            } else {
-                this.firstNameError = true
-                this.firstNameClasses['is-danger'] = true
-                this.firstNameClasses['wrongValue'] = true
-            }
-        },
-        validateLastName () {
-            if (this.userInfo.profile.last_name && this.userInfo.profile.last_name.length >= 3) {
-                this.lastNameError = false
-                this.lastNameClasses['is-danger'] = false
-                this.lastNameClasses['wrongValue'] = false
-            } else {
-                this.lastNameError = true
-                this.lastNameClasses['is-danger'] = true
-                this.lastNameClasses['wrongValue'] = true
-            }
-        },
-        validateUsername () {
-            if (this.$parent.validateUsername(this.userInfo.username) && this.userInfo.username.length >= 3) {
-                this.usernameError = false
-                this.usernameClasses['is-danger'] = false
-                this.usernameClasses['wrongValue'] = false
-            } else {
-                this.usernameError = true
-                this.usernameClasses['is-danger'] = true
-                this.usernameClasses['wrongValue'] = true
-            }
-        },
-        validateDate (e) {
-           let date = e.srcElement.value.split('-')
-           let year = Number(date[0]) <= 2005 && Number(date[0]) >= 1918
-           if (!year) {
-               this.dateClasses['is-danger'] = true
-               this.dateClasses['wrongValue'] = true
-               this.dateError = 'أدخل تاريخ صالح من فضلك'
-           } else {
-               this.dateClasses['is-danger'] = false
-               this.dateClasses['wrongValue'] = false
-               this.dateError = undefined
-               
-           }
-        },
-        sendInformation () {
-            Corefun.information(this.userInfo)
-            .then (re => {
-                console.log(re)
-            })
-            .catch(er => console.log(er.response))
-        }
-    },
-    created () {
-        if (Cookies.getJSON('logedinUser')) {
-            if(Cookies.getJSON('logedinUser').user.email_status){
-                this.userInfo = Cookies.getJSON('logedinUser').user
-                let name= this.userInfo.profile.displayed_name.split(' ')
-                this.userInfo.profile.first_name = name[0]
-                this.userInfo.profile.last_name = name[1]
-                if (this.userInfo.avatar_url) {
-                    this.previweUrl = this.userInfo.avatar_url
-                }
-            }
-        } else {
-            this.$router.push('/login')
-        }
-    }
-
-}
-</script>
+<script src='./script.js'></script>

@@ -1,4 +1,5 @@
 import Corefun from '@/api';
+import Cookies from 'js-cookie'
 
 export default {
   name: 'Profile',
@@ -13,13 +14,25 @@ export default {
       display : true
     }
   },
-  created () {
-      Corefun.profile(this.$route.params.id)
+  methods : {
+    getInfo () {
+      Corefun.profile(this.$route.query.id)
       .then( re => {
         this.user = re
         this.links = this.user.profile.link
         this.display = false
       })
+    }
+  },
+  created () {
+    if (this.$route.query.id) {
+      this.getInfo()
+    } else if (Cookies.getJSON('logedinUser')) {
+      this.$router.push(`/profile?id=${Cookies.getJSON('logedinUser').user.username}`)
+      this.getInfo()
+    } else {
+      this.$router.push(`/login`)
+    }
   },
   watch : {
     links : function (newLinks) {

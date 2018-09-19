@@ -1,12 +1,6 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-
-const corefun = axios.create({
-  baseURL : 'https://corefun.herokuapp.com',
-  headers : {authorization: 'JWT' + Cookies.get('token')}
-
-})
 axios.defaults.baseURL = 'https://corefun.herokuapp.com' 
 
 const appService = {
@@ -15,7 +9,6 @@ const appService = {
       axios.post('/api/v1/auth/login/' , data)
         .then(res => {
           resolve(res.data)
-          console.log(res.data)
           axios.post('/api/v1/auth/token/', data)
           .then (re => {
             Cookies.set('token' , String(re.data.token) , { expires: 365 })
@@ -56,12 +49,26 @@ const appService = {
     return new Promise((resolve, reject) => {
       console.log(axios.defaults.headers.common)
 
-      corefun.put('/api/v1/auth/user/' , data , {
-        headers : {authorization: `JWT ${Cookies.get('token')}`}
+      axios.put('/api/v1/auth/user/' , data , {
+        headers : {
+          authorization: `JWT ${Cookies.get('token')}`,
+          'Content-Type': 'multipart/form-data'
+        }
       })
         .then(res => {
           resolve(res.data)
           Cookies.set('logedinUser' , { user : res.data} , { expires: 365 })
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+  posts : () => {
+    return new Promise((resolve, reject) => {
+      axios.get('/api/v1/posts/')
+        .then(res => {
+          resolve(res.data)
         })
         .catch(err => {
           reject(err)

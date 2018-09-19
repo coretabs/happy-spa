@@ -6,17 +6,17 @@
     </div>	
 
     <div class="grayContentPage spaceFooter" v-if="user">
-    <header class="topHeader box-shadow">
-        <a href="#" class="left">
-            <i class="material-icons">more_vert</i>
-        </a>
+      <header class="topHeader box-shadow">
+          <a href="#" class="left">
+              <i class="material-icons">more_vert</i>
+          </a>
         <p>logo</p>
       </header> 
           
       <div class="backList box-shadow">
         <div class="aboutMe center">
           <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
-          <h1 id="h">{{user.profile.displayed_name}}</h1>
+            <h1 id="h">{{user.profile.displayed_name}}</h1>
           <p class="reverse">@{{user.username}}</p>
         </div>
         
@@ -124,14 +124,14 @@
       </div>
 
       <footer class="bottomFooter box-shadow">
-			<ul>
-				<li><a href="#"><i class="material-icons fontSize30">home</i></a></li>
-				<li><a href="#"><i class="material-icons fontSize30">notifications</i></a></li>
-				<li><a href="#"><i class="material-icons plusIcon fontSize30">add</i></a></li>
-				<li><a href="#"><i class="material-icons fontSize28">explore</i></a></li>
-				<li><a href="#" class="actieFooterLink"><i class="material-icons fontSize30">person</i></a></li>
-			</ul>
-		</footer>  
+        <ul>
+          <li><router-link  :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
+          <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
+          <li><router-link to="#"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
+          <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
+          <li><router-link class="actieFooterLink" :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+        </ul>
+      </footer>
     </div> 
   </div>
 </template>
