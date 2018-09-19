@@ -67,7 +67,7 @@ export default {
                     password1 : this.password1,
                     password2 : this.password2
                 }
-                Corefun.signup(this.info)
+                Corefun.singup(this.info)
                 .then(re => {
                     console.log(re)
                     this.$router.push('')
