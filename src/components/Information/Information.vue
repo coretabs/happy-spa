@@ -12,29 +12,31 @@
         <div class="contentPageHeader">
            
             <div class="file is-boxed myImg" v-if='previweUrl'>
-                <label class="file-label personalPicture">
-                    <img :src='previweUrl'>
-                </label>
-                
-                <label class="file-label personalPicture personalPictureImg">
-                    <input class="file-input" accept="image/*"  @change="file($event)"  type="file" name="resume">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="material-icons golden">photo_camera</i>
-                        </span>
-                    </span>
-                </label>
-            </div>
-
-            <div class="file is-boxed" v-if='!previweUrl && !userInfo.avatarLink '>
-                <label class="file-label personalPicture">     
-                    <input class="file-input" accept="image/*"  @change="file($event)"  type="file" name="resume">
-                    <span class="file-cta">
-                        <span class="file-icon">
-                            <i class="material-icons golden">photo_camera</i>
-                        </span>
-                    </span>
-                </label>
+			
+                <div class="personalPicture t0Mb0">
+			<div class="myMainPicture">
+				<div class="myPicture">
+					<div class="handControl relative">
+						<input class="file-input" accept="image/*"  @change="file($event)" type="file"  name="resume" />
+						<span class="inputFileIcon">
+							<i class="material-icons golden">photo_camera</i>
+						</span>
+						<img :src='previweUrl' class="borderRadius50">
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="file-label borderRadius50 personalPictureImg absolute t0Mb0"  v-if='!previweUrl && !userInfo.avatarLink '>
+            <input class="file-input" type="file" name="resume"  accept="image/*"  @change="file($event)">
+            <span class="file-cta">
+              <span class="file-icon relative">
+                <i class="material-icons golden personalPictureBtn fontSize18 absolute">photo_camera</i>
+              </span>
+            </span>
+          </div>
+        </div>
+				
             </div>
         
             <div class="field">
