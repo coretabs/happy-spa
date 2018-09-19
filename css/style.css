@@ -468,7 +468,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	padding-bottom: 20px;
     margin-bottom: 30px;
 }
-.personalPicture .handControl, .controlPicture, .mainControl {
+.personalPicture .handControl {
     text-align: center;
     font-size: 25px;
     border: 2px #ffe600 dashed;
@@ -533,33 +533,18 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .personalPicture:hover .personalPictureImg {
 	bottom: -3px;
 }
-.myMainPictureAfter {
-	bottom: -25px;
-}
 .personalPictureImg .file-cta {
 	padding: 0em!important;
 }
 
-.personalPicture:hover .file-cta, .controlPicture:hover .file-cta {
+.personalPicture:hover .file-cta {
     background: #fafafa;
     border: 0;
-}
-.personalPicture .fa-camera {
-    margin: 35px;
-    color: #ffe600;
-}
-.personalPicture .file-cta, .controlPicture .file-cta {
-    background: none;
-    border: none;
-    padding: 2em!important;
-}
-.controlPicture .file-cta {
-	padding: 0!important;
 }
 .personalPictureImg .file-cta {
 	padding: 1em!important;
 }
-.personalPicture .file-icon, .controlPicture .file-icon {
+.personalPicture .file-icon {
     margin: 0;
 }
 .personalPictureBtn {
