@@ -3,7 +3,6 @@
 	src: url(../fonts/DubaiFont/webfonts/DubaiW23-Medium.ttf);
 	font-style: normal;
 }
-
 html {
     background: none;
 }
@@ -68,6 +67,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
+	height: 100vh;
 }
 .height-0 {
 	height: 100vh;
@@ -222,13 +222,14 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     font-weight: bold;
     font-size: 20px;
     border-radius: 50px;
-    padding: 7.5px 43%;
-    font-family: Arial, 'lucida Sans Unicode';
+    padding: 7.5px 42%;
 }
 .paraFooter {
-    padding: 30px 0;
     text-align: center;
     color: #4e5052;
+}
+.paraFooter p {
+	margin: 1em 0;
 }
 .paraFooter a {
     text-decoration: none;
@@ -462,30 +463,43 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 
 /*           personal picture           */
 
-.personalPicture, .myMainPicture .myPicture img, .controlPicture {
+.personalPicture {
+	width: max-content;
+	padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.personalPicture .handControl, .controlPicture, .mainControl {
     text-align: center;
     font-size: 25px;
     border: 2px #ffe600 dashed;
     border-radius: 50%;
     width: 125px;
     height: 125px;
+	overflow: hidden;
 	transform: scale(1);
 	transition: all 0.9s ease 0s;
+	z-index: 5;
 }
-.controlPicture {
-	z-index: 4;
-}
-.controlPicture:hover {
+.personalPicture .handControl:hover {
 	border: 2px #ffe600 solid;
 }
-.myMainPicture:hover .myPicture img {
+
+.personalPicture:hover .handControl {
 	box-shadow: 0 0 0 14px #f7f5ec;
     transform: scale(0.8);
     border: #ffe600 2px solid;
 }
-.myPicture {
-	width: 125px!important;
-    height: 125px!important;
+
+.handControl {
+	box-sizing: border-box;
+	background: #fafafa;
+}
+.handControl img {
+	block-size: inherit;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 .myPicture:after {
 	content: "";
@@ -496,7 +510,15 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -1;
+	z-index: 4;
+}
+.inputFileIcon {
+	height: 1.5em;
+    width: 1.5em;
+	padding: 2.5em;
+	align-items: center;
+    display: flex;
+	justify-content: center;
 }
 .personalPictureImg {
 	border: 2px #ffe600 solid!important;
@@ -504,20 +526,20 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     height: 70px;
 	left: 0;
     right: 0;
-    bottom: 5px;
-    z-index: 2;
+    bottom: 50px;
+    z-index: 3;
 	transition: all 0.5s ease 0s;
+}
+.personalPicture:hover .personalPictureImg {
+	bottom: -3px;
 }
 .myMainPictureAfter {
 	bottom: -25px;
 }
 .personalPictureImg .file-cta {
-	padding: 1em!important;
+	padding: 0em!important;
 }
-.personalPicture img {
-	height: 100%;
-	background-size: cover;
-}
+
 .personalPicture:hover .file-cta, .controlPicture:hover .file-cta {
     background: #fafafa;
     border: 0;
@@ -541,7 +563,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin: 0;
 }
 .personalPictureBtn {
-	top: 18px;
+	top: 28px;
 }
 
 /*           ****** manage links page ******               */
@@ -820,15 +842,15 @@ hr {
     position: relative;
     z-index: 9;
 }
-.myImage input[type="file"], .funPost input[type="file"] {
+.myImage input[type="file"], .funPost input[type="file"], .personalPicture input[type="file"] {
     opacity: 0;
     z-index: 10;
     position: absolute;
     cursor: pointer;
 }
-.myImage input[type="file"] {
-    width: 100%;
-    height: 100%;
+.myImage input[type="file"], .personalPicture input[type="file"] {
+    width: 100%!important;
+    height: 100%!important;
     right: 0;
 }
 
@@ -951,6 +973,12 @@ hr {
 .left, .backgroundSend .myMenu, .signImage {
 	left: 0;
 }
+.right {
+	right: 0;
+}
+.bottom {
+	bottom: 0;
+}
 .backList, .contentPageHeader textarea {
 	background-color: white;
     border-radius: 15px;
@@ -1009,7 +1037,7 @@ hr {
 	width: 100%;
 	position: relative;
 }
-.absolute, .backgroundSend .personPost, .backgroundSend .myMenu {
+.absolute, .backgroundSend .personPost, .backgroundSend .myMenu, .signImage, .persons2Post .persons2Image img {
 	position: absolute;	
 }
 .backgroundSend .myMenu {
@@ -1200,9 +1228,7 @@ hr {
 	font-size: 12px;
     color: #cdd6da;
 }
-.signImage, .persons2Post .persons2Image img {
-	position: absolute;
-}
+
 .Notification .persons2Post .persons2Image {
 	display: inline-flex;
     flex-direction: row-reverse;

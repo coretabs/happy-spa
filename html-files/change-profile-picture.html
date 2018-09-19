@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coretabs Fun</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/bulma.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body class="grayContentPage spaceFooterS">
+    
+<div class="mianHeader">
+        <a href="#">
+            <i class="material-icons">arrow_forward</i>
+        </a>
+        <p>تعديل الملف الشخصي</p>
+        <img src="image/mainWhite.png">
+    </div>
+    
+    <div class="contentPageHeader">
+        
+        <div class="file is-boxed myImg">
+		  
+		<div class="personalPicture t0Mb0" id="mainBtn">
+			<div class="myMainPicture">
+				<div class="myPicture">
+					<div class="handControl relative">
+						<input class="file-input" type="file" onchange="hov(event)" name="resume" />
+						<span class="inputFileIcon">
+							<i class="material-icons golden">photo_camera</i>
+						</span>
+						<img id="myPhoto" class="borderRadius50">
+						
+					</div>
+				</div>
+			</div>
+			
+			<div id="btn"  class="file-label borderRadius50 personalPictureImg absolute t0Mb0">
+            <input class="file-input" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon relative">
+                <i class="material-icons golden personalPictureBtn fontSize18 absolute">photo_camera</i>
+              </span>
+            </span>
+          </div>
+        </div>
+          
+        </div>
+        
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="الإسم الأول">
+          </div>
+        </div>
+		
+		<div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="الإسم الأخير">
+          </div>
+        </div>
+        
+        <div class="field">
+          <div class="control has-icons-right">
+            <input class="input" type="text" placeholder="اسم المستخدم">
+            <span class="icon is-small is-right">
+              <i class="material-icons fontSize20">person</i>
+            </span>
+          </div>
+        </div>
+    
+    	<div class="field">
+          <p class="control has-icons-right">
+            <input class="input" type="text" placeholder="يوم/شهر/سنة">
+            <span class="icon is-small is-right">
+              <i class="material-icons fontSize18">date_range</i>
+            </span>
+          </p>
+        </div>
+		
+		<div class="field">
+          <p class="control has-icons-right">
+            <input class="input" type="text" placeholder="المدينة">
+            <span class="icon is-small is-right">
+              <i class="material-icons">person_pin_circle</i>
+            </span>
+          </p>
+        </div>
+		
+		<div class="field">
+		  <div class="control">
+			<textarea class="textarea" type="text" placeholder="اكتب سيرتك الذاتية..."></textarea>
+		  </div>
+		</div>
+	
+	</div>
+		
+        <footer class="lastDivision borderRadius50 width80 orderFooterBottom">
+			<div class="field">
+				  <p class="control">
+					<button class="button is-success">
+					  حفظ
+					</button>
+				  </p>
+				</div>
+
+			
+		</footer>
+    
+    
+    
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
