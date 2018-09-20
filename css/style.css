@@ -81,7 +81,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*                   circle                            */
 .centralCircle {
     width: 100%;
-    padding-top: 50%;
+    left: 0;
+    right: 0;
+    top: 100px;
     overflow: hidden;
 }
 .circle {
@@ -323,6 +325,11 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .contentPageHeader, .contentPageFooter, .bodyComments .communion, .reply {
     width: 80%;
     margin: 0 auto;
+}
+.contentPageFooter {
+	bottom: 0;
+    left: 0;
+    right: 0;
 }
 .contentPageHeader .control button, .footer .control button, .lastDivision .control button {
     width: 100%;

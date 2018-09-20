@@ -1,7 +1,7 @@
 <template>
-  <div class="homePage">
+  <div class="homePage relative">
 
-    <div class="centralCircle">
+    <div class="centralCircle absolute">
       <div class="circle">
       </div>
       <h1>Coretabs Fun</h1>
@@ -48,7 +48,7 @@
       </figure>
     </div>
 
-    <footer class="contentPageFooter orderFooterTop">
+    <footer class="contentPageFooter orderFooterTop absolute">
       <div class="buttonStarted">
         <router-link to="/signup"> 
           فلنبدأ
