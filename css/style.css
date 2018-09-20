@@ -83,7 +83,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     width: 100%;
     left: 0;
     right: 0;
-    top: 100px;
+    top: 35%;
     overflow: hidden;
 }
 .circle {
@@ -507,6 +507,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     left: 0;
     right: 0;
     top: 0;
+	width: 100%;
 }
 .myPicture:after {
 	content: "";
@@ -841,7 +842,7 @@ hr {
     position: relative;
     z-index: 9;
 }
-.myImage input[type="file"], .funPost input[type="file"], .personalPicture input[type="file"] {
+.myImage input[type="file"], .funPost input[type="file"], .personalPicture input[type="file"], .leftTextarea a input[type="file"] {
     opacity: 0;
     z-index: 10;
     position: absolute;
