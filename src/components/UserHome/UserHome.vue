@@ -81,15 +81,15 @@
         </div>
       </div>
     </div>
-      <footer class="bottomFooter box-shadow">
-        <ul>
-          <li><router-link class="actieFooterLink" :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
-          <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
-          <li><router-link to="#"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
-          <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-          <li><router-link  :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
-        </ul>
-      </footer>
+    <footer class="bottomFooter box-shadow">
+      <ul>
+        <li><router-link class="actieFooterLink" :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
+        <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
+        <li><router-link to="#"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
+        <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
+        <li><router-link  :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+      </ul>
+    </footer>
   </div>
 </template>
 
