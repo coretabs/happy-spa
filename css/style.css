@@ -81,7 +81,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*                   circle                            */
 .centralCircle {
     width: 100%;
-    padding-top: 50%;
+    left: 0;
+    right: 0;
+    top: 100px;
     overflow: hidden;
 }
 .circle {
@@ -324,6 +326,11 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     width: 80%;
     margin: 0 auto;
 }
+.contentPageFooter {
+	bottom: 0;
+    left: 0;
+    right: 0;
+}
 .contentPageHeader .control button, .footer .control button, .lastDivision .control button {
     width: 100%;
     background-color: #ffe600;
@@ -513,9 +520,8 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	z-index: 4;
 }
 .inputFileIcon {
-	height: 1.5em;
+	height: inherit;
     width: 1.5em;
-	padding: 2.5em;
 	align-items: center;
     display: flex;
 	justify-content: center;
@@ -524,11 +530,18 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	border: 2px #ffe600 solid!important;
 	width: 70px;
     height: 70px;
+	font-size: 0;
 	left: 0;
     right: 0;
     bottom: 50px;
     z-index: 3;
 	transition: all 0.5s ease 0s;
+}
+.personalPictureImg:hover {
+	background-color: #f7f5ec;
+}
+.personalPictureImg:active {
+	background-color: #efede6;
 }
 .personalPicture:hover .personalPictureImg {
 	bottom: -3px;
@@ -548,7 +561,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin: 0;
 }
 .personalPictureBtn {
-	top: 28px;
+	top: 45px;
 }
 
 /*           ****** manage links page ******               */
@@ -754,10 +767,11 @@ hr {
 }
 .bottomFooter ul {
     width: 100%;
+	font-size: 0;
 }
 .bottomFooter ul li {
     display: inline-block;
-    width: 18.5%;
+    width: 20%;
     text-align: center;
     padding: 5px 10px;
 }

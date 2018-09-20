@@ -18,7 +18,7 @@
 				<div class="myPicture">
 					<div class="handControl relative">
 						<input class="file-input" accept="image/*"  @change="file($event)" type="file"  name="resume" />
-						<span class="inputFileIcon">
+						<span class="inputFileIcon t0Mb0">
 							<i class="material-icons golden">photo_camera</i>
 						</span>
 						<img :src='previweUrl' class="borderRadius50">
@@ -94,7 +94,7 @@
 			<div class="field">
                 <p class="control">
                     <button class="button is-success" @click="sendInformation">
-                        حفظ
+                        تعديل الملف الشخصي
                     </button>
                 </p>
             </div>
