@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="overlay" v-show="display">
+  <div class="grayContentPage spaceFooter">
+    <div class="overlay" v-if="display">
       <div class="spinner">
       </div> 
     </div>	
-
-    <div class="grayContentPage spaceFooter" v-if="user">
       <header class="topHeader box-shadow">
           <a href="#" class="left">
               <i class="material-icons">more_vert</i>
@@ -13,7 +11,7 @@
         <p>logo</p>
       </header> 
           
-      <div class="backList box-shadow">
+      <div class="backList box-shadow" v-if="user">
         <div class="aboutMe center">
           <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
             <h1 id="h">{{user.profile.displayed_name}}</h1>
@@ -132,7 +130,6 @@
           <li><router-link class="actieFooterLink" :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
         </ul>
       </footer>
-    </div> 
   </div>
 </template>
 
