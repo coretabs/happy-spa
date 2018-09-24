@@ -67,7 +67,6 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 /*           ****** home page ******                   */
 .homePage {
 	background-color: #ffe600;
-	height: 100vh;
 }
 .height-0 {
 	height: 100vh;

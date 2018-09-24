@@ -6,6 +6,7 @@ import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
 import Signup from '@/components/Signup/Signup'
 import Information from '@/components/Information/Information'
+import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
 import UserHome from "@/components/UserHome/UserHome";
 
 Vue.use(Router)
@@ -45,6 +46,10 @@ export default new Router({
     {
       path : '/home',
       component : UserHome
+    },
+    {
+      path : '/VerificationStep2',
+      component : VerificationStep2
     }
   ]
 })
