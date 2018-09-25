@@ -2,9 +2,9 @@
     <div class="grayContentPage">
         
         <div class="mianHeader">
-            <router-link to = "login">
-                    <i class="material-icons">arrow_forward</i>
-            </router-link>
+            <a @click="$router.go(-1)">
+                <i class="material-icons">arrow_forward</i>
+            </a>
             <p>هل نسيت كلمة المرور؟</p>
             <img src="@/../image/mainWhite.png">
         </div>

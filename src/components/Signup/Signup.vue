@@ -1,9 +1,9 @@
 <template>
     <div class="grayContentPage">  
         <div class="mianHeader">
-            <router-link to = "/">
+            <a @click="$router.go(-1)">
                 <i class="material-icons">arrow_forward</i>
-            </router-link>
+            </a>
             <p>حساب جديد</p>
             <img src="@/../image/mainWhite.png">
         </div>

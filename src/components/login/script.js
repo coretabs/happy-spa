@@ -9,14 +9,14 @@ export default {
             username : '',
             password : '',
             passwordType : 'password',
-            iconChenge : this.passwordType === 'password' ? 'fa-eye-slash' : 'fas fa-eye',
+            icon : 'remove_red_eye',
             info : ''
         }
     },
     methods : {
         showPassword () {
             this.passwordType = this.passwordType === 'password' ?  'text' : 'password'
-            this.iconChenge = this.passwordType === 'password' || this.password === '' ? 'fas fa-eye' : 'fas fa-eye-slash';
+            this.icon = this.passwordType === 'password' ? 'remove_red_eye' : 'visibility_off';
         },
         postInfo () {
             if (this.password && this.username) {
@@ -34,6 +34,7 @@ export default {
                 Corefun.login(this.info)
                 .then(re => {
                     this.$store.commit('setUserInfo', re)
+                    delete re.posts
                     Cookies.set('logedinUser' , re , { expires: 365 })
                     if (this.$route.query.from){
                         this.$router.push(`${this.$route.query.from}?id=${Cookies.getJSON('logedinUser').user.username}/`)

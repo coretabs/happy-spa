@@ -4,10 +4,11 @@
       <div class="spinner">
       </div> 
     </div>	
+
       <header class="topHeader box-shadow">
-          <a href="#" class="left">
-              <i class="material-icons">more_vert</i>
-          </a>
+          <router-link to='/more' class="left">
+            <i class="material-icons">more_vert</i>
+          </router-link>
         <p>logo</p>
       </header> 
           
@@ -82,19 +83,19 @@
           
           <div class="wasm">
             <a href="#"><i class="material-icons">
-			label</i>meme</a>
+			        label</i>meme</a>
             <span></span>
             <a href="#"><i class="material-icons">
-			label</i>meme</a>
+			        label</i>meme</a>
             <span></span>
             <a href="#"><i class="material-icons">
-			label</i>meme</a>
+			        label</i>meme</a>
             <span></span>
             <a href="#"><i class="material-icons">
-			label</i>meme</a>
+			        label</i>meme</a>
             <span></span>
             <a href="#"><i class="material-icons">
-			label</i>meme</a>
+			        label</i>meme</a>
           </div>
           <div class="showAll">
             <a href="#">عرض الكل</a>
@@ -102,21 +103,18 @@
           
         </div>
         
-        <div class="bodyAnswer" v-if="post.top_comment.content != ''">
+        <div class="bodyAnswer" v-if="post.top_comment">
           <div class="answer">
             <div class="personPost">
-              <a href="#">
-                <img src="image/cat.jpg">
-              </a>
-              <a href="#" class="personName">اسم المستخدم</a>
+              <router-link :to="`/profile?id=${post.author}`">
+                <img :src="post.top_comment.author_avatar">
+              </router-link>
+              <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.top_comment.author}}</router-link>
             </div>
-            
             <div class="answerPara">
-              <p>meow meow</p>
+              <p>{{post.top_comment.content}}</p>
             </div>
-            
-          </div>
-          
+          </div> 
         </div>
         
       </div>
@@ -125,9 +123,9 @@
         <ul>
           <li><router-link  :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
           <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
-          <li><router-link to="#"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
+          <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
           <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-          <li><router-link class="actieFooterLink" :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+          <li><router-link class="actieFooterLink" :to="`/profile?id=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
         </ul>
       </footer>
   </div>
