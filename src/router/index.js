@@ -11,9 +11,8 @@ import UserHome from "@/components/UserHome/UserHome"
 import More from '@/components/More/More'
 import Settings from '@/components/Settings/Settings'
 import NewPost from '@/components/NewPost/NewPost'
-
 import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
-import UserHome from "@/components/UserHome/UserHome"
+
 
 
 Vue.use(Router)
