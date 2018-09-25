@@ -6,15 +6,12 @@ import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
 import Signup from '@/components/Signup/Signup'
 import Information from '@/components/Information/Information'
-<<<<<<< HEAD
 import UserHome from "@/components/UserHome/UserHome"
 import More from '@/components/More/More'
 import Settings from '@/components/Settings/Settings'
 import NewPost from '@/components/NewPost/NewPost'
-=======
 import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
 import UserHome from "@/components/UserHome/UserHome";
->>>>>>> f7b9bbadab3e2ed3f430256156c4a7b41b3a986c
 
 Vue.use(Router)
 
@@ -55,7 +52,6 @@ export default new Router({
       component : UserHome
     },
     {
-<<<<<<< HEAD
       path : '/more',
       component : More
     },
@@ -66,10 +62,10 @@ export default new Router({
     {
       path : '/newpost',
       component : NewPost
-=======
+    },
+    {
       path : '/VerificationStep2',
       component : VerificationStep2
->>>>>>> f7b9bbadab3e2ed3f430256156c4a7b41b3a986c
     }
   ]
 })
