@@ -1,5 +1,5 @@
 <template>
-  <div class="homePage relative">
+  <div class="homePage relative height-0">
 
     <div class="centralCircle absolute">
       <div class="circle">
