@@ -2,9 +2,9 @@
     <div class="grayContentPage spaceFooterS">
     
         <div class="mianHeader">
-            <router-link :to="'/'">
+            <a @click="$router.go(-1)">
                 <i class="material-icons">arrow_forward</i>
-            </router-link>
+            </a>
             <p>تعديل الملف الشخصي</p>
             <img src="@/../image/mainWhite.png">
         </div>

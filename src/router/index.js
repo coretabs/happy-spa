@@ -6,7 +6,10 @@ import LoginPage from '@/components/login/LoginPage'
 import Forgot from '@/components/ForgotPassword/Forgot'
 import Signup from '@/components/Signup/Signup'
 import Information from '@/components/Information/Information'
-import UserHome from "@/components/UserHome/UserHome";
+import UserHome from "@/components/UserHome/UserHome"
+import More from '@/components/More/More'
+import Settings from '@/components/Settings/Settings'
+import NewPost from '@/components/NewPost/NewPost'
 
 Vue.use(Router)
 
@@ -45,6 +48,18 @@ export default new Router({
     {
       path : '/home',
       component : UserHome
+    },
+    {
+      path : '/more',
+      component : More
+    },
+    {
+      path : '/settings',
+      component : Settings
+    },
+    {
+      path : '/newpost',
+      component : NewPost
     }
   ]
 })

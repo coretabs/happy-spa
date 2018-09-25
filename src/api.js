@@ -9,14 +9,7 @@ const appService = {
       axios.post('/api/v1/auth/login/' , data)
         .then(res => {
           resolve(res.data)
-          axios.post('/api/v1/auth/token/', data)
-          .then (re => {
-            Cookies.set('token' , String(re.data.token) , { expires: 365 })
-          })
-          .catch(er => {
-            Cookies.remove('logedinUser')
-            alert('try again please')
-          })
+          console.log(data , res)
         })
         .catch(err => {
           reject(err)
@@ -47,11 +40,9 @@ const appService = {
   },
   information : data => {
     return new Promise((resolve, reject) => {
-      console.log(axios.defaults.headers.common)
-
       axios.put('/api/v1/auth/user/' , data , {
         headers : {
-          authorization: `JWT ${Cookies.get('token')}`,
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
           'Content-Type': 'multipart/form-data'
         }
       })
@@ -61,6 +52,7 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -72,6 +64,24 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+        })
+    })
+  },
+  newPost : (data) => {
+    return new Promise((resolve, reject) => {
+      axios.post('/api/v1/posts/' , data , {
+        headers : {
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then(res => {
+          resolve(res.data)
+          console.log(res)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err)
         })
     })
   }

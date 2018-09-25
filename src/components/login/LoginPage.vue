@@ -1,9 +1,9 @@
 <template>
     <div class="grayContentPage">        
         <div class="mianHeader">
-            <router-link to = "/">
-                    <i class="material-icons">arrow_forward</i>
-            </router-link>
+            <a @click="$router.go(-1)">
+                <i class="material-icons">arrow_forward</i>
+            </a>
             <p>تسجيل الدخول</p>
             <img src="@/../image/mainWhite.png">
         </div>
@@ -25,7 +25,7 @@
                         <i class="material-icons fontSize15">lock</i>
                     </span>
                     <span class="icon is-small is-left eyePWD" id="eye" @click="showPassword">
-                        <i class="material-icons fontSize20">remove_red_eye</i>
+                        <i class="material-icons fontSize20">{{icon}}</i>
                     </span>
                 </p>
             </div>

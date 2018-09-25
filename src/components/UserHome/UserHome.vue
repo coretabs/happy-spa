@@ -7,11 +7,11 @@
     </div>	  
 
     <header class="topHeader box-shadow">
-      <router-link to='/' class="left">
-          <i class="material-icons">more_vert</i>
+      <router-link to='/more' class="left">
+        <i class="material-icons">more_vert</i>
       </router-link>
       <p>logo</p>
-    </header> 
+    </header>
 
     <div class="backList box-shadow" v-if="posts"  v-for="post in posts" :key="post.id">
       <div class="backgroundSend">
@@ -37,10 +37,10 @@
         </div>
           
         <div class="personPost">
-          <a :href="post.author">
-            <img src='@/../image/cat.jpg'>
-          </a> 
-          <router-link :to="`/profile/${post.author}`" class="personName">{{post.author}}</router-link>
+          <router-link :to="`/profile?id=${post.author}`">
+            <img :src='post.author_avatar'>
+          </router-link> 
+          <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.author}}</router-link>
         </div>
         
       </div>
@@ -65,29 +65,28 @@
         </div>
       </div>
       
-      <div class="bodyAnswer" v-if="post.top_comment.content != ''">
+      <div class="bodyAnswer" v-if="post.top_comment">
         <div class="answer">
           <div class="personPost">
-            <a href="#">
-              <img src="@/../image/cat.jpg">
-            </a>
-            <a href="#" class="personName"></a>
+            <router-link :to="`/profile?id=${post.author}`">
+              <img :src="post.top_comment.author_avatar">
+            </router-link>
+            <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.top_comment.author}}</router-link>
           </div>
-          
           <div class="answerPara">
-            <p>meow meow</p>
+            <p>{{post.top_comment.content}}</p>
           </div>
-        
-        </div>
+        </div> 
       </div>
+
     </div>
     <footer class="bottomFooter box-shadow">
       <ul>
         <li><router-link class="actieFooterLink" :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
         <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
-        <li><router-link to="#"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
+        <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
         <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-        <li><router-link  :to="`/profile?=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+        <li><router-link  :to="`/profile?id=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
       </ul>
     </footer>
   </div>
