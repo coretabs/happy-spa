@@ -70,7 +70,7 @@ export default {
                 Corefun.singup(this.info)
                 .then(re => {
                     console.log(re)
-                    this.$router.push('')
+                    this.$router.push('/verificationstep2')
                 })
                 .catch(er => console.log(er))
             } else {

@@ -10,13 +10,8 @@ import UserHome from "@/components/UserHome/UserHome"
 import More from '@/components/More/More'
 import Settings from '@/components/Settings/Settings'
 import NewPost from '@/components/NewPost/NewPost'
-<<<<<<< HEAD
 import Post from '@/components/Post/Post'
-//import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
-=======
 import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
-import UserHome from "@/components/UserHome/UserHome";
->>>>>>> a17d3a5204851cd0d756670e2abf6b0c5b1c9e0a
 
 Vue.use(Router)
 
@@ -66,24 +61,15 @@ export default new Router({
     },
     {
       path : '/newpost',
-<<<<<<< HEAD
       component : NewPost,
     },
     {
       path : '/post',
       component : Post
-    }/*,
-    {
-      path : '/verificationStep2',
-      component : VerificationStep2
-    }*/
-=======
-      component : NewPost
     },
     {
-      path : '/VerificationStep2',
+      path : '/verificationstep2',
       component : VerificationStep2
     }
->>>>>>> a17d3a5204851cd0d756670e2abf6b0c5b1c9e0a
   ]
 })
