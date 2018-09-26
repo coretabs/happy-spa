@@ -47,7 +47,7 @@
 
       <div class="backList box-shadow" v-for="post in user.posts" :key="post.id">
         <div class="backgroundSend">
-          <div class="bgTextSend bgTextAndImageSend">
+          <div @click="$router.push(`/post?postid=${post.id}`)"  class="bgTextSend bgTextAndImageSend">
             <div class="textSend">
             <p v-if="post.content != ''"> {{ post.content }}</p>
             </div>

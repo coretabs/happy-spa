@@ -34,7 +34,7 @@ export default {
                 Corefun.login(this.info)
                 .then(re => {
                     this.$store.commit('setUserInfo', re)
-                    delete re.posts
+                    delete re.user.posts
                     Cookies.set('logedinUser' , re , { expires: 365 })
                     if (this.$route.query.from){
                         this.$router.push(`${this.$route.query.from}?id=${Cookies.getJSON('logedinUser').user.username}/`)
