@@ -1339,7 +1339,7 @@ hr {
 }
 .footerAndChat .chat textarea {
 	padding-right: 3em;
-    padding-left: 5em;
+    padding-left: 3em;
 	font-weight: bold;
 }
 .chat a {
@@ -1349,20 +1349,27 @@ hr {
 .iconLeft a {
 	display: inline-block;
 }
-.chat .left {
-	position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-}
-.chat .left a {
+.chat .right a {
 	position: initial!important;
 }
-.leftTextarea {
-	padding: 0 15px;
+.chat .left, .chat .right {
+	position: absolute;
+    top: 0;
 }
-.leftTextarea a {
-	width: 1.5em!important;
+.rightTextarea {
+	margin: 3px;
+}
+.rightTextarea a {
+	background-color: #eceff1;
+    border-radius: 50%;
+    width: 40px!important;
+    height: 40px!important;
+}
+.rightTextarea a:hover {
+	background-color: #ffe600;
+}
+.rightTextarea a i {
+	color: white;
 }
 
 /*           ****** reset password ******                 */
