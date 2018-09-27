@@ -55,12 +55,7 @@ export default new Router({
       component : UserHome
     },
     {
-<<<<<<< HEAD
 
-||||||| merged common ancestors
-<<<<<<< HEAD
-=======
->>>>>>> f92c00a68f51a0fddf49b3a7d5b9793b3721adb0
       path : '/more',
       component : More
     },
@@ -70,17 +65,7 @@ export default new Router({
     },
     {
       path : '/newpost',
-<<<<<<< HEAD
       component : NewPost
-    },
-    {
-      path : '/VerificationStep2',
-||||||| merged common ancestors
-      component : NewPost
-=======
-      path : '/VerificationStep2',
-=======
-      component : NewPost,
     },
     {
       path : '/post',
@@ -88,14 +73,7 @@ export default new Router({
     },
     {
       path : '/verificationstep2',
->>>>>>> f92c00a68f51a0fddf49b3a7d5b9793b3721adb0
       component : VerificationStep2
-<<<<<<< HEAD
-
-||||||| merged common ancestors
->>>>>>> f7b9bbadab3e2ed3f430256156c4a7b41b3a986c
-=======
->>>>>>> f92c00a68f51a0fddf49b3a7d5b9793b3721adb0
     }
   ]
 })
