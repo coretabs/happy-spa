@@ -1118,9 +1118,13 @@ hr {
 .bgTextSend .communion {
 	padding: 15px;
 }
-.bgTextAndImageSend .bgImage, .bgTextSend .textSend, .bgTextSend hr {
+.bgTextSend hr, .bgTextSend .textSend {
 	width: 90%;
     margin: 10px auto 0;
+}
+.bgTextAndImageSend .bgImage {
+	max-width: 500px;
+	margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage img {
 	border-radius: 10px;
@@ -1180,12 +1184,10 @@ hr {
 	margin: 0;
 }
 .answerPara p {
-	line-height: 0;
+	line-height: 1.5;
     color: #485d67;
-}
-.answerPara p {
-    padding: 0px 20px 5px;
-    font-size: 12px;	
+	padding: 0px 20px 0px;
+    font-size: 12px;
 }
 .spaceFooterS {
 	margin-bottom: 50px;
