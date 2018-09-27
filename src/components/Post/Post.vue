@@ -77,7 +77,7 @@
                 <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
                 <a href="#"><i class="material-icons fontSize12">forum</i><span>{{comment.comments_count}}</span></a>
                 <a href="#" class="left headElements center CMTtime">
-                    <span>{{time_since}}</span>
+                    <span>{{comment.time_since}}</span>
                 </a>
             </div>
             </div> 
