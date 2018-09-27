@@ -1,5 +1,5 @@
 <template>
-    <div class="grayContentPage spaceFooter spaceHeaderH">
+    <div class="grayContentPage spaceFooterB spaceHeaderH">
        <header class="topHeader box-shadow">
             <a @click="$router.go(-1)">
                 <i class="material-icons">arrow_forward</i>
@@ -90,16 +90,16 @@
                 <div class="control has-icons-left has-icons-right">
                     <form action="" @submit="$event.preventDefault()"  method="POST">
                         <textarea class="textarea" type="text" v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
-                        <div class="left leftTextarea">
+                        <div class="rightTextarea right">
                             <a class="icon is-small">
-                                <i @click="addcomment"  class="material-icons fontSize20">chevron_right</i>
+                                <i @click="addcomment"  class="material-icons fontSize20">send</i>
                             </a>
                             <a v-if="false" class="icon is-small">
                                 <i  class="material-icons fontSize20">insert_emoticon</i>
                             </a>
                         </div>
                         <div class="personChat">
-                            <a class="icon is-small is-right">
+                            <a class="icon is-small left ">
                                 <img :src="avatar">
                             </a>
                         </div>
