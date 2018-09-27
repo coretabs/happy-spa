@@ -1114,6 +1114,10 @@ hr {
 .bgTextSend .textSend p {
 	padding: 15px 0;
 }
+.bgTextSend .textSend p, .answerPara p {
+	word-wrap: break-word;
+    word-break: break-word;
+}
 
 .bgTextSend .communion {
 	padding: 15px;
