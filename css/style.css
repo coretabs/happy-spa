@@ -1349,27 +1349,30 @@ hr {
 .iconLeft a {
 	display: inline-block;
 }
-.chat .right a {
+.chat .left a {
 	position: initial!important;
 }
 .chat .left, .chat .right {
 	position: absolute;
     top: 0;
 }
-.rightTextarea {
+.leftTextarea, .personChat a {
 	margin: 3px;
 }
-.rightTextarea a {
+.leftTextarea a {
 	background-color: #eceff1;
     border-radius: 50%;
-    width: 40px!important;
-    height: 40px!important;
 }
-.rightTextarea a:hover {
+.leftTextarea a:hover {
 	background-color: #ffe600;
 }
-.rightTextarea a i {
+.leftTextarea a i {
 	color: white;
+	transform: rotate(180deg);
+}
+.leftTextarea a, .personChat a, .personChat a img {
+	width: 40px!important;
+    height: 40px!important;
 }
 
 /*           ****** reset password ******                 */
