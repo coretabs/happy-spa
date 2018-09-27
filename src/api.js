@@ -67,12 +67,38 @@ const appService = {
         })
     })
   },
-  newPost : (data) => {
+  newPost : data => {
     return new Promise((resolve, reject) => {
       axios.post('/api/v1/posts/' , data , {
         headers : {
           authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
           'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+  post : id => {
+    return new Promise((resolve, reject) => {
+      axios.get(`/api/v1/posts/${id}/`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+  comment : comment=> {
+    return new Promise((resolve, reject) => {
+      axios.post(`/api/v1/posts/${comment.postid}/comments/` , comment.data , {
+        headers : {
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
         }
       })
         .then(res => {

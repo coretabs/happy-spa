@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        #overlayAlert {
+                        display: none;
+                        opacity: 0.5;
+                        filter : blur(4px);
+                        position: fixed;
+                        top: 0px;
+                        left:0px;
+                        background: #fff;
+                        width: 100%;
+                        z-index: 40;
+                        height: 100vh;
+                        }
+        .zarAlert {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: #ffe600;
+                        font-size: 20px;
+                        color: white;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        }
+        #box {
+                        width: 70%;
+                        overflow: hidden;
+                        background: #f1f1f1;
+                        box-shadow: 0 0 20px black;
+                        border-radius: 8px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 50;
+                        padding: 10px;
+                        text-align: center;
+                        display: none;
+                        }
+        #box .iconAlert {
+                        color: #ffe600;
+                        display: block;
+                        margin: 20px 0;
+                        }
+        #box .iconAlert i {
+                        font-size: 40px;
+                        }
+        #box h2 {
+                        color: #485d67;
+                        }
+        .close {
+                        font-size: 20px;
+                        color: white;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        background: #ffe600;
+                        display: inline-block;
+                        border-radius: 5px;
+                        }
+    </style>
+</head>
+<body>
+    <div id="overlayAlert"></div>
+    <a onclick="pop()" class="zarAlert">Show Box</a>
+
+    <div id="box">
+    <span class="iconAlert">
+        <i class="material-icons">report</i>
+    </span>
+    <h2>Good Job</h2>
+    <a onclick="pop()" class="close">Close</a>
+    </div>
+
+    <script>
+        var c = 0;
+        function pop() {
+        if(c == 0){
+            document.getElementById("box").style.display = "block";
+            document.getElementById("overlayAlert").style.display = "block";
+            c = 1;
+            
+        }else{
+            document.getElementById("box").style.display = "none";
+            document.getElementById("overlayAlert").style.display = "none";
+            c = 0;
+        }
+        }
+    </script>
+</body>
+</html>

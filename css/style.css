@@ -37,6 +37,67 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
   display:block;
  }
 
+ /* alert */
+#overlayAlert {
+  display: none;
+  opacity: 0.5;
+  filter : blur(4px);
+  position: fixed;
+  top: 0px;
+  left:0px;
+  background: #fff;
+  width: 100%;
+  z-index: 40;
+  height: 100vh;
+}
+.zarAlert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffe600;
+  font-size: 20px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+#box {
+  width: 70%;
+  overflow: hidden;
+  background: #f1f1f1;
+  box-shadow: 0 0 20px black;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+#box .iconAlert {
+  color: #ffe600;
+  display: block;
+  margin: 20px 0;
+}
+#box .iconAlert i {
+  font-size: 40px;
+}
+#box h2 {
+  color: #485d67;
+}
+.close {
+  font-size: 20px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #ffe600;
+  display: inline-block;
+  border-radius: 5px;
+}
+ 
+
 .spinner {
     width: 80px;
     height: 80px;
