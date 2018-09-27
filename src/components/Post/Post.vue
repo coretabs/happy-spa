@@ -90,7 +90,7 @@
                 <div class="control has-icons-left has-icons-right">
                     <form action="" @submit="$event.preventDefault()"  method="POST">
                         <textarea class="textarea" type="text" v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
-                        <div class="rightTextarea right">
+                        <div class="leftTextarea left">
                             <a class="icon is-small">
                                 <i @click="addcomment"  class="material-icons fontSize20">send</i>
                             </a>
@@ -99,7 +99,7 @@
                             </a>
                         </div>
                         <div class="personChat">
-                            <a class="icon is-small left ">
+                            <a class="icon is-small right">
                                 <img :src="avatar">
                             </a>
                         </div>
