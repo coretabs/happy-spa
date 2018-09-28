@@ -62,7 +62,7 @@
           </div>
             
           <div class="myMenu">
-            <a href="#" class="left darkBlue">
+            <a href="#" class="left whiteGray">
               <span>{{post.time_since}}</span>
               <i class="material-icons">more_vert</i>
             </a>

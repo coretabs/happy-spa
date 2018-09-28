@@ -1127,13 +1127,12 @@ hr {
     margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage {
-	max-width: 500px;
+    max-width: 500px;
+    width: 90%;
 	margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage img {
 	border-radius: 10px;
-    height: 12em;
-    width: 100%;
 }
 
 .CMTtime, .bgImageSend .communion, .share4All {
