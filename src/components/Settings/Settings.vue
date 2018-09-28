@@ -1,5 +1,5 @@
 <template>
-    <div class="grayContentPage setting">
+    <div class="grayContentPage setting height-0">
         <header class="topHeader box-shadow">
             <a @click="$router.go(-1)">
                 <i class="material-icons">arrow_forward</i>

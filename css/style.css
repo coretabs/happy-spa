@@ -1114,13 +1114,21 @@ hr {
 .bgTextSend .textSend p {
 	padding: 15px 0;
 }
+.bgTextSend .textSend p, .answerPara p {
+	word-wrap: break-word;
+    word-break: break-word;
+}
 
 .bgTextSend .communion {
 	padding: 15px;
 }
-.bgTextAndImageSend .bgImage, .bgTextSend .textSend, .bgTextSend hr {
+.bgTextSend hr, .bgTextSend .textSend {
 	width: 90%;
     margin: 10px auto 0;
+}
+.bgTextAndImageSend .bgImage {
+	max-width: 500px;
+	margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage img {
 	border-radius: 10px;
@@ -1180,15 +1188,16 @@ hr {
 	margin: 0;
 }
 .answerPara p {
-	line-height: 0;
+	line-height: 1.5;
     color: #485d67;
-}
-.answerPara p {
-    padding: 0px 20px 5px;
-    font-size: 12px;	
+	padding: 0px 20px 0px;
+    font-size: 12px;
 }
 .spaceFooterS {
 	margin-bottom: 50px;
+}
+.spaceFooterSP {
+	padding-bottom: 50px:
 }
 .spaceFooter {
 	margin-bottom: 70px;
@@ -1337,7 +1346,7 @@ hr {
 }
 .footerAndChat .chat textarea {
 	padding-right: 3em;
-    padding-left: 5em;
+    padding-left: 3em;
 	font-weight: bold;
 }
 .chat a {
@@ -1347,20 +1356,30 @@ hr {
 .iconLeft a {
 	display: inline-block;
 }
-.chat .left {
-	position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-}
 .chat .left a {
 	position: initial!important;
 }
-.leftTextarea {
-	padding: 0 15px;
+.chat .left, .chat .right {
+	position: absolute;
+    top: 0;
+}
+.leftTextarea, .personChat a {
+	margin: 3px;
 }
 .leftTextarea a {
-	width: 1.5em!important;
+	background-color: #eceff1;
+    border-radius: 50%;
+}
+.leftTextarea a:hover {
+	background-color: #ffe600;
+}
+.leftTextarea a i {
+	color: white;
+	transform: rotate(180deg);
+}
+.leftTextarea a, .personChat a, .personChat a img {
+	width: 40px!important;
+    height: 40px!important;
 }
 
 /*           ****** reset password ******                 */
