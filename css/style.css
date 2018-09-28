@@ -1050,6 +1050,9 @@ hr {
 .aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a, .communion a {
 	color: #485d67!important;
 }
+.whiteGray {
+    color: #cdd6da!important;
+}
 .aboutMe h1 {
 	font-size: 20px;
     font-weight: bold;
