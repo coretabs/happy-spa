@@ -23,7 +23,8 @@ export default {
     data : () => {
       return {
         posts : '',
-        loading : true
+        loading : true,
+        media : {}
       }
     },
     methods : {
@@ -32,6 +33,9 @@ export default {
         .then (re => { 
           this.posts = re
           this.loading = false
+          re.forEach( post => {
+            this.media[post.id]  =  post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
+          })
         })
       }
     }

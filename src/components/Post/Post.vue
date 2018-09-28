@@ -14,7 +14,12 @@
                 <p v-if="post.content != ''"> {{ post.content }}</p>
             </div>
             <div class="bgImage" v-if="post.mediafile">
-                <img :src="post.mediafile">
+                <img :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
+                <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
+                    <video controls="" autoplay="false"   name="media" >
+                        <source :src="post.mediafile" >
+                    </video>
+                </div>
             </div>
             <div class="communion center fullWidth">
                 <a href="#"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
@@ -62,25 +67,25 @@
         <hr>
 
         <div class="bodyAnswer" v-if="post.comments.length != 0" v-for="comment in post.comments" :key="comment.id">
-            <div class="answer">
-            <div class="personPost">
-                <router-link :to="`/profile?id=${comment.author}`">
-                    <img :src="comment.author_avatar">
-                </router-link>
-                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
-            </div>
-            <div class="answerPara">
-                <p>{{comment.content}}</p>
-            </div>
-            <div class="communion" v-if="comment.likes_count">
-                <a href="#"><i class="material-icons fontSize12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+            <div @click="$router.push({ path : '/comment' , query : {postid : id , commentid : comment.id} })" class="answer">
+                <div class="personPost">
+                    <router-link :to="`/profile?id=${comment.author}`">
+                        <img :src="comment.author_avatar">
+                    </router-link>
+                    <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                </div>
+                <div class="answerPara">
+                    <p>{{comment.content}}</p>
+                </div>
+            </div> 
+            <div class="communion">
+                <a href="#"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
                 <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-                <a href="#"><i class="material-icons fontSize12">forum</i><span>{{comment.comments_count}}</span></a>
+                <a @click="$router.push({ path : '/comment' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
                 <a href="#" class="left headElements center CMTtime">
                     <span>{{comment.time_since}}</span>
                 </a>
             </div>
-            </div> 
         </div>
 
         </div>
@@ -108,66 +113,15 @@
                 </div>
             </div>
             <ul>
-                <li><router-link :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
+                <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
                 <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
                 <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
                 <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-                <li><router-link :to="`/profile?id=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+                <li><router-link to="/profile" ><i class="material-icons fontSize30">person</i></router-link></li>
             </ul>
         </footer>
     </div>
 </template>
 
-<script>
-import Corefun from '@/api'
-import Cookies from 'js-cookie'
-
-export default {
-    
-    data : () => {
-        return {
-            id : '',
-            post : '',
-            avatar :'',
-            commentTxt : '',
-        }
-    },
-    created () {
-        if (this.$route.query.postid) {
-            this.id = this.$route.query.postid
-            this.update()
-            if (Cookies.getJSON('logedinUser').user) {
-                this.avatar = Cookies.getJSON('logedinUser').user.avatar_url
-            } else {
-                this.avatar = undefined
-            }
-        } else {
-            $router.push('/home')
-        }
-    },
-    methods : {
-        addcomment () {
-            if (this.commentTxt) {
-                let Comment = {
-                    data : {
-                        content : this.commentTxt
-                    },
-                    postid : this.id
-                }
-                Corefun.comment(Comment).then(re => {
-                    this.update()
-                })
-            } else {
-                console.log('eroor')
-            }
-        },
-        update () {
-            Corefun.post(this.id)
-            .then(re => {
-                this.post = re
-            })
-        }
-    }
-}
-</script>
+<script src='./script.js'></script>
 
