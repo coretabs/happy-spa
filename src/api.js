@@ -3,16 +3,16 @@ import Cookies from 'js-cookie'
 
 axios.defaults.baseURL = 'https://corefun.herokuapp.com' 
 
-const appService = {
+export default {
   login : data => {
     return new Promise((resolve, reject) => {
       axios.post('/api/v1/auth/login/' , data)
         .then(res => {
           resolve(res.data)
-          console.log(data , res)
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -24,6 +24,7 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -35,6 +36,7 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -64,6 +66,7 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -80,6 +83,7 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
@@ -91,10 +95,11 @@ const appService = {
         })
         .catch(err => {
           reject(err)
+          console.log(err)
         })
     })
   },
-  comment : comment=> {
+  addComment : comment=> {
     return new Promise((resolve, reject) => {
       axios.post(`/api/v1/posts/${comment.postid}/comments/` , comment.data , {
         headers : {
@@ -103,14 +108,39 @@ const appService = {
       })
         .then(res => {
           resolve(res.data)
-          console.log(res)
         })
         .catch(err => {
           reject(err)
           console.log(err)
         })
     })
-  }
+  },
+  comment : (postid , commentid) => {
+    return new Promise((resolve, reject) => {
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err)
+        })
+    })
+  },
+  addReply : reply => {
+    return new Promise((resolve, reject) => {
+      axios.post(`/api/v1/posts/${reply.postid}/comments/${reply.commentid}/replies/` , reply.data , {
+        headers : {
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
+        }
+      })
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err)
+        })
+    })
+  },
 }
-
-export default appService
