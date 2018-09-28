@@ -13,6 +13,7 @@ import Settings from '@/components/Settings/Settings'
 import NewPost from '@/components/NewPost/NewPost'
 
 import Post from '@/components/Post/Post'
+import Comments from '@/components/Comments/Comments'
 import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
 
 
@@ -69,11 +70,15 @@ export default new Router({
     },
     {
       path : '/post',
-      component : Post
+      component : Post,
     },
     {
       path : '/verificationstep2',
       component : VerificationStep2
+    },
+    {
+      path : '/comment',
+      component : Comments
     }
   ]
 })

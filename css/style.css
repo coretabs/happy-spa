@@ -1089,10 +1089,10 @@ hr {
 	height: auto;
 	line-height: 0.75;
 }
-.backgroundSend .bgImageSend img {
+.backgroundSend .bgImageSend img , .backgroundSend .bgImageSend video  {
     height: 15em;	
 }
-.backgroundSend, .backgroundSend .bgImageSend img {
+.backgroundSend, .backgroundSend .bgImageSend img , .backgroundSend, .backgroundSend .bgImageSend video {
     border-radius: 15px 15px 0 0;
 	width: 100%;
 	position: relative;
@@ -1114,6 +1114,10 @@ hr {
 .bgTextSend .textSend p {
 	padding: 15px 0;
 }
+.bgTextSend .textSend p, .answerPara p {
+	word-wrap: break-word;
+    word-break: break-word;
+}
 
 .bgTextSend .communion {
 	padding: 15px;
@@ -1126,7 +1130,7 @@ hr {
 	max-width: 500px;
 	margin: 10px auto 0;
 }
-.bgTextAndImageSend .bgImage img {
+.bgTextAndImageSend .bgImage img , .bgTextAndImageSend .bgImage video {
 	border-radius: 10px;
     height: 12em;
     width: 100%;
@@ -1191,6 +1195,9 @@ hr {
 }
 .spaceFooterS {
 	margin-bottom: 50px;
+}
+.spaceFooterSP {
+	padding-bottom: 50px;
 }
 .spaceFooter {
 	margin-bottom: 70px;

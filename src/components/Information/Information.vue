@@ -1,5 +1,5 @@
 <template>
-    <div class="grayContentPage spaceFooterS">
+    <div class="grayContentPage spaceFooterSP">
     
         <div class="mianHeader">
             <a @click="$router.go(-1)">
@@ -90,7 +90,7 @@
         
         </div>
 		
-        <footer class="lastDivision borderRadius50 width80 orderFooterBottom">
+        <footer class="lastDivision borderRadius50 width80">
 			<div class="field">
                 <p class="control">
                     <button class="button is-success" @click="sendInformation">
