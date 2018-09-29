@@ -1411,6 +1411,8 @@ hr {
     z-index: 20;
     background-color: white;
     border-radius: 10px;
+    left: 10px;
+    top: 50px;
 }
 .menuPost a {
     color: #cdd6da;
