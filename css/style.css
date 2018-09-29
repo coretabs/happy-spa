@@ -1414,6 +1414,8 @@ hr {
 }
 .menuPost a {
     color: #cdd6da;
+    display: block;
+    padding: 15px;
 }
 
 
