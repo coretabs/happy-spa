@@ -20,7 +20,7 @@
             <p v-if="post.content != ''"> {{ post.content }}</p>
           </div>
           <div class="bgImage" v-if="post.mediafile">
-            <img :src="post.mediafile" v-if="media[post.id] != 'mp4'">
+            <img class="box-shadow" :src="post.mediafile" v-if="media[post.id] != 'mp4'">
             <div v-if="media[post.id]== 'mp4'">
               <video controls="" autoplay="false"   name="media" >
                 <source :src="post.mediafile" >
