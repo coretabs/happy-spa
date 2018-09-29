@@ -803,7 +803,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     padding: 10px 0;
     background-color: white;
 }
-.headContainer, .addTags, .backList hr {
+.headContainer, .addTags, .backList hr, .menuPost hr {
     width: 90%;
     margin: 0 auto;
 }
@@ -1403,6 +1403,19 @@ hr {
 .wrongValue {
 	color: #ff3860!important;
 }
+
+/*      menu post       */
+
+.menuPost {
+    width: 35%;
+    z-index: 20;
+    background-color: white;
+    border-radius: 10px;
+}
+.menuPost a {
+    color: #cdd6da;
+}
+
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
