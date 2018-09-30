@@ -6,8 +6,8 @@
                 <i class="material-icons">arrow_forward</i>
             </a>
             <p>logo</p>
-            <a @click="postSend"  class="share">
-            نشر
+            <a @click="postSend"  v-if="!disable"   class="share">
+                نشر
             </a>
         </header> 
             
@@ -77,11 +77,11 @@
 
         <footer class="bottomFooter box-shadow">
             <ul>
-                <li><router-link  :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
+                <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
                 <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
                 <li><router-link class="actieFooterLink" to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
                 <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-                <li><router-link :to="`/profile?id=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+                <li><router-link to="/profile?id=${$route.query.id}" ><i class="material-icons fontSize30">person</i></router-link></li>
             </ul>
       </footer>
     </div>

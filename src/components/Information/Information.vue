@@ -93,7 +93,7 @@
         <footer class="lastDivision borderRadius50 width80">
 			<div class="field">
                 <p class="control">
-                    <button class="button is-success" @click="sendInformation">
+                    <button :disabled='disable'  class="button is-success" @click="sendInformation">
                         تعديل الملف الشخصي
                     </button>
                 </p>

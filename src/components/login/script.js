@@ -10,7 +10,9 @@ export default {
             password : '',
             passwordType : 'password',
             icon : 'remove_red_eye',
-            info : ''
+            info : '',
+            Error : false,
+            ErrorMsg : 'راسلنا رجاء'
         }
     },
     methods : {
@@ -43,9 +45,26 @@ export default {
                     }
                 })
                 
-                .catch(er => console.log(er))
+                .catch(er => {
+                    this.Error = true
+                    this.ErrorMsg = 'الرجاء التحقق من اسم المستخدم وكلمة المرور'
+                    this.showErorr()
+                })
+            } else {
+                this.Error = true
+                this.ErrorMsg = 'كل من المستخدم و كلمة المرور مطلوبان'
+                this.showErorr()
             }
         },
+        showErorr () {
+            if (this.Error) {
+                document.querySelector('#box').style.display =  'block'
+                document.querySelector('.grayContentPage').classList.add('blur')
+            } else {
+                document.querySelector('#box').style.display =  'none'
+                document.querySelector('.grayContentPage').classList.remove('blur')
+            }
+        }
     },
     computed : {
         ...mapState([
@@ -54,7 +73,7 @@ export default {
     },
     created () {
         if (Cookies.getJSON('logedinUser')) {
-            this.$router.push(`/profile?id=${Cookies.getJSON('logedinUser').user.username}/`)
+            this.$router.push(`/home?id=${Cookies.getJSON('logedinUser').user.username}/`)
         }
     }
 }
