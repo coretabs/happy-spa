@@ -50,7 +50,6 @@ export default {
       })
         .then(res => {
           resolve(res.data)
-          Cookies.set('logedinUser' , { user : res.data} , { expires: 365 })
         })
         .catch(err => {
           reject(err)

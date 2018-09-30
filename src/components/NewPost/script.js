@@ -7,7 +7,8 @@ export default {
             profile : '',
             mediaFile : '',
             postContent : '',
-            post : new FormData()
+            post : new FormData(),
+            disable : false
         }
     },
     created () {
@@ -25,9 +26,13 @@ export default {
         },
         postSend () {
             if (this.mediaFile || this.postContent) {
-                this.post.append('content' , this.postContent)
-                this.post.append('mediafile' , this.mediaFile)
-                Corefun.newPost(this.post)
+                this.disable = true
+                this.postContent ? this.post.append('content' , this.postContent) : ''
+                this.mediaFile ? this.post.append('mediafile' , this.mediaFile) : ''
+                Corefun.newPost(this.post).then (re => {
+                    console.log(re)
+                    this.$router.push('/home')
+                })
             } else {
                 this.$router.push('/home')
             }
