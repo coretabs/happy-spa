@@ -11,11 +11,11 @@ export default {
                 'is-success': false,
                 'wrongValue' : false
             },
-            emailErrorMsg : !this.isEmailValid && this.email,
+            emailErrorMsg : false,
             password1: '',
-            password1ErrorMsg: !this.isPasswordValid && this.password1,
+            password1ErrorMsg: false,
             password2: '',
-            password2ErrorMsg: !this.isPassword2Valid && this.password2,
+            password2ErrorMsg: false,
             isPasswordValid: '',
             isPassword2Valid: '',
             passwordClassOject : {
@@ -32,7 +32,10 @@ export default {
             },
             passwordType : 'password',
             icon : 'remove_red_eye',
-            info : {}
+            info : {},
+            button : false,
+            Error : false,
+            ErrorMsg : 'راسلنا رجاء'
         }
     },
     methods : {
@@ -43,22 +46,39 @@ export default {
         validateEmail () {
             if (this.email) {
                 this.isEmailValid = this.$parent.validateEmail(this.email);
+            } else {
+                this.isEmailValid = false
             }
 
-           this.emailClassOject['is-danger'] = this.email ? !this.isEmailValid : false
-           this.emailClassOject['wrongValue'] = this.emailClassOject['is-danger']
-           this.emailClassOject['is-success'] = this.email ? this.isEmailValid : false
+           this.emailClassOject['is-danger'] = !this.isEmailValid
+           this.emailClassOject['wrongValue'] = !this.isEmailValid
+           this.emailClassOject['is-success'] = this.isEmailValid
+           this.emailErrorMsg = !this.isEmailValid
+
+           //submit button
+           this.button = !this.isEmailValid || !this.isPasswordValid || !this.isPassword2Valid
         },
         validatePassword () {
             if (this.password1) {
-                this.isPasswordValid = this.$parent.validatePassword(this.password1) && this.password1 != 'password'
+                this.isPasswordValid = this.$parent.validatePassword(this.password1)
+                this.isPassword2Valid = this.isPasswordValid && this.password1 === this.password2
+            } else {
+                this.isPasswordValid = false
+                this.isPassword2Valid = false
             }
 
-           this.passwordClassOject['is-danger'] = this.password1 ? !this.isPasswordValid : false
-           this.passwordClassOject['is-success'] = this.password1 ? this.isPasswordValid : false
-           this.password2ClassOject['is-danger'] =  this.password2 && this.password2 != this.password1 ? true : false
-           this.password2ClassOject['is-success'] = this.password2 && this.password2 == this.password1 ? this.isPasswordValid : false
-           this.isPassword2Valid = this.isPasswordValid && this.password1 === this.password2
+            //password1
+            this.passwordClassOject['is-danger'] = !this.isPasswordValid
+            this.passwordClassOject['is-success'] = this.isPasswordValid
+            this.password1ErrorMsg = !this.isPasswordValid
+
+            //password2
+            this.password2ClassOject['is-danger'] =  !this.isPassword2Valid
+            this.password2ClassOject['is-success'] = this.isPassword2Valid
+            this.password2ErrorMsg = !this.isPassword2Valid
+
+           //submit button
+           this.button = !this.isEmailValid || !this.isPasswordValid || !this.isPassword2Valid
         },
         sendInfo () {
             if (this.isEmailValid && this.isPasswordValid && this.isPassword2Valid){
@@ -69,20 +89,25 @@ export default {
                 }
                 Corefun.singup(this.info)
                 .then(re => {
-                    console.log(re)
                     this.$router.push('/verificationstep2')
                 })
-                .catch(er => console.log(er))
+                .catch(er => {
+                    this.Error = true
+                    this.ErrorMsg = er.response.data[Object.keys(er.response.data)[0]][0]
+                    this.showErorr()
+                })
             } else {
-                if (!this.isEmailValid) {
-                    this.emailErrorMsg = true
-                }
-                if (!this.isPasswordValid){
-                    this.password1ErrorMsg = true
-                }
-                if (!this.isPassword2Valid){
-                    this.password2ErrorMsg = true
-                }
+                this.validateEmail()
+                this.validatePassword()
+            }
+        },
+        showErorr () {
+            if (this.Error) {
+                document.querySelector('#box').style.display =  'block'
+                document.querySelector('.grayContentPage').classList.add('blur')
+            } else {
+                document.querySelector('#box').style.display =  'none'
+                document.querySelector('.grayContentPage').classList.remove('blur')
             }
         }
     },

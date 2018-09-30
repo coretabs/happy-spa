@@ -40,7 +40,8 @@ export default {
                 'wrongValue' : false,
                 'input' : true
             },
-            inf : new FormData()
+            inf : new FormData(),
+            disable : false
         }
     },
     methods : {
@@ -113,21 +114,32 @@ export default {
                 !this.dateError
             ) { return true } else { return false }
         },
+        formData (){
+            this.inf.append('username', this.userInfo.username)
+            this.userInfo.avatar ? this.inf.append('avatar', this.userInfo.avatar) :
+            this.inf.append('profile.first_name', this.userInfo.profile.first_name)
+            this.inf.append('profile.last_name', this.userInfo.profile.last_name)
+            this.inf.append('profile.bio', this.userInfo.profile.bio)
+            this.inf.append('profile.location', this.userInfo.profile.location)
+            this.inf.append('profile.birth_date', this.userInfo.profile.birth_date)
+        },
         sendInformation () {
             if (this.testAll()) {
-                this.inf.append('username', this.userInfo.username)
-                this.inf.append('avatar', this.userInfo.avatar)
-                this.inf.append('profile.first_name', this.userInfo.profile.first_name)
-                this.inf.append('profile.last_name', this.userInfo.profile.last_name)
-                this.inf.append('profile.bio', this.userInfo.profile.bio)
-                this.inf.append('profile.location', this.userInfo.profile.location)
-                this.inf.append('profile.birth_date', this.userInfo.profile.birth_date)
-                console.log(this.inf)
+                this.formData()
+                this.disable = true
                 Corefun.information( this.inf)
                 .then (re => {
-                    console.log(re)
+                    console.log(re , Cookies.getJSON('logedinUser'))
+                    let logedinUser = Cookies.getJSON('logedinUser')
+                    logedinUser.user = re
+                    Cookies.set('logedinUser' , logedinUser , { expires: 365 })
+                    this.$router.push(`/profile`)
+                    this.disable = false
                 })
-                .catch(er => console.log(er.response))
+                .catch(er => { 
+                    this.disable =false
+                    console.log(er.response)
+                })
             }
         }
     },
