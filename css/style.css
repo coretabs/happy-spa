@@ -796,7 +796,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     padding: 10px 0;
     background-color: white;
 }
-.headContainer, .addTags, .backList hr {
+.headContainer, .addTags, .backList hr, .menuPost hr {
     width: 90%;
     margin: 0 auto;
 }
@@ -1043,6 +1043,9 @@ hr {
 .aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a, .communion a {
 	color: #485d67!important;
 }
+.whiteGray {
+    color: #cdd6da!important;
+}
 .aboutMe h1 {
 	font-size: 20px;
     font-weight: bold;
@@ -1120,13 +1123,12 @@ hr {
     margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage {
-	max-width: 500px;
+    max-width: 500px;
+    width: 90%;
 	margin: 10px auto 0;
 }
 .bgTextAndImageSend .bgImage img , .bgTextAndImageSend .bgImage video {
 	border-radius: 10px;
-    height: 12em;
-    width: 100%;
 }
 
 .CMTtime, .bgImageSend .communion, .share4All {
@@ -1394,6 +1396,23 @@ hr {
 .wrongValue {
 	color: #ff3860!important;
 }
+
+/*      menu post       */
+
+.menuPost {
+    width: 35%;
+    z-index: 20;
+    background-color: white;
+    border-radius: 10px;
+    left: 10px;
+    top: 50px;
+}
+.menuPost a {
+    color: #cdd6da;
+    display: block;
+    padding: 15px;
+}
+
 
 /*           ****** media ******                 */
 @media(min-width:1000px) {
