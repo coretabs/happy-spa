@@ -1,6 +1,6 @@
 <template>
   <div class="grayContentPage spaceFooter">
-    <div class="overlay" v-if="display">
+    <div class="overlay" v-if="loading">
       <div class="spinner">
       </div> 
     </div>	
@@ -59,13 +59,14 @@
                 </video>
               </div>
             </div>
+            
             <div class="communion center fullWidth">
               <a href="#"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
               <a href="#"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
               <a @click="$router.push(`/post?postid=${post.id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
             </div>
           </div>
-            
+          <hr>
           <div class="myMenu">
             <a href="#" class="left darkBlue">
               <span>{{post.time_since}}</span>

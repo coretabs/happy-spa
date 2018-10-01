@@ -1,4 +1,4 @@
-import { mapState , mapMutations } from 'vuex'
+
 import Cookies from 'js-cookie';
 import Corefun from '@/api'
 export default {
@@ -65,11 +65,6 @@ export default {
                 document.querySelector('.grayContentPage').classList.remove('blur')
             }
         }
-    },
-    computed : {
-        ...mapState([
-            'userInfo'
-        ])
     },
     created () {
         if (Cookies.getJSON('logedinUser')) {
