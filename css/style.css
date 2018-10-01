@@ -59,7 +59,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
   background: #fff;
   box-shadow: 0 0 20px black;
   border-radius: 8px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -83,11 +83,14 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
   font-size: 20px;
   color: white;
   padding: 10px 20px;
-  margin-top: 10px;
+  margin: 10px 4% 0;
   cursor: pointer;
   background: #ff3860;
   display: inline-block;
   border-radius: 5px;
+}
+.close:not(:first-of-type) {
+    background: #ffe600
 }
  
 
@@ -755,7 +758,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     background-color: white;
     z-index: 15;
 }
-.topHeader a {
+.topHeader a, .topHeader .share {
     position: fixed;
     color: #485d67;
     font-size: 23px;
@@ -763,10 +766,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     z-index: 5;
 }
 .topHeader a, .personPost, .share4All a, .fa-smile {
-    margin-right: 15px;
-	margin-left: 15px;
-    margin-top: 10px;
-	margin-bottom: 10px;
+    margin: 10px 15px;
 }
 .CMTtime {
 	margin-right: 15px;
@@ -843,7 +843,7 @@ hr {
 /*                  share button                     */
 .topHeader .share {
     left: 0;
-    margin-left: 15px;
+    margin: 8px 15px;
     top: 0;
     font-size: 18px;
     border: 2px solid #ffe600;
@@ -1365,7 +1365,7 @@ hr {
 	background-color: #eceff1;
     border-radius: 50%;
 }
-.leftTextarea a:hover {
+.leftTextarea a:active {
 	background-color: #ffe600;
 }
 .leftTextarea a i {
