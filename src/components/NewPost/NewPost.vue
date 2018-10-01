@@ -50,7 +50,12 @@
                             <textarea v-model="postContent"  class="textarea is-large" type="text" placeholder="أضف شيئاً مضحكاً"></textarea>
                             <i class="material-icons fontSize22">insert_emoticon</i>
                         </div>
-                    </div> 
+                    </div>
+                    <div v-if="previweLink" class="bgTextAndImageSend">
+                        <div class="bgImage fullWidth">
+                            <img :src="previweLink" class="box-shadow" alt="">
+                        </div>
+                    </div>
                 </div>
                 
                 <div v-if="false"  class="addWasm">

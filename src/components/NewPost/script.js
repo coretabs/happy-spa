@@ -8,7 +8,8 @@ export default {
             mediaFile : '',
             postContent : '',
             post : new FormData(),
-            disable : false
+            disable : false,
+            previweLink : ''
         }
     },
     created () {
@@ -23,6 +24,7 @@ export default {
     methods : {
         uploadFile (e) {
             this.mediaFile = e.target.files[0]
+            this.previweLink = URL.createObjectURL(this.mediaFile)
         },
         postSend () {
             if (this.mediaFile || this.postContent) {
