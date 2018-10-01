@@ -160,7 +160,7 @@ export default {
   },
   editPost : (data , postid) => {
     return new Promise((resolve, reject) => {
-      axios.put(`/api/v1/posts/${postid}` , data , {
+      axios.put(`/api/v1/posts/${postid}/` , data , {
         headers : {
           authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
           'Content-Type': 'multipart/form-data'
