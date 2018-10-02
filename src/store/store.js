@@ -9,11 +9,14 @@ export default new Vuex.Store({
       passwordRegExp : /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
       usernameRegExp : /^[a-zA-Z]*$/,
       userInfo : '',
-      
+      postToEdit : ''
     },
     mutations : {
       setUserInfo (state, info) {
         state.userInfo = info
+      },
+      postToEdit (state, post) {
+        state.postToEdit = post
       }
     }
 })

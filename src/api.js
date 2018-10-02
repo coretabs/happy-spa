@@ -12,7 +12,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -24,7 +24,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -36,7 +36,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -53,7 +53,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -65,7 +65,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -82,7 +82,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -94,7 +94,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -110,7 +110,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -122,7 +122,7 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
         })
     })
   },
@@ -138,7 +138,40 @@ export default {
         })
         .catch(err => {
           reject(err)
-          console.log(err)
+          console.log(err.response)
+        })
+    })
+  },
+  deletePost : postid => {
+    return new Promise((resolve, reject) => {
+      axios.delete(`/api/v1/posts/${postid}/` ,{
+        headers : {
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
+        }
+      })
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err.response)
+        })
+    })
+  },
+  editPost : (data , postid) => {
+    return new Promise((resolve, reject) => {
+      axios.put(`/api/v1/posts/${postid}/` , data , {
+        headers : {
+          authorization : `Bearer ${Cookies.getJSON('logedinUser').token}`,
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err.response)
         })
     })
   },

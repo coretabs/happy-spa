@@ -11,7 +11,7 @@ export default {
       TW : '',
       GB : '',
       WS : '',
-      display : true,
+      loading : true,
       media : {}
     }
   },
@@ -21,7 +21,7 @@ export default {
       .then( re => {
         this.user = re
         this.links = this.user.profile.link
-        this.display = false
+        this.loading = false
         this.user.posts.forEach( post => {
           this.media[post.id]  =  post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
         })

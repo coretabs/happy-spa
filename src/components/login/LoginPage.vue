@@ -6,6 +6,7 @@
             </span>
             <h2>{{ErrorMsg}}</h2>
             <a @click="Error = false ; showErorr()  " class="close">Close</a>
+            <a @click="Error = false ; showErorr()  " class="close">Close</a>
         </div>
         <div class="grayContentPage">        
             <div class="mianHeader">
