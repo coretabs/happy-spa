@@ -34,6 +34,55 @@
                     <video class="box-shadowL" controls="" autoplay="false"   name="media" >
                         <source :src="post.mediafile" >
                     </video>
+            <div class="bgImage" v-if="post.mediafile">
+                <img class="box-shadow" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
+                <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
+                    <video controls="" autoplay="false"   name="media" >
+                        <source :src="post.mediafile" >
+                    </video>
+
+
+            <div class="backList box-shadow" v-if="post">
+                <div class="backgroundSend">
+                    <div class="bgTextSend bgTextAndImageSend">
+                        <div class="textSend">
+                            <p v-if="post.content != ''"> {{ post.content }}</p>
+                        </div>
+                        <div class="bgImage" v-if="post.mediafile">
+                            <img class="box-shadow" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
+                            <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
+                                <video controls="" autoplay="false"   name="media" >
+                                    <source :src="post.mediafile" >
+                                </video>
+                            </div>
+                        </div>
+                        <div class="communion center fullWidth">
+                            <a href="#"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
+                            <a href="#"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
+                            <a href="#"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+                        </div>
+                    </div>
+                
+                    <div class="myMenu">
+                        <a @click="showMenu" class="left darkBlue">
+                            <span>{{post.time_since}}</span>
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                    </div>
+                    
+                    <div v-if="menu"   class="menuPost box-shadow center absolute">
+                        <a @click="editPost"  class="class">تعديل</a>
+                        <hr>
+                        <a @click="confirm = true ; showConfirm()" class="class">حذف</a>
+                    </div>
+
+                    <div class="personPost">
+                        <router-link :to="`/profile?id=${post.author}`">
+                            <img :src='post.author_avatar'>
+                        </router-link> 
+                        <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.author}}</router-link>
+                    </div>
+                
                 </div>
             
             
