@@ -934,6 +934,17 @@ hr {
     cursor: pointer;
     z-index: 10;
 }
+.deleteImagePost {
+    right: 15px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+}
+.deleteImagePost i {
+    position: unset;
+    width: auto;
+    height: auto;
+}
 .funPost textarea {
     height: 10em;    
 }
