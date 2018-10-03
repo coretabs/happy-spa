@@ -1,5 +1,9 @@
 <template>
     <div class="withAppW spaceHeader spaceFooterB">
+
+        <div class="overlay" v-if="loading">
+            <div class="spinner"></div>
+        </div>
        <header class="topHeader box-shadow">
             <a @click="$router.go(-1)">
                 <i class="material-icons">arrow_forward</i>
@@ -20,9 +24,9 @@
                     </div>
                 </div> 
                 <div class="communion">
-                    <a href="#"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-                    <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-                    <a href="#"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
+                    <a><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+                    <a><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+                    <a><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
                     <a href="#" class="left headElements center CMTtime">
                         <span>{{comment.time_since}}</span>
                     </a>
@@ -94,7 +98,8 @@ export default {
             postid : this.$route.query.postid,
             commentid : this.$route.query.commentid,
             avatar : '',
-            replyTxt : ''
+            replyTxt : '',
+            loading : true
         }
     },
     created () {
@@ -114,7 +119,10 @@ export default {
     methods : {
         update () {
             Corefun.comment(this.postid , this.commentid)
-            .then (re => this.comment = re)
+            .then (re => {
+                this.comment = re 
+                this.loading = false
+            })
         },
         addReply () {
             if(this.replyTxt) {

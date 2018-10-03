@@ -80,7 +80,7 @@
               <div class="communion center fullWidth">
                 <a href="#"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
                 <a href="#"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
-                <a @click="$router.push(`/post?postid=${post.id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+                <a @click="$router.push(`/comments?postid=${post.id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
               </div>
             </div>
             <hr>
@@ -101,8 +101,8 @@
               <a :href="user.avatar_url">
                 <img :src="user.avatar_url">
               </a>
-              <a href='#h' class="personName">{{user.username}} </a>
-                </div>
+              <a @click="$router.push('/profile')" class="personName">{{user.username}} </a>
+            </div>
             
           </div>
           
@@ -132,7 +132,7 @@
             
           </div>
           
-          <div class="bodyAnswer" v-if="post.top_comment">
+          <div class="bodyAnswer" @click="$router.push(`/comments?postid=${post.id}`)"  v-if="post.top_comment">
             <div class="answer">
               <div class="personPost">
                 <router-link :to="`/profile?id=${post.author}`">
@@ -150,11 +150,11 @@
 
         <footer class="bottomFooter box-shadow">
           <ul>
-            <li><router-link  :to='`/home?id=${$route.query.id}`'><i class="material-icons fontSize30">home</i></router-link></li>
+            <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
             <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
             <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
             <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-            <li><router-link class="actieFooterLink" :to="`/profile?id=${$route.query.id}`" ><i class="material-icons fontSize30">person</i></router-link></li>
+            <li><router-link class="actieFooterLink" to="/profile" ><i class="material-icons fontSize30">person</i></router-link></li>
           </ul>
         </footer>
     </div>

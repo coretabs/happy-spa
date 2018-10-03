@@ -175,4 +175,16 @@ export default {
         })
     })
   },
+  postComments : postid => {
+    return new Promise((resolve, reject) => {
+      axios.get(`/api/v1/posts/${postid}/comments/`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err.response)
+        })
+    })
+  }
 }
