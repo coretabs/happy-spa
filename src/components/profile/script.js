@@ -7,12 +7,22 @@ export default {
     return {
       user : '',
       links : '',
+      posts : '',
       FB : '',
       TW : '',
       GB : '',
       WS : '',
       loading : true,
-      media : {}
+      media : {},
+      username : Cookies.getJSON('logedinUser').user.username,
+      menu : false,
+      postid : '',
+      selectedPost : '',
+      Error : false ,
+      ErrorMsg : '',
+      confirmMsg : '',
+      confirm : false,
+      postToEdit : ''
     }
   },
   methods : {
@@ -22,10 +32,41 @@ export default {
         this.user = re
         this.links = this.user.profile.link
         this.loading = false
+        this.posts = this.user.posts
         this.user.posts.forEach( post => {
           this.media[post.id]  =  post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
         })
       })
+    },
+    showConfirm(doit) {
+      this.menu = false
+      if (this.confirm) {
+        this.confirmMsg = 'هل تريد حقا حذف المنشور'
+        document.querySelector(`.confirm`).style.display = 'block'
+        document.querySelector('.grayContentPage ').classList.add('blur')
+      } else {
+        if (doit) {
+          this.deletePost()
+        }
+        document.querySelector('.confirm').style.display = 'none'
+        document.querySelector('.grayContentPage').classList.remove('blur')
+      }
+    },
+    showMenu(postid) {
+      this.menu = !this.menu
+      this.postid = postid
+      this.posts.forEach(pst => {
+        pst.id == this.postid ? this.postToEdit = pst : ''
+      });
+    },
+    deletePost() {
+      Corefun.deletePost(this.postid).then(() => {
+        this.getInfo()
+      })
+    },
+    editPost() {
+      this.$store.commit('postToEdit', this.postToEdit)
+      this.$router.push('/newpost?editmode=true')
     }
   },
   created () {

@@ -28,21 +28,6 @@
             <div class="overlay" v-if="loading">
                 <div class="spinner"></div>
             </div>
-<<<<<<< HEAD
-            <div class="bgImage" v-if="post.mediafile">
-                <img class="box-shadowL" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
-                <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
-                    <video class="box-shadowL" controls="" autoplay="false"   name="media" >
-                        <source :src="post.mediafile" >
-                    </video>
-||||||| Merge branch 'master' of https://github.com/coretabs/happy-spa
-            <div class="bgImage" v-if="post.mediafile">
-                <img class="box-shadow" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
-                <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
-                    <video controls="" autoplay="false"   name="media" >
-                        <source :src="post.mediafile" >
-                    </video>
-=======
 
 
             <div class="backList box-shadow" v-if="post">
@@ -66,7 +51,7 @@
                         </div>
                     </div>
                 
-                    <div class="myMenu">
+                    <div v-if="post.author == username"  class="myMenu">
                         <a @click="showMenu" class="left darkBlue">
                             <span>{{post.time_since}}</span>
                             <i class="material-icons">more_vert</i>
@@ -86,7 +71,6 @@
                         <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.author}}</router-link>
                     </div>
                 
->>>>>>> master
                 </div>
             
             
