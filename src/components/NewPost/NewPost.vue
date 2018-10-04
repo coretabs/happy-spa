@@ -51,9 +51,13 @@
                                 <i class="material-icons fontSize22">insert_emoticon</i>
                             </div>
                         </div>
+                        <hr>
                         <div v-if="previweLink" class="bgTextAndImageSend">
-                            <div class="bgImage fullWidth">
+                            <div class="bgImage fullWidth relative">
                                 <img :src="previweLink" class="box-shadow" alt="">
+                                <a @click="removePic" class="deleteImagePost   absolute BGCW borderRadius50">
+                                    <i class="wrongValue  material-icons">delete</i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -68,8 +72,6 @@
                             </p>
                         </div>
                     </div>
-                    
-                    <hr>
                     
                     <div v-if="false"  class="addPerson">
                         <a href="#"><img src="image/man.jpg" class="addPersonImage"></a>

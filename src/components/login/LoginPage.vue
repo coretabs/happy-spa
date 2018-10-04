@@ -75,7 +75,7 @@
                 <div class="paraFooter">
                     <p>
                     ليس لديك حساب؟
-                    <router-link to="/singup">
+                    <router-link to="/signup">
                         <a>تسجيل</a>
                     </router-link>
                     </p>

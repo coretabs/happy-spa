@@ -55,6 +55,10 @@ export default {
             } else {
                 this.$router.push('/home')
             }
+        },
+        removePic () {
+            this.previweLink = ''
+            this.mediafile = ''
         }
     }
 }

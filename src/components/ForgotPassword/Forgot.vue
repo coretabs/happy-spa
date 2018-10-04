@@ -39,7 +39,7 @@
         <div class="paraFooter">
                 <p>
                     ليس لديك حساب؟
-                    <a href="#">تسجيل</a>
+                    <router-link to="/signup">تسجيل</router-link>
                 </p>
             </div>
         </footer>
