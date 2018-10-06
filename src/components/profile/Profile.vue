@@ -17,7 +17,7 @@
     </div>
 
     <div class="grayContentPage spaceFooter">
-      
+
       <div v-if="menu"  id="overlay"></div>
 
       <div class="overlay" v-if="loading">
@@ -97,7 +97,7 @@
             <div v-if="menu && post.id == postid" class=' menuPost box-shadow center absolute '>
               <a @click="editPost"  class="class">تعديل</a>
                 <hr>
-              <a @click="confirm = true ; showConfirm()" class="class">حذف</a>
+              <a @click="confirm = true ; showConfirm()" class="class wrongVlue">حذف</a>
             </div>
               
             <div class="personPost">
