@@ -42,22 +42,30 @@ export default {
       this.menu = false
       if (this.confirm) {
         this.confirmMsg = 'هل تريد حقا حذف المنشور'
-        document.querySelector(`.confirm`).style.display = 'block'
-        document.querySelector('.grayContentPage ').classList.add('blur')
+        this.$(`.confirm`).style.display = 'block'
+        this.$('.grayContentPage ').classList.add('blur')
       } else {
         if (doit) {
           this.deletePost()
         }
-        document.querySelector('.confirm').style.display = 'none'
-        document.querySelector('.grayContentPage').classList.remove('blur')
+        this.$('.confirm').style.display = 'none'
+        this.$('.grayContentPage').classList.remove('blur')
       }
     },
+    $ : element => document.querySelector(element),
     showMenu(postid) {
       this.menu = !this.menu
       this.postid = postid
       this.posts.forEach(pst => {
         pst.id == this.postid ? this.postToEdit = pst : ''
-      });
+      })
+      if (this.menu) {
+        this.$('.grayContentPage ').classList.add('blur')
+        this.$('html').classList.add('overflowHidden')
+      } else {
+        this.$('.grayContentPage').classList.remove('blur')
+        this.$('html').classList.remove('overflowHidden')
+      }
     },
     deletePost() {
       Corefun.deletePost(this.postid).then(() => {

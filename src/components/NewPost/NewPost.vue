@@ -6,7 +6,7 @@
                     <i class="material-icons">arrow_forward</i>
                 </a>
                 <p>logo</p>
-                <button @click="postSend"  :disabled='disable' class="share">
+                <button @click="postSend" :disabled='disable' class="share">
                     نشر
                 </button>
             </header> 

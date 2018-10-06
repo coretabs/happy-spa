@@ -67,14 +67,14 @@ export default {
     showError() {
       this.menu = false
       if (this.Error) {
-        document.querySelector('.error').style.display = 'block'
-        document.querySelector('.grayContentPage').classList.add('blur')
+        this.$('.error').style.display = 'block'
+        this.$('.grayContentPage').classList.add('blur')
       } else {
         if (this.onClose) {
           this.onClose()
         }
-        document.querySelector('.error').style.display = 'none'
-        document.querySelector('.grayContentPage').classList.remove('blur')
+        this.$('.error').style.display = 'none'
+        this.$('.grayContentPage').classList.remove('blur')
       }
     },
     showConfirm(doit) {
@@ -82,14 +82,14 @@ export default {
       if (this.post.author == this.username) {
         if (this.confirm) {
           this.confirmMsg = 'هل تريد حقا حذف المنشور'
-          document.querySelector('.confirm').style.display = 'block'
-          document.querySelector('.grayContentPage ').classList.add('blur')
+          this.$('.confirm').style.display = 'block'
+          this.$('.grayContentPage ').classList.add('blur')
         } else {
           if (doit) {
             this.deletePost()
           }
-          document.querySelector('.confirm').style.display = 'none'
-          document.querySelector('.grayContentPage').classList.remove('blur')
+          this.$('.confirm').style.display = 'none'
+          this.$('.grayContentPage').classList.remove('blur')
         }
       } else {
         this.Error = true
@@ -99,7 +99,15 @@ export default {
     },
     showMenu() {
       this.menu = !this.menu
+      if (this.menu) {
+        this.$('.grayContentPage ').classList.add('blur')
+        this.$('html').classList.add('overflowHidden')
+      } else {
+        this.$('.grayContentPage').classList.remove('blur')
+        this.$('html').classList.remove('overflowHidden')
+      }
     },
+    $ : element => document.querySelector(element),
     deletePost() {
       if (this.post.author == this.username) {
         Corefun.deletePost(this.id).then(() => {

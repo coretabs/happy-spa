@@ -17,6 +17,9 @@
     </div>
 
     <div class="grayContentPage spaceFooter">
+      
+      <div v-if="menu"  id="overlay"></div>
+
       <div class="overlay" v-if="loading">
         <div class="spinner">
         </div> 

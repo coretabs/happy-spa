@@ -60,7 +60,7 @@
                 <div class="field">
                 <div class="control has-icons-left has-icons-right">
                     <form action="" @submit="$event.preventDefault()"  method="POST">
-                        <textarea class="textarea" type="text" v-model="replyTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
+                        <textarea class="textarea" :disabled='loading'  type="text" v-model="replyTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
                         <div class="left leftTextarea">
                             <a class="icon is-small">
                                 <i @click="addReply"  class="material-icons fontSize20">chevron_right</i>
@@ -89,54 +89,53 @@
     </div>
 </template>
 <script>
-import Corefun from '@/api'
-import Cookies from 'js-cookie'
+import Corefun from "@/api";
+import Cookies from "js-cookie";
 export default {
-    data () {
-        return {
-            comment : '',
-            postid : this.$route.query.postid,
-            commentid : this.$route.query.commentid,
-            avatar : '',
-            replyTxt : '',
-            loading : true
-        }
-    },
-    created () {
-        if (this.postid && this.commentid) {
-           this.update()
-           if (Cookies.getJSON('logedinUser').user) {
-                this.avatar = Cookies.getJSON('logedinUser').user.avatar_url
-            } else {
-                this.avatar = undefined
-            }
-        } else if (this.postid) {
-            this.$router.push(`/post?postid=${this.postid}`)
-        } else {
-            this.$router.push('/home')
-        }
-    },
-    methods : {
-        update () {
-            Corefun.comment(this.postid , this.commentid)
-            .then (re => {
-                this.comment = re 
-                this.loading = false
-            })
-        },
-        addReply () {
-            if(this.replyTxt) {
-                let reply = {
-                    data : {
-                        content : this.replyTxt
-                    },
-                    postid : this.postid,
-                    commentid : this.commentid
-                }
-                Corefun.addReply(reply)
-                .then(this.update())
-            }
-        }
+  data() {
+    return {
+      comment: "",
+      postid: this.$route.query.postid,
+      commentid: this.$route.query.commentid,
+      avatar: "",
+      replyTxt: "",
+      loading: true
+    };
+  },
+  created() {
+    if (this.postid && this.commentid) {
+      this.update();
+      if (Cookies.getJSON("logedinUser").user) {
+        this.avatar = Cookies.getJSON("logedinUser").user.avatar_url;
+      } else {
+        this.avatar = undefined;
+      }
+    } else if (this.postid) {
+      this.$router.push(`/post?postid=${this.postid}`);
+    } else {
+      this.$router.push("/home");
     }
-}
+  },
+  methods: {
+    update() {
+      Corefun.comment(this.postid, this.commentid).then(re => {
+        this.comment = re;
+        this.loading = false;
+      });
+    },
+    addReply() {
+      if (this.replyTxt) {
+        let reply = {
+          data: {
+            content: this.replyTxt
+          },
+          postid: this.postid,
+          commentid: this.commentid
+        };
+        this.replyTxt = ''
+        Corefun.addReply(reply).then(this.update());
+      }
+    }
+  }
+};
 </script>

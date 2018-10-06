@@ -25,12 +25,17 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	margin: 0 auto 50px;
 }
 
+ .overflowHidden {
+    overflow: hidden;
+}
+
 #overlay{
   height:100%;
   width:100%;
-  background-color: white;
+  background-color: transparent;
   position:fixed;
   left:0;
+  overflow: hidden;
   top:0;
   z-index: 20;
   cursor:pointer;
@@ -38,7 +43,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
  }
 
  /* alert */
-.blur {
+.blur > *:not(.backList) , .blur .backList > *:not(.backgroundSend) , .blur .backgroundSend > *:not(.myMenu):not(.menuPost) , .blur .bodyAnswer {
     filter : blur(4px)
 }
 
@@ -1117,7 +1122,8 @@ hr {
 }
 .backgroundSend .myMenu {
     top: 10px;
-	line-height: 2.25;
+    line-height: 2.25;
+    z-index: 50
 }
 .backgroundSend .myMenu a {
 	position: unset;
@@ -1420,7 +1426,7 @@ hr {
 
 .menuPost {
     width: 35%;
-    z-index: 20;
+    z-index: 50;
     background-color: white;
     border-radius: 10px;
     left: 10px;

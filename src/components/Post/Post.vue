@@ -16,7 +16,7 @@
             <a @click="confirm = false ; showConfirm(false)  " class="close">لا</a>
         </div>
         <div class="grayContentPage spaceFooterB spaceHeaderH">
-
+            <div id="overlay" v-if='menu'></div>
             <header class="topHeader box-shadow">
                 <a @click="$router.go(-1)">
                     <i class="material-icons">arrow_forward</i>
@@ -61,7 +61,7 @@
                     <div v-if="menu"   class="menuPost box-shadow center absolute">
                         <a @click="editPost"  class="class">تعديل</a>
                         <hr>
-                        <a @click="confirm = true ; showConfirm()" class="class">حذف</a>
+                        <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
                     </div>
 
                     <div class="personPost">
@@ -78,15 +78,15 @@
                 <div class="bodyWasm" v-if="post.tags">
                     
                     <div class="wasm">
-                    <a href="#"><i class="material-icons">label</i>meme</a>
-                    <span></span>
-                    <a href="#"><i class="material-icons">label</i>meme</a>
-                    <span></span>
-                    <a href="#"><i class="material-icons">label</i>meme</a>
-                    <span></span>
-                    <a href="#"><i class="material-icons">label</i>meme</a>
-                    <span></span>
-                    <a href="#"><i class="material-icons">label</i>meme</a>
+                        <a href="#"><i class="material-icons">label</i>meme</a>
+                        <span></span>
+                        <a href="#"><i class="material-icons">label</i>meme</a>
+                        <span></span>
+                        <a href="#"><i class="material-icons">label</i>meme</a>
+                        <span></span>
+                        <a href="#"><i class="material-icons">label</i>meme</a>
+                        <span></span>
+                        <a href="#"><i class="material-icons">label</i>meme</a>
                     </div>
                     <div class="showAll">
                     <a href="#">عرض الكل</a>
