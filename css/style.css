@@ -322,7 +322,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .mianHeader a {
     position: absolute;
-    color: #485d67;
+    color: #142833;
     margin-right: 15px;
     margin-top: 10px;
     cursor: pointer;
@@ -335,7 +335,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .mianHeader p {
     width: 100%;
     text-align: center;
-    color: #485d67;
+    color: #142833;
     font-size: 25px;
     position: absolute;
     padding-top: 50px;
@@ -416,7 +416,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 /*           forgetting link          */
 .noteConditions {
-	color: #485d67;
+	color: #142833;
 	text-align: center;
 }
 .noteConditions .forgettingLink {
@@ -425,7 +425,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .forgettingLink {
     text-align: center;
     display: block;
-    color: #485d67;
+    color: #142833;
     text-decoration: underline;
     font-weight: bold;
 }
@@ -655,7 +655,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     width: 60%!important;
 }
 .linkSM-input {
-	color: #485d67;
+	color: #142833;
     border-radius: 40px 0 0 40px!important;
     box-shadow: none;
     font-size: 12px;
@@ -768,7 +768,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .topHeader a, .topHeader .share {
     position: fixed;
-    color: #485d67;
+    color: #142833;
     font-size: 23px;
     cursor: pointer;
     z-index: 5;
@@ -786,7 +786,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .topHeader p, .moreReply {
     width: 100%;
     text-align: center;
-    color: #485d67;
+    color: #142833;
     font-size: 20px;
     font-weight: bold;
     padding: 10px 0;
@@ -886,7 +886,7 @@ hr {
 	line-height: 2.5;
     padding-right: 3px;
     font-weight: bold;
-    color: #485d67;
+    color: #142833;
 }
 
 /*                  image person post                     */
@@ -895,7 +895,7 @@ hr {
     width: 100%;
     border-radius: 10px;
     padding: 10px;
-    color: #485d67;
+    color: #142833;
     position: relative;
 }
 .imagePost .myImage {
@@ -919,7 +919,7 @@ hr {
 }
 
 .myImage a {
-    color: #485d67;
+    color: #142833;
     background-color: white;
     padding: 5px 8px;
     border-radius: 50%;
@@ -1002,7 +1002,7 @@ hr {
 }
 .ageTitle a {
 	position: absolute;
-    color: #485d67;
+    color: #142833;
     font-size: 23px;
     cursor: pointer;
     z-index: 5;
@@ -1068,7 +1068,7 @@ hr {
 	padding-top: 100px;
 }
 .aboutMe a, .description h2, .bodyWasm a, .darkBlue, .signOutElements, .bgTextSend .communion a, .bgTextSend .textSend p, .linkAD a, .bottomFooter ul li a, .communion a {
-	color: #485d67!important;
+	color: #142833!important;
 }
 .whiteGray {
     color: #cdd6da!important;
@@ -1212,7 +1212,7 @@ hr {
 }
 .answerPara p {
 	line-height: 1.5;
-    color: #485d67;
+    color: #142833;
 	padding: 0px 20px 0px;
     font-size: 12px;
 }
@@ -1281,7 +1281,7 @@ hr {
 .settingPara p {
 	margin-top: 15px;
     background-color: #ffe600;
-    color: #485d67;
+    color: #142833;
 	font-weight: bold;
     display: table;
     padding: 2px 15px 15px;
@@ -1302,14 +1302,14 @@ hr {
 	background-color: #eceff1;
 }
 .Notification .personPost p {
-	color: #485d67;
+	color: #142833;
 	height: max-content;
 	padding-right: 10px;
 	padding-left: 40px;
 	line-height: 1;
 }
 .Notification .personPost p .morePoster {
-	color: #485d67;
+	color: #142833;
 	font-size: 15px;
 }
 .Notification .personPost p a, .bgTextSend .textSend p {
