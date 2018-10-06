@@ -52,8 +52,8 @@
                     </div>
                 
                     <div v-if="post.author == username"  class="myMenu">
-                        <a @click="showMenu" class="left darkBlue">
-                            <span class="whiteGray">{{post.time_since}}</span>
+                        <a @click="showMenu" class="left whiteGray">
+                            <span>{{post.time_since}}</span>
                             <i class="material-icons">more_vert</i>
                         </a>
                     </div>
