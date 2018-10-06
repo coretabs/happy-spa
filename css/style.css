@@ -764,7 +764,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     height: 50px;
     position: fixed;
     background-color: white;
-    z-index: 15;
+    z-index: 60;
 }
 .topHeader a, .topHeader .share {
     position: fixed;
@@ -811,6 +811,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .headContent ul li {
     direction: ltr;
     margin: 0.5em 0;
+}
+.mainMenu ul li a i {
+	vertical-align: middle;
 }
 hr {
     margin: 0;

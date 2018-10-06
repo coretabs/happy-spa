@@ -9,7 +9,7 @@
         </header> 
             
         <div class="headContent">
-            <div class="headContainer">
+            <div class="headContainer mainMenu">
                 <ul>
                 <li><router-link to="/settings" class="headElements">الإعدادت<i class="material-icons">settings</i></router-link></li>
                 <hr>
