@@ -865,7 +865,7 @@ hr {
 }
 
 /*                   person post                    */
-.personPost {
+.personPost, .answerPara {
     display: inline-flex;
 }
 .signImage img, .Notification .persons2Post .persons2Image {
@@ -1203,7 +1203,6 @@ hr {
 }
 .answer {
     border-radius: 10px;
-	padding: 0 0 10px;
 }
 .answer .personPost {
 	position: inherit;
@@ -1216,6 +1215,12 @@ hr {
     color: #142833;
 	padding: 0px 20px 0px;
     font-size: 12px;
+}
+.answerPara .answerPara-long, .answerPara .answerPara-short {
+    top: -8px;
+}
+.answerPara .answerPara-short {
+	right: -25px;
 }
 .spaceFooterS {
 	margin-bottom: 50px;
