@@ -52,7 +52,7 @@
                     </div>
                 
                     <div v-if="post.author == username"  class="myMenu">
-                        <a @click="showMenu" class="left darkBlue">
+                        <a @click="showMenu" class="left whiteGray">
                             <span>{{post.time_since}}</span>
                             <i class="material-icons">more_vert</i>
                         </a>
@@ -104,14 +104,14 @@
                             <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
                         </div>
                         <div class="answerPara">
-                            <p>{{comment.content}}</p>
+                            <p class="relative answerPara-short">{{comment.content}}</p>
                         </div>
                     </div> 
                     <div class="communion">
                         <a href="#"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
                         <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
                         <a @click="$router.push({ path : '/comment' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
-                        <a href="#" class="left headElements center CMTtime">
+                        <a href="#" class="left headElements center CMTtime whiteGray">
                             <span>{{comment.time_since}}</span>
                         </a>
                     </div>
