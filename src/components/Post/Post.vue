@@ -16,7 +16,7 @@
             <a @click="confirm = false ; showConfirm(false)  " class="close">لا</a>
         </div>
         <div class="grayContentPage spaceFooterB spaceHeaderH">
-            <div id="overlay" v-if='menu'></div>
+            <div id="overlay" @click="showMenu"  v-if='menu'></div>
             <header class="topHeader box-shadow">
                 <a @click="$router.go(-1)">
                     <i class="material-icons">arrow_forward</i>

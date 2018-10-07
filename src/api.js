@@ -18,7 +18,7 @@ export default {
   },
   profile : user => {
     return new Promise((resolve, reject) => {
-      axios.get(`/api/v1/auth/user/${user}`)
+      axios.get(`/api/v1/auth/user/${user}/`)
         .then(res => {
           resolve(res.data)
         })

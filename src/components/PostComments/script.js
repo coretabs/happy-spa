@@ -1,5 +1,6 @@
 import Corefun from '@/api'
 import Cookies from 'js-cookie'
+import plugins from '@/plugins'
 
 export default {
   data : () => {
@@ -21,6 +22,7 @@ export default {
       .then(re => {
         this.comments = re
         this.loading = false
+        plugins.adjustAnswers()
       }).catch(er => {
         if (er.response.status == 404) {
           this.Error = true

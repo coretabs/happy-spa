@@ -17,7 +17,7 @@
     </div>
     <div class="grayContentPage spaceFooter spaceHeaderH">
 
-      <div id="overlay" v-if="menu"></div>
+      <div id="overlay" @click="showMenu"  v-if="menu"></div>
 
       <div class="overlay" v-if="loading">
         <div class="spinner">
