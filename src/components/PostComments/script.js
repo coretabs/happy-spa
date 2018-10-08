@@ -22,7 +22,7 @@ export default {
       .then(re => {
         this.comments = re
         this.loading = false
-        plugins.adjustAnswers()
+        this.adjustAnswers()
       }).catch(er => {
         if (er.response.status == 404) {
           this.Error = true
@@ -49,6 +49,25 @@ export default {
           this.update()
         })
       }
+    },
+    adjustAnswers () {
+      let answers = document.querySelectorAll('.answer')
+      console.log('start')
+        if (answers) {
+          answers.forEach(answer => {
+            console.log(answer)
+            if (answer.clientHeight > 38) {
+              console.log('here')
+              let answerPara = answer.querySelector('.answerPara')
+              answerPara.style.display = 'block'
+              document.querySelector('.answerPara-short').forEach ( ansRly => { 
+                console.log('here too')
+                ansRly.classList.replace('answerPara-short' , 'answerPara-long')
+              })
+            }
+          })
+        }
+  
     }
   },
   created () {

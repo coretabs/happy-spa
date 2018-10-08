@@ -27,7 +27,7 @@
               <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
             </div>
             <div class="answerPara">
-              <p>{{comment.content}}</p>
+              <p class="relative answerPara-short">{{comment.content}}</p>
             </div>
           </div> 
           <div class="communion">
@@ -49,7 +49,7 @@
               <router-link :to="`/profile?id=${reply.author}`" class="personName">{{reply.author}}</router-link>
             </div>
             <div class="answerPara">
-              <p>{{reply.content}}</p>
+              <p >{{reply.content}}</p>
             </div>
           </div> 
           <div class="communion">
@@ -67,7 +67,7 @@
           <div class="field">
             <div class="control has-icons-left has-icons-right">
               <form action="" @submit="$event.preventDefault()"  method="POST">
-                <textarea class="textarea" type="text" v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
+                <textarea class="textarea" type="text" :disabled='loading'  v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
                 <div class="left leftTextarea">
                   <a class="icon is-small">
                     <i @click="addcomment"  class="material-icons fontSize20">chevron_right</i>
