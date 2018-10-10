@@ -17,6 +17,7 @@ export default {
       onClose: '',
       confirm : false,
       confirmMsg : 'هل تريد فعل ذلك حقاً',
+      Corefun : Corefun
     }
   },
   created() {
@@ -129,7 +130,6 @@ export default {
         this.ErrorMsg = 'لا يمكنك تعديل اي منشور سوى الخاصة بك'
         this.showError()
       }
-
-    }
+    },
   }
 }

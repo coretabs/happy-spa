@@ -24,8 +24,8 @@
                     </div>
                 </div> 
                 <div class="communion">
-                    <a><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-                    <a><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+                    <a @click="Corefun.like.comment(postid , comment.id)" ><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+                    <a @click="Corefun.dislike.comment(postid , comment.id)" ><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
                     <a><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
                     <a href="#" class="left headElements center CMTtime">
                         <span>{{comment.time_since}}</span>
@@ -46,8 +46,8 @@
                     </div>
                 </div> 
                 <div class="communion">
-                    <a href="#"><i class="material-icons fontSize   12">thumb_up</i><span>{{reply.likes_count}}</span></a>
-                    <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{reply.dislikes_count}}</span></a>
+                    <a @click="Corefun.like.reply(postid , comment.id , reply.id)" ><i class="material-icons fontSize   12">thumb_up</i><span>{{reply.likes_count}}</span></a>
+                    <a @click="Corefun.dislike.reply(postid , comment.id , reply.id)" ><i class="material-icons fontSize12">thumb_down</i><span>{{reply.dislikes_count}}</span></a>
                     <a href="#" class="left headElements center CMTtime">
                         <span>{{reply.time_since}}</span>
                     </a>
@@ -99,7 +99,8 @@ export default {
       commentid: this.$route.query.commentid,
       avatar: "",
       replyTxt: "",
-      loading: true
+      loading: true,
+      Corefun : Corefun
     };
   },
   created() {

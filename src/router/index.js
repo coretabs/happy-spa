@@ -11,7 +11,7 @@ import More from '@/components/More/More'
 import Settings from '@/components/Settings/Settings'
 import NewPost from '@/components/NewPost/NewPost'
 import Post from '@/components/Post/Post'
-import Comments from '@/components/Comments/Comments'
+import Replies from '@/components/Replies/Replies'
 import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
 import PostComments from '@/components/PostComments/PostComments' 
 
@@ -76,8 +76,8 @@ export default new Router({
       component : VerificationStep2
     },
     {
-      path : '/comment',
-      component : Comments
+      path : '/replies',
+      component : Replies
     },
     {
       path : '/comments',

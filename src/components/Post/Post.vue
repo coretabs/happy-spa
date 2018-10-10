@@ -45,9 +45,9 @@
                             </div>
                         </div>
                         <div class="communion center fullWidth">
-                            <a href="#"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
-                            <a href="#"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
-                            <a href="#"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+                            <a @click="Corefun.like.post(id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
+                            <a @click="Corefun.dislike.post(id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
+                            <a @click="$router.push(`/comments?postid=${id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
                         </div>
                     </div>
                 
@@ -96,7 +96,7 @@
                 <hr>
 
                 <div class="bodyAnswer" v-if="post.comments.length != 0" v-for="comment in post.comments" :key="comment.id">
-                    <div @click="$router.push({ path : '/comment' , query : {postid : id , commentid : comment.id} })" class="answer">
+                    <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
                         <div class="personPost">
                             <router-link :to="`/profile?id=${comment.author}`">
                                 <img :src="comment.author_avatar">
@@ -108,9 +108,9 @@
                         </div>
                     </div> 
                     <div class="communion">
-                        <a href="#"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-                        <a href="#"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-                        <a @click="$router.push({ path : '/comment' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
+                        <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+                        <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+                        <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
                         <a href="#" class="left headElements center CMTtime whiteGray">
                             <span>{{comment.time_since}}</span>
                         </a>

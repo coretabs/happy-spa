@@ -12,7 +12,8 @@ export default {
       Error: false,
       ErrorMsg: 'راسلنا رجاء',
       onClose: '',
-      loading : true
+      loading : true,
+      Corefun : Corefun
 
     }
   },
@@ -22,7 +23,6 @@ export default {
       .then(re => {
         this.comments = re
         this.loading = false
-        this.adjustAnswers()
       }).catch(er => {
         if (er.response.status == 404) {
           this.Error = true
@@ -50,24 +50,11 @@ export default {
         })
       }
     },
-    adjustAnswers () {
-      let answers = document.querySelectorAll('.answer')
-      console.log('start')
-        if (answers) {
-          answers.forEach(answer => {
-            console.log(answer)
-            if (answer.clientHeight > 38) {
-              console.log('here')
-              let answerPara = answer.querySelector('.answerPara')
-              answerPara.style.display = 'block'
-              document.querySelector('.answerPara-short').forEach ( ansRly => { 
-                console.log('here too')
-                ansRly.classList.replace('answerPara-short' , 'answerPara-long')
-              })
-            }
-          })
-        }
-  
+    
+  },
+  watch : {
+    comments : () => {
+      plugins.adjustAnswers()
     }
   },
   created () {

@@ -33,7 +33,8 @@ export default {
         ErrorMsg : '',
         confirmMsg : '',
         confirm : false,
-        postToEdit : ''
+        postToEdit : '',
+        Corefun : Corefun
       }
     },
     methods : {
