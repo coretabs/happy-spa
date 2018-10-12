@@ -53,8 +53,9 @@ export default {
     
   },
   watch : {
-    comments : () => {
-      plugins.adjustAnswers()
+    comments :{ 
+      handler : () => { plugins.adjustAnswers() },
+      deep : true
     }
   },
   created () {
