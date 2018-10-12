@@ -10,11 +10,10 @@ export default {
           console.log(answer)
           if (answer.clientHeight < 38) {
             let answerPara = answer.querySelector('.answerPara')
-            answerPara.style.display = 'block'
-            answerPara.querySelector('p').classList.add('answerPara-short')
+            answerPara.classList.add(".answerPara-one-line")
           } else {
             let answerPara = answer.querySelector('.answerPara')
-            answerPara.querySelector('p').classList.add('answerPara-long')
+            answerPara.classList.remove(".answerPara-one-line")
           }
         })
       }

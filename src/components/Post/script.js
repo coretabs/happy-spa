@@ -1,5 +1,6 @@
 import Corefun from '@/api'
 import Cookies from 'js-cookie'
+import plugins from '@/plugins'
 
 export default {
 
@@ -24,6 +25,7 @@ export default {
     if (this.$route.query.postid) {
       this.id = this.$route.query.postid
       this.update()
+      plugins.adjustAnswers()
       if (Cookies.getJSON('logedinUser').user) {
         this.avatar = Cookies.getJSON('logedinUser').user.avatar_url
         this.username = Cookies.getJSON('logedinUser').user.username

@@ -865,8 +865,9 @@ hr {
 }
 
 /*                   person post                    */
-.personPost, .answerPara {
-    display: inline-flex;
+.personPost a {
+    display: inline-grid;
+	vertical-align: top;
 }
 .signImage img, .Notification .persons2Post .persons2Image {
     height: 40px;
@@ -1216,12 +1217,7 @@ hr {
 	padding: 0px 20px 0px;
     font-size: 12px;
 }
-.answerPara .answerPara-long, .answerPara .answerPara-short {
-    top: -8px;
-}
-.answerPara .answerPara-short {
-	right: -25px;
-}
+
 .spaceFooterS {
 	margin-bottom: 50px;
 }

@@ -104,7 +104,7 @@
                             <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
                         </div>
                         <div class="answerPara">
-                            <p class="relative answerPara-short">{{comment.content}}</p>
+                            <p>{{comment.content}}</p>
                         </div>
                     </div> 
                     <div class="communion">
@@ -156,3 +156,16 @@
 
 <script src='./script.js'></script>
 
+<style scoped>
+
+    .answer div {
+    display: inline-block;
+    }
+
+    .answerPara-one-line {
+        position: inherit;
+        top: 10px;
+        right: -30px;
+    }
+
+</style>
