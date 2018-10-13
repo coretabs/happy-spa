@@ -155,3 +155,17 @@
 </template>
 
 <script src='./script.js'></script>
+
+<style scoped>
+
+    .answer div {
+    display: inline-block;
+    }
+
+    .answerPara-one-line {
+        position: inherit;
+        top: 10px;
+        right: -30px;
+    }
+
+</style>
