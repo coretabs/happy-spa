@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Profile from '@/components/profile/Profile'
-import LoginPage from '@/components/login/LoginPage'
-import Forgot from '@/components/ForgotPassword/Forgot'
-import Signup from '@/components/Signup/Signup'
-import Information from '@/components/Information/Information'
-import UserHome from "@/components/UserHome/UserHome"
-import More from '@/components/More/More'
-import Settings from '@/components/Settings/Settings'
-import NewPost from '@/components/NewPost/NewPost'
-import Post from '@/components/Post/Post'
-import Replies from '@/components/Replies/Replies'
-import VerificationStep2 from '@/components/VerificationStep2/VerificationStep2'
-import PostComments from '@/components/PostComments/PostComments' 
+import Home from '@/pages/Home'
+import Profile from '@/pages/profile/Profile'
+import LoginPage from '@/pages/login/LoginPage'
+import Forgot from '@/pages/ForgotPassword/Forgot'
+import Signup from '@/pages/Signup/Signup'
+import Information from '@/pages/Information/Information'
+import UserHome from "@/pages/UserHome/UserHome"
+import More from '@/pages/More/More'
+import Settings from '@/pages/Settings/Settings'
+import NewPost from '@/pages/NewPost/NewPost'
+import Post from '@/pages/Post/Post'
+import Replies from '@/pages/Replies/Replies'
+import VerificationStep2 from '@/pages/VerificationStep2/VerificationStep2'
+import PostComments from '@/pages/PostComments/PostComments' 
 
 
 Vue.use(Router)

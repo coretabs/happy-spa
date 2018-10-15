@@ -1,6 +1,6 @@
 import Corefun from '@/api'
 import Cookies from 'js-cookie'
-import plugins from '@/plugins'
+import plugins from '@/plugins/dom'
 
 export default {
   data : () => {

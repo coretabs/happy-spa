@@ -1,5 +1,3 @@
-let $ = element => document.querySelectorAll (element)
-
 export default {
   adjustAnswers : () => {
     setTimeout (()=>{

@@ -6,11 +6,12 @@ import router from './router/index'
 import store from './store/store'
 import '@/../css/style.css'
 import '@/../css/bulma.min.css'
+import '@/plugins/vue'
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  ...App
+  ...App,
 }).$mount('#app')

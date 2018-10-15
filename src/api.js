@@ -3,6 +3,10 @@ import Cookies from 'js-cookie'
 
 axios.defaults.baseURL = 'https://corefun.herokuapp.com'
 
+if (Cookies.getJSON('logedinUser')){
+  axios.defaults.headers.common['authorization'] = `Bearer ${Cookies.getJSON('logedinUser').token}`
+}
+
 export default {
   login: data =>
     new Promise((resolve, reject) => {
@@ -39,12 +43,7 @@ export default {
     }),
   information: data =>
     new Promise((resolve, reject) => {
-      axios.put('/api/v1/auth/user/', data, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-            'Content-Type': 'multipart/form-data'
-          }
-        })
+      axios.put('/api/v1/auth/user/', data)
         .then(res => {
           resolve(res.data)
         })
@@ -53,9 +52,9 @@ export default {
           console.log(err.response)
         })
     }),
-  posts: () =>
+  posts: (page) =>
     new Promise((resolve, reject) => {
-      axios.get('/api/v1/posts/')
+      axios.get(`/api/v1/posts/?page=${page}`)
         .then(res => {
           resolve(res.data)
         })
@@ -66,12 +65,7 @@ export default {
     }),
   newPost: data =>
     new Promise((resolve, reject) => {
-      axios.post('/api/v1/posts/', data, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-            'Content-Type': 'multipart/form-data'
-          }
-        })
+      axios.post('/api/v1/posts/', data)
         .then(res => {
           resolve(res.data)
         })
@@ -93,11 +87,7 @@ export default {
     }),
   addComment: comment =>
     new Promise((resolve, reject) => {
-      axios.post(`/api/v1/posts/${comment.postid}/comments/`, comment.data, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-          }
-        })
+      axios.post(`/api/v1/posts/${comment.postid}/comments/`, comment.data)
         .then(res => {
           resolve(res.data)
         })
@@ -119,11 +109,7 @@ export default {
     }),
   addReply: reply =>
     new Promise((resolve, reject) => {
-      axios.post(`/api/v1/posts/${reply.postid}/comments/${reply.commentid}/replies/`, reply.data, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-          }
-        })
+      axios.post(`/api/v1/posts/${reply.postid}/comments/${reply.commentid}/replies/`, reply.data)
         .then(res => {
           resolve(res.data)
         })
@@ -134,11 +120,7 @@ export default {
     }),
   deletePost: postid =>
     new Promise((resolve, reject) => {
-      axios.delete(`/api/v1/posts/${postid}/`, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-          }
-        })
+      axios.delete(`/api/v1/posts/${postid}/`)
         .then(res => {
           resolve(res.data)
         })
@@ -149,12 +131,7 @@ export default {
     }),
   editPost: (data, postid) =>
     new Promise((resolve, reject) => {
-      axios.put(`/api/v1/posts/${postid}/`, data, {
-          headers: {
-            authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-            'Content-Type': 'multipart/form-data'
-          }
-        })
+      axios.put(`/api/v1/posts/${postid}/`, data)
         .then(res => {
           resolve(res.data)
         })
@@ -176,11 +153,7 @@ export default {
     }),
   like : {
     post: postid => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/like/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/like/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
@@ -191,11 +164,7 @@ export default {
         })
     }),
     comment: (postid , commentid) => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/like/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/like/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
@@ -206,11 +175,7 @@ export default {
         })
     }),
     reply: (postid , commentid , replyid) => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies/${replyid}/like/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies/${replyid}/like/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
@@ -223,11 +188,7 @@ export default {
   },
   dislike : {
     post: postid => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/dislike/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/dislike/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
@@ -238,11 +199,7 @@ export default {
         })
     }),
     comment: (postid , commentid) => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/dislike/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/dislike/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
@@ -253,11 +210,7 @@ export default {
         })
     }),
     reply: (postid , commentid , replyid) => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies/${replyid}/dislike/` , {
-        headers: {
-          authorization: `Bearer ${Cookies.getJSON('logedinUser').token}`,
-        }
-      })
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies/${replyid}/dislike/`)
         .then(res => {
           resolve(res.data)
           console.log('Work')
