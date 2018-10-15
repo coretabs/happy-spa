@@ -98,3 +98,18 @@
 </template>
 
 <script src = './script.js'></script>
+
+
+<style scoped>
+
+    .reply .answer div {
+      display: inline-block!important
+    }
+
+    .answerPara-one-line {
+      position: inherit!important;
+      top: 10px!important;
+      right: -30px!important
+    }
+
+</style>
