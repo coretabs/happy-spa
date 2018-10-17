@@ -19,8 +19,8 @@ export default {
           console.log(err.response)
         })
     }),
-  profile: user =>
-    new Promise((resolve, reject) => {
+  profile: {
+    info : user => new Promise((resolve, reject) => {
       axios.get(`/api/v1/auth/user/${user}/`)
         .then(res => {
           resolve(res.data)
@@ -30,6 +30,17 @@ export default {
           console.log(err.response)
         })
     }),
+    posts : (user , page) => new Promise((resolve, reject) => {
+      axios.get(`/api/v1/auth/user/${user}/posts?page=${page}`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err.response)
+        })
+    }),
+  },
   singup: data =>
     new Promise((resolve, reject) => {
       axios.post('/api/v1/auth/registration/', data)

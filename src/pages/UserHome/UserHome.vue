@@ -31,7 +31,7 @@
         <p>logo</p>
       </header>
       
-      <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="getPosts" @pull-down="getPosts(true)">
+      <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="getPosts" @pull-down="getPosts(true , false)">
         <div>
           <div class="backList box-shadow" :id="post.id"  v-if="posts"  v-for="post,index in posts" :key="index">
             <div class="backgroundSend">

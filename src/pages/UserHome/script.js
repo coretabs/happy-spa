@@ -27,7 +27,6 @@ export default {
       posts: '',
       loading: true,
       media: {},
-      now : Math.floor(Date.now() / 60000),
       username: Cookies.getJSON('logedinUser').user.username,
       menu: false,
       postid: '',
@@ -78,6 +77,7 @@ export default {
             this.posts.forEach(post => {
               this.media[post.id] = post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
             })
+            this.cacheIt()
           })
       }
     },
@@ -117,15 +117,13 @@ export default {
     editPost() {
       this.$store.commit('postToEdit', this.postToEdit)
       this.$router.push('/newpost?editmode=true')
+    },
+    cacheIt () {
+      let root = this
+      this.$store.commit('cachePosts' , {
+        posts : root.posts,
+        pagination : root.pagination
+      })
     }
-  },
-  beforeDestroy () {
-    let root = this
-    this.$store.commit('cachePosts' , {
-      posts : root.posts,
-      pagination : root.pagination
-    })
-  },
-  computed : {
   }
 }

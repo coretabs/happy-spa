@@ -25,89 +25,90 @@
         </div> 
       </div>	
 
-        <header class="topHeader box-shadow">
-          <router-link to='/more' class="left">
-            <i class="material-icons">more_vert</i>
-          </router-link>
-          <p>logo</p>
-        </header> 
-            
-        <div class="backList box-shadow" v-if="user">
-          <div class="aboutMe center">
-            <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
-              <h1 id="h">{{user.profile.displayed_name}}</h1>
-            <p class="reverse">@{{user.username}}</p>
-          </div>
+      <header class="topHeader box-shadow">
+        <router-link to='/more' class="left">
+          <i class="material-icons">more_vert</i>
+        </router-link>
+        <p>logo</p>
+      </header> 
           
-          <div class="description" v-if="user.profile.bio">
-            <h2 class="center">{{user.profile.bio}}</h2>
+      <div class="backList box-shadow" v-if="user">
+        <div class="aboutMe center">
+          <a :href="user.avatar_url"><img :src="user.avatar_url"></a>
+            <h1 id="h">{{user.profile.displayed_name}}</h1>
+          <p class="reverse">@{{user.username}}</p>
+        </div>
+        
+        <div class="description" v-if="user.profile.bio">
+          <h2 class="center">{{user.profile.bio}}</h2>
+        </div>
+        
+        <div class="aboutMyInfo center">
+          <div class="place">
+            <i class="material-icons fontSize15">place</i>
+            <span>{{user.profile.location}}</span>
           </div>
-          
-          <div class="aboutMyInfo center">
-            <div class="place">
-              <i class="material-icons fontSize15">place</i>
-              <span>{{user.profile.location}}</span>
-            </div>
-            <div class="birth">
-              <i class="material-icons fontSize15">date_range</i>
-              <span>{{user.profile.birth_date}}</span>
-            </div>
+          <div class="birth">
+            <i class="material-icons fontSize15">date_range</i>
+            <span>{{user.profile.birth_date}}</span>
           </div>
+        </div>
           
-          <hr>
+        <hr>
           
-          <div class="mySocial center" v-if="user.profile.link.length != 0">
-            <a v-if='TW' :href="TW"><i class="fab fa-twitter"></i></a>
-            <a v-if='FB' :href="FB"><i class="fab fa-facebook-f"></i></a>
-            <a v-if='GB' :href="GB"><i class="fab fa-google-plus-g"></i></a>
-            <a v-if='WS' :href="WS"><i class="fas fa-globe-americas"></i></a>
-          </div>
-
+        <div class="mySocial center" v-if="user.profile.link.length != 0">
+          <a v-if='TW' :href="TW"><i class="fab fa-twitter"></i></a>
+          <a v-if='FB' :href="FB"><i class="fab fa-facebook-f"></i></a>
+          <a v-if='GB' :href="GB"><i class="fab fa-google-plus-g"></i></a>
+          <a v-if='WS' :href="WS"><i class="fas fa-globe-americas"></i></a>
         </div>
 
-        <div class="backList box-shadow" v-for="post in user.posts" :key="post.id">
-          <div class="backgroundSend">
-            <div class="bgTextSend bgTextAndImageSend">
-              <div class="textSend" @click="$router.push(`/post?postid=${post.id}`)">
-              <p v-if="post.content != ''"> {{ post.content }}</p>
-              </div>
-              <div @click="$router.push(`/post?postid=${post.id}`)" class="bgImage" v-if="post.mediafile">
-                <img class="box-shadowL" :src="post.mediafile" v-if="media[post.id] != 'mp4'">
-                <div v-if="media[post.id]== 'mp4'">
-                  <video class="box-shadowL" controls="" autoplay="false"   name="media" >
-                    <source :src="post.mediafile" >
-                  </video>
+        </div>
+        
+        <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="getPosts(false , false)" @pull-down="getPosts(true ,false)">
+          <div class="backList box-shadow" v-if="posts"  v-for="post in posts" :key="post.id">
+            <div class="backgroundSend">
+              <div class="bgTextSend bgTextAndImageSend">
+                <div class="textSend" @click="$router.push(`/post?postid=${post.id}`)">
+                <p v-if="post.content != ''"> {{ post.content }}</p>
+                </div>
+                <div @click="$router.push(`/post?postid=${post.id}`)" class="bgImage" v-if="post.mediafile">
+                  <img class="box-shadowL" :src="post.mediafile" v-if="media[post.id] != 'mp4'">
+                  <div v-if="media[post.id]== 'mp4'">
+                    <video class="box-shadowL" controls="" autoplay="false"   name="media" >
+                      <source :src="post.mediafile" >
+                    </video>
+                  </div>
+                </div>
+                  
+                <div class="communion center fullWidth">
+                  <a @click="Corefun.like.post(post.id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
+                  <a @click="Corefun.dislike.post(post.id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
+                  <a @click="$router.push(`/comments?postid=${post.id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
                 </div>
               </div>
-              
-              <div class="communion center fullWidth">
-                <a @click="Corefun.like.post(post.id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
-                <a @click="Corefun.dislike.post(post.id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
-                <a @click="$router.push(`/comments?postid=${post.id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+              <hr>
+              <div class="myMenu">
+                <a class="left whiteGray">
+                  <span>{{post.time_since}}</span>
+                  <i @click="showMenu(post.id)" v-if="post.author == username" class="material-icons">more_vert</i>
+                </a>
               </div>
-            </div>
-            <hr>
-            <div   class="myMenu">
-              <a @click="showMenu(post.id)" class="left whiteGray">
-                <span>{{post.time_since}}</span>
-                <i v-if="post.author == username" class="material-icons">more_vert</i>
-              </a>
-            </div>
 
-            <div v-if="menu && post.id == postid" class=' menuPost box-shadow center absolute '>
-              <a @click="editPost"  class="class">تعديل</a>
-                <hr>
-              <a @click="confirm = true ; showConfirm()" class="class wrongValue">حذف</a>
-            </div>
+              <div v-if="menu && post.id == postid" class=' menuPost box-shadow center absolute '>
+                <a @click="editPost"  class="class">تعديل</a>
+                  <hr>
+                <a @click="confirm = true ; showConfirm()" class="class wrongValue">حذف</a>
+              </div>
+                
+              <div class="personPost">
+                <a :href="user.avatar_url">
+                  <img :src="user.avatar_url">
+                </a>
+                <a @click="$router.push('/profile')" class="personName">{{user.username}} </a>
+              </div>
               
-            <div class="personPost">
-              <a :href="user.avatar_url">
-                <img :src="user.avatar_url">
-              </a>
-              <a @click="$router.push('/profile')" class="personName">{{user.username}} </a>
             </div>
-            
-          </div>
           
           
           
@@ -146,20 +147,21 @@
               <div class="answerPara">
                 <p>{{post.top_comment.content}}</p>
               </div>
-            </div> 
+            </div>
           </div>
           
         </div>
+      </vue-data-loading>
 
-        <footer class="bottomFooter box-shadow">
-          <ul>
-            <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
-            <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
-            <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
-            <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-            <li><router-link class="actieFooterLink" to="/profile" ><i class="material-icons fontSize30">person</i></router-link></li>
-          </ul>
-        </footer>
+      <footer class="bottomFooter box-shadow">
+        <ul>
+          <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
+          <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
+          <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
+          <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
+          <li><router-link class="actieFooterLink" to="/profile" ><i class="material-icons fontSize30">person</i></router-link></li>
+        </ul>
+      </footer>
     </div>
   </div>
 </template>
