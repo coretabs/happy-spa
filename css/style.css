@@ -13,7 +13,7 @@ body {
     padding: 0;
 }
 body::-webkit-scrollbar {
-    width: .5em;
+    width: .4em;
 }
  
 body::-webkit-scrollbar-track {
@@ -22,6 +22,7 @@ body::-webkit-scrollbar-track {
  
 body::-webkit-scrollbar-thumb {
   background-color: #ffe600;
+  border-radius: 50px;
   outline: 0px solid #b0bec5;
 }
 header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong, img {
@@ -55,7 +56,13 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
  }
 
  /* alert */
-.blur > *:not(.backList) , .blur .backList > *:not(.backgroundSend) , .blur .backgroundSend > *:not(.myMenu):not(.menuPost) , .blur .bodyAnswer {
+.blur > *:not(.vue-data-loading)
+.blur .vue-data-loading > *:not(.loading-content)
+.blur .vue-data-loading .loading-content > *:not(div)
+.blur .vue-data-loading .loading-content > div > *:not(.backList),
+.blur .backList > *:not(.backgroundSend),
+.blur .backgroundSend > *:not(.myMenu):not(.menuPost), 
+.blur .bodyAnswer {
     filter : blur(4px)
 }
 
@@ -1053,9 +1060,6 @@ hr {
 }
 .wasm .sp {
 	margin: 0 2px;
-}
-.wasm a span {
-	
 }
 .wasm svg:not(:root).svg-inline--fa, .wasm .material-icons {
     vertical-align: middle;
