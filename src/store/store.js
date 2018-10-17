@@ -10,7 +10,7 @@ export default new Vuex.Store({
       usernameRegExp : /^[a-zA-Z]*$/,
       userInfo : '',
       postToEdit : '',
-      cache : {}
+      cache : false
     },
     mutations : {
       setUserInfo (state, info) {
@@ -20,8 +20,16 @@ export default new Vuex.Store({
         state.postToEdit = post
       },
       cachePosts(state , posts) {
-        state.cache.posts = posts
-        state.cache.postsTime = Math.floor(Date.now() / 60000)
+        state.cache = {
+          posts,
+          postTime : Math.floor(Date.now() / 60000)
+        }
+        setTimeout(()=>{
+          state.cache = false
+        }, 60000)
       }
+    },
+    getters : {
+      
     }
 })

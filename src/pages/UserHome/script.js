@@ -15,11 +15,12 @@ export default {
         this.$router.push('/login?from=/home')
       }
     } else if (Cookies.getJSON('logedinUser')) {
-      this.$router.push(`/home?id=${Cookies.getJSON('logedinUser').user.username}`)
+      this.$route.query.id = Cookies.getJSON('logedinUser').user.username
+      this.getPosts(false , true)
+      console.log('no query')
     } else {
       this.$router.push('/login?from=/home')
     }
-    
   },
   data: () => {
     return {
@@ -43,7 +44,7 @@ export default {
         next : '',
         loading : true,
         count : 0
-      }
+      },
     }
   },
   methods: {
@@ -51,7 +52,8 @@ export default {
     getPosts(refresh , cache) {
       if(refresh){
         this.pagination.page = 1 
-        this.posts = [] 
+        this.posts = []
+        this.loading = true
       }else{
         this.pagination.page++
       }
@@ -59,7 +61,7 @@ export default {
       console.log(this.pagination.page)
       this.pagination.loading = true
       
-      if (this.$store.state.cache.posts && cache){
+      if (!!this.$store.state.cache.posts && cache){
         let cache = this.$store.state.cache.posts
         this.posts = cache.posts,
         this.pagination = cache.pagination
@@ -123,5 +125,7 @@ export default {
       posts : root.posts,
       pagination : root.pagination
     })
+  },
+  computed : {
   }
 }
