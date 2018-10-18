@@ -778,6 +778,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .box-shadowL {
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.2);
 }
+.borderMedia {
+    border: 1px solid gainsboro;
+}
 .topHeader, .bottomFooter {
     width: 100%;
     height: 50px;
@@ -1171,7 +1174,9 @@ hr {
 .bgTextAndImageSend .bgImage {
     max-width: 500px;
     width: 90%;
-	margin: 10px auto 0;
+    margin: 10px auto 0;
+    display: grid;
+    justify-content: center;
 }
 .bgTextAndImageSend .bgImage img , .bgTextAndImageSend .bgImage video {
 	border-radius: 10px;
@@ -1226,6 +1231,10 @@ hr {
     top: 0;
     right: -15px;
 	margin: 0;
+}
+.reply .answer div {
+    display: inline-block;
+    vertical-align: middle;
 }
 .answerPara p {
 	line-height: 1.5;
