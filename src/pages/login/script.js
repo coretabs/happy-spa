@@ -41,7 +41,7 @@ export default {
                     if (this.$route.query.from){
                         this.$router.push(`${this.$route.query.from}?id=${re.user.username}`)
                     } else {
-                        this.$router.push(`/profile?id=${Cookies.getJSON('logedinUser').user.username}/`)
+                        this.$router.push(`/profile?id=${Cookies.getJSON('logedinUser').user.username}`)
                     }
                 })
                 

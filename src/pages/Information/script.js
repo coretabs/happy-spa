@@ -116,7 +116,7 @@ export default {
         },
         formData (){
             this.inf.append('username', this.userInfo.username)
-            this.userInfo.avatar ? this.inf.append('avatar', this.userInfo.avatar) :
+            this.userInfo.avatar ? this.inf.append('avatar', this.userInfo.avatar) : ''
             this.inf.append('profile.first_name', this.userInfo.profile.first_name)
             this.inf.append('profile.last_name', this.userInfo.profile.last_name)
             this.inf.append('profile.bio', this.userInfo.profile.bio)
@@ -132,6 +132,7 @@ export default {
                     console.log(re , Cookies.getJSON('logedinUser'))
                     let logedinUser = Cookies.getJSON('logedinUser')
                     logedinUser.user = re
+                    this.$store.state.cache.profile[re.username] ? this.$store.state.cache.profile[re.username].user = re : ''
                     Cookies.set('logedinUser' , logedinUser , { expires: 365 })
                     this.$router.push(`/profile`)
                     this.disable = false
