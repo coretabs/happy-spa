@@ -12,7 +12,9 @@ export default new Vuex.Store({
       postToEdit : '',
       cache : {
         posts : '',
-        profile : {}
+        profile : {},
+        comments : {},
+        replies : {}
       }
     },
     mutations : {
@@ -33,9 +35,18 @@ export default new Vuex.Store({
         setTimeout(()=>{
           state.cache.profile = {}
         }, 600000)
+      },
+      cacheComments(state , comments) {
+        state.cache.comments[comments.id] = comments
+        setTimeout(()=>{
+          state.cache.comments = {}
+        }, 600000)
+      },
+      cacheReplies(state , replies) {
+        state.cache.replies[replies.id] = replies
+        setTimeout(()=>{
+          state.cache.replies = {}
+        }, 600000)
       }
     },
-    getters : {
-      
-    }
-})
+  })

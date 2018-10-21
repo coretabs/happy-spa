@@ -17,50 +17,55 @@
         </a>
         <p>logo</p>
       </header>
-      <div id="bodyComments" v-for="comment in comments"  v-if="comments">	
-        <div class="bodyAnswer">
-          <div class="answer">
-            <div class="personPost">
-              <router-link :to="`/profile?id=${comment.author}`">
-                <img :src="comment.author_avatar">
-              </router-link>
-              <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
-            </div>
-            <div class="answerPara">
-              <p class="relative">{{comment.content}}</p>
-            </div>
-          </div> 
-          <div class="communion">
-            <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-            <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-            <a @click="$router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
-            <a href="#" class="left headElements center CMTtime">
-              <span>{{comment.time_since}}</span>
-            </a>
-          </div>
-        </div>
 
-        <div class="bodyAnswer reply" v-if="comment.replies_count != 0"  v-for="reply in comment.replies" :key="reply.id">
-          <div class="answer">
-            <div class="personPost">
-              <router-link :to="`/profile?id=${reply.author}`">
-                <img :src="reply.author_avatar">
-              </router-link>
-              <router-link :to="`/profile?id=${reply.author}`" class="personName">{{reply.author}}</router-link>
+      <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="update" @pull-down="update(true , false)">
+        <div id="bodyComments" v-for="comment in comments"  v-if="comments">	
+          <div class="bodyAnswer">
+            <div class="answer">
+              <div class="personPost">
+                <router-link :to="`/profile?id=${comment.author}`">
+                  <img :src="comment.author_avatar">
+                </router-link>
+                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+              </div>
+              <div class="answerPara">
+                <p class="relative">{{comment.content}}</p>
+              </div>
+            </div> 
+            <div class="communion">
+              <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+              <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+              <a @click=" ; $router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
+              <a href="#" class="left headElements center CMTtime">
+                <span>{{comment.time_since}}</span>
+              </a>
             </div>
-            <div class="answerPara">
-              <p >{{reply.content}}</p>
-            </div>
-          </div> 
-          <div class="communion">
-            <a @click="Corefun.like.reply(id , comment.id , reply.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{reply.likes_count}}</span></a>
-            <a @click="Corefun.like.reply(id , comment.id , reply.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{reply.dislikes_count}}</span></a>
-            <a href="#" class="left headElements center CMTtime">
-              <span>{{reply.time_since}}</span>
-            </a>
           </div>
+
+          <div class="bodyAnswer reply" v-if="comment.top_reply">
+            <div class="answer">
+              <div class="personPost">
+                <router-link :to="`/profile?id=${comment.top_reply.author}`">
+                  <img :src="comment.top_reply.author_avatar">
+                </router-link>
+                <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
+              </div>
+              <div class="answerPara">
+                <p >{{comment.top_reply.content}}</p>
+              </div>
+            </div> 
+            <div class="communion">
+              <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.top_reply.likes_count}}</span></a>
+              <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.top_reply.dislikes_count}}</span></a>
+              <a href="#" class="left headElements center CMTtime">
+                <span>{{comment.top_reply.time_since}}</span>
+              </a>
+            </div>
+            <div @click="$router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })">إقرا المزيد</div>
+          </div>
+          
         </div>
-      </div>
+      </vue-data-loading>
 
       <footer class="bottomFooter box-shadow footerAndChat">
         <div class="chat" v-if="avatar">

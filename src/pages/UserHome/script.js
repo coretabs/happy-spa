@@ -10,6 +10,7 @@ export default {
           this.getPosts(false , true)
         } else {
           this.$router.push(`/home?id=${Cookies.getJSON('logedinUser').user.username}`)
+          this.getPosts(false , true)
         }
       } else {
         this.$router.push('/login?from=/home')
@@ -43,7 +44,7 @@ export default {
         next : '',
         loading : true,
         count : 0
-      },
+      }
     }
   },
   methods: {

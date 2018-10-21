@@ -118,6 +118,17 @@ export default {
           console.log(err.response)
         })
     }),
+  replies: (postid, commentid , page) =>
+    new Promise((resolve, reject) => {
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies?page=${page}`)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+          console.log(err.response)
+        })
+    }),
   addReply: reply =>
     new Promise((resolve, reject) => {
       axios.post(`/api/v1/posts/${reply.postid}/comments/${reply.commentid}/replies/`, reply.data)
@@ -151,9 +162,9 @@ export default {
           console.log(err.response)
         })
     }),
-  postComments: postid =>
+  postComments: (postid , page) =>
     new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/`)
+      axios.get(`/api/v1/posts/${postid}/comments?page=${page}`)
         .then(res => {
           resolve(res.data)
         })
