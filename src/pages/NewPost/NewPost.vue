@@ -54,7 +54,7 @@
                         <hr>
                         <div v-if="previweLink" class="bgTextAndImageSend">
                             <div class="bgImage fullWidth relative">
-                                <img :src="previweLink" class="box-shadow" alt="">
+                                <img :src="previweLink" class="borderMedia fullWidth" alt="">
                                 <a @click="removePic" class="deleteImagePost   absolute BGCW borderRadius50">
                                     <i class="wrongValue  material-icons">delete</i>
                                 </a>

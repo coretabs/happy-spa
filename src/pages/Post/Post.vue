@@ -37,7 +37,7 @@
                                 <p v-if="post.content != ''"> {{ post.content }}</p>
                             </div>
                             <div class="bgImage" v-if="post.mediafile">
-                                <img class="borderMedia" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
+                                <img class="borderMedia fullWidth" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
                                 <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
                                     <video class="borderMedia" controls="" autoplay="false"   name="media" >
                                         <source :src="post.mediafile" >

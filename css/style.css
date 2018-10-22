@@ -1175,8 +1175,6 @@ hr {
     max-width: 500px;
     width: 90%;
     margin: 10px auto 0;
-    display: grid;
-    justify-content: center;
 }
 .bgTextAndImageSend .bgImage img , .bgTextAndImageSend .bgImage video {
 	border-radius: 10px;

@@ -39,7 +39,7 @@
                 <div @click="$router.push(`/post?postid=${post.id}`)"  class="textSend">
                   <p v-if="post.content != ''"> {{ post.content }}</p>
                 </div>
-                <div class="bgImage" @click="$router.push(`/post?postid=${post.id}`)"  v-if="post.mediafile">
+                <div class="bgImage fullWidth" @click="$router.push(`/post?postid=${post.id}`)"  v-if="post.mediafile">
                   <img class="borderMedia" :src="post.mediafile" v-if="media[post.id] != 'mp4'">
                   <div v-if="media[post.id]== 'mp4'">
                     <video class="borderMedia" controls="" autoplay="false"   name="media" >
