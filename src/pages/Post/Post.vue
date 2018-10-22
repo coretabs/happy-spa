@@ -115,6 +115,27 @@
                                 <span>{{comment.time_since}}</span>
                             </a>
                         </div>
+                        <div class="bodyAnswer reply" v-if="comment.top_reply">
+                            <div class="answer">
+                                <div class="personPost">
+                                    <router-link :to="`/profile?id=${comment.top_reply.author}`">
+                                        <img :src="comment.top_reply.author_avatar">
+                                    </router-link>
+                                    <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
+                                </div>
+                            <div class="answerPara">
+                                <p >{{comment.top_reply.content}}</p>
+                            </div>
+                            </div> 
+                                <div class="communion">
+                                    <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.top_reply.likes_count}}</span></a>
+                                    <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.top_reply.dislikes_count}}</span></a>
+                                    <a href="#" class="left headElements center CMTtime">
+                                        <span>{{comment.top_reply.time_since}}</span>
+                                    </a>
+                                </div>
+                                <div @click="$router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })">إقرا المزيد</div>
+                        </div>
                     </div>
                 </div>
             </vue-data-loading>
@@ -153,5 +174,13 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+    .reply {
+        width: unset!important;
+        margin: unset!important;
+    }
+</style>
+
 
 <script src='./script.js'></script>
