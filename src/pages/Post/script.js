@@ -7,6 +7,7 @@ export default {
     return {
       id: '',
       post: '',
+      comments : [],
       avatar: '',
       commentTxt: '',
       Error: false,
@@ -17,13 +18,21 @@ export default {
       onClose: '',
       confirm : false,
       confirmMsg : 'هل تريد فعل ذلك حقاً',
-      Corefun : Corefun
+      Corefun : Corefun,
+      pagination : {
+        page : 0,
+        previous : '',
+        next : '',
+        loading : true,
+        count : 0
+      }
     }
   },
   created() {
     if (this.$route.query.postid) {
       this.id = this.$route.query.postid
-      this.update()
+      this.update(true)
+      this.getComments(false , true)
       if (Cookies.getJSON('logedinUser').user) {
         this.avatar = Cookies.getJSON('logedinUser').user.avatar_url
         this.username = Cookies.getJSON('logedinUser').user.username
@@ -35,6 +44,60 @@ export default {
     }
   },
   methods: {
+    getComments (refresh , cache) {
+      if (refresh) { 
+        this.pagination.page = 1 
+        this.comments = []
+        this.loading = true
+      } else {
+        this.pagination.page++
+      }
+
+      console.log(this.pagination.page)
+      this.pagination.loading = true
+
+      if (!!this.$store.state.cache.comments[this.id] && cache){
+        let cache = this.$store.state.cache.comments[this.id]
+        this.comments = cache.comments,
+        this.pagination = cache.pagination
+        this.loading = false
+        this.pagination.loading = false
+      } else {
+        Corefun.postComments(this.id , this.pagination.page)
+        .then(re => {
+          this.comments = [...this.comments, ...re.results]
+          this.loading = false
+          this.pagination.loading = false
+          this.pagination.next = re.next
+          this.pagination.previous = re.previous
+          this.cacheIt(true)
+        }).catch(er => {
+          if (er.response.status == 404) {
+            this.Error = true
+            this.ErrorMsg = 'المنشور غير موجود او تم حذفه'
+            this.onClose = () => this.$router.push('/home')
+            this.showError()
+          } else {
+            this.Error = true
+            this.onClose = () => this.$router.push('/home')
+            this.showError()
+          }
+        })
+      }
+    },
+    cacheIt(comments) {
+      let root = this
+      this.$store.commit('cachePost' , {
+        ...root.post
+      })
+      if (comments) {
+        this.$store.commit('cacheComments' , {
+          comments : root.comments ? root.comments : '' ,
+          pagination : root.pagination,
+          id : root.id,
+        })
+      }
+    },
     addcomment() {
       if (this.commentTxt.replace(/\s/gi, "")) {
         let Comment = {
@@ -45,25 +108,30 @@ export default {
         }
         this.commentTxt = ''
         Corefun.addComment(Comment).then(re => {
-          this.update()
+          this.comments.push(re)
         })
-      } else {
-
       }
     },
-    update() {
-      Corefun.post(this.id)
-        .then(re => {
-          this.post = re
-          this.loading = false
-        }).catch(er => {
-          if (er.response.status == 404) {
-            this.Error = true
-            this.ErrorMsg = 'المنشور غير موجود او تم حذفه'
-            this.onClose = () => this.$router.push('/home')
-            this.showError()
-          }
-        })
+    update(cache) {
+      if (!!this.$store.state.cache.post[this.id] && cache){
+        this.post = this.$store.state.cache.post[this.id]
+        this.loading = false
+        this.pagination.loading = false
+      } else {
+        Corefun.post(this.id)
+          .then(re => {
+            this.post = re
+            this.loading = false
+            this.cacheIt(false)
+          }).catch(er => {
+            if (er.response.status == 404) {
+              this.Error = true
+              this.ErrorMsg = 'المنشور غير موجود او تم حذفه'
+              this.onClose = () => this.$router.push('/home')
+              this.showError()
+            }
+          })
+        }
     },
     showError() {
       this.menu = false

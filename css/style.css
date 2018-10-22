@@ -1221,7 +1221,6 @@ hr {
 }
 .bodyAnswer .personName {
 	font-size: 12px;
-	line-height: 3;
 }
 .answer {
     border-radius: 10px;
@@ -1241,7 +1240,7 @@ hr {
     color: #142833;
 	padding: 0px 20px 0px;
     font-size: 12px;
-}
+} 
 
 .spaceFooterS {
 	margin-bottom: 50px;

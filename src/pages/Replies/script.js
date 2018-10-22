@@ -35,13 +35,13 @@ export default {
     }
   },
   methods: {
-    update(refresh , cache , update){
+    update(refresh , cache){
       if (refresh) { 
         this.pagination.page = 1 
         this.replies = []
         this.loading = true
       } else {
-       update ? '' : this.pagination.page++
+        this.pagination.page++
       }
 
       console.log(this.pagination.page)
@@ -92,7 +92,7 @@ export default {
           commentid: this.commentid
         };
         this.replyTxt = ''
-        Corefun.addReply(reply).then(this.update(true));
+        Corefun.addReply(reply).then(re => this.replies.push(re));
       }
     }
   }

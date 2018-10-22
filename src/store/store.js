@@ -14,7 +14,8 @@ export default new Vuex.Store({
         posts : '',
         profile : {},
         comments : {},
-        replies : {}
+        replies : {},
+        post : {}
       }
     },
     mutations : {
@@ -34,6 +35,12 @@ export default new Vuex.Store({
         state.cache.profile[profile.user.username] = profile
         setTimeout(()=>{
           state.cache.profile = {}
+        }, 600000)
+      },
+      cachePost(state , post){
+        state.cache.post[post.id] = post
+        setTimeout(()=>{
+          state.cache.post = {}
         }, 600000)
       },
       cacheComments(state , comments) {

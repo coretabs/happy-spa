@@ -25,13 +25,13 @@ export default {
     }
   },
   methods : {
-    update(refresh , cache , update) {
+    update(refresh , cache) {
       if (refresh) { 
         this.pagination.page = 1 
         this.comments = []
         this.loading = true
       } else {
-        update ? '' :this.pagination.page++
+        this.pagination.page++
       }
 
       console.log(this.pagination.page)
@@ -71,7 +71,7 @@ export default {
       this.$store.commit('cacheComments' , {
         comments : root.comments ? root.comments : '' ,
         pagination : root.pagination,
-        id : root.id
+        id : root.id,
       })
     },
     addcomment() {
@@ -84,7 +84,7 @@ export default {
         }
         this.commentTxt = ''
         Corefun.addComment(Comment).then(re => {
-          this.update(false , false , true)
+          this.comments.push(re)
         })
       }
     },

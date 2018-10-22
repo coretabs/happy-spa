@@ -29,96 +29,96 @@
                 <div class="spinner"></div>
             </div>
 
-
-            <div class="backList box-shadowL" v-if="post">
-                <div class="backgroundSend">
-                    <div class="bgTextSend bgTextAndImageSend">
-                        <div class="textSend">
-                            <p v-if="post.content != ''"> {{ post.content }}</p>
-                        </div>
-                        <div class="bgImage" v-if="post.mediafile">
-                            <img class="borderMedia" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
-                            <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
-                                <video class="borderMedia" controls="" autoplay="false"   name="media" >
-                                    <source :src="post.mediafile" >
-                                </video>
+            <vue-data-loading v-if="comments.length != 0" :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="getComments" @pull-down="getComments(true , false) ; update(false)">
+                <div class="backList box-shadowL" v-if="post">
+                    <div class="backgroundSend">
+                        <div class="bgTextSend bgTextAndImageSend">
+                            <div class="textSend">
+                                <p v-if="post.content != ''"> {{ post.content }}</p>
+                            </div>
+                            <div class="bgImage" v-if="post.mediafile">
+                                <img class="borderMedia" :src="post.mediafile" v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] != 'mp4'">
+                                <div v-if="post.mediafile.split('.')[post.mediafile.split('.').length - 1] == 'mp4'">
+                                    <video class="borderMedia" controls="" autoplay="false"   name="media" >
+                                        <source :src="post.mediafile" >
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="communion center fullWidth">
+                                <a @click="Corefun.like.post(id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
+                                <a @click="Corefun.dislike.post(id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
+                                <a @click="$router.push(`/comments?postid=${id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
                             </div>
                         </div>
-                        <div class="communion center fullWidth">
-                            <a @click="Corefun.like.post(id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
-                            <a @click="Corefun.dislike.post(id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
-                            <a @click="$router.push(`/comments?postid=${id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+                    
+                        <div v-if="post.author == username"  class="myMenu">
+                            <a @click="showMenu" class="left whiteGray">
+                                <span>{{post.time_since}}</span>
+                                <i class="material-icons">more_vert</i>
+                            </a>
                         </div>
-                    </div>
-                
-                    <div v-if="post.author == username"  class="myMenu">
-                        <a @click="showMenu" class="left whiteGray">
-                            <span>{{post.time_since}}</span>
-                            <i class="material-icons">more_vert</i>
-                        </a>
-                    </div>
-                    
-                    <div v-if="menu"   class="menuPost box-shadow center absolute">
-                        <a @click="editPost"  class="class">تعديل</a>
-                        <hr>
-                        <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
-                    </div>
+                        
+                        <div v-if="menu"   class="menuPost box-shadow center absolute">
+                            <a @click="editPost"  class="class">تعديل</a>
+                            <hr>
+                            <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                        </div>
 
-                    <div class="personPost">
-                        <router-link :to="`/profile?id=${post.author}`">
-                            <img :src='post.author_avatar'>
-                        </router-link> 
-                        <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.author}}</router-link>
-                    </div>
-                
-                </div>
-            
-            
-            
-                <div class="bodyWasm" v-if="post.tags">
-                    
-                    <div class="wasm">
-                        <a href="#"><i class="material-icons">label</i>meme</a>
-                        <span></span>
-                        <a href="#"><i class="material-icons">label</i>meme</a>
-                        <span></span>
-                        <a href="#"><i class="material-icons">label</i>meme</a>
-                        <span></span>
-                        <a href="#"><i class="material-icons">label</i>meme</a>
-                        <span></span>
-                        <a href="#"><i class="material-icons">label</i>meme</a>
-                    </div>
-                    <div class="showAll">
-                    <a href="#">عرض الكل</a>
-                    </div>
-                </div>
-            
-                <hr>
-
-                <div class="bodyAnswer" v-if="post.comments.length != 0" v-for="comment in post.comments" :key="comment.id">
-                    <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
                         <div class="personPost">
-                            <router-link :to="`/profile?id=${comment.author}`">
-                                <img :src="comment.author_avatar">
-                            </router-link>
-                            <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                            <router-link :to="`/profile?id=${post.author}`">
+                                <img :src='post.author_avatar'>
+                            </router-link> 
+                            <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.author}}</router-link>
                         </div>
-                        <div class="answerPara">
-                            <p>{{comment.content}}</p>
+                    
+                    </div>
+                
+                
+                
+                    <div class="bodyWasm" v-if="post.tags">
+                        
+                        <div class="wasm">
+                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <span></span>
+                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <span></span>
+                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <span></span>
+                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <span></span>
+                            <a href="#"><i class="material-icons">label</i>meme</a>
                         </div>
-                    </div> 
-                    <div class="communion">
-                        <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-                        <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-                        <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
-                        <a href="#" class="left headElements center CMTtime whiteGray">
-                            <span>{{comment.time_since}}</span>
-                        </a>
+                        <div class="showAll">
+                        <a href="#">عرض الكل</a>
+                        </div>
+                    </div>
+                
+                    <hr>
+                    
+                    <div class="bodyAnswer"  v-for="comment in comments" :key="comment.id">
+                        <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
+                            <div class="personPost">
+                                <router-link :to="`/profile?id=${comment.author}`">
+                                    <img :src="comment.author_avatar">
+                                </router-link>
+                                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                            </div>
+                            <div class="answerPara">
+                                <p>{{comment.content}}</p>
+                            </div>
+                        </div> 
+                        <div class="communion">
+                            <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+                            <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+                            <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
+                            <a href="#" class="left headElements center CMTtime whiteGray">
+                                <span>{{comment.time_since}}</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-
+            </vue-data-loading>
+            
             <footer class="bottomFooter box-shadow footerAndChat">
                 <div class="chat" v-if="avatar">
                     <div class="field">
