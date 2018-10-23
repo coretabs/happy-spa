@@ -34,6 +34,7 @@ export default {
     }
   },
   methods : {
+    $ : element => document.querySelector(element),
     getInfo () {
       if (Cookies.getJSON('logedinUser').user.username == this.$route.query.id) {
         this.user = Cookies.getJSON('logedinUser').user
@@ -84,6 +85,71 @@ export default {
           })
       }
     },
+    likePost(postid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.posts.forEach(post => {
+          if (post.id == postid) {
+            switch (post.reaction) {
+              case 'liked' :
+                post.reaction = null
+                post.likes_count--
+                Corefun.like.post(post.id)
+                console.log(post.reaction)                
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                post.reaction = 'liked'
+                post.likes_count++
+                post.dislikes_count--
+                Corefun.like.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              default : 
+                post.reaction = 'liked'
+                post.likes_count++
+                Corefun.like.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }
+    },
+    dislikePost(postid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.posts.forEach(post => {
+          if (post.id == postid) {
+            switch (post.reaction) {
+              case 'liked' :
+                post.reaction = 'disliked'
+                post.likes_count--
+                post.dislikes_count++
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                post.reaction = null
+                post.dislikes_count--
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              
+              default : 
+                post.reaction = 'disliked'
+                post.dislikes_count++
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }
+    },
     showConfirm(doit) {
       this.menu = false
       if (this.confirm) {
@@ -98,7 +164,6 @@ export default {
         this.$('.grayContentPage').classList.remove('blur')
       }
     },
-    $ : element => document.querySelector(element),
     showMenu(postid) {
       this.menu = !this.menu
       this.postid = postid
@@ -168,8 +233,5 @@ export default {
         } 
       })
     }
-  },
-  beforeDestroy () {
-    
   }
 }

@@ -3,26 +3,6 @@ import Cookies from "js-cookie"
 
 
 export default {
-  created() {
-    if (this.$route.query.id) {
-      if (Cookies.getJSON('logedinUser')) {
-        if (Cookies.getJSON('logedinUser').user.username == this.$route.query.id) {
-          this.getPosts(false , true)
-        } else {
-          this.$router.push(`/home?id=${Cookies.getJSON('logedinUser').user.username}`)
-          this.getPosts(false , true)
-        }
-      } else {
-        this.$router.push('/login?from=/home')
-      }
-    } else if (Cookies.getJSON('logedinUser')) {
-      this.$route.query.id = Cookies.getJSON('logedinUser').user.username
-      this.getPosts(false , true)
-      console.log('no query')
-    } else {
-      this.$router.push('/login?from=/home')
-    }
-  },
   data: () => {
     return {
       posts: '',
@@ -57,7 +37,7 @@ export default {
       }else{
         this.pagination.page++
       }
-
+      
       console.log(this.pagination.page)
       this.pagination.loading = true
       
@@ -69,17 +49,82 @@ export default {
         this.pagination.loading = false
       } else {
         Corefun.posts(this.pagination.page)
-          .then(re => {
-            this.posts = [...this.posts , ...re.results]
-            this.loading = false
-            this.pagination.loading = false
-            this.pagination.next = re.next
-            this.pagination.previous = re.previous
-            this.posts.forEach(post => {
-              this.media[post.id] = post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
-            })
-            this.cacheIt()
+        .then(re => {
+          this.posts = [...this.posts , ...re.results]
+          this.loading = false
+          this.pagination.loading = false
+          this.pagination.next = re.next
+          this.pagination.previous = re.previous
+          this.posts.forEach(post => {
+            this.media[post.id] = post.mediafile ? post.mediafile.split('.')[post.mediafile.split('.').length - 1] : undefined
           })
+          this.cacheIt()
+        })
+      }
+    },
+    likePost(postid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.posts.forEach(post => {
+          if (post.id == postid) {
+            switch (post.reaction) {
+              case 'liked' :
+                post.reaction = null
+                post.likes_count--
+                Corefun.like.post(post.id)
+                console.log(post.reaction)                
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                post.reaction = 'liked'
+                post.likes_count++
+                post.dislikes_count--
+                Corefun.like.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              default : 
+                post.reaction = 'liked'
+                post.likes_count++
+                Corefun.like.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }
+    },
+    dislikePost(postid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.posts.forEach(post => {
+          if (post.id == postid) {
+            switch (post.reaction) {
+              case 'liked' :
+                post.reaction = 'disliked'
+                post.likes_count--
+                post.dislikes_count++
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                post.reaction = null
+                post.dislikes_count--
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+              
+              default : 
+                post.reaction = 'disliked'
+                post.dislikes_count++
+                Corefun.dislike.post(post.id)
+                console.log(post.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
       }
     },
     showConfirm(doit) {
@@ -125,6 +170,26 @@ export default {
         posts : root.posts,
         pagination : root.pagination
       })
+    }
+  },
+  created() {
+    if (this.$route.query.id) {
+      if (Cookies.getJSON('logedinUser')) {
+        if (Cookies.getJSON('logedinUser').user.username == this.$route.query.id) {
+          this.getPosts(false , true)
+        } else {
+          this.$router.push(`/home?id=${Cookies.getJSON('logedinUser').user.username}`)
+          this.getPosts(false , true)
+        }
+      } else {
+        this.$router.push('/login?from=/home')
+      }
+    } else if (Cookies.getJSON('logedinUser')) {
+      this.$route.query.id = Cookies.getJSON('logedinUser').user.username
+      this.getPosts(false , true)
+      console.log('no query')
+    } else {
+      this.$router.push('/login?from=/home')
     }
   }
 }
