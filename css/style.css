@@ -1220,6 +1220,9 @@ hr {
 .bodyAnswer .personName {
 	font-size: 12px;
 }
+.reply {
+    padding-bottom: 0;
+}
 .answer {
     border-radius: 10px;
 }
