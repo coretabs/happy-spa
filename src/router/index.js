@@ -55,7 +55,7 @@ export default new Router({
       path : '/manageemails',
       name : 'ManageEmails',
       component : ManageEmails
-    }
+    },
     {
       path : '/home',
       component : UserHome
