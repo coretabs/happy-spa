@@ -44,6 +44,7 @@ export default new Vuex.Store({
         }, 600000)
       },
       cacheComments(state , comments) {
+
         state.cache.comments[comments.id] = comments
         setTimeout(()=>{
           state.cache.comments = {}
@@ -54,6 +55,12 @@ export default new Vuex.Store({
         setTimeout(()=>{
           state.cache.replies = {}
         }, 600000)
+      },
+      claerCache(state) {
+        state.cache.posts = ''
+        state.cache.comments = {}
+        state.cache.post = {}
+        state.cache.replies = {}
       }
-    },
+    }
   })

@@ -88,6 +88,148 @@ export default {
         })
       }
     },
+    likeComment(commentid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.comments.forEach(comment => {
+          if (comment.id == commentid) {
+            switch (comment.reaction) {
+              case 'liked' :
+                comment.reaction = null
+                comment.likes_count--
+                Corefun.like.comment(this.id , comment.id)
+                console.log(comment.reaction)                
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                comment.reaction = 'liked'
+                comment.likes_count++
+                comment.dislikes_count--
+                Corefun.like.comment(this.id , comment.id)
+                console.log(comment.reaction)
+                this.cacheIt()
+              break;
+              default : 
+                comment.reaction = 'liked'
+                comment.likes_count++
+                Corefun.like.comment(this.id , comment.id)
+                console.log(comment.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }else{
+        this.$router.push(`login?from=/comments?postid=${this.id}`)
+      }
+    },
+    dislikeComment(commentid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.comments.forEach(comment => {
+          if (comment.id == commentid) {
+            switch (comment.reaction) {
+              case 'liked' :
+                comment.reaction = 'disliked'
+                comment.likes_count--
+                comment.dislikes_count++
+                Corefun.dislike.comment(this.id , comment.id)
+                console.log(comment.reaction)
+                
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                comment.reaction = null
+                comment.dislikes_count--
+                Corefun.dislike.comment(this.id , comment.id)
+                console.log(comment.reaction)
+                this.cacheIt()
+              break;
+              
+              default : 
+                comment.reaction = 'disliked'
+                comment.dislikes_count++
+                Corefun.dislike.comment(this.id , comment.id)
+                console.log(comment.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }else{
+        this.$router.push(`login?from=/comments?postid=${this.id}`)
+      }
+    },
+    likeReply(commentid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.comments.forEach(comment => {
+          if (comment.id == commentid) {
+            switch (comment.top_reply.reaction) {
+              case 'liked' :
+                comment.top_reply.reaction = null
+                comment.top_reply.likes_count--
+                Corefun.like.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                this.cacheIt()
+              break;
+              
+              case 'disliked' : 
+                comment.top_reply.reaction = 'liked'
+                comment.top_reply.likes_count++
+                comment.top_reply.dislikes_count--
+                Corefun.like.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                
+                this.cacheIt()
+              break;
+              default : 
+                comment.top_reply.reaction = 'liked'
+                comment.top_reply.likes_count++
+                Corefun.like.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }else{
+        this.$router.push(`login?from=/comments?postid=${this.id}`)
+      }
+    },
+    dislikeReply(commentid) {
+      if (Cookies.getJSON('logedinUser')) {
+        this.comments.forEach(comment => {
+          if (comment.id == commentid) {
+            switch (comment.top_reply.reaction) {
+              case 'liked' :
+                comment.top_reply.reaction = 'disliked'
+                comment.top_reply.likes_count--
+                comment.top_reply.dislikes_count++
+                Corefun.dislike.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                
+                this.cacheIt()
+              break;
+              case 'disliked' : 
+                comment.top_reply.reaction = null
+                comment.top_reply.dislikes_count--
+                Corefun.dislike.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                this.cacheIt()
+              break;
+              
+              default : 
+                comment.top_reply.reaction = 'disliked'
+                comment.top_reply.dislikes_count++
+                Corefun.dislike.reply(this.id , comment.id , comment.top_reply.id)
+                console.log(comment.top_reply.reaction)
+                this.cacheIt()
+              break;
+            }    
+          }
+        })
+      }else{
+        this.$router.push(`login?from=/comments?postid=${this.id}`)
+      }
+    }
     
   },
   watch : {

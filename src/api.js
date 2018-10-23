@@ -3,13 +3,14 @@ import Cookies from 'js-cookie'
 
 axios.defaults.baseURL = 'https://corefun.herokuapp.com'
 
-if (Cookies.getJSON('logedinUser')){
+let isLogin = ()=> {if (Cookies.getJSON('logedinUser')){
   axios.defaults.headers.common['authorization'] = `Bearer ${Cookies.getJSON('logedinUser').token}`
-}
+}}
 
 export default {
   login: data =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.post('/api/v1/auth/login/', data)
         .then(res => {
           resolve(res.data)
@@ -20,29 +21,34 @@ export default {
         })
     }),
   profile: {
-    info : user => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/auth/user/${user}/`)
-        .then(res => {
-          resolve(res.data)
-        })
-        .catch(err => {
-          reject(err)
-          console.log(err.response)
-        })
+    info : user => 
+    new Promise((resolve, reject) => {
+      isLogin()
+        axios.get(`/api/v1/auth/user/${user}/`)
+          .then(res => {
+            resolve(res.data)
+          })
+          .catch(err => {
+            reject(err)
+            console.log(err.response)
+          })
     }),
-    posts : (user , page) => new Promise((resolve, reject) => {
-      axios.get(`/api/v1/auth/user/${user}/posts?page=${page}`)
-        .then(res => {
-          resolve(res.data)
-        })
-        .catch(err => {
-          reject(err)
-          console.log(err.response)
-        })
-    }),
+    posts : (user , page) => 
+    new Promise((resolve, reject) => {
+      isLogin()
+        axios.get(`/api/v1/auth/user/${user}/posts?page=${page}`)
+          .then(res => {
+            resolve(res.data)
+          })
+          .catch(err => {
+            reject(err)
+            console.log(err.response)
+          })
+      }),
   },
   singup: data =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.post('/api/v1/auth/registration/', data)
         .then(res => {
           resolve(res.data)
@@ -54,6 +60,7 @@ export default {
     }),
   information: data =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.put('/api/v1/auth/user/', data)
         .then(res => {
           resolve(res.data)
@@ -65,6 +72,7 @@ export default {
     }),
   posts: (page) =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.get(`/api/v1/posts/?page=${page}`)
         .then(res => {
           resolve(res.data)
@@ -76,6 +84,7 @@ export default {
     }),
   newPost: data =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.post('/api/v1/posts/', data)
         .then(res => {
           resolve(res.data)
@@ -87,6 +96,7 @@ export default {
     }),
   post: id =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.get(`/api/v1/posts/${id}/`)
         .then(res => {
           resolve(res.data)
@@ -98,6 +108,7 @@ export default {
     }),
   addComment: comment =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.post(`/api/v1/posts/${comment.postid}/comments/`, comment.data)
         .then(res => {
           resolve(res.data)
@@ -109,6 +120,7 @@ export default {
     }),
   comment: (postid, commentid) =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.get(`/api/v1/posts/${postid}/comments/${commentid}/`)
         .then(res => {
           resolve(res.data)
@@ -120,7 +132,8 @@ export default {
     }),
   replies: (postid, commentid , page) =>
     new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies?page=${page}`)
+      isLogin()
+      axios.get(`/api/v1/posts/${postid}/comments/${commentid}/replies/?page=${page}`)
         .then(res => {
           resolve(res.data)
         })
@@ -131,6 +144,7 @@ export default {
     }),
   addReply: reply =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.post(`/api/v1/posts/${reply.postid}/comments/${reply.commentid}/replies/`, reply.data)
         .then(res => {
           resolve(res.data)
@@ -142,6 +156,7 @@ export default {
     }),
   deletePost: postid =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.delete(`/api/v1/posts/${postid}/`)
         .then(res => {
           resolve(res.data)
@@ -153,6 +168,7 @@ export default {
     }),
   editPost: (data, postid) =>
     new Promise((resolve, reject) => {
+      isLogin()
       axios.put(`/api/v1/posts/${postid}/`, data)
         .then(res => {
           resolve(res.data)
@@ -164,7 +180,8 @@ export default {
     }),
   postComments: (postid , page) =>
     new Promise((resolve, reject) => {
-      axios.get(`/api/v1/posts/${postid}/comments?page=${page}`)
+      isLogin()
+      axios.get(`/api/v1/posts/${postid}/comments/?page=${page}`)
         .then(res => {
           resolve(res.data)
         })

@@ -33,8 +33,8 @@
               </div>
             </div> 
             <div class="communion">
-              <a @click="Corefun.like.comment(id , comment.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-              <a @click="Corefun.dislike.comment(id , comment.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
+              <a @click="likeComment(comment.id)"><i :class="{golden: comment.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{comment.likes_count}}</span></a>
+              <a @click="dislikeComment(comment.id)"><i :class="{golden: comment.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
               <a @click=" ; $router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
               <a href="#" class="left headElements center CMTtime">
                 <span>{{comment.time_since}}</span>
@@ -55,8 +55,8 @@
               </div>
             </div> 
             <div class="communion">
-              <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize   12">thumb_up</i><span>{{comment.top_reply.likes_count}}</span></a>
-              <a @click="Corefun.like.comment.top_reply(id , comment.id , comment.top_reply.id)"><i class="material-icons fontSize12">thumb_down</i><span>{{comment.top_reply.dislikes_count}}</span></a>
+              <a @click="likeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{comment.top_reply.likes_count}}</span></a>
+              <a @click="dislikeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{comment.top_reply.dislikes_count}}</span></a>
               <a href="#" class="left headElements center CMTtime">
                 <span>{{comment.top_reply.time_since}}</span>
               </a>
