@@ -13,7 +13,8 @@ import NewPost from '@/pages/NewPost/NewPost'
 import Post from '@/pages/Post/Post'
 import Replies from '@/pages/Replies/Replies'
 import VerificationStep2 from '@/pages/VerificationStep2/VerificationStep2'
-import PostComments from '@/pages/PostComments/PostComments' 
+import PostComments from '@/pages/PostComments/PostComments'
+import ManageEmails from '@/pages/ManageEmails/ManageEmails'
 
 
 Vue.use(Router)
@@ -49,6 +50,11 @@ export default new Router({
       path : '/information',
       name : 'Information',
       component : Information
+    },
+    {
+      path : '/manageemails',
+      name : 'ManageEmails',
+      component : ManageEmails
     },
     {
       path : '/home',
