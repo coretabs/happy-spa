@@ -229,7 +229,7 @@ export default {
           }
         })
       }else{
-        this.$router.push(`login?from=/comments?postid=${this.id}`)
+        this.$router.push(`login?from=${this.$route.fullPath}`)
       }
     },
     dislikeComment(commentid) {
@@ -265,7 +265,7 @@ export default {
           }
         })
       }else{
-        this.$router.push(`login?from=/comments?postid=${this.id}`)
+        this.$router.push(`login?from=${this.$route.fullPath}`)
       }
     },
     likeReply(commentid) {
@@ -301,7 +301,7 @@ export default {
           }
         })
       }else{
-        this.$router.push(`login?from=/comments?postid=${this.id}`)
+        this.$router.push(`login?from=${this.$route.fullPath}`)
       }
     },
     dislikeReply(commentid) {
@@ -337,7 +337,70 @@ export default {
           }
         })
       }else{
-        this.$router.push(`login?from=/comments?postid=${this.id}`)
+        this.$router.push(`login?from=${this.$route.fullPath}`)
+      }
+    },
+    likePost() {
+      let post = this.post
+      if (Cookies.getJSON('logedinUser')) {
+        switch (post.reaction) {
+          case 'liked' :
+            post.reaction = null
+            post.likes_count--
+            Corefun.like.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+          case 'disliked' : 
+            post.reaction = 'liked'
+            post.likes_count++
+            post.dislikes_count--
+            Corefun.like.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+          default : 
+            post.reaction = 'liked'
+            post.likes_count++
+            Corefun.like.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+        }
+      }else{
+        this.$router.push(`login?from=${this.$route.fullPath}`)
+      }
+    },
+    dislikePost() {
+      let post = this.post
+      if (Cookies.getJSON('logedinUser')) {
+        switch (post.reaction) {
+          case 'liked' :
+            post.reaction = 'disliked'
+            post.likes_count--
+            post.dislikes_count++
+            Corefun.dislike.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+          case 'disliked' : 
+            post.reaction = null
+            post.dislikes_count--
+            Corefun.dislike.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+          
+          default : 
+            post.reaction = 'disliked'
+            post.dislikes_count++
+            Corefun.dislike.post(post.id)
+            console.log(post.reaction)
+            this.cacheIt()
+          break;
+        }    
+      } else {
+        this.$router.push(`login?from=${this.$route.fullPath}`)
       }
     }
   }

@@ -45,8 +45,8 @@
                                 </div>
                             </div>
                             <div class="communion center fullWidth">
-                                <a @click="Corefun.like.post(id)"><i class="material-icons">thumb_up</i><span>{{ post.likes_count  }}</span></a>
-                                <a @click="Corefun.dislike.post(id)"><i class="material-icons">thumb_down</i><span>{{ post.dislikes_count }}</span></a>
+                                <a @click="likePost()"><i :class="{golden: post.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{post.likes_count}}</span></a>
+                                <a @click="dislikePost()"><i :class="{golden: post.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{post.dislikes_count}}</span></a>
                                 <a @click="$router.push(`/comments?postid=${id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
                             </div>
                         </div>
