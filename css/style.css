@@ -1167,11 +1167,11 @@ hr {
 .bgTextSend .communion {
 	padding: 15px;
 }
-.bgTextSend hr, .bgTextSend .textSend {
+.bgTextSend hr {
 	width: 90%;
     margin: 10px auto 0;
 }
-.bgTextAndImageSend .bgImage {
+.bgTextAndImageSend .bgImage, .bgTextSend .textSend {
     max-width: 500px;
     width: 90%;
     margin: 10px auto 0;
