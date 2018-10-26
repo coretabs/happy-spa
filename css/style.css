@@ -715,6 +715,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     cursor: pointer;
     left: -40px;
 }
+.RBR:hover {
+    color: #ff3860!important;
+}
 .linkAD {
 	margin-top: 15px;
     margin-right: 20px;

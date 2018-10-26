@@ -15,6 +15,7 @@ import Replies from '@/pages/Replies/Replies'
 import VerificationStep2 from '@/pages/VerificationStep2/VerificationStep2'
 import PostComments from '@/pages/PostComments/PostComments'
 import ManageEmails from '@/pages/ManageEmails/ManageEmails'
+import Social from '@/pages/Social/Social'
 
 
 Vue.use(Router)
@@ -88,6 +89,10 @@ export default new Router({
     {
       path : '/comments',
       component: PostComments
+    },
+    {
+      path : '/links',
+      component : Social
     }
   ]
 })
