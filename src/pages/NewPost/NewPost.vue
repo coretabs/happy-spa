@@ -3,7 +3,7 @@
         <div class="withApp">
             <header class="topHeader box-shadow">
                 <a @click="$router.go(-1)">
-                    <i class="material-icons">arrow_forward</i>
+                    <i class="arrow_forward"></i>
                 </a>
                 <p>logo</p>
                 <button @click="postSend" :disabled='disable' class="share">
