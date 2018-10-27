@@ -6,6 +6,7 @@ import router from './router/index'
 import store from './store/store'
 import '@/../css/style.css'
 import '@/../css/bulma.min.css'
+import '@/../css/fonts.css'
 import '@/plugins/vue'
 
 Vue.config.productionTip = false

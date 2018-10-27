@@ -56,11 +56,8 @@
           
         <hr>
           
-        <div class="mySocial center" v-if="user.profile.link.length != 0">
-          <a v-if='TW' :href="TW"><i class="fab fa-twitter"></i></a>
-          <a v-if='FB' :href="FB"><i class="fab fa-facebook-f"></i></a>
-          <a v-if='GB' :href="GB"><i class="fab fa-google-plus-g"></i></a>
-          <a v-if='WS' :href="WS"><i class="fas fa-globe-americas"></i></a>
+        <div class="mySocial center" v-if="user.profile.link.length != 0" >
+          <a v-for="link in fillteredLinks"  :href="link.link"><i class="social-fa">{{link.app}}</i></a>
         </div>
 
         </div>

@@ -8,10 +8,7 @@ export default {
       user : '',
       links : '',
       posts : '',
-      FB : '',
-      TW : '',
-      GB : '',
-      WS : '',
+      fillteredLinks : [],
       loading : true,
       media : {},
       username : Cookies.getJSON('logedinUser').user.username,
@@ -213,19 +210,15 @@ export default {
       this.links.forEach( (link) => {
         switch (Object.keys(link)[0]) {
           case 'FB':
-            this.FB = link.FB
+            this.fillteredLinks.push({app : 'F' , link : link.FB})
             break;
 
-          case 'TW':
-            this.TW = link.TW
+          case 'IG':
+            this.fillteredLinks.push({app : 'I' , link : link.IG})
             break;
 
-          case 'GB':
-            this.GB = link.GB
-            break;
-
-          case 'WS':
-            this.WS = link.WS
+          case 'YT':
+            this.fillteredLinks.push({app : 'Y' , link : link.YT})
             break;
 
           default:

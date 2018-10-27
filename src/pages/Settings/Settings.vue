@@ -18,7 +18,7 @@
                 <hr>
                 <router-link to="/changepassword">تغيير كلمة السر</router-link>
                 <hr>
-                <router-link to="/email">إدارة البريد الإلكتروني</router-link>
+                <router-link to="/manageemails">إدارة البريد الإلكتروني</router-link>
                 <hr>
                 <router-link to="/links">إدارة الروابط</router-link>
             </div>
