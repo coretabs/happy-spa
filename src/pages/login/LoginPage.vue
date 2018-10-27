@@ -2,15 +2,15 @@
     <div>
         <div id="box" >
             <span class="iconAlert">
-                <i class="material-icons">report</i>
+                <i class="report"></i>
             </span>
             <h2>{{ErrorMsg}}</h2>
             <a @click="Error = false ; showErorr()" class="close">Close</a>
         </div>
-        <div class="grayContentPage">        
+        <div class="grayContentPage height-0">        
             <div class="mianHeader">
                 <a @click="$router.go(-1)">
-                    <i class="material-icons">arrow_forward</i>
+                    <i class="arrow_forward"></i>
                 </a>
                 <p>تسجيل الدخول</p>
                 <img src="@/../image/mainWhite.png">
@@ -21,7 +21,7 @@
                     <div class="control has-icons-right">
                         <input class="input" type="text" placeholder="اسم المستخدم أو البريد الإلكتروني" v-model="username">
                         <span class="icon is-small is-right">
-                            <i class="material-icons fontSize20">person</i>
+                            <i class="person fontSize20"></i>
                         </span>
                     </div>
                 </div>
@@ -30,10 +30,10 @@
                     <p class="control has-icons-right  has-icons-left">
                         <input class="input password" id="pwd" :type="passwordType" placeholder="كلمة المرور" v-model="password">
                         <span class="icon is-small is-right" >
-                            <i class="material-icons fontSize15">lock</i>
+                            <i class="outline-https fontSize15"></i>
                         </span>
                         <span class="icon is-small is-left eyePWD" id="eye" @click="showPassword">
-                            <i class="material-icons fontSize20">{{icon}}</i>
+                            <i v-binf:class="icon + ' fontSize20'"></i>
                         </span>
                     </p>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="buttonSIN">
                         <a href="#" class="buttonFacebook"> 
                             فيس بوك
-                            <i class="fab fa-facebook-f"></i>
+                            <img src="@/../image/facebook.svg">
                         </a>
                     </div>
                         

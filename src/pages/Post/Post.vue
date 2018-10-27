@@ -2,14 +2,14 @@
     <div>
         <div id="box" class="error" >
             <span class="iconAlert">
-                <i class="material-icons">report</i>
+                <i class="report"></i>
             </span>
             <h2>{{ErrorMsg}}</h2>
             <a @click="Error = false ; showError()  " class="close">Close</a>
         </div>
         <div id="box" class="confirm">
             <span class="iconAlert">
-                <i class="material-icons">report</i>
+                <i class="report"></i>
             </span>
             <h2>{{confirmMsg}}</h2>
             <a @click="confirm = false ; showConfirm(true)  " class="close">نعم</a>
@@ -19,7 +19,7 @@
             <div id="overlay" @click="showMenu"  v-if='menu'></div>
             <header class="topHeader box-shadow">
                 <a @click="$router.go(-1)">
-                    <i class="material-icons">arrow_forward</i>
+                    <i class="arrow_forward"></i>
                 </a>
                 <p>logo</p>
             </header>
@@ -45,16 +45,16 @@
                                 </div>
                             </div>
                             <div class="communion center fullWidth">
-                                <a @click="likePost()"><i :class="{golden: post.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{post.likes_count}}</span></a>
-                                <a @click="dislikePost()"><i :class="{golden: post.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{post.dislikes_count}}</span></a>
-                                <a @click="$router.push(`/comments?postid=${id}`)"><i class="material-icons">forum</i><span>{{ post.comments_count }}</span></a>
+                                <a @click="likePost()"><i :class="{golden: post.reaction == 'liked'}"  class="thumb_up"></i><span>{{post.likes_count}}</span></a>
+                                <a @click="dislikePost()"><i :class="{golden: post.reaction == 'disliked'}" class="thumb_down"></i><span>{{post.dislikes_count}}</span></a>
+                                <a @click="$router.push(`/comments?postid=${id}`)"><i class="question_answer"></i><span>{{ post.comments_count }}</span></a>
                             </div>
                         </div>
                     
                         <div v-if="post.author == username"  class="myMenu">
                             <a @click="showMenu" class="left whiteGray">
                                 <span>{{post.time_since}}</span>
-                                <i class="material-icons">more_vert</i>
+                                <i class="more_vert"></i>
                             </a>
                         </div>
                         
@@ -78,15 +78,15 @@
                     <div class="bodyWasm" v-if="post.tags">
                         
                         <div class="wasm">
-                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <a href="#"><i class="label"></i>meme</a>
                             <span></span>
-                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <a href="#"><i class="label"></i>meme</a>
                             <span></span>
-                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <a href="#"><i class="label"></i>meme</a>
                             <span></span>
-                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <a href="#"><i class="label"></i>meme</a>
                             <span></span>
-                            <a href="#"><i class="material-icons">label</i>meme</a>
+                            <a href="#"><i class="label"></i>meme</a>
                         </div>
                         <div class="showAll">
                         <a href="#">عرض الكل</a>
@@ -108,9 +108,9 @@
                             </div>
                         </div> 
                         <div class="communion">
-                            <a @click="likeComment(comment.id)"><i :class="{golden: comment.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{comment.likes_count}}</span></a>
-                            <a @click="dislikeComment(comment.id)"><i :class="{golden: comment.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{comment.dislikes_count}}</span></a>
-                            <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="material-icons fontSize12">forum</i><span>{{comment.replies_count}}</span></a>
+                            <a @click="likeComment(comment.id)"><i :class="{golden: comment.reaction == 'liked'}"  class="thumb_up"></i><span>{{comment.likes_count}}</span></a>
+                            <a @click="dislikeComment(comment.id)"><i :class="{golden: comment.reaction == 'disliked'}" class="thumb_down"></i><span>{{comment.dislikes_count}}</span></a>
+                            <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="question_answer"></i><span>{{comment.replies_count}}</span></a>
                             <a href="#" class="left headElements center CMTtime whiteGray">
                                 <span>{{comment.time_since}}</span>
                             </a>
@@ -128,8 +128,8 @@
                             </div>
                             </div> 
                                 <div class="communion">
-                                    <a @click="likeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="material-icons fontSize 12">thumb_up</i><span>{{comment.top_reply.likes_count}}</span></a>
-                                    <a @click="dislikeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="material-icons fontSize12">thumb_down</i><span>{{comment.top_reply.dislikes_count}}</span></a>
+                                    <a @click="likeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="thumb_up"></i><span>{{comment.top_reply.likes_count}}</span></a>
+                                    <a @click="dislikeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="thumb_down"></i><span>{{comment.top_reply.dislikes_count}}</span></a>
                                     <a href="#" class="left headElements center CMTtime">
                                         <span>{{comment.top_reply.time_since}}</span>
                                     </a>
@@ -148,10 +148,10 @@
                             <textarea class="textarea" :disabled='loading'  type="text" v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
                             <div class="leftTextarea left">
                                 <a @click="addcomment" class="icon is-small">
-                                    <i   class="material-icons fontSize20">send</i>
+                                    <i   class="keyboard_arrow_left fontSize20"></i>
                                 </a>
                                 <a v-if="false" class="icon is-small">
-                                    <i  class="material-icons fontSize20">insert_emoticon</i>
+                                    <i  class="sentiment_satisfied fontSize20"></i>
                                 </a>
                             </div>
                             <div class="personChat">
@@ -164,11 +164,11 @@
                     </div>
                 </div>
                 <ul>
-                    <li><router-link to='/home'><i class="material-icons fontSize30">home</i></router-link></li>
-                    <li><router-link to="#"><i class="material-icons fontSize30">notifications</i></router-link></li>
-                    <li><router-link to="/newpost"><i class="material-icons plusIcon fontSize30">add</i></router-link></li>
-                    <li><router-link to="#"><i class="material-icons fontSize28">explore</i></router-link></li>
-                    <li><router-link to="/profile" ><i class="material-icons fontSize30">person</i></router-link></li>
+                    <li><router-link to='/home'><i class="home fontSize30"></i></router-link></li>
+                    <li><router-link to="#"><i class="notifications fontSize30"></i></router-link></li>
+                    <li><router-link to="/newpost"><i class="add plusIcon fontSize30"></i></router-link></li>
+                    <li><router-link to="#"><i class="explore fontSize28"></i></router-link></li>
+                    <li><router-link to="/profile" ><i class="person fontSize30"></i></router-link></li>
                 </ul>
             </footer>
         </div>

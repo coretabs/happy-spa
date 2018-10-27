@@ -31,7 +31,7 @@ export default {
                 'password' : true
             },
             passwordType : 'password',
-            icon : 'remove_red_eye',
+            icon : 'visibility',
             info : {},
             button : false,
             Error : false,
@@ -41,7 +41,7 @@ export default {
     methods : {
         showPassword () {
             this.passwordType = this.passwordType === 'password' ?  'text' : 'password'
-            this.icon = this.passwordType === 'password' ? 'remove_red_eye' : 'visibility_off';
+            this.icon = this.passwordType === 'password' ? 'visibility' : 'visibility_off';
         },
         validateEmail () {
             if (this.email) {

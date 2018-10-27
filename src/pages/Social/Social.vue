@@ -2,7 +2,7 @@
   <div>
     <div id="box" >
       <span class="iconAlert">
-        <i class="material-icons">report</i>
+        <i class="report"></i>
       </span>
       <h2>{{ErrorMsg}}</h2>
       <a @click="Error = false ; showErorr()" class="close">Close</a>
@@ -11,7 +11,7 @@
       <div id="overlay" @click="Error = false ; showErorr()" v-if='Error'></div>
       <div class="mianHeader">
       <a @click="$router.go(-1)">
-          <i class="material-icons">arrow_forward</i>
+          <i class="arrow_forward"></i>
         </a>
         <p>إدارة الروابط</p>
         <img src="@/../image/mainWhite.png">
@@ -38,7 +38,7 @@
                 <p class="control has-icons-left linkSM">
                   <input class="input linkSM-input" type="link" v-model="link.social_link"  placeholder="https://www.wep-site.com">
                   <span class="icon is-small RBR">
-                    <i class="material-icons fontSize22" @click="deleteLink(link.id)" >delete</i>
+                    <i class="icon-delete fontSize22" @click="deleteLink(link.id)" ></i>
                   </span>
                 </p>
               </div>
@@ -48,7 +48,7 @@
 
         <div class="linkAD" >
           <a @click="addLink" id="RABT">
-            <i class="icon-baseline-add-24px"></i>
+            <i class="add"></i>
             أضف رابطاً آخر
           </a>
         </div>

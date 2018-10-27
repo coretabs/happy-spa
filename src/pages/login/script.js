@@ -8,7 +8,7 @@ export default {
       username: '',
       password: '',
       passwordType: 'password',
-      icon: 'remove_red_eye',
+      icon: 'visibility',
       info: '',
       Error: false,
       ErrorMsg: 'راسلنا رجاء'
@@ -17,7 +17,7 @@ export default {
   methods: {
     showPassword() {
       this.passwordType = this.passwordType === 'password' ? 'text' : 'password'
-      this.icon = this.passwordType === 'password' ? 'remove_red_eye' : 'visibility_off';
+      this.icon = this.passwordType === 'password' ? 'visibility' : 'visibility_off';
     },
     postInfo() {
       if (this.password && this.username) {

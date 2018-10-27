@@ -483,6 +483,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .buttonSIN img {
     height: 20px;
+    vertical-align: middle;
 }
 .buttonSIN a {
     text-decoration: none;
@@ -858,7 +859,7 @@ hr {
     display: inline-block;
     width: 20%;
     text-align: center;
-    padding: 5px 10px;
+    padding: 10px;
 }
 .bottomFooter ul li .actieFooterLink {
     color: #ffe600!important;
@@ -1374,7 +1375,7 @@ hr {
 .spaceFooterB {
 	margin-bottom: 125px;
 }
-.communion a, .bodyAnswer, .moreReply {
+.bodyAnswer, .moreReply {
 	font-size: 12px;
 }
 #bodyComments .bodyAnswer .personPost img, .personChat img {
@@ -1423,7 +1424,6 @@ hr {
 }
 .leftTextarea a i {
 	color: white;
-	transform: rotate(180deg);
 }
 .leftTextarea a, .personChat a, .personChat a img {
 	width: 40px!important;

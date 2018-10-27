@@ -3,7 +3,7 @@
     
         <div class="mianHeader">
             <a @click="$router.go(-1)">
-                <i class="material-icons">arrow_forward</i>
+                <i class="arrow_forward"></i>
             </a>
             <p>تعديل الملف الشخصي</p>
             <img src="@/../image/mainWhite.png">
@@ -19,7 +19,7 @@
 					<div class="handControl relative">
 						<input class="file-input" accept="image/*"  @change="file($event)" type="file"  name="resume" />
 						<span class="inputFileIcon t0Mb0">
-							<i class="material-icons golden">photo_camera</i>
+							<i class="camera_alt golden"></i>
 						</span>
 						<img :src='previweUrl' class="borderRadius50">
 						
@@ -31,7 +31,7 @@
             <input class="file-input" type="file" name="resume"  accept="image/*"  @change="file($event)">
             <span class="file-cta">
               <span class="file-icon relative">
-                <i class="material-icons golden personalPictureBtn fontSize18 absolute">photo_camera</i>
+                <i class="camera_alt golden personalPictureBtn fontSize18 absolute"></i>
               </span>
             </span>
           </div>
@@ -57,7 +57,7 @@
                 <div class="control has-icons-right">
                     <input :class="usernameClasses" @keyup="validateUsername"  type="text"  v-model="userInfo.username" placeholder="اسم المستخدم">
                     <span class="icon is-small is-right">
-                        <i class="material-icons fontSize20">person</i>
+                        <i class="person fontSize20">person</i>
                     </span>
                 </div>
                 <p v-if="usernameError" class="help is-danger">يجب ان لا يقل عن 3 احرف</p>
@@ -67,7 +67,7 @@
                 <p class="control has-icons-right">
                     <input :class="dateClasses" @keyup="validateDate"  v-model="userInfo.profile.birth_date" onfocus="(this.type='date')"   onblur="(this.type='text')"  type="text" placeholder="يوم/شهر/سنة">
                     <span class="icon is-small is-right">
-                        <i class="material-icons fontSize18">date_range</i>
+                        <i class="date_range fontSize18">date_range</i>
                     </span>
                 </p>
                 <p v-if="dateError" class="help is-danger"> {{dateError}}  </p>
@@ -77,7 +77,7 @@
                 <p class="control has-icons-right">
                     <input class="input" type="text" v-model="userInfo.profile.location"  placeholder="المدينة">
                     <span class="icon is-small is-right">
-                        <i class="material-icons">person_pin_circle</i>
+                        <i class="person_pin_circle"></i>
                     </span>
                 </p>
             </div>

@@ -3,7 +3,7 @@
         
         <div class="mianHeader">
             <a @click="$router.go(-1)">
-                <i class="material-icons">arrow_forward</i>
+                <i class="arrow_forward"></i>
             </a>
             <p>هل نسيت كلمة المرور؟</p>
             <img src="@/../image/mainWhite.png">
@@ -19,7 +19,7 @@
             <div class="control has-icons-left has-icons-right">
                 <input class="input" type="email" placeholder="البريد الإلكتروني" v-model="fEmail">
                 <span class="icon is-small is-right">
-                <i class="material-icons fontSize18">email</i>
+                <i class="mail fontSize18"></i>
                 </span>
             </div>
             </div>

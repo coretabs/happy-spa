@@ -2,7 +2,7 @@
     <div class="grayContentPage">
         <div class="mianHeader">
             <a @click="$router.go(-1)">
-                <i class="material-icons">arrow_forward</i>
+                <i class="arrow_forward"></i>
             </a>
             <p>إدارة البريد الإلكتروني</p>
             <img src="@/../image/mainWhite.png">
@@ -20,7 +20,7 @@
                     <p class="control has-icons-right">
                         <input class="input" type="email" placeholder="أدخل بريدك الإلكتروني">
                         <span class="icon is-small is-right">
-                        <i class="material-icons fontSize18">email</i>
+                        <i class="mail fontSize18"></i>
                         </span>
                     </p>
                     </div>
@@ -33,7 +33,7 @@
                     <p class="control has-icons-right">
                         <input class="input" type="email" placeholder="أدخل بريدك الإلكتروني">
                         <span class="icon is-small is-right">
-                        <i class="material-icons fontSize18">email</i>
+                        <i class="mail fontSize18"></i>
                         </span>
                     </p>
                     </div>

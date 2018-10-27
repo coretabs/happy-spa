@@ -2,7 +2,7 @@
     <div>
         <div  id="box" >
             <span class="iconAlert">
-                <i class="material-icons">report</i>
+                <i class="report"></i>
             </span>
             <h2>{{ErrorMsg}}</h2>
             <a @click="Error = false ; showErorr()  " class="close">Close</a>
@@ -10,7 +10,7 @@
         <div class="grayContentPage">  
             <div class="mianHeader">
                 <a @click="$router.go(-1)">
-                    <i class="material-icons">arrow_forward</i>
+                    <i class="arrow_forward"></i>
                 </a>
                 <p>حساب جديد</p>
                 <img src="@/../image/mainWhite.png">
@@ -21,7 +21,7 @@
                     <div class="control has-icons-left has-icons-right">
                         <input :class="emailClassOject" v-model='email' @keyup="validateEmail" type="email" placeholder="بريدك الالكتروني">
                         <span class="icon is-small is-right">
-                            <i class="material-icons fontSize15">mail</i>
+                            <i class="mail fontSize15"></i>
                         </span>
                     </div>
                     <p v-if="emailErrorMsg" class="help is-danger">البريد غير صحيح</p>
@@ -31,10 +31,10 @@
                     <p class="control has-icons-right  has-icons-left">
                         <input @keyup="validatePassword" :class="passwordClassOject" v-model="password1"  id="pwd" :type="passwordType" placeholder="كلمة المرور">
                         <span class="icon is-small is-right">
-                            <i class="material-icons fontSize15">lock</i>
+                            <i class="outline-https fontSize15"></i>
                         </span>
                         <span class="icon is-small is-left eyePWD" @click="showPassword" id="eye">
-                            <i class="material-icons fontSize20">{{icon}}</i>
+                            <i v-bind:class="icon + ' fontSize20'"></i>
                         </span>
                     </p>
                     <p v-if="password1ErrorMsg"  class="help is-danger">  كلمة المرور غير صالحة<br> يجب ان تحوي رقم واحد على الأقل<br> وحرف إنجليزي واحد على الأقل<br>  وان لا تقل عن 8 عناصر</p>
@@ -44,10 +44,10 @@
                     <p class="control has-icons-right  has-icons-left">
                         <input @keyup="validatePassword"  :class="password2ClassOject" id="pwd2" v-model="password2" :type="passwordType" placeholder="كلمة المرور">
                         <span class="icon is-small is-right">
-                            <i class="material-icons fontSize15">lock</i>
+                            <i class="outline-https fontSize15"></i>
                         </span>
                         <span class="icon is-small is-left eyePWD" @click="showPassword"  id="eye">
-                            <i class="material-icons fontSize20">{{icon}}</i>
+                            <i v-bind:class="icon + ' fontSize20'"></i>
                         </span>
                     </p>
                     <p v-if="password2ErrorMsg"  class="help is-danger">كلمة المرور غير مطابقة</p>
@@ -77,7 +77,7 @@
                     <div class="buttonSIN">
                         <a href="https://corefun.herokuapp.com/accounts/facebook/login/" class="buttonFacebook"> 
                             فيس بوك
-                            <i class="fab fa-facebook-f"></i>
+                            <img src="@/../image/facebook.svg">
                         </a>
                     </div>
                     

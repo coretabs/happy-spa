@@ -3,7 +3,7 @@
 
         <div class="mianHeader">
             <a @click="$router.go(-1)">
-                <i class="material-icons">arrow_forward</i>
+                <i class="arrow_forward"></i>
             </a>
             <p>تفعيل حسابك</p>
             <img src="@/../image/mainWhite.png">
@@ -18,7 +18,7 @@
             <div class="field">
             <p class="control has-icons-left">
                 <span class="icon iconCenter is-small is-left">
-                <i class="material-icons">arrow_back</i>
+                <i class="arrow_back"></i>
                 </span>
             </p>
             </div>
