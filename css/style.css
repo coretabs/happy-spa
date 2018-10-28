@@ -893,7 +893,7 @@ hr {
 /*                   person post                    */
 .personPost a {
     display: inline-grid;
-	vertical-align: top;
+	vertical-align: middle;
 }
 .signImage img, .Notification .persons2Post .persons2Image {
     height: 40px;
@@ -1156,6 +1156,9 @@ hr {
 .backgroundSend .myMenu a {
 	position: unset;
 }
+.myMenu span, .myMenu i {
+    display: inline-grid;
+}
 
 .bgTextSend .textSend {
 	padding-top: 3.5em;
@@ -1236,9 +1239,21 @@ hr {
     right: -15px;
 	margin: 0;
 }
+.answer .personMenu {
+    position: inherit;
+    top: 0;
+    margin: 6px 0;
+    float: left;
+}
 .reply .answer div {
     display: inline-block;
     vertical-align: middle;
+}
+.postPM {
+    position: inherit;
+}
+.postPM div {
+    display: inline-block;
 }
 .answerPara p {
 	line-height: 1.5;
@@ -1283,9 +1298,13 @@ hr {
 .allCommunion div {
 	position: inherit;
 }
-.communion i {
+.bgTextSend .communion i {
 	font-size: 18px;
     vertical-align: sub;
+}
+.communion i {
+	font-size: 12px;
+    vertical-align: middle;
 }
 
 .noRadius {
@@ -1457,7 +1476,7 @@ hr {
 
 /*      menu post       */
 
-.menuPost {
+.menuPost, .answer .menuPost {
     width: 35%;
     z-index: 50;
     background-color: white;
@@ -1465,10 +1484,18 @@ hr {
     left: 10px;
     top: 50px;
 }
+.answer .menuPost {
+    width: 150%;
+    left: 0;
+    top: 25px;
+}
 .menuPost a {
     color: #cdd6da;
     display: block;
     padding: 15px;
+}
+.answer .menuPost a {
+    padding: 7.5px;
 }
 
 

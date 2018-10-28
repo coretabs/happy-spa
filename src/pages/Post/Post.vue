@@ -97,12 +97,30 @@
                     
                     <div class="bodyAnswer"  v-if="comments.length != 0" v-for="comment in comments" :key="comment.id">
                         <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
-                            <div class="personPost">
-                                <router-link :to="`/profile?id=${comment.author}`">
-                                    <img :src="comment.author_avatar">
-                                </router-link>
-                                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                            
+                            <div class="postPM">
+                                <div class="personPost">
+                                    <router-link :to="`/profile?id=${comment.author}`">
+                                        <img :src="comment.author_avatar">
+                                    </router-link>
+                                    <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                                </div>
+
+                                <div class="personMenu">
+                                    <div v-if="post.author == username"  class="myMenu">
+                                        <a @click="showMenu" class="left whiteGray">
+                                            <i class="more_vert"></i>
+                                        </a>
+                                    </div>
+
+                                    <div v-if="menu"   class="menuPost box-shadow center absolute">
+                                        <a @click="editPost"  class="class">تعديل</a>
+                                        <hr>
+                                        <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="answerPara">
                                 <p>{{comment.content}}</p>
                             </div>
@@ -115,14 +133,30 @@
                                 <span>{{comment.time_since}}</span>
                             </a>
                         </div>
-                        <div class="bodyAnswer reply" v-if="comment.top_reply">
+                        <div class="bodyAnswer reply relative" v-if="comment.top_reply">
                             <div class="answer">
+
                                 <div class="personPost">
                                     <router-link :to="`/profile?id=${comment.top_reply.author}`">
                                         <img :src="comment.top_reply.author_avatar">
                                     </router-link>
                                     <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
                                 </div>
+
+                                <div class="personMenu">
+                                    <div v-if="post.author == username"  class="myMenu">
+                                        <a @click="showMenu" class="left whiteGray">
+                                            <i class="more_vert"></i>
+                                        </a>
+                                    </div>
+
+                                    <div v-if="menu"   class="menuPost box-shadow center absolute">
+                                        <a @click="editPost"  class="class">تعديل</a>
+                                        <hr>
+                                        <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                                    </div>
+                                </div>
+
                             <div class="answerPara">
                                 <p >{{comment.top_reply.content}}</p>
                             </div>

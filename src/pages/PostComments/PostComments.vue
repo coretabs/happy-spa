@@ -22,12 +22,23 @@
         <div id="bodyComments" v-for="comment in comments"  v-if="comments">	
           <div class="bodyAnswer">
             <div class="answer">
+
               <div class="personPost">
-                <router-link :to="`/profile?id=${comment.author}`">
-                  <img :src="comment.author_avatar">
-                </router-link>
-                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                  <router-link :to="`/profile?id=${comment.top_reply.author}`">
+                      <img :src="comment.top_reply.author_avatar">
+                  </router-link>
+                  <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
               </div>
+
+              <div class="personMenu">
+                  <div v-if="post.author == username"  class="myMenu">
+                      <a @click="showMenu" class="left whiteGray">
+                          <span>{{post.time_since}}</span>
+                          <i class="more_vert"></i>
+                      </a>
+                  </div>
+              </div>
+
               <div class="answerPara">
                 <p class="relative">{{comment.content}}</p>
               </div>

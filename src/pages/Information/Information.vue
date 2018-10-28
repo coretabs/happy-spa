@@ -57,7 +57,7 @@
                 <div class="control has-icons-right">
                     <input :class="usernameClasses" @keyup="validateUsername"  type="text"  v-model="userInfo.username" placeholder="اسم المستخدم">
                     <span class="icon is-small is-right">
-                        <i class="person fontSize20">person</i>
+                        <i class="person fontSize20"></i>
                     </span>
                 </div>
                 <p v-if="usernameError" class="help is-danger">يجب ان لا يقل عن 3 احرف</p>
@@ -67,7 +67,7 @@
                 <p class="control has-icons-right">
                     <input :class="dateClasses" @keyup="validateDate"  v-model="userInfo.profile.birth_date" onfocus="(this.type='date')"   onblur="(this.type='text')"  type="text" placeholder="يوم/شهر/سنة">
                     <span class="icon is-small is-right">
-                        <i class="date_range fontSize18">date_range</i>
+                        <i class="date_range fontSize18"></i>
                     </span>
                 </p>
                 <p v-if="dateError" class="help is-danger"> {{dateError}}  </p>
