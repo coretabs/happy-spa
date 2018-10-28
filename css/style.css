@@ -689,7 +689,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .select:not(.is-multiple):not(.is-loading):hover::after {
     border-color: white;
 }
-.linkMSM select {
+.linkMSM select, .social p {
     border: none;
     border-radius: 0 40px 40px 0;
     height: 3rem!important;
@@ -698,6 +698,11 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     color: white;
     font-weight: bold;
     font-size: 12px;
+}
+.social p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 .linkSM .linkSM-para {
     background-color: #ffe600!important;
