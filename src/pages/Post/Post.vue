@@ -44,11 +44,12 @@
                                     </video>
                                 </div>
                             </div>
-                            <div class="communion center fullWidth">
-                                <a @click="likePost()"><i :class="{golden: post.reaction == 'liked'}"  class="outline-thumb_up"></i><span>{{post.likes_count}}</span></a>
-                                <a @click="dislikePost()"><i :class="{golden: post.reaction == 'disliked'}" class="outline-thumb_down"></i><span>{{post.dislikes_count}}</span></a>
-                                <a @click="$router.push(`/comments?postid=${id}`)"><i class="question_answer"></i><span>{{ post.comments_count }}</span></a>
-                            </div>
+                            <ul class="communion center fullWidth">
+                                <li><a @click="$router.push(`/comments?postid=${id}`)"><span>{{ post.comments_count }}</span><i class="question_answer"></i></a></li>
+                                <li class="hand-Up"><a :class="{bGolden: post.reaction == 'liked'}" @click="likePost()"><span :class="{golden: post.reaction == 'liked'}">{{post.likes_count}}</span>😃</a></li>
+                                <li class="hand-Down"><a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost()"><span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count}}</span>🙁</a></li>
+                                <li><a href="#"><span>0</span><i class="icon-reply"></i></a></li>
+                            </ul>
                         </div>
                     
                         <div v-if="post.author == username"  class="myMenu">
@@ -97,34 +98,49 @@
                     
                     <div class="bodyAnswer"  v-if="comments.length != 0" v-for="comment in comments" :key="comment.id">
                         <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
-                                                       
-                            <div class="personPost">
-                                <router-link :to="`/profile?id=${comment.author}`">
-                                    <img :src="comment.author_avatar">
-                                </router-link>
-                                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
-                            </div>
+                            <div class="postPM">                          
+                                <div class="personPost">
+                                    <router-link :to="`/profile?id=${comment.author}`">
+                                        <img :src="comment.author_avatar">
+                                    </router-link>
+                                    <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                                </div>
 
+                                <div class="personMenu">
+                                    <div class="myMenu">
+                                        <a class="left whiteGray">
+                                            <i class="more_vert"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="answerPara">
                                 <p>{{comment.content}}</p>
                             </div>
                         </div> 
                         <div class="communion">
-                            <a @click="likeComment(comment.id)"><i :class="{golden: comment.reaction == 'liked'}"  class="outline-thumb_up"></i><span>{{comment.likes_count}}</span></a>
-                            <a @click="dislikeComment(comment.id)"><i :class="{golden: comment.reaction == 'disliked'}" class="outline-thumb_down"></i><span>{{comment.dislikes_count}}</span></a>
-                            <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><i class="question_answer"></i><span>{{comment.replies_count}}</span></a>
+                            <a @click="likeComment(comment.id)"><span>{{comment.likes_count}}</span><i :class="{golden: comment.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
+                            <a @click="dislikeComment(comment.id)"><span>{{comment.dislikes_count}}</span><i :class="{golden: comment.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
+                            <a @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })"><span>{{comment.replies_count}}</span><i class="question_answer"></i></a>
                             <a href="#" class="left headElements center CMTtime whiteGray">
                                 <span>{{comment.time_since}}</span>
                             </a>
                         </div>
                         <div class="bodyAnswer reply" v-if="comment.top_reply">
                             <div class="answer">
-
+                                
                                 <div class="personPost">
                                     <router-link :to="`/profile?id=${comment.top_reply.author}`">
                                         <img :src="comment.top_reply.author_avatar">
                                     </router-link>
                                     <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
+                                </div>
+                                <div class="personMenu">
+                                    <div class="myMenu">
+                                        <a class="left whiteGray">
+                                            <i class="more_vert"></i>
+                                        </a>
+                                    </div>
                                 </div>
                                 
                             <div class="answerPara">
@@ -132,8 +148,8 @@
                             </div>
                             </div> 
                                 <div class="communion">
-                                    <a @click="likeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="outline-thumb_up"></i><span>{{comment.top_reply.likes_count}}</span></a>
-                                    <a @click="dislikeReply(comment.id)"><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="outline-thumb_down"></i><span>{{comment.top_reply.dislikes_count}}</span></a>
+                                    <a @click="likeReply(comment.id)"><span>{{comment.top_reply.likes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
+                                    <a @click="dislikeReply(comment.id)"><span>{{comment.top_reply.dislikes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
                                     <a href="#" class="left headElements center CMTtime">
                                         <span>{{comment.top_reply.time_since}}</span>
                                     </a>

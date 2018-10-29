@@ -26,9 +26,9 @@
                         </div>
                     </div> 
                     <div class="communion">
-                        <a @click="likeComment()"><i :class="{golden: comment.reaction == 'liked'}"  class="thumb_up"></i><span>{{comment.likes_count}}</span></a>
-                        <a @click="dislikeComment()"><i :class="{golden: comment.reaction == 'disliked'}" class="thumb_down"></i><span>{{comment.dislikes_count}}</span></a>
-                        <a><i class="question_answer"></i><span>{{comment.replies_count}}</span></a>
+                        <a @click="likeComment()"><span>{{comment.likes_count}}</span><i :class="{golden: comment.reaction == 'liked'}"  class="thumb_up"></i></a>
+                        <a @click="dislikeComment()"><span>{{comment.dislikes_count}}</span><i :class="{golden: comment.reaction == 'disliked'}" class="thumb_down"></i></a>
+                        <a><span>{{comment.replies_count}}</span><i class="question_answer"></i></a>
                         <a href="#" class="left headElements center CMTtime">
                             <span>{{comment.time_since}}</span>
                         </a>
@@ -48,8 +48,8 @@
                         </div>
                     </div> 
                     <div class="communion">
-                        <a @click="likeReply(reply.id)"><i :class="{golden: reply.reaction == 'liked'}"  class="thumb_up"></i><span>{{reply.likes_count}}</span></a>
-                        <a @click="dislikeReply(reply.id)"><i :class="{golden: reply.reaction == 'disliked'}" class="thumb_down"></i><span>{{reply.dislikes_count}}</span></a>
+                        <a @click="likeReply(reply.id)"><span>{{reply.likes_count}}</span><i :class="{golden: reply.reaction == 'liked'}"  class="thumb_up"></i></a>
+                        <a @click="dislikeReply(reply.id)"><span>{{reply.dislikes_count}}</span><i :class="{golden: reply.reaction == 'disliked'}" class="thumb_down"></i></a>
                         <a href="#" class="left headElements center CMTtime">
                             <span>{{reply.time_since}}</span>
                         </a>
