@@ -117,10 +117,28 @@
   .question_answer:before {
     content: "\e91c";
   }
-  .thumb_down:before {
+  .outline-thumb_down:before {
     content: "\e91d";
   }
-  
+  .close:before {
+    content: "\e922";
+  }
+  .icon-reply:before {
+    content: "\e923";
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    display: inline-block;
+  }
+  .search:before {
+    content: "\e924";
+  }
+  .outline-thumb_up:before {
+    content: "\e926";
+  }
+  .thumb_down:before {
+    content: "\e925";
+  }
 /*       ********************         */
 
 @font-face {

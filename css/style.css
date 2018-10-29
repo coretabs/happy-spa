@@ -728,6 +728,12 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .golden {
     color: #ffe600!important;
 }
+.bgGolden {
+    background-color: #ffe600!important;
+}
+.bGolden {
+    border: 2px solid #ffe600!important;
+}
 .linkAD .material-icons {
     font-size: 25px;
     padding-left: 7px;
@@ -804,7 +810,8 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 }
 .CMTtime {
 	margin-right: 15px;
-	margin-left: 15px;
+    margin-left: 15px;
+    direction: ltr;
 }
 .noMargin {
 	margin: 0!important;
@@ -1159,6 +1166,9 @@ hr {
 .myMenu span, .myMenu i {
     display: inline-grid;
 }
+.myMenu span, .aboutMyInfo div {
+    direction: ltr;
+}
 
 .bgTextSend .textSend {
 	padding-top: 3.5em;
@@ -1203,12 +1213,49 @@ hr {
 .communion, .share4All {
     bottom: 10px;
 }
-.communion a {
-	width: 20%;
+.bgTextSend .communion {
+    display: table;
+    table-layout: fixed;
+    white-space: no-wrap;
 }
+.communion li {
+    display: table-cell;
+    width: auto;
+    border-radius: 0;
+}
+.communion .hand-Down {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.communion .hand-Up {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.bgTextSend .communion  a {
+    width: 100%;
+    direction: ltr
+}
+.communion .hand-Down a, .communion .hand-Up a {
+    padding: 0 1.25rem;
+    border: 2px solid #cdd6da;
+    border-radius: inherit;
+    line-height: 3rem;
+}
+.communion .hand-Down a {
+    border-right: none!important;
+}
+
+.bodyAnswer .communion a {
+    width: 20%;
+}
+.bodyAnswer .communion {
+    display: block;
+}
+
 .communion span {
 	padding-right: 5px;
 }
+
 
 .bodyWasm, .answer {
 	background-color: #eceff1;

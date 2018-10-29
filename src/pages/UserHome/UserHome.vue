@@ -48,11 +48,12 @@
                   </div>
                 </div>
                 
-                <div class="communion center fullWidth">
-                  <a @click="likePost(post.id)"><i :class="{golden: post.reaction == 'liked'}"  class="thumb_up"></i><span>{{post.likes_count}}</span></a>
-                  <a @click="dislikePost(post.id)"><i :class="{golden: post.reaction == 'disliked'}" class="thumb_down"></i><span>{{post.dislikes_count}}</span></a>
-                  <a @click="$router.push(`/comments?postid=${post.id}`)" ><i class="question_answer"></i><span>{{ post.comments_count }}</span></a>
-                </div>
+                <ul class="communion center fullWidth">
+                  <li><a @click="$router.push(`/comments?postid=${post.id}`)" ><span>{{ post.comments_count }}</span><i class="question_answer"></i></a></li>
+                  <li class="hand-Up"><a :class="{bGolden: post.reaction == 'liked'}" @click="likePost(post.id)"><span :class="{golden: post.reaction == 'liked'}">{{post.likes_count}}</span>😃</a></li>
+                  <li class="hand-Down"><a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost(post.id)"><span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count}}</span>🙁</a></li>
+                  <li><a href="#"><span>0</span><i class="icon-reply"></i></a></li>
+                </ul>
               </div>
               <hr>
               <div class="myMenu">
@@ -99,11 +100,20 @@
             
             <div class="bodyAnswer" @click="$router.push(`/comments?postid=${post.id}`)" v-if="post.top_comment">
               <div class="answer">
-                <div class="personPost">
-                  <router-link :to="`/profile?id=${post.author}`">
-                    <img :src="post.top_comment.author_avatar">
-                  </router-link>
-                  <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.top_comment.author}}</router-link>
+                <div class="postPM">
+                  <div class="personPost">
+                    <router-link :to="`/profile?id=${post.author}`">
+                      <img :src="post.top_comment.author_avatar">
+                    </router-link>
+                    <router-link :to="`/profile?id=${post.author}`" class="personName">{{post.top_comment.author}}</router-link>
+                  </div>
+                  <div class="personMenu">
+                      <div class="myMenu">
+                          <a class="left whiteGray">
+                              <i class="more_vert"></i>
+                          </a>
+                      </div>
+                  </div>
                 </div>
                 <div class="answerPara">
                   <p>{{post.top_comment.content}}</p>
