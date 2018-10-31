@@ -10,6 +10,7 @@ export default {
       avatar: '',
       commentTxt: '',
       Error: false,
+      menuCmt: false,
       ErrorMsg: 'راسلنا رجاء',
       onClose: '',
       loading : true,
@@ -86,6 +87,52 @@ export default {
         Corefun.addComment(Comment).then(re => {
           this.comments.push(re)
         })
+      }
+    },
+    showConfirm(doit) {
+      this.menu = false
+      if (this.post.author == this.username) {
+        if (this.confirm) {
+          this.confirmMsg = 'هل تريد حقا حذف المنشور'
+          this.$('.confirm').style.display = 'block'
+          this.$('.grayContentPage ').classList.add('blur')
+        } else {
+          if (doit) {
+            this.deletePost()
+          }
+          this.$('.confirm').style.display = 'none'
+          this.$('.grayContentPage').classList.remove('blur')
+        }
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
+        this.showError()
+      }
+    },
+    commentMenu(commentid) {
+      this.menuCmt = !this.menuCmt
+      this.commentid = commentid
+    },
+    $ : element => document.querySelector(element),
+    deletePost() {
+      if (this.post.author == this.username) {
+        Corefun.deletePost(this.id).then(() => {
+          this.$router.push('/home')
+        })
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
+        this.showError()
+      }
+    },
+    editPost() {
+      if (this.post.author == this.username) {
+        this.$store.commit('postToEdit', this.post)
+        this.$router.push('/newpost?editmode=true')
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك تعديل اي منشور سوى الخاصة بك'
+        this.showError()
       }
     },
     likeComment(commentid) {

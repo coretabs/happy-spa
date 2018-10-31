@@ -57,12 +57,13 @@
                                 <span>{{post.time_since}}</span>
                                 <i class="more_vert"></i>
                             </a>
-                        </div>
-                        
+                        </div> 
                         <div v-if="menu"   class="menuPost box-shadow center absolute">
                             <a @click="editPost"  class="class">تعديل</a>
                             <hr>
                             <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                            <hr>
+                            <a class="class">تبليغ</a>
                         </div>
 
                         <div class="personPost">
@@ -97,9 +98,9 @@
                     <hr>
                     
                     <div class="bodyAnswer"  v-if="comments.length != 0" v-for="comment in comments" :key="comment.id">
-                        <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="answer">
+                        <div class="answer">
                             <div class="postPM">                          
-                                <div class="personPost">
+                                <div @click="$router.push({ path : 'replies' , query : {postid : id , commentid : comment.id} })" class="personPost">
                                     <router-link :to="`/profile?id=${comment.author}`">
                                         <img :src="comment.author_avatar">
                                     </router-link>
@@ -107,11 +108,19 @@
                                 </div>
 
                                 <div class="personMenu">
-                                    <div class="myMenu">
-                                        <a class="left whiteGray">
+                                    <div v-if="comment.author == username" class="myMenu">
+                                        <a @click="commentMenu(comment.id)" class="left whiteGray">
                                             <i class="more_vert"></i>
                                         </a>
                                     </div>
+                                </div>
+
+                                <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute">
+                                    <a @click="editPost"  class="class">تعديل</a>
+                                    <hr>
+                                    <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                                    <hr>
+                                    <a class="class">تبليغ</a>
                                 </div>
                             </div>
                             <div class="answerPara">
@@ -136,8 +145,8 @@
                                     <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
                                 </div>
                                 <div class="personMenu">
-                                    <div class="myMenu">
-                                        <a class="left whiteGray">
+                                    <div v-if="comment.top_reply.author == username" class="myMenu">
+                                        <a @click="commentMenu(comment.id)" class="left whiteGray">
                                             <i class="more_vert"></i>
                                         </a>
                                     </div>
