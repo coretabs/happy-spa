@@ -13,6 +13,7 @@ export default {
       Error: false,
       ErrorMsg: 'راسلنا رجاء',
       menu: false,
+      menuCmt: false,
       loading: true,
       username: '',
       onClose: '',
@@ -175,6 +176,10 @@ export default {
         this.$('.grayContentPage').classList.remove('blur')
         this.$('html').classList.remove('overflowHidden')
       }
+    },
+    commentMenu(commentid) {
+      this.menuCmt = !this.menuCmt
+      this.commentid = commentid
     },
     $ : element => document.querySelector(element),
     deletePost() {

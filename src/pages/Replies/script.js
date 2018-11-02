@@ -1,5 +1,6 @@
-import Corefun from "@/api";
-import Cookies from "js-cookie";
+import Corefun from "@/api"
+import Cookies from "js-cookie"
+
 export default {
   data() {
     return {
@@ -9,6 +10,9 @@ export default {
       avatar: "",
       replies : '',
       replyTxt: "",
+      username: '',
+      menuCmt: false,
+      menuCmtRpl: false,
       loading: true,
       Corefun : Corefun,
       pagination : {
@@ -51,6 +55,56 @@ export default {
           this.pagination.previous = re.previous
           this.cacheIt()
         })
+      }
+    },
+    showConfirm(doit) {
+      this.menu = false
+      if (this.post.author == this.username) {
+        if (this.confirm) {
+          this.confirmMsg = 'هل تريد حقا حذف المنشور'
+          this.$('.confirm').style.display = 'block'
+          this.$('.grayContentPage ').classList.add('blur')
+        } else {
+          if (doit) {
+            this.deletePost()
+          }
+          this.$('.confirm').style.display = 'none'
+          this.$('.grayContentPage').classList.remove('blur')
+        }
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
+        this.showError()
+      }
+    },
+    commentMenu(commentid) {
+      this.menuCmt = !this.menuCmt
+      this.commentid = commentid
+    },
+    commentReplyMenu(commentreplyid) {
+      this.menuCmtRpl = !this.menuCmtRpl
+      this.commentreplyid = commentreplyid
+    },
+    $ : element => document.querySelector(element),
+    deletePost() {
+      if (this.post.author == this.username) {
+        Corefun.deletePost(this.id).then(() => {
+          this.$router.push('/home')
+        })
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
+        this.showError()
+      }
+    },
+    editPost() {
+      if (this.post.author == this.username) {
+        this.$store.commit('postToEdit', this.post)
+        this.$router.push('/newpost?editmode=true')
+      } else {
+        this.Error = true
+        this.ErrorMsg = 'لا يمكنك تعديل اي منشور سوى الخاصة بك'
+        this.showError()
       }
     },
     likeReply(replyid) {
@@ -222,6 +276,7 @@ export default {
       this.update(false , true);
       if (Cookies.getJSON("logedinUser").user) {
         this.avatar = Cookies.getJSON("logedinUser").user.avatar_url;
+        this.username = Cookies.getJSON("logedinUser").user.username;
       } else {
         this.avatar = undefined;
       }

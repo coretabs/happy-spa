@@ -31,11 +31,19 @@
                 </div>
                 
                 <div class="personMenu">
-                    <div class="myMenu">
-                        <a class="left whiteGray">
+                    <div v-if="comment.author == username" class="myMenu">
+                        <a @click="commentMenu(comment.id)" class="left whiteGray">
                             <i class="more_vert"></i>
                         </a>
                     </div>
+                </div>
+
+                <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute">
+                  <a @click="editPost"  class="class">تعديل</a>
+                  <hr>
+                  <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                  <hr>
+                  <a class="class">تبليغ</a>
                 </div>
               </div>
 
@@ -61,13 +69,6 @@
                   <img :src="comment.top_reply.author_avatar">
                 </router-link>
                 <router-link :to="`/profile?id=${comment.top_reply.author}`" class="personName">{{comment.top_reply.author}}</router-link>
-              </div>
-              <div class="personMenu">
-                    <div class="myMenu">
-                        <a class="left whiteGray">
-                            <i class="more_vert"></i>
-                        </a>
-                    </div>
               </div>
               
               <div class="answerPara">

@@ -15,11 +15,29 @@
             <div id="bodyComments" v-if="comment">	
                 <div class="bodyAnswer">
                     <div class="answer">
-                        <div class="personPost">
-                            <router-link :to="`/profile?id=${comment.author}`">
-                                <img :src="comment.author_avatar">
-                            </router-link>
-                            <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                        <div class="postPM">
+                            <div class="personPost">
+                                <router-link :to="`/profile?id=${comment.author}`">
+                                    <img :src="comment.author_avatar">
+                                </router-link>
+                                <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
+                            </div>
+
+                            <div class="personMenu">
+                                <div v-if="comment.author == username" class="myMenu">
+                                    <a @click="commentMenu(comment.id)" class="left whiteGray">
+                                        <i class="more_vert"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute">
+                                <a @click="editPost"  class="class">تعديل</a>
+                                <hr>
+                                <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                                <hr>
+                                <a class="class">تبليغ</a>
+                            </div>
                         </div>
                         <div class="answerPara">
                             <p>{{comment.content}}</p>
@@ -42,6 +60,21 @@
                                 <img :src="reply.author_avatar">
                             </router-link>
                             <router-link :to="`/profile?id=${reply.author}`" class="personName">{{reply.author}}</router-link>
+                        </div>
+
+                        <div class="personMenu">
+                            <div v-if="reply.author == username" class="myMenu">
+                                <a @click="commentReplyMenu(reply.id)" class="left whiteGray">
+                                    <i class="more_vert"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div v-if="menuCmtRpl  && reply.id == commentreplyid"   class="menuPost box-shadow center absolute">
+                            <a @click="editPost"  class="class">تعديل</a>
+                            <hr>
+                            <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                            <hr>
+                            <a class="class">تبليغ</a>
                         </div>
                         <div class="answerPara">
                             <p>{{reply.content}}</p>
