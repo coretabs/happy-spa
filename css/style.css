@@ -36,6 +36,9 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
  .overflowHidden {
     overflow: hidden;
 }
+.margin-left{
+    margin-left: 10px!important
+}
 
 #overlay{
   height:100%;
@@ -58,6 +61,10 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 .blur .backList > *:not(.backgroundSend),
 .blur .backgroundSend > *:not(.myMenu):not(.menuPost), 
 .blur .bodyAnswer {
+    filter : blur(4px)
+}
+
+.nopostblur {
     filter : blur(4px)
 }
 

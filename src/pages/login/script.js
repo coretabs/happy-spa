@@ -11,6 +11,7 @@ export default {
       icon: 'visibility',
       info: '',
       Error: false,
+      loading : false,
       ErrorMsg: 'راسلنا رجاء'
     }
   },
@@ -21,25 +22,22 @@ export default {
     },
     postInfo() {
       if (this.password && this.username) {
-        if (this.$parent.validateEmail(this.username)) {
-          this.info = {
-            email: this.username,
-            password: this.password
-          }
-        } else {
-          this.info = {
-            username: this.username,
-            password: this.password
-          }
+        this.loading = true
+        
+        this.info = {
+          username: this.username,
+          password: this.password
         }
+
         Corefun.login(this.info)
           .then(re => {
             this.$store.commit('setUserInfo', re)
-            this.$store.commit('claerCache' , 'ddd')
-            delete re.user.posts
+            this.$store.commit('claerCache')
+
             Cookies.set('logedinUser', re, {
               expires: 365
             })
+
             if (this.$route.query.from) {
               this.$router.push(`${this.$route.query.from}`)
             } else {
@@ -52,6 +50,7 @@ export default {
             this.ErrorMsg = 'الرجاء التحقق من اسم المستخدم وكلمة المرور'
             this.showErorr()
           })
+
       } else {
         this.Error = true
         this.ErrorMsg = 'كل من المستخدم و كلمة المرور مطلوبان'
@@ -61,10 +60,10 @@ export default {
     showErorr() {
       if (this.Error) {
         document.querySelector('#box').style.display = 'block'
-        document.querySelector('.grayContentPage').classList.add('blur')
+        document.querySelector('.grayContentPage').classList.add('nopostblur')
       } else {
         document.querySelector('#box').style.display = 'none'
-        document.querySelector('.grayContentPage').classList.remove('blur')
+        document.querySelector('.grayContentPage').classList.remove('nopostblur')
       }
     }
   },

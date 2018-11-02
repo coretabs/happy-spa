@@ -7,7 +7,8 @@
             <h2>{{ErrorMsg}}</h2>
             <a @click="Error = false ; showErorr()" class="close">Close</a>
         </div>
-        <div class="grayContentPage height-0">        
+        <div class="grayContentPage height-0">    
+            <div id="overlay" @click="Error = false ; showErorr()" v-if='Error'></div>    
             <div class="mianHeader">
                 <a @click="$router.go(-1)">
                     <i class="arrow_forward"></i>
@@ -40,7 +41,7 @@
                     
                 <div class="field">
                     <p class="control">
-                        <button class="button is-success" @click="postInfo">
+                        <button class="button is-success" :class="{'is-loading' : loading }"  :disabled='loading'  @click="postInfo">
                         تسجيل دخول
                         </button>
                     </p>

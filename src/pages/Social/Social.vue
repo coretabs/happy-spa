@@ -21,42 +21,41 @@
 
         <img src="@/../image/social-ideas.svg" class="mainPoster">
 
-        <ul id="menuItems"  v-for="link in links">
+        <ul id="menuItems"  v-for="app in socialApps">
           <li>
             <div class="field linkMSM">
               <div class="linkSSM">
                 <div class="control linkSM-para">
-                  <div class="select">
-                    <div>
-                      <select v-model="link.social_app" @change="selectApp(link)"  :disabled = '!link.created'>
-                        <option selected='selected' v-if="!link.created"  :value="link.social_app">{{socialApps[link.social_app]}}</option>
-                        <option v-if="link.created" v-for="sLink in selectable"  :value="sLink">{{socialApps[sLink]}}</option>
-                      </select>
-                    </div>
+                  <div class="social">
+                    <p>{{app.app}}</p>
                   </div>
-                </div>
+                </div>            
                 <p class="control has-icons-left linkSM">
-                  <input class="input linkSM-input" type="link" v-model="link.social_link"  placeholder="https://www.wep-site.com">
-                  <span class="icon is-small RBR">
-                    <i class="icon-delete fontSize22" @click="deleteLink(link.id)" ></i>
+                  <input 
+                    dir="auto" 
+                    :name="app.key"  
+                    :class="{ 
+                      'is-danger': fields[app.key] ? !fields[app.key].valid : false,
+                      'is-success': fields[app.key] ? fields[app.key].valid && fields[app.key].changed : false 
+                    }"  
+                    class="input linkSM-input" 
+                    :disabled="loading" 
+                    v-validate="'url:require_protocol'" 
+                    type="link"
+                    v-model="links[app.key]"
+                  >
+                  <span  class="icon is-small RBR">
+                    <i @click="deleteLink(ids[app.key] , app.key)" v-if="ids[app.key]"  class="icon-delete fontSize22"></i>
                   </span>
                 </p>
               </div>
+              <p v-if="fields[app.key] ? !fields[app.key].valid : false"  class="help margin-left  has-text-left  is-danger">add valid link please</p>
             </div>
           </li>
         </ul>
-
-        <div class="linkAD" >
-          <a @click="addLink" id="RABT">
-            <i class="add"></i>
-            أضف رابطاً آخر
-          </a>
-        </div>
-
       </div>
 
       <footer class="lastDivision borderRadius50 width80 orderFooterTop orderFooterBottom">
-
         <div class="field">
           <p class="control">
             <button class="button is-success">
@@ -64,8 +63,8 @@
             </button>
           </p>
         </div>
-
       </footer>
+
     </div>
   </div>
 </template>
@@ -74,65 +73,41 @@ import Corefun from '@/api'
 export default {
   data : () => {
     return {
-      selectable : ['YT' ,'FB' ,'IG'], // links that are not seted
-      select : {},
-      links : {},
-      count : 0,
-      available : [], // can be selected any time
-      createdLinks : [],
-      inputs : [],
-      socialApps : {
-        'YT' : 'YouTube', 
-        'FB' : 'FaceBook', 
-        'IG' :'InstaGram'
+      links : {
+        IG : '',
+        FB : '',
+        YT : ''
       },
+      ids : {},
+      count : 0,
+      socialApps : [
+        {app : 'YouTube' , key:'YT'}, 
+        {app : 'FaceBook' , key:'FB'}, 
+        {app :'InstaGram' , key:'IG'}
+      ],
       Error: false,
+      loading : true,
       ErrorMsg: 'راسلنا رجاء'
     }
   },
   methods : {
     getLinks () {
       Corefun.links.get().then(re => {
-        re.forEach(l => {
-          this.links[`app${this.count}`] = l
-          this.count++
-        })
-        this.setSelectable()
-      })
-    },
-    setSelectable() {
-      this.selectable = Object.keys(this.socialApps)
-      if (this.links.length > 0) {
-        this.links.forEach(link => {
-          let index = this.selectable.indexOf(link.social_app)
-          this.selectable.splice(index , 1)
-        })
-      }
-    },
-    selectApp(link) {
-      link.created = false
-      this.selectable.splice(this.selectable.indexOf(link.social_app) , 1)
-    },
-    deleteLink(id) {
-     id ? Corefun.links.delete(id) : ''
-      this.links.forEach((link , index , links) => {
-        if(link.id == id) {
-          links.splice(index , 1) 
+        this.loading = false
+        if (re.length > 0) {
+          re.forEach(link => {
+            this.links[link.social_app] = link.social_link
+            this.ids[link.social_app] = link.id 
+            this.count++
+          })
         }
       })
-      this.setSelectable()
     },
-    addLink() {
-      if(this.count < 3){
-        let newLink = {
-          created : true
-        }
-        this.links[`app${this.count}`] = newLink
-      } else{
-        this.ErrorMsg = 'عذرا لايمكنك إضافة المزيد حاليا'
-        this.Error = true
-        this.showErorr()
-      }
+    deleteLink(id , app) {
+     if (id) {
+        Corefun.links.delete(id)
+        this.links[app] = ''
+      } 
     },
     showErorr() {
       if (this.Error) {

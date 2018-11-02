@@ -280,6 +280,9 @@ export default {
         reject(err)
         console.log(err.response)
       })
+    }),
+    add : link => new  Promise ( (resolve , reject) => { 
+      axios.get
     })
   }
 }
