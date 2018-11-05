@@ -31,7 +31,7 @@ export default {
             password1: this.password1,
             password2: this.password2
           }
-          /*Corefun.singup(this.info)
+          Corefun.singup(this.info)
             .then(re => {
               this.$router.push('/verificationstep2')
             })
@@ -39,7 +39,7 @@ export default {
               this.Error = true
               this.ErrorMsg = er.response.data[Object.keys(er.response.data)[0]][0]
               this.showErorr()
-            })*/
+            })
         } else {
           this.ErrorMsg = 'يجب ملئ جميع الحقول'
           this.Error = true
