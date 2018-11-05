@@ -1,6 +1,5 @@
 import Corefun from '@/api'
 import Cookies from 'js-cookie'
-import plugins from '@/plugins/dom'
 
 export default {
   data : () => {
@@ -276,13 +275,6 @@ export default {
       }else{
         this.$router.push(`login?from=/comments?postid=${this.id}`)
       }
-    }
-    
-  },
-  watch : {
-    comments :{ 
-      handler : () => { plugins.adjustAnswers() },
-      deep : true
     }
   },
   created () {

@@ -8,8 +8,20 @@ const Plugins = {
   addComponents : vue => {
     vue.component('VueDataLoading' , VueDataLoading)
   },
+  chatreInit : (d, w, c) =>  {
+    w.ChatraID = 'Ty9iqgBujvxhx94bB';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = 'https://call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+  },
   install (vue) {
     this.addComponents(vue)
+    this.chatreInit(document, window, 'Chatra')
+    this.chatraSettings()
   },
   validators : {
     password : {
@@ -23,11 +35,21 @@ const Plugins = {
       getMessage : field => 'it must be like the first password',
       validate : (password2 , {password} = {} ) => password2 == password
     }
+  },
+  chatraSettings : ()=> {
+    Chatra('setButtonSize', 40)
+    Chatra('setColors', {
+      buttonText: '#ffe600',
+      buttonBg: '#ffffff'
+    })
+    Chatra('hide')
   }
 }
 
+
+// vee validate settings
 VeeValidate.Validator.extend('password' , Plugins.validators.password)
 VeeValidate.Validator.extend('password2' , Plugins.validators.password2 , {paramNames : ['password']})
 
 Vue.use(Plugins)
-Vue.use(VeeValidate)
+Vue.use(VeeValidate , {events : 'keyup'})

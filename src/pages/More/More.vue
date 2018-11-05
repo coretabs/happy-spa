@@ -15,6 +15,8 @@
                 <hr>
                 <li><router-link v-if='false' to="#" class="headElements">العناصر المحفوظة<i class="bookmark_border fontSize24"></i></router-link></li>
                 <hr v-if='false'>
+                <li><a @click="chatra" class="headElements">تواصل معنا</a></li>
+                <hr>
                 <li><router-link to="#" class="headElements">بنود سياسة الخصوصية</router-link></li>
                 <hr>
                 <li><router-link to="#" class="headElements">حول البرنامج</router-link></li>
@@ -45,12 +47,19 @@ export default {
         signout() {
             Cookies.remove('logedinUser')
             this.$router.push('/')
+        },
+        chatra(){
+            Chatra('openChat', true)
         }
     },
     created () {
         if(!Cookies.getJSON('logedinUser')) {
             this.$router.push('/login')
         }
+        Chatra('show')
+    },
+    destroyed(){
+        Chatra('hide')
     }
 }
 </script>
