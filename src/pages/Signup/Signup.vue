@@ -120,7 +120,7 @@
 
       <footer class="lastDivision">
 
-        <p class="noteSginIn underline"> أو تسجيل عن طريق </p>
+        <p class="noteSginIn double-line"> أو تسجيل عن طريق </p>
 
         <div class="buttonsSginIn">
           <div class="buttonSIN">

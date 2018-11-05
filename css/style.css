@@ -458,7 +458,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     font-size: 13px;
     font-weight: bold;
 }
-.underline::after {
+.double-line::after {
 	content: "";
     display: inline-flex;
     width: 17%;
@@ -467,7 +467,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
     margin: 5px auto;
     margin-right: 5px;
 }
-.underline::before {
+.double-line::before {
 	content: "";
     display: inline-flex;
     width: 17%;

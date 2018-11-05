@@ -52,7 +52,7 @@
             </div>
                 
             <footer class="orderFooterTop">
-                <p class="noteSginIn underline">
+                <p class="noteSginIn double-line">
                     أو سجل دخولك عن طريق
                 </p>
 

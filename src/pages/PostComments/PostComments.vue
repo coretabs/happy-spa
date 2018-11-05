@@ -82,7 +82,7 @@
                 <span>{{comment.top_reply.time_since}}</span>
               </a>
             </div>
-            <div class="underline center" @click="$router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })">إقرا المزيد</div>
+            <div class="double-line center" @click="$router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })">إقرا المزيد</div>
           </div>
           
         </div>
