@@ -62,7 +62,7 @@
               <i class="outline-https fontSize15"></i>
             </span>
             <span class="icon is-small is-left eyePWD" @click="showPassword" id="eye">
-              <i v-bind:class="icon + ' fontSize20'"></i>
+              <i :class="icon + ' fontSize20'"></i>
             </span>
           </p>
           <p v-if="fields['password1'] ? !fields['password1'].valid && fields['password1'].changed : false" class="help is-danger">
@@ -90,7 +90,7 @@
               <i class="outline-https fontSize15"></i>
             </span>
             <span class="icon is-small is-left eyePWD" @click="showPassword" id="eye">
-              <i v-bind:class="icon + ' fontSize20'"></i>
+              <i :class="icon + ' fontSize20'"></i>
             </span>
           </p>
           <p v-if="fields['password2'] ? !fields['password2'].valid && fields['password2'].changed : false" class="help is-danger">كلمة

@@ -34,7 +34,7 @@
                             <i class="outline-https fontSize15"></i>
                         </span>
                         <span class="icon is-small is-left eyePWD" id="eye" @click="showPassword">
-                            <i v-binf:class="icon + ' fontSize20'"></i>
+                            <i :class="icon + ' fontSize20'"></i>
                         </span>
                     </p>
                 </div>
