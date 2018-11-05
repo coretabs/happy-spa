@@ -120,7 +120,7 @@
   .outline-thumb_down:before {
     content: "\e91d";
   }
-  .close:before {
+  .closeX:before {
     content: "\e922";
   }
   .icon-reply:before {
