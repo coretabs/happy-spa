@@ -87,7 +87,7 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
   width: 70%;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
   border-radius: 8px;
   position: fixed;
   top: 50%;

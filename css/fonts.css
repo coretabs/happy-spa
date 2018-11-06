@@ -139,6 +139,12 @@
   .thumb_down:before {
     content: "\e925";
   }
+  .icon-circle-regular:before {
+    content: "\e928";
+  }
+  .icon-check-circle-solid:before {
+    content: "\e927";
+  }
 /*       ********************         */
 
 @font-face {
