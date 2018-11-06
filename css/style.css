@@ -394,6 +394,10 @@ header, footer, a, div, p, button, textarea, input, ul, li, span, label, strong,
 	font-size: 30px!important;
 }
 
+.middle {
+    vertical-align: middle
+}
+
 /*           ****** sign up page ******               */
 
 .lastDivision {
@@ -1265,6 +1269,9 @@ hr {
 
 .communion span {
 	padding-right: 5px;
+}
+.communion img {
+    height: 20px;
 }
 
 

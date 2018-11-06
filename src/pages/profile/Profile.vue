@@ -81,8 +81,14 @@
                 <ul class="communion center fullWidth">
                   <li><a @click="$router.push(`/comments?postid=${post.id}`)"><span>{{ post.comments_count }}</span><i class="question_answer"></i></a></li>
                   
-                  <li class="hand-Up"><a :class="{bGolden: post.reaction == 'liked'}" @click="likePost(post.id)"><span :class="{golden: post.reaction == 'liked'}">{{post.likes_count}}</span>😃</a></li>
-                  <li class="hand-Down"><a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost(post.id)"><span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count}}</span>🙁</a></li>
+                  <li class="hand-Up"><a :class="{bGolden: post.reaction == 'liked'}" @click="likePost(post.id)">
+                    <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count}}</span>
+                    <img class="middle" src="@/../image/smile.svg">
+                  </a></li>
+                  <li class="hand-Down"><a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost(post.id)">
+                    <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count}}</span>
+                    <img class="middle" src="@/../image/sad.svg">
+                  </a></li>
                   
                   <li><a href="#"><span>0</span><i class="icon-reply"></i></a></li>
                 </ul>

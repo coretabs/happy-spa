@@ -54,12 +54,14 @@
                 </li>
                 <li class="hand-Up">
                   <a :class="{bGolden: post.reaction == 'liked'}" @click="likePost()">
-                    <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count == 0 ? '' : post.likes_count }}</span> 😃
+                    <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count == 0 ? '' : post.likes_count }}</span>
+                    <img class="middle" src="@/../image/smile.svg">
                   </a>
                 </li>
                 <li class="hand-Down">
                   <a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost()">
-                    <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span> 🙁
+                    <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>
+                    <img class="middle" src="@/../image/sad.svg">
                   </a>
                 </li>
                 <li>
