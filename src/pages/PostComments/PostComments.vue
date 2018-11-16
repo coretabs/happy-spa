@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div id="box" class="error" >
-      <span class="iconAlert">
-        <i class="report"></i>
-      </span>
-      <h2>{{ErrorMsg}}</h2>
-      <a @click="Error = false ; showError()  " class="close">Close</a>
-    </div>
+    
     <div class="withAppW spaceHeader spaceFooterB">
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
@@ -19,6 +13,7 @@
       </header>
 
       <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="update" @pull-down="update(true , false)">
+        <div slot="completed" v-if="!comments.length > 0">كن أول من يعلق</div>
         <div id="bodyComments" v-for="comment in comments"  v-if="comments">	
           <div class="bodyAnswer">
             <div class="answer">

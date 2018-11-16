@@ -1,4 +1,3 @@
-import Corefun from "@/api"
 import Cookies from "js-cookie"
 
 export default {
@@ -14,7 +13,6 @@ export default {
       menuCmt: false,
       menuCmtRpl: false,
       loading: true,
-      Corefun : Corefun,
       pagination : {
         page : 0,
         previous : '',
@@ -46,7 +44,7 @@ export default {
         this.pagination.loading = false
       } else {
         this.getComment()
-        Corefun.replies(this.postid, this.commentid , this.pagination.page)
+        this.$api.replies.replies(this.postid, this.commentid , this.pagination.page)
         .then (re => {
           this.replies = [...this.replies, ...re.results]
           this.loading = false
@@ -57,26 +55,6 @@ export default {
         })
       }
     },
-    showConfirm(doit) {
-      this.menu = false
-      if (this.post.author == this.username) {
-        if (this.confirm) {
-          this.confirmMsg = 'هل تريد حقا حذف المنشور'
-          this.$('.confirm').style.display = 'block'
-          this.$('.grayContentPage ').classList.add('blur')
-        } else {
-          if (doit) {
-            this.deletePost()
-          }
-          this.$('.confirm').style.display = 'none'
-          this.$('.grayContentPage').classList.remove('blur')
-        }
-      } else {
-        this.Error = true
-        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
-        this.showError()
-      }
-    },
     commentMenu(commentid) {
       this.menuCmt = !this.menuCmt
       this.commentid = commentid
@@ -84,28 +62,6 @@ export default {
     commentReplyMenu(commentreplyid) {
       this.menuCmtRpl = !this.menuCmtRpl
       this.commentreplyid = commentreplyid
-    },
-    $ : element => document.querySelector(element),
-    deletePost() {
-      if (this.post.author == this.username) {
-        Corefun.deletePost(this.id).then(() => {
-          this.$router.push('/home')
-        })
-      } else {
-        this.Error = true
-        this.ErrorMsg = 'لا يمكنك حذف اي منشور سوى الخاصة بك'
-        this.showError()
-      }
-    },
-    editPost() {
-      if (this.post.author == this.username) {
-        this.$store.commit('postToEdit', this.post)
-        this.$router.push('/newpost?editmode=true')
-      } else {
-        this.Error = true
-        this.ErrorMsg = 'لا يمكنك تعديل اي منشور سوى الخاصة بك'
-        this.showError()
-      }
     },
     likeReply(replyid) {
       if (Cookies.getJSON('logedinUser')) {
@@ -115,7 +71,7 @@ export default {
               case 'liked' :
                 reply.reaction = null
                 reply.likes_count--
-                Corefun.like.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.like(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)                
                 this.cacheIt()
               break;
@@ -123,14 +79,14 @@ export default {
                 reply.reaction = 'liked'
                 reply.likes_count++
                 reply.dislikes_count--
-                Corefun.like.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.like(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)
                 this.cacheIt()
               break;
               default : 
                 reply.reaction = 'liked'
                 reply.likes_count++
-                Corefun.like.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.like(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)
                 this.cacheIt()
               break;
@@ -150,7 +106,7 @@ export default {
                 reply.reaction = 'disliked'
                 reply.likes_count--
                 reply.dislikes_count++
-                Corefun.dislike.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.dislike(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)
                 
                 this.cacheIt()
@@ -158,7 +114,7 @@ export default {
               case 'disliked' : 
                 reply.reaction = null
                 reply.dislikes_count--
-                Corefun.dislike.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.dislike(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)
                 this.cacheIt()
               break;
@@ -166,7 +122,7 @@ export default {
               default : 
                 reply.reaction = 'disliked'
                 reply.dislikes_count++
-                Corefun.dislike.reply(this.postid,this.commentid , reply.id)
+                this.$api.replies.dislike(this.postid,this.commentid , reply.id)
                 console.log(reply.reaction)
                 this.cacheIt()
               break;
@@ -184,7 +140,7 @@ export default {
           case 'liked' :
             comment.reaction = null
             comment.likes_count--
-            Corefun.like.comment(this.postid ,this.commentid)
+            this.$api.comments.like(this.postid ,this.commentid)
             console.log(comment.reaction)
             this.cacheIt()
           break;
@@ -193,7 +149,7 @@ export default {
             comment.reaction = 'liked'
             comment.likes_count++
             comment.dislikes_count--
-            Corefun.like.comment(this.postid ,this.commentid)
+            this.$api.comments.like(this.postid ,this.commentid)
             console.log(comment.reaction)
             
             this.cacheIt()
@@ -201,7 +157,7 @@ export default {
           default : 
             comment.reaction = 'liked'
             comment.likes_count++
-            Corefun.like.comment(this.postid ,this.commentid)
+            this.$api.comments.like(this.postid ,this.commentid)
             console.log(comment.reaction)
             this.cacheIt()
           break;
@@ -218,14 +174,14 @@ export default {
             comment.reaction = 'disliked'
             comment.likes_count--
             comment.dislikes_count++
-            Corefun.dislike.comment(this.postid ,this.commentid)
+            this.$api.comments.dislike(this.postid ,this.commentid)
             console.log(comment.reaction)
             this.cacheIt()
           break;
           case 'disliked' : 
             comment.reaction = null
             comment.dislikes_count--
-            Corefun.dislike.comment(this.postid ,this.commentid)
+            this.$api.comments.dislike(this.postid ,this.commentid)
             console.log(comment.reaction)
             this.cacheIt()
           break;
@@ -233,7 +189,7 @@ export default {
           default : 
             comment.reaction = 'disliked'
             comment.dislikes_count++
-            Corefun.dislike.comment(this.postid ,this.commentid)
+            this.$api.comments.dislike(this.postid ,this.commentid)
             console.log(comment.reaction)
             this.cacheIt()
           break;
@@ -252,7 +208,7 @@ export default {
       })
     },
     getComment() {
-      Corefun.comment(this.postid, this.commentid).then(re => {
+      this.$api.comments.comment(this.postid, this.commentid).then(re => {
         this.comment = re;
         this.loading = false;
       });
@@ -267,7 +223,7 @@ export default {
           commentid: this.commentid
         };
         this.replyTxt = ''
-        Corefun.addReply(reply).then(re => this.replies.push(re));
+        this.$api.replies.addReply(reply).then(re => this.replies.push(re));
       }
     }
   },

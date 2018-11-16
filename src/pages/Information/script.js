@@ -1,4 +1,4 @@
-import Corefun from '@/api'
+
 import Cookies from 'js-cookie'
 export default {
   data: () => {
@@ -42,7 +42,7 @@ export default {
           this.formData()
           this.disable = true
           this.loading = true
-          Corefun.information(this.inf)
+          this.$api.user.setInformation(this.inf)
             .then(re => {
               console.log(re, Cookies.getJSON('logedinUser'))
               let logedinUser = Cookies.getJSON('logedinUser')

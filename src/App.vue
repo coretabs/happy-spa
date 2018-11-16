@@ -1,56 +1,106 @@
 <template>
-  <div id='app'>
+  <div>
+    <error-msg 
+      :closeError="closeError" 
+      :errorMsg="error.msg" 
+      :class="{'block' : error.box}"
+    ></error-msg>
+    <report 
+      :class="{'block' : report.box}" 
+      :closeReport="closeReport" 
+      :postid="report.postid"
+    ></report>
+    <overlay
+      :report="report.box"
+      :closeReport="closeReport"
+      :error="error.box"
+      :closeError="closeError"
+    ></overlay>
     <transition name="pages-anim">
-      <router-view/>
+      <router-view
+        class="relative"
+        @openReport="reportClick($event)"
+        @error="errorClick($event)"
+        :class="{'nopostblur' : box }"
+      />
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  methods : {
-    validateEmail(mail) {
-      return this.$store.state.emailRegExp.test(mail)
+  name: "App",
+  data: function() {
+    return {
+      box: false,
+      report: {
+        box: false,
+        postid: ""
+      },
+      error: {
+        box: false,
+        msg: "",
+        callback : ''
+      }
+    };
+  },
+  methods: {
+    reportClick(postid) {
+      this.box = true;
+      this.report.box = true;
+      this.report.postid = postid;
+      console.log(postid);
     },
-    validatePassword(password) {
-      return this.$store.state.passwordRegExp.test(password)
+    errorClick(opt) {
+      this.box = true;
+      this.error.box = true;
+      this.error.msg = opt.msg;
+      this.error.callback = opt.callback
     },
-    validateUsername(username) {
-      return this.$store.state.usernameRegExp.test(username)
+    closeReport() {
+      this.report.box = false;
+      this.box = false;
+    },
+    closeError() {
+      this.error.box = false;
+      this.box = false;
+      this.error.callback ?  this.error.callback() : ''
     }
   }
-}
+};
 </script>
 
 <style>
-  .pages-anim-enter-active {
-    animation: in .1s;
-    animation-delay: .2s;
+.block {
+  display: block !important;
+}
+.pages-anim-enter-active {
+  animation: in 0.2s;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.pages-anim-leave-active {
+  animation: out 0.2s;
+}
+
+@keyframes out {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -30px;
     opacity: 0;
   }
-  .pages-anim-leave-active {
-    animation: out .1s;
-  }
+}
 
-  @keyframes out {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
+@keyframes in {
+  from {
+    left: -30px;
+    opacity: 0;
   }
-
-  @keyframes in {
-    from {
-      transform: translateX(-30px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  to {
+    left: 0px;
+    opacity: 1;
   }
+}
 </style>

@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div id="box">
-      <span class="iconAlert">
-        <i class="report"></i>
-      </span>
-      <h2>{{ErrorMsg}}</h2>
-      <a @click="Error = false ; showErorr()  " class="close">Close</a>
-    </div>
     <div class="grayContentPage">
       <div class="mianHeader">
         <a @click="$router.go(-1)">
@@ -17,7 +10,6 @@
       </div>
 
       <div class="contentPageHeader">
-        <div id="overlay" @click="Error = false ; showErorr()" v-if='Error'></div>
         <div class="field">
           <div class="control has-icons-left has-icons-right">
             <input 

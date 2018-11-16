@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div id="box" >
-      <span class="iconAlert">
-        <i class="report"></i>
-      </span>
-      <h2>{{ErrorMsg}}</h2>
-      <a @click="Error = false ; showErorr()" class="close">Close</a>
-    </div>
     <div class="grayContentPage">
-      <div id="overlay" @click="Error = false ; showErorr()" v-if='Error'></div>
       <div class="mianHeader">
       <a @click="$router.go(-1)">
           <i class="arrow_forward"></i>
@@ -68,62 +60,8 @@
     </div>
   </div>
 </template>
-<script>
-import Corefun from '@/api'
-export default {
-  data : () => {
-    return {
-      links : {
-        IG : '',
-        FB : '',
-        YT : ''
-      },
-      ids : {},
-      count : 0,
-      socialApps : [
-        {app : 'YouTube' , key:'YT'}, 
-        {app : 'FaceBook' , key:'FB'}, 
-        {app :'InstaGram' , key:'IG'}
-      ],
-      Error: false,
-      loading : true,
-      ErrorMsg: 'راسلنا رجاء'
-    }
-  },
-  methods : {
-    getLinks () {
-      Corefun.links.get().then(re => {
-        this.loading = false
-        if (re.length > 0) {
-          re.forEach(link => {
-            this.links[link.social_app] = link.social_link
-            this.ids[link.social_app] = link.id 
-            this.count++
-          })
-        }
-      })
-    },
-    deleteLink(id , app) {
-     if (id) {
-        Corefun.links.delete(id)
-        this.links[app] = ''
-      } 
-    },
-    showErorr() {
-      if (this.Error) {
-        document.querySelector('#box').style.display = 'block'
-        document.querySelector('.grayContentPage').classList.add('blur')
-      } else {
-        document.querySelector('#box').style.display = 'none'
-        document.querySelector('.grayContentPage').classList.remove('blur')
-      }
-    }
-  },
-  created () {
-    this.getLinks()
-  }
-}
-</script>
+
+<script src='./script.js'></script>
 
 <style scoped>
 .linkAD {
