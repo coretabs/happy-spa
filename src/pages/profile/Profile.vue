@@ -46,6 +46,7 @@
             <i class="social-fa">{{link.app}}</i>
           </a>
         </div>
+<<<<<<< HEAD
       </div>
       <vue-data-loading
         :completed="!pagination.next"
@@ -60,6 +61,39 @@
             <div class="bgTextSend bgTextAndImageSend">
               <div class="textSend" @click="$router.push(`/post?postid=${post.id}`)">
                 <p v-if="post.content != ''">{{ post.content }}</p>
+=======
+        
+        <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="getPosts(false , false)" @pull-down="getPosts(true ,false)">
+          <div class="backList box-shadow" v-if="posts"  v-for="post in posts" :key="post.id">
+            <div class="backgroundSend">
+              <div class="bgTextSend bgTextAndImageSend">
+                <div class="textSend" @click="$router.push(`/post?postid=${post.id}`)">
+                <p v-if="post.content != ''"> {{ post.content }}</p>
+                </div>
+                <div @click="$router.push(`/post?postid=${post.id}`)" class="bgImage" v-if="post.mediafile">
+                  <img class="borderMedia fullWidth" :src="post.mediafile" v-if="media[post.id] != 'mp4'">
+                  <div v-if="media[post.id]== 'mp4'">
+                    <video class="borderMedia" controls="" autoplay="false"   name="media" >
+                      <source :src="post.mediafile" >
+                    </video>
+                  </div>
+                </div>
+                  
+                <ul class="communion center fullWidth">
+                  <li><a @click="$router.push(`/comments?postid=${post.id}`)"><span>{{ post.comments_count }}</span><i class="question_answer"></i></a></li>
+                  
+                  <li class="hand-Up"><a :class="{bGolden: post.reaction == 'liked'}" @click="likePost(post.id)">
+                    <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count}}</span>
+                    <img class="middle" src="@/../image/smile.svg">
+                  </a></li>
+                  <li class="hand-Down"><a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost(post.id)">
+                    <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count}}</span>
+                    <img class="middle" src="@/../image/sad.svg">
+                  </a></li>
+                  
+                  <li><a href="#"><span>0</span><i class="icon-reply"></i></a></li>
+                </ul>
+>>>>>>> 6c71cd3d9f02d2c2aea69615226d477bee51ca6f
               </div>
               <div
                 @click="$router.push(`/post?postid=${post.id}`)"

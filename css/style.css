@@ -402,6 +402,10 @@ header a i {
   font-size: 30px !important;
 }
 
+.middle {
+    vertical-align: middle
+}
+
 /*           ****** sign up page ******               */
 
 .lastDivision {
@@ -1518,6 +1522,9 @@ hr {
 
 .communion span {
   padding-right: 5px;
+}
+.communion img {
+    height: 20px;
 }
 
 

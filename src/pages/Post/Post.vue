@@ -56,16 +56,26 @@
                 </li>
                 <li class="hand-Up">
                   <a :class="{bGolden: post.reaction == 'liked'}" @click="likePost()">
+<<<<<<< HEAD
                     <span
                       :class="{golden: post.reaction == 'liked'}"
                     >{{post.likes_count == 0 ? '' : post.likes_count }}</span>😃
+=======
+                    <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count == 0 ? '' : post.likes_count }}</span>
+                    <img class="middle" src="@/../image/smile.svg">
+>>>>>>> 6c71cd3d9f02d2c2aea69615226d477bee51ca6f
                   </a>
                 </li>
                 <li class="hand-Down">
                   <a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost()">
+<<<<<<< HEAD
                     <span
                       :class="{golden: post.reaction == 'disliked'}"
                     >{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>🙁
+=======
+                    <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>
+                    <img class="middle" src="@/../image/sad.svg">
+>>>>>>> 6c71cd3d9f02d2c2aea69615226d477bee51ca6f
                   </a>
                 </li>
                 <li>
