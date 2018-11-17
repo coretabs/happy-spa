@@ -145,6 +145,9 @@
   .icon-check-circle-solid:before {
     content: "\e927";
   }
+  .add_box:before {
+    content: "\e929";
+  }
 /*       ********************         */
 
 @font-face {

@@ -7,7 +7,7 @@
       <a @click="$router.go(-1)">
         <i class="arrow_forward"></i>
       </a>
-      <p>logo</p>
+      <img src="@/../image/grinn.svg">
     </header>
     <vue-data-loading
       :completed="!pagination.next"
@@ -163,7 +163,7 @@
         </li>
         <li>
           <router-link to="/newpost">
-            <i class="add plusIcon fontSize30"></i>
+            <i class="add_box fontSize30"></i>
           </router-link>
         </li>
         <li>

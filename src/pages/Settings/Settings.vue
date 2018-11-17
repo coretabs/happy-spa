@@ -28,7 +28,7 @@
             <ul>
                 <li><router-link  :to='`/home?id=${$route.query.id}`'><i class="home fontSize30"></i></router-link></li>
                 <li><router-link to="#"><i class="notifications fontSize30"></i></router-link></li>
-                <li><router-link to="/newpost"><i class="add plusIcon fontSize30"></i></router-link></li>
+                <li><router-link to="/newpost"><i class="add_box fontSize30"></i></router-link></li>
                 <li><router-link to="#"><i class="explore fontSize28"></i></router-link></li>
                 <li><router-link :to="`/profile?id=${$route.query.id}`" ><i class="person fontSize30"></i></router-link></li>
             </ul>

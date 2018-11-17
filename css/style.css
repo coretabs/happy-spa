@@ -455,13 +455,15 @@ header a i {
 
 .contentPageHeader .control .button.is-success:active,
 .footer .control button.is-success:active,
-.lastDivision .control button.is-success:active {
+.lastDivision .control button.is-success:active,
+.button.is-success[disabled] {
   background-color: #ffe600;
 }
 
 .contentPageHeader .control .button.is-success:focus:not(:active),
 .footer .control button.is-success:focus:not(:active),
-.lastDivision .control button.is-success:focus:not(:active) {
+.lastDivision .control button.is-success:focus:not(:active),
+.button.is-success[disabled] {
   box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
 }
 
@@ -828,7 +830,6 @@ header a i {
 .golden {
   color: #ffe600 !important;
 }
-
 .bgGolden {
   background-color: #ffe600 !important;
 }
@@ -942,7 +943,6 @@ header a i {
 .noMargin {
   margin: 0 !important;
 }
-
 .topHeader p,
 .moreReply {
   width: 100%;
@@ -952,7 +952,12 @@ header a i {
   font-weight: bold;
   padding: 10px 0;
 }
-
+.topHeader img {
+  width: 3em;
+  height: inherit;
+  display: grid;
+  margin: auto;
+}
 .settings p {
   text-align: right;
   padding: 10px 75px;
@@ -988,7 +993,7 @@ hr {
   margin: 0;
 }
 
-.headElements {
+.headElements, .bottomFooter ul li a, .bgTextSend .communion a {
   color: #b0bec5 !important;
 }
 
@@ -1017,12 +1022,6 @@ hr {
 
 .bottomFooter ul li .actieFooterLink {
   color: #ffe600 !important;
-}
-
-.bottomFooter ul li .plusIcon {
-  border: 2px solid;
-  border-radius: 50%;
-  padding: 2px 2.5px;
 }
 
 /*           ****** post something ******               */
@@ -1299,10 +1298,8 @@ hr {
 .bodyWasm a,
 .darkBlue,
 .signOutElements,
-.bgTextSend .communion a,
 .bgTextSend .textSend p,
 .linkAD a,
-.bottomFooter ul li a,
 .communion a {
   color: #142833 !important;
 }
@@ -1502,7 +1499,6 @@ hr {
 
 .communion .hand-Down a,
 .communion .hand-Up a {
-  padding: 0 1.25rem;
   border: 2px solid #cdd6da;
   border-radius: inherit;
   line-height: 3rem;

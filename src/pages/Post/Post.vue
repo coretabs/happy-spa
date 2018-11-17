@@ -14,7 +14,7 @@
         <a @click="$router.go(-1)">
           <i class="arrow_forward"></i>
         </a>
-        <p>logo</p>
+        <img src="@/../image/grinn.svg">
       </header>
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
@@ -56,26 +56,14 @@
                 </li>
                 <li class="hand-Up">
                   <a :class="{bGolden: post.reaction == 'liked'}" @click="likePost()">
-<<<<<<< HEAD
-                    <span
-                      :class="{golden: post.reaction == 'liked'}"
-                    >{{post.likes_count == 0 ? '' : post.likes_count }}</span>😃
-=======
                     <span :class="{golden: post.reaction == 'liked'}">{{post.likes_count == 0 ? '' : post.likes_count }}</span>
                     <img class="middle" src="@/../image/smile.svg">
->>>>>>> 6c71cd3d9f02d2c2aea69615226d477bee51ca6f
                   </a>
                 </li>
                 <li class="hand-Down">
                   <a :class="{bGolden: post.reaction == 'disliked'}" @click="dislikePost()">
-<<<<<<< HEAD
-                    <span
-                      :class="{golden: post.reaction == 'disliked'}"
-                    >{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>🙁
-=======
                     <span :class="{golden: post.reaction == 'disliked'}">{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>
                     <img class="middle" src="@/../image/sad.svg">
->>>>>>> 6c71cd3d9f02d2c2aea69615226d477bee51ca6f
                   </a>
                 </li>
                 <li>
@@ -283,7 +271,7 @@
           </li>
           <li>
             <router-link to="/newpost">
-              <i class="add plusIcon fontSize30"></i>
+              <i class="add_box fontSize30"></i>
             </router-link>
           </li>
           <li>

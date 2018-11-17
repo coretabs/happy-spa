@@ -9,7 +9,7 @@
         <a @click="$router.go(-1)">
           <i class="arrow_forward"></i>
         </a>
-        <p>logo</p>
+        <img src="@/../image/grinn.svg">
       </header>
 
       <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="update" @pull-down="update(true , false)">
@@ -109,7 +109,7 @@
         <ul>
           <li><router-link to='/home'><i class="home fontSize30"></i></router-link></li>
           <li><router-link to="#"><i class="notifications fontSize30"></i></router-link></li>
-          <li><router-link to="/newpost"><i class="add plusIcon fontSize30"></i></router-link></li>
+          <li><router-link to="/newpost"><i class="add_box fontSize30"></i></router-link></li>
           <li><router-link to="#"><i class="explore fontSize28"></i></router-link></li>
           <li><router-link to"/pofile" ><i class="person fontSize30"></i></router-link></li>
         </ul>

@@ -2,7 +2,7 @@
   <div>
     <div id="box" class="confirm">
       <span class="iconAlert">
-        <i class="material-icons">report</i>
+        <i class="report"></i>
       </span>
       <h2>{{confirmMsg}}</h2>
       <a @click="confirm = false ; showConfirm(true)  " class="close">نعم</a>
@@ -17,7 +17,7 @@
         <router-link to="/more" class="left">
           <i class="more_vert"></i>
         </router-link>
-        <p>logo</p>
+        <img src="@/../image/grinn.svg">
       </header>
       <vue-data-loading
         :completed="!pagination.next"
@@ -66,7 +66,8 @@
                     <a :class="{bGolden: post.reaction == 'liked'}" @click="likePost(post.id)">
                       <span
                         :class="{golden: post.reaction == 'liked'}"
-                      >{{post.likes_count == 0 ? '' : post.likes_count }}</span>😃
+                      >{{post.likes_count == 0 ? '' : post.likes_count }}</span>
+                      <img class="middle" src="@/../image/smile.svg">
                     </a>
                   </li>
                   <li class="hand-Down">
@@ -76,7 +77,8 @@
                     >
                       <span
                         :class="{golden: post.reaction == 'disliked'}"
-                      >{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>🙁
+                      >{{post.dislikes_count == 0 ? '' : post.dislikes_count }}</span>
+                      <img class="middle" src="@/../image/sad.svg">
                     </a>
                   </li>
                   <li>
@@ -184,7 +186,7 @@
           </li>
           <li>
             <router-link to="/newpost">
-              <i class="add plusIcon fontSize30"></i>
+              <i class="add_box fontSize30"></i>
             </router-link>
           </li>
           <li>
