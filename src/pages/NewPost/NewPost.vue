@@ -44,11 +44,11 @@
                         </div>
                     </div>
                     
-                    <div class="funPost">
+                    <div class="funPost relative">
                         <div class="field">
                             <div class="control has-icons-left">
                                 <div class="wrapper">
-                                    <textarea :disabled='disable'  v-model="postContent"  class="textarea is-large" type="text" placeholder="أضف شيئاً مضحكاً"></textarea>
+                                    <textarea :disabled='disable' dir="auto" v-model="postContent"  class="textarea is-large" type="text" placeholder="أضف شيئاً مضحكاً"></textarea>
                                     <emoji-picker @emoji="insert" :search="search">
                                     <div
                                         class="emoji-invoker"
@@ -133,6 +133,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
+  padding-top: 2rem;
 }
 
 .regular-input {
@@ -145,7 +146,7 @@
 
 .emoji-invoker {
   position: absolute;
-  top: 0.5rem;
+  top: 0;
   left: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;

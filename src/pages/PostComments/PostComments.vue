@@ -43,7 +43,7 @@
               </div>
 
               <div class="answerPara">
-                <p class="relative">{{comment.content}}</p>
+                <p dir="auto" class="relative">{{comment.content}}</p>
               </div>
             </div> 
             <div class="communion">
@@ -67,7 +67,7 @@
               </div>
               
               <div class="answerPara">
-                <p >{{comment.top_reply.content}}</p>
+                <p dir="auto">{{comment.top_reply.content}}</p>
               </div>
             </div> 
             <div class="communion">
@@ -88,7 +88,7 @@
           <div class="field">
             <div class="control has-icons-left has-icons-right">
               <form action="" @submit="$event.preventDefault()"  method="POST">
-                <textarea class="textarea" type="text" :disabled='loading'  v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
+                <textarea dir="auto" class="textarea" type="text" :disabled='loading'  v-model="commentTxt"  rows="1" placeholder="اكتب تعليق..."></textarea>
                 <div class="left leftTextarea">
                   <a class="icon is-small">
                     <i @click="addcomment"  class="keyboard_arrow_left fontSize20"></i>

@@ -31,7 +31,7 @@
           <div class="backgroundSend">
             <div class="bgTextSend bgTextAndImageSend">
               <div class="textSend">
-                <p v-if="post.content != ''">{{ post.content }}</p>
+                <p dir="auto" v-if="post.content != ''">{{ post.content }}</p>
               </div>
               <div class="bgImage" v-if="post.mediafile">
                 <img
@@ -154,7 +154,7 @@
                 </div>
               </div>
               <div class="answerPara">
-                <p>{{comment.content}}</p>
+                <p dir="auto">{{comment.content}}</p>
               </div>
             </div>
             <div class="communion">
@@ -195,7 +195,7 @@
                   </div>
                 </div>
                 <div class="answerPara">
-                  <p>{{comment.top_reply.content}}</p>
+                  <p dir="auto">{{comment.top_reply.content}}</p>
                 </div>
               </div>
               <div class="communion">
@@ -234,6 +234,7 @@
             <div class="control has-icons-left has-icons-right">
               <form action="" @submit="$event.preventDefault()" method="POST">
                 <textarea
+                  dir="auto" 
                   class="textarea"
                   :disabled="loading"
                   type="text"

@@ -147,19 +147,16 @@ img {
   background-color: white;
   border-radius: 50%;
 }
-
-.centralCircle h1 {
-  color: white;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 2em;
-  font-weight: bold;
-  margin: 21px auto 5px;
+.circle img {
+  display: grid;
+  margin: auto;
+  height: 100%;
+  width: 75%;
 }
 
 /*             slide words home page                */
 
-figure {
+.applicationIdea {
   height: 50px;
   position: relative;
   margin: 0;
@@ -167,14 +164,10 @@ figure {
   width: 500%;
   animation: 30s slidy infinite;
 }
-
-figure img {
-  width: 100%;
-}
-
-figure .slider {
+.applicationIdea .slider {
   width: 20%;
   float: left;
+  margin-top: 20px;
 }
 
 .slider>p {
@@ -1117,11 +1110,6 @@ hr {
   padding-top: 10px;
 }
 
-.funPost {
-  margin-top: 20px;
-  position: relative;
-}
-
 .funPost input[type="file"],
 .funPost i {
   position: absolute;
@@ -1154,7 +1142,7 @@ hr {
 
 .funPost textarea {
   height: 10em;
-  padding: 0 1.5rem;
+  direction: rtl;
 }
 
 .funPost textarea,
@@ -1780,6 +1768,7 @@ hr {
   padding-right: 3em;
   padding-left: 3em;
   font-weight: bold;
+  direction: rtl;
 }
 
 .chat a {

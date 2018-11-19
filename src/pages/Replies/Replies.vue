@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="answerPara">
-              <p>{{ comment.content }}</p>
+              <p dir="auto">{{ comment.content }}</p>
             </div>
           </div>
           <div class="communion">
@@ -101,7 +101,7 @@
               <a class="class">تبليغ</a>
             </div>
             <div class="answerPara">
-              <p>{{ reply.content }}</p>
+              <p dir="auto">{{ reply.content }}</p>
             </div>
           </div>
           <div class="communion">
@@ -126,6 +126,7 @@
           <div class="control has-icons-left has-icons-right">
             <form action="" @submit="$event.preventDefault()" method="POST">
               <textarea
+                dir="auto" 
                 class="textarea"
                 :disabled="loading"
                 type="text"

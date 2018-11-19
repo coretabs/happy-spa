@@ -3,8 +3,8 @@
 
     <div class="centralCircle absolute">
       <div class="circle">
+        <img src="@/../image/grinn.svg" alt="grinn">
       </div>
-      <h1>Coretabs Fun</h1>
       <figure class="applicationIdea">
           <div class="slider">
             <div class="slide">
@@ -33,7 +33,7 @@
                 <p>
                   اجعل عائلتك واصدقائك اقرب مع           
                   <br>
-                  Coretabs Fun
+                  grinn
                 </p>
               </div>
             </div>
