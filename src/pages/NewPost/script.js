@@ -1,4 +1,5 @@
 import Cookies from "js-cookie"
+import EmojiPicker from 'vue-emoji-picker'
 
 export default {
   data: () => {
@@ -7,11 +8,15 @@ export default {
       profile: "",
       mediaFile: "",
       postContent: "",
+      search: "",
       post: new FormData(),
       disable: false,
       previweLink: "",
       toEditPost: ""
     }
+  },
+  components: {
+    EmojiPicker,
   },
   created() {
     if (!Cookies.getJSON("logedinUser")) {
@@ -38,6 +43,9 @@ export default {
       this.mediaFile = e.target.files[0]
       this.previweLink = URL.createObjectURL(this.mediaFile)
     },
+    insert(emoji) {
+      this.postContent += emoji
+    },
     postSend() {
       if (this.mediaFile || this.postContent.replace(/\s/gi, "")) {
         this.disable = true
@@ -61,6 +69,13 @@ export default {
     removePic() {
       this.previweLink = ""
       this.mediafile = ""
+    },
+  },
+  directives: {
+    focus: {
+      inserted(el) {
+        el.focus()
+      }
     }
-  }
+  },
 }

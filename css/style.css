@@ -1154,6 +1154,7 @@ hr {
 
 .funPost textarea {
   height: 10em;
+  padding: 0 1.5rem;
 }
 
 .funPost textarea,
