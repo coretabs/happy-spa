@@ -20,6 +20,34 @@
         <img src="@/../image/grinn.svg">
       </header>
         
+        <div class="backList box-shadow" v-if="user">
+          <div class="aboutMe center">
+            <a :href="user.avatar_url">
+              <img :src="user.avatar_url">
+            </a>
+            <h1 id="h">{{user.profile.displayed_name}}</h1>
+            <p class="reverse">@{{user.username}}</p>
+          </div>
+          <div class="description" v-if="user.profile.bio">
+            <h2 class="center">{{user.profile.bio}}</h2>
+          </div>
+          <div class="aboutMyInfo center">
+            <div class="place">
+              <span>{{user.profile.location}}</span>
+              <i class="location fontSize15"></i>
+            </div>
+            <div class="birth">
+              <span>{{user.profile.birth_date}}</span>
+              <i class="date_range fontSize15"></i>
+            </div>
+          </div>
+          <hr>
+          <div class="mySocial center" v-if="user.profile.link.length != 0">
+            <a v-for="link in fillteredLinks" :href="link.link">
+              <i class="social-fa">{{link.app}}</i>
+            </a>
+          </div>
+        </div>
         <vue-data-loading
         :completed="!pagination.next"
         :loading="pagination.loading"
