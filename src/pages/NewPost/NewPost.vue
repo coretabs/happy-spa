@@ -22,7 +22,7 @@
                     
                     <div class="imagePost" v-if="!previweLink">
                         <div class="myImage">
-                            <input type="file" @change="uploadFile($event)"  accept="video/*,image/*" />
+                            <input type="file" id="file" ref="file" @change="submitFile($event)"  accept="video/*,image/*" />
                             <a href="#">
                                 <i class="insert_photo fontSize24"></i>
                             </a>
@@ -82,6 +82,7 @@
                                 </div>
                             </div>
                         </div>
+                        <p class="wrongValue" v-if="enabled">لا يمكنك رفع اكثر من 5 ميجا بايت</p>
                         <hr>
                         <div v-if="previweLink" class="bgTextAndImageSend">
                             <div class="bgImage fullWidth relative">

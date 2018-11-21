@@ -9,6 +9,7 @@ export default {
       mediaFile: "",
       postContent: "",
       search: "",
+      enabled: false,
       post: new FormData(),
       disable: false,
       previweLink: "",
@@ -42,6 +43,19 @@ export default {
     uploadFile(e) {
       this.mediaFile = e.target.files[0]
       this.previweLink = URL.createObjectURL(this.mediaFile)
+    },
+    submitFile(e) {
+      const file = this.$refs.file.files[0];
+      if (file.size > 1024 * 1024 * 5) {
+        this.$emit('error', { msg: 'لا يمكنك رفع اكثر من 5 ميجا بايت'});
+        this.enabled = true;
+        e.preventDefault();
+      } else {
+        this.enabled = false;
+        this.mediaFile = e.target.files[0];
+        this.previweLink = URL.createObjectURL(this.mediaFile);
+      }
+      return;
     },
     insert(emoji) {
       this.postContent += emoji
