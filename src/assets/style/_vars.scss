@@ -1,3 +1,70 @@
+$white-color : white;
 $main-color : #ffe600;
 $error-color : #ff3860;
-$normal-color: #dbdbdb;
+$normal-color : #dbdbdb;
+$white-gray-color : #fafafa;
+$gray-color: #b0bec5;
+$dark-blue-color: #142833;
+
+$zero: 0;
+
+/*     ******  search  ******      */
+
+.last-search, .research-results {
+    width: 100%;
+    height: 50px;
+    background-color: $white-color;
+  }
+.research-results:hover {
+    background-color: $white-gray-color;
+}
+
+.delete-research-results {
+    font-size: 15px;
+    padding: 5px;
+    color: $gray-color;
+    float: left;
+}
+
+.last-research-results {
+    width: max-content;
+    display: inline-block;
+    padding: $zero;
+    color: $gray-color;
+    font-weight: 100;
+  }
+
+.respondent-element a {
+    border-radius: 50%;
+    color: $gray-color;
+}
+.respondent-name {p {
+    font-size: 12px;
+    color: $gray-color;
+  }
+}
+
+.delete-this-result {
+    padding: 7px 0;
+ a {
+    display: flex;
+    color: $gray-color;
+  }
+}
+
+/*     ******  results  ******      */
+
+.results-options ul li a {
+    color: $gray-color;
+}
+.results-options ul li:focus-within {
+    border-bottom: 4px solid $dark-blue-color;
+}
+.results-options ul li:focus-within a {
+    color: $dark-blue-color;
+}
+
+.respondent-person .mySend {
+    background-color: $white-color;
+    padding: 10px 10px 0;
+}

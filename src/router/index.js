@@ -16,6 +16,8 @@ import VerificationStep2 from '@/pages/VerificationStep2/VerificationStep2'
 import PostComments from '@/pages/PostComments/PostComments'
 import ManageEmails from '@/pages/ManageEmails/ManageEmails'
 import Social from '@/pages/Social/Social'
+import Search from '@/pages/Search/Search'
+import Results from '@/pages/Results/Results'
 
 
 Vue.use(Router)
@@ -93,6 +95,14 @@ export default new Router({
     {
       path : '/links',
       component : Social
+    },
+    {
+      path : '/search',
+      component : Search
+    },
+    {
+      path : '/results',
+      component : Results
     }
   ]
 })
