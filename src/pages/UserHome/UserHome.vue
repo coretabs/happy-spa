@@ -13,12 +13,15 @@
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
       </div>
+      <!--
       <header class="topHeader box-shadow">
         <router-link to="/more" class="left">
           <i class="more_vert"></i>
         </router-link>
         <img src="@/../image/grinn.svg">
       </header>
+      -->
+      <app-header a2="menu" a3="image"></app-header>
       <vue-data-loading
         :completed="!pagination.next"
         :loading="pagination.loading"
@@ -172,7 +175,7 @@
           </div>
         </div>
       </vue-data-loading>
-      <footer class="bottomFooter box-shadow">
+      <!--<footer class="bottomFooter box-shadow">
         <ul>
           <li>
             <router-link class="actieFooterLink" to="/home">
@@ -200,7 +203,8 @@
             </router-link>
           </li>
         </ul>
-      </footer>
+      </footer>-->
+      <app-footer home="isHome"></app-footer>
     </div>
   </div>
 </template>

@@ -10,12 +10,13 @@
     </div>
     <div class="grayContentPage spaceFooterB spaceHeaderH">
       <div id="overlay" @click="showMenu" v-if="menu"></div>
-      <header class="topHeader box-shadow">
+      <!--<header class="topHeader box-shadow">
         <a @click="$router.go(-1)">
           <i class="arrow_forward"></i>
         </a>
         <img src="@/../image/grinn.svg">
-      </header>
+      </header>-->
+      <app-header a1="back" a3="image"></app-header>
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
       </div>
@@ -228,7 +229,7 @@
           </div>
         </div>
       </vue-data-loading>
-      <footer class="bottomFooter box-shadow footerAndChat">
+      <!--<footer class="bottomFooter box-shadow footerAndChat">
         <div class="chat" v-if="avatar">
           <div class="field">
             <div class="control has-icons-left has-icons-right">
@@ -286,7 +287,8 @@
             </router-link>
           </li>
         </ul>
-      </footer>
+      </footer>-->
+      <app-footer chat="isChat" :isAvatar="this.avatar"></app-footer>
     </div>
   </div>
 </template>

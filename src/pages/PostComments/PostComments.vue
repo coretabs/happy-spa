@@ -5,12 +5,13 @@
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
       </div>
-      <header class="topHeader box-shadow">
+      <!--<header class="topHeader box-shadow">
         <a @click="$router.go(-1)">
           <i class="arrow_forward"></i>
         </a>
         <img src="@/../image/grinn.svg">
-      </header>
+      </header>-->
+      <app-header a1="back" a3="image"></app-header>
 
       <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="update" @pull-down="update(true , false)">
         <div slot="completed" v-if="!comments.length > 0">كن أول من يعلق</div>
@@ -83,7 +84,7 @@
         </div>
       </vue-data-loading>
 
-      <footer class="bottomFooter box-shadow footerAndChat">
+      <!--<footer class="bottomFooter box-shadow footerAndChat">
         <div class="chat" v-if="avatar">
           <div class="field">
             <div class="control has-icons-left has-icons-right">
@@ -113,7 +114,8 @@
           <li><router-link to="#"><i class="explore fontSize28"></i></router-link></li>
           <li><router-link to"/pofile" ><i class="person fontSize30"></i></router-link></li>
         </ul>
-      </footer>
+      </footer>-->
+      <app-footer chat="isChat" :isAvatar="this.avatar"></app-footer>
     </div>
   </div>
 </template>

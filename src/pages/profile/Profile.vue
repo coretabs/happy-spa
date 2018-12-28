@@ -13,13 +13,13 @@
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
       </div>
-      <header class="topHeader box-shadow">
+      <!--<header class="topHeader box-shadow">
         <router-link to="/more" class="left">
           <i class="more_vert"></i>
         </router-link>
         <img src="@/../image/grinn.svg">
-      </header>
-        
+      </header>-->
+        <app-header a2="menu" a3="image"></app-header>
         <div class="backList box-shadow" v-if="user">
           <div class="aboutMe center">
             <a :href="user.avatar_url">
@@ -203,7 +203,7 @@
           </div>
         </div>
       </vue-data-loading>
-      <footer class="bottomFooter box-shadow">
+      <!--<footer class="bottomFooter box-shadow">
         <ul>
           <li>
             <router-link to="/home">
@@ -231,7 +231,8 @@
             </router-link>
           </li>
         </ul>
-      </footer>
+      </footer>-->
+      <app-footer profile="isProfile"></app-footer>
     </div>
   </div>
 </template>

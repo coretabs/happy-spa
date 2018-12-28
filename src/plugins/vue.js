@@ -1,7 +1,9 @@
 import VueDataLoading from "@/components/vue-data-loading";
 import Report from "@/components/report";
 import ErrorMsg from "@/components/error-msg";
-import Overlay from '@/components/overlay'
+import Overlay from '@/components/overlay';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -14,7 +16,9 @@ const Plugins = {
     Vue.component("VueDataLoading", VueDataLoading);
     Vue.component("Report", Report);
     Vue.component("ErrorMsg", ErrorMsg);
-    Vue.component("Overlay" , Overlay)
+    Vue.component("Overlay" , Overlay);
+    Vue.component("app-header" , Header);
+    Vue.component("app-footer" , Footer);
   },
   addVars: Vue => {
     window.$ = e => document.querySelector(e);

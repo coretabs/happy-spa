@@ -13,7 +13,9 @@ export default {
       post: new FormData(),
       disable: false,
       previweLink: "",
-      toEditPost: ""
+      toEditPost: "",
+      newPostSend: this.postSend,
+      buttonOptions: this.disable
     }
   },
   components: {

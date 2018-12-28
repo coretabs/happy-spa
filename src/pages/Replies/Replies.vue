@@ -3,12 +3,13 @@
     <div class="overlay" v-if="loading">
       <div class="spinner"></div>
     </div>
-    <header class="topHeader box-shadow">
+    <!--<header class="topHeader box-shadow">
       <a @click="$router.go(-1)">
         <i class="arrow_forward"></i>
       </a>
       <img src="@/../image/grinn.svg">
-    </header>
+    </header>-->
+    <app-header a1="back" a3="image"></app-header>
     <vue-data-loading
       :completed="!pagination.next"
       :loading="pagination.loading"
@@ -120,7 +121,7 @@
         </div>
       </div>
     </vue-data-loading>
-    <footer class="bottomFooter box-shadow footerAndChat">
+    <!--<footer class="bottomFooter box-shadow footerAndChat">
       <div class="chat" v-if="avatar">
         <div class="field">
           <div class="control has-icons-left has-icons-right">
@@ -176,7 +177,8 @@
           <i class="person fontSize30"></i>
         </li>
       </ul>
-    </footer>
+    </footer>-->
+    <app-footer chat="isChat" :isAvatar="this.avatar"></app-footer>
   </div>
 </template>
 <script src="./script.js"></script>

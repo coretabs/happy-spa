@@ -19,7 +19,8 @@ export default {
         next : '',
         loading : true,
         count : 0
-      }
+      },
+      isAvatar: this.avatar,
     };
   },
   methods: {
