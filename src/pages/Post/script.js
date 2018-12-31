@@ -134,27 +134,14 @@ export default {
           });
       }
     },
-    showConfirm(doit) {
-      this.menu ? this.showMenu() : "";
-      if (this.post.author == this.username) {
-        if (this.confirm) {
-          this.confirmMsg = "هل تريد حقا حذف المنشور";
-          $(`.confirm`).style.display = "block";
-          $(".grayContentPage ").classList.add("blur");
-          $("html").classList.add("overflowHidden");
-        } else {
-          if (doit) {
-            this.deletePost();
-          }
-          $(".confirm").style.display = "none";
-          $(".grayContentPage").classList.remove("blur");
-          $("html").classList.remove("overflowHidden");
-        }
-      } else {
-        this.$emit('error' , {
-          msg : "لا يمكنك حذف اي منشور سوى الخاصة بك"
-        });
-      }
+    showConfirm() {
+      let root = this
+      this.menu ? this.showMenu(this.postid) : "";
+      this.$emit('confirm' , {
+        msg : "هل تريد حقا حذف المنشور",
+        yes: root.deletePost,
+        no : () => {}
+      })
     },
     showMenu() {
       this.menu = !this.menu;

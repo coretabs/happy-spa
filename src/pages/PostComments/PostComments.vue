@@ -37,7 +37,7 @@
                 <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute">
                   <a @click="editPost"  class="class">تعديل</a>
                   <hr>
-                  <a  @click="confirm = true ; showConfirm()" class="wrongValue  class">حذف</a>
+                  <a  @click="showConfirm()" class="wrongValue  class">حذف</a>
                   <hr>
                   <a class="class">تبليغ</a>
                 </div>

@@ -4,6 +4,7 @@ import ErrorMsg from "@/components/error-msg";
 import Overlay from '@/components/overlay';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Confirm from '@/components/Confirm'
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -16,6 +17,7 @@ const Plugins = {
     Vue.component("VueDataLoading", VueDataLoading);
     Vue.component("Report", Report);
     Vue.component("ErrorMsg", ErrorMsg);
+    Vue.component("Confirm", Confirm);
     Vue.component("Overlay" , Overlay);
     Vue.component("app-header" , Header);
     Vue.component("app-footer" , Footer);

@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div id="box" class="confirm">
-      <span class="iconAlert">
-        <i class="report"></i>
-      </span>
-      <h2>{{confirmMsg}}</h2>
-      <a @click="confirm = false ; showConfirm(true)  " class="close">نعم</a>
-      <a @click="confirm = false ; showConfirm(false)  " class="close">لا</a>
-    </div>
     <div class="grayContentPage spaceFooter">
       <div v-if="menu" @click="showMenu" id="overlay"></div>
       <div class="overlay" v-if="loading">
@@ -131,7 +123,7 @@
                 <a @click="editPost" v-if="post.author == username" class="class">تعديل</a>
                 <hr v-if="post.author == username">
                 <a
-                  @click="confirm = true ; showConfirm()"
+                  @click="showConfirm()"
                   v-if="post.author == username"
                   class="class wrongValue"
                 >حذف</a>

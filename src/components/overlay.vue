@@ -8,11 +8,9 @@
 
 <script>
   export default {
-    props : ['closeError' , 'error'  , 'closeReport' , 'closeConfirm' , 'report'],
+    props : ['closeError' , 'error'  , 'closeReport' , 'confirm' , 'closeConfirm' , 'report'],
     data : function () { 
       return {
-        error : false,
-        confirm : false,
       }
     },
     methods : {

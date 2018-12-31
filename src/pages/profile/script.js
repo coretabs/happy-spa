@@ -157,21 +157,14 @@ export default {
         });
       }
     },
-    showConfirm(doit) {
-      this.menu ? this.showMenu(this.postid) : '';
-      if (this.confirm) {
-        this.confirmMsg = "هل تريد حقا حذف المنشور";
-        $(`.confirm`).style.display = "block";
-        $(".grayContentPage ").classList.add("blur");
-        $("html").classList.add("overflowHidden");
-      } else {
-        if (doit) {
-          this.deletePost();
-        }
-        $(".confirm").style.display = "none";
-        $(".grayContentPage").classList.remove("blur");
-        $("html").classList.remove("overflowHidden");
-      }
+    showConfirm() {
+      let root = this
+      this.menu ? this.showMenu(this.postid) : "";
+      this.$emit('confirm' , {
+        msg : "هل تريد حقا حذف المنشور",
+        yes: root.deletePost,
+        no : () => {}
+      })
     },
     showMenu(postid) {
       this.menu = !this.menu;

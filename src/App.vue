@@ -10,17 +10,27 @@
       :closeReport="closeReport" 
       :postid="report.postid"
     ></report>
+    <confirm
+      :class="{'block' : confirm.box}"
+      :yes="confirm.yes"
+      :no="confirm.no"
+      :confirmMsg="confirm.msg"
+      :closeConfirm="closeConfirm"
+    ></confirm>
     <overlay
       :report="report.box"
       :closeReport="closeReport"
       :error="error.box"
       :closeError="closeError"
+      :confirm="confirm.box"
+      :closeConfirm="closeConfirm"
     ></overlay>
     <transition name="pages-anim">
       <router-view
         class="relative"
         @openReport="reportClick($event)"
         @error="errorClick($event)"
+        @confirm="confirmClick($event)"
         :class="{'nopostblur' : box }"
       />
     </transition>
@@ -41,6 +51,12 @@ export default {
         box: false,
         msg: "",
         callback : ''
+      },
+      confirm: {
+        box: false,
+        msg: '',
+        yes: () => {},
+        no: () => {},
       }
     };
   },
@@ -57,6 +73,13 @@ export default {
       this.error.msg = opt.msg;
       this.error.callback = opt.callback
     },
+    confirmClick(opt){
+      this.box = true
+      this.confirm.box = true
+      this.confirm.yes = opt.yes
+      this.confirm.msg = opt.msg;
+      this.confirm.no = opt.no
+    },
     closeReport() {
       this.report.box = false;
       this.box = false;
@@ -65,7 +88,11 @@ export default {
       this.error.box = false;
       this.box = false;
       this.error.callback ?  this.error.callback() : ''
-    }
+    },
+    closeConfirm() {
+      this.confirm.box = false;
+      this.box = false;
+    },
   }
 };
 </script>
