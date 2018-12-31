@@ -1,15 +1,7 @@
 <template>
     <div>
         <div class="withApp">
-            <!--<header class="topHeader box-shadow">
-                <a @click="$router.go(-1)">
-                    <i class="arrow_forward"></i>
-                </a>
-                <img src="@/../image/grinn.svg">
-                <button @click="postSend" :disabled='disable' class="share">
-                    نشر
-                </button>
-            </header>-->
+
             <app-header a1="back" a3="image" a4="button" :newPostSend="this.postSend" :buttonOptions="this.disable"></app-header>
             <div class="headContent">
                 <div class="headContainer">
@@ -114,15 +106,6 @@
                 </div>
             </div>
 
-            <!--<footer class="bottomFooter box-shadow">
-                <ul>
-                    <li><router-link to='/home'><i class="home fontSize30"></i></router-link></li>
-                    <li><router-link to="#"><i class="notifications fontSize30"></i></router-link></li>
-                    <li><router-link class="actieFooterLink" to="/newpost"><i class="add_box fontSize30"></i></router-link></li>
-                    <li><router-link to="#"><i class="explore fontSize28"></i></router-link></li>
-                    <li><router-link to="/profile" ><i class="person fontSize30"></i></router-link></li>
-                </ul>
-            </footer>-->
             <app-footer newpost="isNewpost"></app-footer>
         </div>
     </div>

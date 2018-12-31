@@ -1,35 +1,5 @@
 <template>
   <footer class="bottomFooter box-shadow">
-    <div class="chat" v-if="isAvatar && footerChat">
-      <div class="field">
-        <div class="control has-icons-left has-icons-right">
-          <form action @submit="$event.preventDefault()">
-            <textarea
-              dir="auto"
-              class="textarea"
-              :disabled="loading"
-              type="text"
-              v-model="commentTxt"
-              rows="1"
-              placeholder="اكتب تعليق..."
-            ></textarea>
-            <div class="leftTextarea left">
-              <a @click="addcomment" class="icon is-small">
-                <i class="keyboard_arrow_left fontSize20"></i>
-              </a>
-              <a v-if="false" class="icon is-small">
-                <i class="sentiment_satisfied fontSize20"></i>
-              </a>
-            </div>
-            <div class="personChat">
-              <a class="icon is-small right">
-                <img :src="avatar">
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
     <ul>
       <li>
         <router-link :class="{actieFooterLink: this.home == 'isHome'}" to="/home" v-if>
@@ -62,16 +32,11 @@
 
 <script>
 export default {
-  props: ["home", "newpost", "profile", "chat", "isAvatar"],
+  props: ["home", "newpost", "profile", "isAvatar"],
   data() {
     return {
       footerChat: false
     };
-  },
-  created() {
-    if (this.chat == "isChat") {
-      this.footerChat = true;
-    }
   }
 };
 </script>

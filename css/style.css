@@ -414,7 +414,7 @@ header a i {
 .contentPageHeader input,
 .contentPageHeader .control button,
 .footer .control button,
-.footerAndChat .chat textarea,
+.chat textarea,
 .personChat img,
 .search-input input {
   border-radius: 50px;
@@ -910,7 +910,8 @@ header a i {
 
 .topHeader,
 .bottomFooter,
-.search-input {
+.search-input,
+.chat {
   width: 100%;
   height: 50px;
   position: fixed;
@@ -1769,7 +1770,7 @@ hr {
   width: 25px;
 }
 
-.footerAndChat {
+.footerAndChat, .chat {
   height: auto
 }
 
@@ -1778,7 +1779,7 @@ hr {
   background-color: #eceff1;
 }
 
-.footerAndChat .chat textarea {
+.chat textarea {
   padding-right: 3em;
   padding-left: 3em;
   font-weight: bold;

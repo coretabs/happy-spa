@@ -5,12 +5,7 @@
       <div class="overlay" v-if="loading">
         <div class="spinner"></div>
       </div>
-      <!--<header class="topHeader box-shadow">
-        <router-link to="/more" class="left">
-          <i class="more_vert"></i>
-        </router-link>
-        <img src="@/../image/grinn.svg">
-      </header>-->
+
         <app-header a2="menu" a3="image"></app-header>
         <div class="backList box-shadow" v-if="user">
           <div class="aboutMe center">
@@ -195,35 +190,7 @@
           </div>
         </div>
       </vue-data-loading>
-      <!--<footer class="bottomFooter box-shadow">
-        <ul>
-          <li>
-            <router-link to="/home">
-              <i class="home fontSize30"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="#">
-              <i class="notifications fontSize30"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/newpost">
-              <i class="add_box fontSize30"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="#">
-              <i class="explore fontSize28"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="actieFooterLink" to="/profile">
-              <i class="person fontSize30"></i>
-            </router-link>
-          </li>
-        </ul>
-      </footer>-->
+
       <app-footer profile="isProfile"></app-footer>
     </div>
   </div>
