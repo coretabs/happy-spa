@@ -919,7 +919,8 @@ header a i {
 }
 .topHeader,
 .bottomFooter,
-.search-input {
+.search-input,
+.delete-research-results {
   z-index: 60;
 }
 
@@ -950,8 +951,7 @@ header a i {
   margin: 0 !important;
 }
 .topHeader p,
-.moreReply,
-.last-research-results {
+.moreReply {
   width: 100%;
   text-align: center;
   color: #142833;
@@ -1919,10 +1919,6 @@ hr {
 .back-search a i {
   font-size: 35px!important;
   color: #142833;
-}
-
-.delete-research-results, .last-research-results {
-  margin: 10px 15px;
 }
 
 .respondent {

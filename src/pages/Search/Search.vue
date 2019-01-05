@@ -10,7 +10,7 @@
                         <i class="arrow_forward"></i>
                 </a>
             </li>
-            <li class="search-content">
+            <li class="search-content" @click="showResult()">
                 <div class="field">
                     <p class="control has-icons-left">
                         <input 
@@ -18,8 +18,7 @@
                         class= "input" 
                         placeholder= "بحث" 
                         v-model= "search" 
-                        @focus= "searchStatus = true" 
-                        @blur= "searchStatus = false" 
+                        @keyup.enter="addResults()" 
                         >
                         <span class="icon is-small is-left cleanSearch" v-if="search" @click="cleanSearch()">
                         <i class="closeX fontSize22"></i>
@@ -33,20 +32,26 @@
 <div class="main-content fullWidth">
     <ul class="search-process"  v-if="search || searchStatus">
         <li class="last-search">
-            <a href="#" class="left delete-research-results" @click="deleteResults()">مسح الكل</a>
-            <p class="right last-research-results">آخر عمليات البحث</p>
+            <a href="#" class="delete-research-results" @click="deleteResults()">مسح الكل</a>
+            <p class="last-research-results">آخر عمليات البحث</p>
+            <a href="#" class="close-results" @click="searchStatus = false"><i class="fontSize18 closeX"></i></a>
         </li>
         <hr>
-        <li class="research-results relative" v-for="result in filteredSearchs">
+        <li class="research-results relative" v-for="result in afterFiltered">
             <div class="respondent absolute">
-                <div class="respondent-img">
+                <div class="respondent-img" v-if="false">
                     <a href="#">
-                        <img src="@/../image/cat.jpg">
+                        <img :src='result.image'>
+                    </a>
+                </div>
+                <div class="respondent-element" v-if="false">
+                    <a href="#">
+                        <i class="search fontSize22"></i>
                     </a>
                 </div>
                 <div class="respondent-name">
-                    <a href="#" class="personName">{{result.name}}</a>
-                    <p dir="auto">@grinn</p>
+                    <a href="#" class="personName">{{result}}</a>
+                    <p dir="auto" v-if="false">{{result.accountName}}</p>
                 </div>                
             </div>
             <div class="left absolute delete-this-result" @click="deleteResult(result)">
@@ -91,9 +96,14 @@
             </div>
         </li>
         -->
-        <li class="research-results relative" v-if="search">
+        <li class="research-results relative center" v-if="search && filteredSearchs != ''">
             <div class="more-results">
                 <a href="#">المزيد من النتائج حول "{{search}}"</a>
+            </div>
+        </li>
+        <li class="research-results relative center" v-if="filteredSearchs == ''">
+            <div class="more-results">
+                <p>لم تقم بعملية بحث هكذه من قبل "{{search}}"</p>
             </div>
         </li>
     </ul>

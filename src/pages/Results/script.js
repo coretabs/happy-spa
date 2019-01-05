@@ -4,7 +4,7 @@ export default {
     data: () => {
         return {
             search: "",
-            searchStatus: false,
+            searchStatus: true,
             results: [
                 {name: "اسم المستخدم"},
                 {name: "صورة 1"},
@@ -12,7 +12,7 @@ export default {
                 {name: "كلمة"}
             ],
             respondentPost: true,
-            respondentPerson: true
+            respondentPerson: true,
         }
     },
     methods: {

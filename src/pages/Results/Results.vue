@@ -16,9 +16,7 @@
                                 type= "text" 
                                 class= "input" 
                                 placeholder= "بحث" 
-                                v-model= "search" 
-                                @focus= "searchStatus = true" 
-                                @blur= "searchStatus = false" 
+                                v-model= "search"  
                                 >
                                 <span class="icon is-small is-left cleanSearch" v-if="search" @click="cleanSearch()">
                                 <i class="closeX fontSize22"></i>
@@ -62,8 +60,9 @@
                     <div class="main-content fullWidth">
                         <ul class="search-process">
                             <li class="last-search">
-                                <a href="#" class="left delete-research-results" @click="moreResults()">مشاهدة المزيد</a>
-                                <p class="right last-research-results">أفضل المنشورات</p>
+                                <a href="#" class="delete-research-results" @click="moreResults()">مشاهدة المزيد</a>
+                                <p class="last-research-results">أفضل المنشورات</p>
+                                <a href="#" class="close-results" @click="respondentPost = false"><i class="fontSize18 closeX"></i></a>
                             </li>
                             <hr>
                         </ul>
@@ -128,6 +127,7 @@
                             <li class="last-search">
                                 <a href="#" class="left delete-research-results" @click="moreResults()">مشاهدة المزيد</a>
                                 <p class="right last-research-results">الأشخاص</p>
+                                <a href="#" class="close-results" @click="respondentPerson = false"><i class="fontSize18 closeX"></i></a>
                             </li>
                             <hr>
                         </ul>

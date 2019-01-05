@@ -9,6 +9,8 @@ $dark-blue-color: #142833;
 $zero: 0;
 $fifty: 50px;
 
+$left: left;
+
 /*     ******  chat  ******      */
 
 .chat {
@@ -26,20 +28,33 @@ $fifty: 50px;
     background-color: $white-gray-color;
 }
 
-.delete-research-results {
-    font-size: 15px;
-    padding: 5px;
-    color: $gray-color;
-    float: left;
+.last-search {
+    .last-research-results, .close-results, .delete-research-results {
+        position: absolute;
+        height: inherit;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        color: $gray-color;
+    }
+    .delete-research-results {
+        right: $zero;
+        width: max-content;
+        margin: 0 15px;
+    }
+    .last-research-results {
+        left: $zero;
+        right: $zero;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+    }
+    .close-results {
+        left: $zero;
+        width: max-content;
+        margin: 0 15px;
+    }
 }
-
-.last-research-results {
-    width: max-content;
-    display: inline-block;
-    padding: $zero;
-    color: $gray-color;
-    font-weight: 100;
-  }
 
 .respondent-element a {
     border-radius: 50%;
