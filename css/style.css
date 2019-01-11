@@ -39,6 +39,9 @@ strong,
 img {
   font-family: dubai !important;
 }
+.no-select {
+  user-select: none;
+}
 
 .t0Mb0 {
   margin: 0 auto;
@@ -129,6 +132,9 @@ img {
 
 .height-5 {
   height: 105vh;
+}
+.height-max {
+  height: max-content;
 }
 
 /*                   circle                            */

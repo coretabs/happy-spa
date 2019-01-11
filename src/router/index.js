@@ -18,6 +18,7 @@ import ManageEmails from '@/pages/ManageEmails/ManageEmails'
 import Social from '@/pages/Social/Social'
 import Search from '@/pages/Search/Search'
 import Results from '@/pages/Results/Results'
+import PrivacyPolicy from '@/pages/PrivacyPolicy/PrivacyPolicy'
 
 
 Vue.use(Router)
@@ -103,6 +104,10 @@ export default new Router({
     {
       path : '/results',
       component : Results
+    },
+    {
+      path : '/privacy-policy',
+      component : PrivacyPolicy
     }
   ]
 })

@@ -7,6 +7,7 @@ import Footer from '@/components/footer';
 import Confirm from '@/components/Confirm';
 import ResultPost from '@/components/result-post';
 import ResultPerson from '@/components/result-person';
+import PrivacyPolicy from '@/components/privacy-policy';
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -25,6 +26,7 @@ const Plugins = {
     Vue.component("app-footer" , Footer);
     Vue.component("result-post" , ResultPost);
     Vue.component("result-person" , ResultPerson);
+    Vue.component("app-policy" , PrivacyPolicy);
   },
   addVars: Vue => {
     window.$ = e => document.querySelector(e);
