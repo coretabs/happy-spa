@@ -7,14 +7,16 @@ $gray-color: #b0bec5;
 $dark-blue-color: #142833;
 
 $zero: 0;
-$fifty: 50px;
+$fifty: 50;
 
 $left: left;
+
+$inherit: inherit;
 
 /*     ******  chat  ******      */
 
 .chat {
-    bottom: $fifty;
+    bottom: $fifty + px;
 }
 
 /*     ******  search  ******      */
@@ -31,7 +33,7 @@ $left: left;
 .last-search {
     .last-research-results, .close-results, .delete-research-results {
         position: absolute;
-        height: inherit;
+        height: $inherit;
         display: grid;
         align-items: center;
         text-align: center;
@@ -41,6 +43,7 @@ $left: left;
         right: $zero;
         width: max-content;
         margin: 0 15px;
+        z-index: $fifty;
     }
     .last-research-results {
         left: $zero;
@@ -54,6 +57,9 @@ $left: left;
         width: max-content;
         margin: 0 15px;
     }
+}
+.result-content {
+    height: $inherit;
 }
 
 .respondent-element a {

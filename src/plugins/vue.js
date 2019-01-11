@@ -4,7 +4,9 @@ import ErrorMsg from "@/components/error-msg";
 import Overlay from '@/components/overlay';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import Confirm from '@/components/Confirm'
+import Confirm from '@/components/Confirm';
+import ResultPost from '@/components/result-post';
+import ResultPerson from '@/components/result-person';
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -21,6 +23,8 @@ const Plugins = {
     Vue.component("Overlay" , Overlay);
     Vue.component("app-header" , Header);
     Vue.component("app-footer" , Footer);
+    Vue.component("result-post" , ResultPost);
+    Vue.component("result-person" , ResultPerson);
   },
   addVars: Vue => {
     window.$ = e => document.querySelector(e);

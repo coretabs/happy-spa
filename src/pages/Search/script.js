@@ -28,18 +28,27 @@ export default {
         addResults: function() {
             if (this.search.replace(/\s/gi, "") == "") {
             } else { 
-                this.results.includes(this.search.toLowerCase()) ? '' : this.results.push(this.search.toLowerCase());
-                this.results.length > 11 ? this.results.shift() : ''; // wt ? sry its working now lol :D
+                this.results.includes(this.search) ? '' : this.results.push(this.search);
+                this.results.length > 11 ? this.results.shift() : '';
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(this.results));
-                this.search = ""; // looool
+                this.searchStatus = false;
+                this.$router.push({path: "/results", query: { result: this.search }});
+                this.search = "";
             }
         },
+        clickResult: function(result) {
+            this.search = result;
+            this.addResults();
+
+        }
     },
     computed: {
         filteredSearchs: function() {
-            return this.results.filter((result) => {
-                return result.match(this.search); 
-            });
+            if (this.search.replace(/\s/gi, "") != this.results) {
+                return this.results.filter((result) => {
+                    return result.match(this.search); 
+                });
+            }
         },
         afterFiltered: function() {
             if (this.filteredSearchs != "") {

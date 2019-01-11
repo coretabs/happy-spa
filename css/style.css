@@ -919,8 +919,7 @@ header a i {
 }
 .topHeader,
 .bottomFooter,
-.search-input,
-.delete-research-results {
+.search-input {
   z-index: 60;
 }
 

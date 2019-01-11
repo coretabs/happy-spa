@@ -37,28 +37,31 @@
             <a href="#" class="close-results" @click="searchStatus = false"><i class="fontSize18 closeX"></i></a>
         </li>
         <hr>
-        <li class="research-results relative" v-for="result in afterFiltered">
-            <div class="respondent absolute">
-                <div class="respondent-img" v-if="false">
-                    <a href="#">
-                        <img :src='result.image'>
-                    </a>
+        <li class="research-results relative" v-for="(result, index) in afterFiltered" :key="index">
+            <div class="result-content" @click="clickResult(result)">
+                <div class="respondent absolute">
+                    <div class="respondent-img" v-if="false">
+                        <a href="#">
+                            <img :src='result.image'>
+                        </a>
+                    </div>
+                    <div class="respondent-element" v-if="false">
+                        <a href="#">
+                            <i class="search fontSize22"></i>
+                        </a>
+                    </div>
+                    <div class="respondent-name">
+                        <a href="#" class="personName">{{result}}</a>
+                        <p dir="auto" v-if="false">{{result.accountName}}</p>
+                    </div>                
                 </div>
-                <div class="respondent-element" v-if="false">
-                    <a href="#">
-                        <i class="search fontSize22"></i>
-                    </a>
-                </div>
-                <div class="respondent-name">
-                    <a href="#" class="personName">{{result}}</a>
-                    <p dir="auto" v-if="false">{{result.accountName}}</p>
-                </div>                
             </div>
             <div class="left absolute delete-this-result" @click="deleteResult(result)">
                 <a href="#">
                     <i class="closeX fontSize18"></i>
                 </a>
             </div>
+            
         </li>
         <!--
         <li class="research-results relative">
@@ -101,7 +104,7 @@
                 <a href="#">المزيد من النتائج حول "{{search}}"</a>
             </div>
         </li>
-        <li class="research-results relative center" v-if="filteredSearchs == ''">
+        <li class="research-results relative center" v-if="filteredSearchs == '' && filteredSearchs != this.results">
             <div class="more-results">
                 <p>لم تقم بعملية بحث هكذه من قبل "{{search}}"</p>
             </div>

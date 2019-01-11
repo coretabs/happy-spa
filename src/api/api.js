@@ -3,6 +3,7 @@ import auth from './auth'
 import comments from './comments'
 import posts from './posts'
 import replies from './replies'
+import results from './results'
 import axios from 'axios'
 import Vue from 'vue'
 import Cookies from 'js-cookie'
@@ -16,7 +17,8 @@ const api = {
   auth,
   comments,
   posts,
-  replies
+  replies,
+  results
 }
 
 Vue.prototype.$api = api
