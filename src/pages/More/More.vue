@@ -11,7 +11,7 @@
                 <hr v-if='false'>
                 <li><a @click="chatra" class="headElements">تواصل معنا</a></li>
                 <hr>
-                <li><router-link to="#" class="headElements">بنود سياسة الخصوصية</router-link></li>
+                <li><router-link to="/privacy-policy" class="headElements">بنود سياسة الخصوصية</router-link></li>
                 <hr>
                 <li><router-link to="#" class="headElements">حول البرنامج</router-link></li>
                 <hr>

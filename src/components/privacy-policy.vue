@@ -1,5 +1,5 @@
 <template>
-    <div class="contentPageHeader backList box-shadow main-policy">
+    <div class="backList box-shadow main-policy">
       <img src="@/../image/security.svg" class="mainPoster">
 
       <article class="content-items-policy no-select">
