@@ -19,6 +19,7 @@ import Social from '@/pages/Social/Social'
 import Search from '@/pages/Search/Search'
 import Results from '@/pages/Results/Results'
 import PrivacyPolicy from '@/pages/PrivacyPolicy/PrivacyPolicy'
+import TermsOfService from '@/pages/TermsOfService/TermsOfService'
 
 
 Vue.use(Router)
@@ -108,6 +109,10 @@ export default new Router({
     {
       path : '/privacy-policy',
       component : PrivacyPolicy
+    },
+    {
+      path : '/terms-of-service',
+      component : TermsOfService
     }
   ]
 })

@@ -22,8 +22,8 @@
                         </div>
                         <div class="myImage">
                             <input type="file" @change="uploadFile($event)"  accept="image/gif" />
-                            <a href="#">
-                                <i class="gif fontSize26"></i>
+                            <a href="#" style="padding: 0 2px;">
+                                <i class="gif" style="font-size: 36px;"></i>
                             </a>
                             <p>صور متحركة</p>
                         </div>

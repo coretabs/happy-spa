@@ -1120,6 +1120,7 @@ hr {
 }
 
 .myImage a {
+  display: inherit;
   color: #142833;
   background-color: white;
   padding: 5px 8px;
@@ -2039,5 +2040,28 @@ hr {
 @media(min-width:1000px) {
   .mainPoster {
     width: 200px;
+  }
+}
+@media(min-width:450px) {
+  .respondent-content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+  }
+  .respondent-content div {
+    margin: 0 auto;
+  }
+  .respondent-content .textSend {
+    width: 50%;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+  }
+  .respondent-content .bgImage {
+    display: flex;
+    justify-content: center;
+  }
+  .respondent-content .bgImage img {
+    max-height: 87px;
   }
 }

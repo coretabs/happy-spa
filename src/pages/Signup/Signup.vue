@@ -104,7 +104,7 @@
 
         <div class="noteConditions">
           <p>
-            عن طريق تسجيلك, انت توافق على <a href="#" class="forgettingLink">شروط الإستخدام</a> و <a href="#" class="forgettingLink">سياسة الخصوصية</a>
+            عن طريق تسجيلك, انت توافق على <router-link to="/terms-of-service" class="forgettingLink">شروط الإستخدام</router-link> و <router-link to="/privacy-policy" class="forgettingLink">سياسة الخصوصية</router-link>
           </p>
         </div>
 
