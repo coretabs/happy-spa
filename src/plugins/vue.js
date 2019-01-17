@@ -3,6 +3,7 @@ import Report from "@/components/report";
 import ErrorMsg from "@/components/error-msg";
 import Overlay from '@/components/overlay';
 import Header from '@/components/header';
+import LargeHeader from '@/components/large-header';
 import Footer from '@/components/footer';
 import Confirm from '@/components/Confirm';
 import ResultPost from '@/components/result-post';
@@ -23,6 +24,7 @@ const Plugins = {
     Vue.component("Confirm", Confirm);
     Vue.component("Overlay" , Overlay);
     Vue.component("app-header" , Header);
+    Vue.component("large-header" , LargeHeader);
     Vue.component("app-footer" , Footer);
     Vue.component("result-post" , ResultPost);
     Vue.component("result-person" , ResultPerson);

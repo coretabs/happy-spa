@@ -1,12 +1,7 @@
 <template>
     <div class="grayContentPage">
-        <div class="mianHeader">
-            <a @click="$router.go(-1)">
-                <i class="arrow_forward"></i>
-            </a>
-            <p>إدارة البريد الإلكتروني</p>
-            <img src="@/../image/mainWhite.png">
-        </div>
+
+        <large-header>إدارة البريد الإلكتروني</large-header>
         
         <div class="contentPageHeader">
             

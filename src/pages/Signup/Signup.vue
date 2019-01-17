@@ -1,13 +1,8 @@
 <template>
   <div>
     <div class="grayContentPage">
-      <div class="mianHeader">
-        <a @click="$router.go(-1)">
-          <i class="arrow_forward"></i>
-        </a>
-        <p>حساب جديد</p>
-        <img src="@/../image/mainWhite.png">
-      </div>
+
+      <large-header>حساب جديد</large-header>
 
       <div class="contentPageHeader">
         <div class="field">

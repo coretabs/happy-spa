@@ -1,12 +1,7 @@
 <template>
   <div class="grayContentPage height-max">
-    <div class="mianHeader">
-      <a @click="$router.go(-1)">
-        <i class="arrow_forward"></i>
-      </a>
-      <p>بنود سياسة الخصوصية</p>
-      <img src="@/../image/mainWhite.png">
-    </div>
+
+    <large-header>بنود سياسة الخصوصية</large-header>
 
     <app-policy :isProcedures="procedures" :isPersonalData="personalData" :isRights="rights"></app-policy>
     

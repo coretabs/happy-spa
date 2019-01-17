@@ -1,12 +1,7 @@
 <template>
   <div class="grayContentPage height-max">
-    <div class="mianHeader">
-      <a @click="$router.go(-1)">
-        <i class="arrow_forward"></i>
-      </a>
-      <p>شروط الخدمة</p>
-      <img src="@/../image/mainWhite.png">
-    </div>
+
+    <large-header>شروط الخدمة</large-header>
 
     <div class="backList box-shadow main-policy">
       <img src="@/../image/security.svg" class="mainPoster">

@@ -1,13 +1,8 @@
 <template>
   <div>
     <div class="grayContentPage height-0">
-      <div class="mianHeader">
-        <a @click="$router.go(-1)">
-          <i class="arrow_forward"></i>
-        </a>
-        <p>تسجيل الدخول</p>
-        <img src="@/../image/mainWhite.png">
-      </div>
+
+      <large-header>تسجيل الدخول</large-header>
 
       <div class="contentPageHeader">
         <div class="field">

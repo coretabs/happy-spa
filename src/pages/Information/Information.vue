@@ -1,13 +1,7 @@
 <template>
   <div class="grayContentPage spaceFooterSP">
 
-    <div class="mianHeader">
-      <a @click="$router.go(-1)">
-        <i class="arrow_forward"></i>
-      </a>
-      <p>تعديل الملف الشخصي</p>
-      <img src="@/../image/mainWhite.png">
-    </div>
+    <large-header>تعديل الملف الشخصي</large-header>
 
     <div class="contentPageHeader">
 
