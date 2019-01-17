@@ -20,6 +20,7 @@ import Search from '@/pages/Search/Search'
 import Results from '@/pages/Results/Results'
 import PrivacyPolicy from '@/pages/PrivacyPolicy/PrivacyPolicy'
 import TermsOfService from '@/pages/TermsOfService/TermsOfService'
+import ConnectUs from '@/pages/ConnectUs/ConnectUs'
 
 
 Vue.use(Router)
@@ -113,6 +114,10 @@ export default new Router({
     {
       path : '/terms-of-service',
       component : TermsOfService
+    },
+    {
+      path : '/connect-us',
+      component : ConnectUs
     }
   ]
 })

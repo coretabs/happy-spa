@@ -882,8 +882,9 @@ header a i {
 
 /*           ****** more page ******               */
 .withApp,
-.withAppW {
-  direction: rtl;
+.withAppW,
+.directionRTL {
+  direction: rtl!important;
 }
 
 .withApp {

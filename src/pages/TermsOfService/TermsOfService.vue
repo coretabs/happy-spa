@@ -48,7 +48,7 @@
         <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
         <h3>Contact Us</h3>
         <p>If you have any questions about these Terms, please
-          <router-link to="/more">contact us.</router-link>
+          <router-link to="/connect-us">contact us.</router-link>
         </p>
       </article>
     </div>
