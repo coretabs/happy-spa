@@ -65,5 +65,22 @@ export default {
         `/home?id=${Cookies.getJSON("logedinUser").user.username}/`
       );
     }
+  },
+  'computed': {
+    textAlgin: function () {
+      return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+    },
+    has_icons_R: function () {
+      return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';
+    },
+    has_icons_L: function () {
+      return (this.$i18n.locale == 'ar') ? 'has-icons-left' : 'has-icons-right';
+    },
+    is_way_R: function () {
+      return (this.$i18n.locale == 'ar') ? 'is-right' : 'is-left';
+    },
+    is_way_L: function () {
+      return (this.$i18n.locale == 'ar') ? 'is-left' : 'is-right';
+    },
   }
 }

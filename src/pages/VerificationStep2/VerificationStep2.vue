@@ -1,13 +1,13 @@
 <template>
     <div class="grayContentPage height-0">
 
-        <large-header>تفعيل حسابك</large-header>
+        <large-header>{{$t('verificationStep.activate')}}</large-header>
         
         <div class="contentPageHeader contentCenter">
 
             <img src="@/../image/undraw-mail.svg" class="mainPoster">
             
-            <p class="paraContent">تم إرسال رسالة التفعيل إلى بريدك الإلكتروني, يرجى تفقد الرسالة لتفعيل حسابك</p>
+            <p class="paraContent">{{$t('verificationStep.activateEmail')}}</p>
             
             <div class="field">
             <p class="control has-icons-left">
@@ -19,8 +19,8 @@
             
             <div class="paraFooter">
                 <p>
-                    لم تصلك رسالة التفعيل؟
-                    <a href="#">أعد إرسال الرسالة</a>
+                    {{$t('verificationStep.receiveActivate')}}
+                    <a href="#">{{$t('verificationStep.re_send')}}</a>
                 </p>
             </div>
             

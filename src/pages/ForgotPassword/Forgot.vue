@@ -1,17 +1,17 @@
 <template>
     <div class="grayContentPage">
 
-        <large-header>هل نسيت كلمة المرور؟</large-header>
+        <large-header>{{$t("forgotPassword.forgotPassword")}}</large-header>
         
         <div class="contentPageHeader">
             
             <img src="@/../image/undraw.svg" class="mainPoster">
             
-            <p class="paraContent">قم بإدخال بريدك الإلكتروني هنا لكي تصلك التعليمات الخاصة باستعادة كلمة المرور</p>
+            <p class="paraContent">{{$t("forgotPassword.passwordRecovery")}}</p>
             
             <div class="field">
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="البريد الإلكتروني" v-model="fEmail">
+                <input class="input" type="email" :placeholder="$t('forgotPassword.enterEmail')" v-model="fEmail">
                 <span class="icon is-small is-right">
                 <i class="mail fontSize18"></i>
                 </span>
@@ -21,7 +21,7 @@
             <div class="field">
             <p class="control">
                 <button class="button is-success" @click="postFEmail">
-                إرسال
+                {{$t("forgotPassword.send")}}
                 </button>
             </p>
             </div>

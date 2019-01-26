@@ -9,32 +9,32 @@
       <app-header a1="back" a3="image"></app-header>
 
       <vue-data-loading :completed='!pagination.next' :loading="pagination.loading" :listens="['pull-down', 'infinite-scroll']" @infinite-scroll="update" @pull-down="update(true , false)">
-        <div slot="completed" v-if="!comments.length > 0">كن أول من يعلق</div>
+        <div slot="completed" v-if="!comments.length > 0">{{$t("postComments.first_comment")}}</div>
         <div id="bodyComments" v-for="comment in comments"  v-if="comments">	
           <div class="bodyAnswer">
             <div class="answer">
-              <div class="postPM">
-                <div class="personPost">
+              <div class="postPM" :class="dirRTL">
+                <div class="personPost" :style="personWay">
                     <router-link :to="`/profile?id=${comment.author}`">
                         <img :src="comment.author_avatar">
                     </router-link>
                     <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
                 </div>
                 
-                <div class="personMenu">
-                    <div v-if="comment.author == username" class="myMenu">
-                        <a @click="commentMenu(comment.id)" class="left whiteGray">
+                <div class="personMenu" :style="menuWay">
+                    <div v-if="comment.author == username" class="myMenu" :class="[dirRTL, is_way_L]">
+                        <a @click="commentMenu(comment.id)" class="whiteGray">
                             <i class="more_vert"></i>
                         </a>
                     </div>
                 </div>
 
-                <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute">
-                  <a @click="editPost"  class="class">تعديل</a>
+                <div v-if="menuCmt  && comment.id == commentid"   class="menuPost box-shadow center absolute" :style="menuPostWay">
+                  <a @click="editPost"  class="class">{{$t("postComments.edit")}}</a>
                   <hr>
-                  <a  @click="showConfirm()" class="wrongValue  class">حذف</a>
+                  <a  @click="showConfirm()" class="wrongValue  class">{{$t("postComments.delete")}}</a>
                   <hr>
-                  <a class="class">تبليغ</a>
+                  <a class="class">{{$t("postComments.report")}}</a>
                 </div>
               </div>
 
@@ -46,7 +46,7 @@
               <a @click="likeComment(comment.id)"><span>{{comment.likes_count}}</span><i :class="{golden: comment.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
               <a @click="dislikeComment(comment.id)"><span>{{comment.dislikes_count}}</span><i :class="{golden: comment.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
               <a @click=" ; $router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })"><span>{{comment.replies_count}}</span><i class="question_answer"></i></a>
-              <a href="#" class="left headElements center CMTtime">
+              <a href="#" class="headElements center CMTtime" :class="is_way_L">
                 <span>{{comment.time_since}}</span>
               </a>
             </div>
@@ -55,7 +55,7 @@
           <div class="bodyAnswer reply" v-if="comment.top_reply">
             <div class="answer">
               
-              <div class="personPost">
+              <div class="personPost" :class="dirRTL" :style="personAnswerWay">
                 <router-link :to="`/profile?id=${comment.top_reply.author}`">
                   <img :src="comment.top_reply.author_avatar">
                 </router-link>
@@ -69,7 +69,7 @@
             <div class="communion">
               <a @click="likeReply(comment.id)"><span>{{comment.top_reply.likes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
               <a @click="dislikeReply(comment.id)"><span>{{comment.top_reply.dislikes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
-              <a href="#" class="left headElements center CMTtime">
+              <a href="#" class="headElements center CMTtime" :class="is_way_L">
                 <span>{{comment.top_reply.time_since}}</span>
               </a>
             </div>
@@ -81,26 +81,27 @@
 
       <div class="chat" v-if="avatar">
         <div class="field">
-          <div class="control has-icons-left has-icons-right">
+          <div class="control" :class="[has_icons_R, has_icons_L]">
             <form action @submit="$event.preventDefault()">
               <textarea
                 dir="auto"
                 class="textarea"
+                :class="textAlgin"
                 :disabled="loading"
                 type="text"
                 v-model="commentTxt"
                 rows="1"
-                placeholder="اكتب تعليق..."
+                :placeholder="$t('postComments.writePost')"
               ></textarea>
-              <div class="leftTextarea left">
+              <div class="leftTextarea" :class="is_way_L">
                 <a @click="addcomment" class="icon is-small">
-                  <i class="keyboard_arrow_left fontSize20"></i>
+                  <i class="keyboard_arrow_left fontSize20" :style="rotateSendIcon"></i>
                 </a>
                 <a v-if="false" class="icon is-small">
                   <i class="sentiment_satisfied fontSize20"></i>
                 </a>
               </div>
-              <div class="personChat">
+              <div class="personChat" :class="is_way_R">
                 <a class="icon is-small right">
                   <img :src="avatar">
                 </a>

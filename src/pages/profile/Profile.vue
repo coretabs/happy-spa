@@ -108,24 +108,24 @@
                   </ul>
                 </div>
               <hr>
-              <div class="myMenu">
-                <a class="left whiteGray">
+              <div class="myMenu" :class="[dirRTL, is_way_L]">
+                <a class="whiteGray">
                   <span>{{post.time_since}}</span>
                   <i @click="showMenu(post.id)" class="more_vert"></i>
                 </a>
               </div>
-              <div v-if="menu && post.id == postid" class="menuPost box-shadow center absolute">
-                <a @click="editPost" v-if="post.author == username" class="class">تعديل</a>
+              <div v-if="menu && post.id == postid" class="menuPost box-shadow center absolute" :class="menuPostWay">
+                <a @click="editPost" v-if="post.author == username" class="class">{{$t("profile.edit")}}</a>
                 <hr v-if="post.author == username">
                 <a
                   @click="showConfirm()"
                   v-if="post.author == username"
                   class="class wrongValue"
-                >حذف</a>
+                >{{$t("profile.delete")}}</a>
                 <hr v-if="post.author == username">
-                <a class="class" @click="$emit('openReport' , post.id)">تبليغ</a>
+                <a class="class" @click="$emit('openReport' , post.id)">{{$t("profile.report")}}</a>
               </div>
-              <div class="personPost">
+              <div class="personPost" :class="[is_way_R, dirRTL]">
                 <router-link :to="`/profile?id=${post.author}`">
                   <img :src="post.author_avatar">
                 </router-link>
@@ -164,8 +164,8 @@
               v-if="post.top_comment"
             >
               <div class="answer">
-                <div class="postPM">
-                  <div class="personPost">
+                <div class="postPM" :class="dirRTL">
+                  <div class="personPost" :style="personWay">
                     <router-link :to="`/profile?id=${post.author}`">
                       <img :src="post.top_comment.author_avatar">
                     </router-link>
@@ -174,7 +174,7 @@
                       class="personName"
                     >{{post.top_comment.author}}</router-link>
                   </div>
-                  <div class="personMenu">
+                  <div class="personMenu" :style="menuWay">
                     <div class="myMenu">
                       <a class="left whiteGray">
                         <i class="more_vert"></i>

@@ -18,21 +18,21 @@
                             <a href="#">
                                 <i class="insert_photo fontSize24"></i>
                             </a>
-                            <p>صورة / فيديو</p>
+                            <p>{{$t("newPost.imgAndVedio")}}</p>
                         </div>
-                        <div class="myImage">
+                        <div class="myImage" :class="dirRTL">
                             <input type="file" @change="uploadFile($event)"  accept="image/gif" />
                             <a href="#" style="padding: 0 2px;">
                                 <i class="gif" style="font-size: 36px;"></i>
                             </a>
-                            <p>صور متحركة</p>
+                            <p>{{$t("newPost.gif")}}</p>
                         </div>
                         <div class="myImage">
                             <input type="file" @change="uploadFile($event)"  accept="image/*;capture=camera" />
                             <a href="#">
                                 <i class="camera_alt fontSize24"></i>
                             </a>
-                            <p>كاميرا</p>
+                            <p>{{$t("newPost.camera")}}</p>
                         </div>
                     </div>
                     
@@ -40,13 +40,14 @@
                         <div class="field">
                             <div class="control has-icons-left">
                                 <div class="wrapper">
-                                    <textarea :disabled='disable' dir="auto" v-model="postContent"  class="textarea is-large" type="text" placeholder="أضف شيئاً مضحكاً"></textarea>
+                                    <textarea :disabled='disable' dir="auto" v-model="postContent"  class="textarea is-large" :class="textAlgin" type="text" :placeholder="$t('newPost.addFunPost')"></textarea>
                                     <emoji-picker @emoji="insert" :search="search">
                                     <div
                                         class="emoji-invoker"
                                         slot="emoji-invoker"
                                         slot-scope="{ events }"
                                         v-on="events"
+                                        :style="emoji_way"
                                     >
                                         <i class="sentiment_satisfied fontSize22"></i>
                                     </div>

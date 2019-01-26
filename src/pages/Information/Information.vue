@@ -1,7 +1,7 @@
 <template>
   <div class="grayContentPage spaceFooterSP">
 
-    <large-header>تعديل الملف الشخصي</large-header>
+    <large-header>{{$t("information.editProfile")}}</large-header>
 
     <div class="contentPageHeader">
 
@@ -51,14 +51,15 @@
             class="input"  
             v-model="userInfo.profile.first_name" 
             type="text"
-            placeholder="الإسم الأول"
+            :placeholder="$t('information.firstName')"
             v-validate="'required|alpha_spaces'"
             name="firstName"
-            :class="{ 
+            :class="[textAlgin, 
+            { 
               'is-danger': fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false,
               'wrongValue': fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false,
               'is-success': fields.firstName ? fields.firstName.valid && fields.firstName.changed : false 
-            }"
+            }]"
           >
         </div>
         <p v-if="fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false" class="help is-danger">يجب ان لا يقل الأسم عن 3 احرف</p>
@@ -72,33 +73,35 @@
             name="lastName"
             v-model="userInfo.profile.last_name" 
             type="text"
-            placeholder="الإسم الأخير"
-            :class="{ 
+            :placeholder="$t('information.lastName')"
+            :class="[textAlgin, 
+            { 
               'is-danger': fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false,
               'wrongValue': fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false,
               'is-success': fields.lastName ? fields.lastName.valid && fields.lastName.changed : false 
-            }"
+            }]"
           >
         </div>
         <p v-if="fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false" class="help is-danger">يجب ان لا يقل الأسم عن 3 احرف</p>
       </div>
 
       <div class="field">
-        <div class="control has-icons-right">
+        <div class="control" :class="has_icons">
           <input 
             class="input"
             name="username"
             v-validate="'required|alpha_dash'"
             type="text" 
             v-model="userInfo.username" 
-            placeholder="اسم المستخدم"
-            :class="{ 
+            :placeholder="$t('information.userName')"
+            :class="[textAlgin, 
+            { 
               'is-danger': fields.username ? !fields.username.valid && fields.username.changed : false,
               'wrongValue': fields.username ? !fields.username.valid && fields.username.changed : false,
               'is-success': fields.username ? fields.username.valid && fields.username.changed : false 
-            }"
+            }]"
           >
-          <span class="icon is-small is-right">
+          <span class="icon is-small" :class="is_way">
             <i class="person fontSize20"></i>
           </span>
         </div>
@@ -106,7 +109,7 @@
       </div>
 
       <div class="field">
-        <p class="control has-icons-right">
+        <p class="control" :class="has_icons">
           <input 
             class="input"
             v-model="userInfo.profile.birth_date" 
@@ -115,14 +118,15 @@
             type="date"
             name="date"
             v-validate = "'date_format:YYY/MM/DD'"
-            placeholder="يوم/شهر/سنة"
-            :class="{ 
+            :placeholder="$t('information.birthday')"
+            :class="[textAlgin, 
+            { 
               'is-danger': fields.date ? !fields.date.valid && fields.date.changed : false,
               'wrongValue': fields.date ? !fields.date.valid && fields.date.changed : false,
-              'is-success': fields.date ? fields.date.valid && fields.date.changed : false 
-            }"
+              'is-success': fields.date ? fields.date.valid && fields.date.changed : false
+            }]"
           >
-          <span class="icon is-small is-right">
+          <span class="icon is-small" :class="is_way">
             <i class="date_range fontSize18"></i>
           </span>
         </p>
@@ -130,9 +134,9 @@
       </div>
 
       <div class="field">
-        <p class="control has-icons-right">
-          <input class="input" type="text" v-model="userInfo.profile.location" placeholder="المدينة">
-          <span class="icon is-small is-right">
+        <p class="control" :class="has_icons">
+          <input class="input" :class="textAlgin" type="text" v-model="userInfo.profile.location" :placeholder="$t('information.city')">
+          <span class="icon is-small" :class="is_way">
             <i class="person_pin_circle"></i>
           </span>
         </p>
@@ -140,7 +144,7 @@
 
       <div class="field">
         <div class="control">
-          <textarea class="textarea" v-model="userInfo.profile.bio" type="text" placeholder="اكتب سيرتك الذاتية..."></textarea>
+          <textarea class="textarea" :class="textAlgin" v-model="userInfo.profile.bio" type="text" :placeholder="$t('information.cv')"></textarea>
         </div>
       </div>
 
@@ -150,7 +154,7 @@
       <div class="field">
         <p class="control">
           <button :disabled='errors.items.length != 0' class="button is-danger" :class="{'is-loading' : loading}"  @click="sendInformation">
-            تعديل الملف الشخصي
+            {{$t("information.editProfile")}}
           </button>
         </p>
       </div>

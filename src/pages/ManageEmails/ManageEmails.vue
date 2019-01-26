@@ -1,7 +1,7 @@
 <template>
     <div class="grayContentPage">
 
-        <large-header>إدارة البريد الإلكتروني</large-header>
+        <large-header>{{$t("manageEmail.manageE_mail")}}</large-header>
         
         <div class="contentPageHeader">
             
@@ -9,12 +9,12 @@
             
             <div id="menuItems">
                 <div class="enterMail">
-                    <p class="paraContent">البريد الإلكتروني الأساسي</p>
+                    <p class="paraContent" :class="textAlgin">{{$t("manageEmail.basicEmail")}}</p>
 
                     <div class="field">
-                    <p class="control has-icons-right">
-                        <input class="input" type="email" placeholder="أدخل بريدك الإلكتروني">
-                        <span class="icon is-small is-right">
+                    <p class="control" :class="has_icons">
+                        <input class="input" :class="textAlgin" type="email" :placeholder="$t('manageEmail.enterEmail')">
+                        <span class="icon is-small" :class="is_way">
                         <i class="mail fontSize18"></i>
                         </span>
                     </p>
@@ -22,12 +22,12 @@
                 </div>
 
                 <div class="enterMail">
-                    <p class="paraContent">البريد الإلكتروني الإحتياطي</p>
+                    <p class="paraContent" :class="textAlgin">{{$t("manageEmail.backupEmail")}}</p>
 
                     <div class="field">
-                    <p class="control has-icons-right">
-                        <input class="input" type="email" placeholder="أدخل بريدك الإلكتروني">
-                        <span class="icon is-small is-right">
+                    <p class="control" :class="has_icons">
+                        <input class="input" :class="textAlgin" type="email" :placeholder="$t('manageEmail.enterEmail')">
+                        <span class="icon is-small" :class="is_way">
                         <i class="mail fontSize18"></i>
                         </span>
                     </p>
@@ -42,7 +42,7 @@
         <div class="field">
             <p class="control">
                 <button class="button is-success">
-                حفظ
+                {{$t("manageEmail.save")}}
                 </button>
             </p>
             </div>

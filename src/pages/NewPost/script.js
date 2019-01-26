@@ -94,4 +94,15 @@ export default {
       }
     }
   },
+  'computed': {
+    textAlgin: function () {
+      return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+    },
+    dirRTL: function () {
+      return (this.$i18n.locale == 'ar') ? 'directionRTL' : 'directionLTR';
+    },
+    emoji_way: function() {
+      return (this.$i18n.locale == 'ar') ? 'left: 0.5em; right: auto;' : 'left: auto; right: 0.5em;';
+    }
+  }
 }

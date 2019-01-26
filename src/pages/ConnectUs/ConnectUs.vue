@@ -5,9 +5,9 @@
 
     <div class="backList box-shadow main-policy directionRTL">
         <div class="contentPageHeader">
-            <div class="file is-boxed myImg">
-                <img src="@/../image/world.svg" class="mainPoster">
-            </div>
+
+            <img src="@/../image/world.svg" class="mainPoster">
+            
             <div class="field">
                 <div class="control has-icons-right">
                 <input 

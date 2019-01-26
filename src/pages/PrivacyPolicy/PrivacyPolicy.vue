@@ -1,7 +1,7 @@
 <template>
   <div class="grayContentPage height-max">
 
-    <large-header>بنود سياسة الخصوصية</large-header>
+    <large-header>{{$t("privacyPolicy.privacy_policy")}}</large-header>
 
     <app-policy :isProcedures="procedures" :isPersonalData="personalData" :isRights="rights"></app-policy>
     

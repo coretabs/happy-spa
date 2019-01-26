@@ -5,14 +5,7 @@ export default {
         return {
             search: "",
             resultStatus: true,
-            results: [
-                {name: "Ahmed", show: false},
-                {name: "Ahmed Alakbari", show: false},
-                {name: "Ahmed Omar", show: false},
-                {name: "Omar", show: false},
-                {name: "Emad", show: false},
-                {name: "khalid", show: false},
-            ],
+            results: [],
             respondentPost: false,
             respondentPerson: false,
             allPost: true,
@@ -29,16 +22,8 @@ export default {
             
         },
         addResults: function() {
-            if (this.search.replace(/\s/gi, "") == "") {
-            } else {/*
-                this.results.includes(this.search) ? '' : this.results.push(this.search);
-                this.results.length > 3 ? this.results.shift() : '';
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(this.results));
-                this.searchStatus = false;
-                this.$router.push({path: "/results", query: { result: this.search }});
-                this.search = "";
-            */}
             console.log(this.$route.query.result);
+            console.log(this.$api.results.posts())
             
         },
         deleteResult: function(result) {
@@ -84,14 +69,12 @@ export default {
             }
         },
         selectedResearch: function() {
-            console.log("hmm");
             console.log(this.results);
-            
         }
     },
     computed: {
         filteredSearchs: function() {
-            if (this.search.replace(/\s/gi, "") != this.results) {
+            if (this.search != this.results) {
                 var app = this;
                 return this.results.filter((result) => {
                     return result.name.match(app.search); 
@@ -108,15 +91,6 @@ export default {
     },
     created() {
         this.search = this.$route.query.result;
-        
-        this.results.forEach(result => {
-            //result.name.includes(this.$route.query.result) ? '' : this.results.shift(result);
-            if (this.$route.query.result == result.name) {
-                result.show = true;
-            } else {
-                result.show = false;
-            }
-        });
     },
     /*mounted() {
         var self = this;

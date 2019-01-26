@@ -1,7 +1,7 @@
 <template>
   <div class="grayContentPage height-max">
 
-    <large-header>شروط الخدمة</large-header>
+    <large-header>{{$t("termsOfService.terms_of_service")}}</large-header>
 
     <div class="backList box-shadow main-policy">
       <img src="@/../image/security.svg" class="mainPoster">

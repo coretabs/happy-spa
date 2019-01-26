@@ -2,7 +2,7 @@
   <div>
     <div class="grayContentPage">
 
-      <large-header>إدارة الروابط</large-header>
+      <large-header>{{$t("social.manage_links")}}</large-header>
 
       <div class="contentPageHeader">
 
@@ -46,7 +46,7 @@
         <div class="field">
           <p class="control">
             <button class="button is-success">
-              حفظ
+              {{$t("social.save")}}
             </button>
           </p>
         </div>

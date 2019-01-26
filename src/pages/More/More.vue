@@ -3,19 +3,19 @@
     
         <app-header a1="back" a3="image"></app-header>
         <div class="headContent">
-            <div class="headContainer mainMenu">
+            <div class="headContainer mainMenu" :class="textAlgin">
                 <ul>
-                <li><router-link to="/settings" class="headElements">الإعدادت<i class="settings fontSize24"></i></router-link></li>
+                <li dir="auto"><router-link to="/settings" class="headElements"><i class="settings fontSize24"></i>{{$t("more.setting")}}</router-link></li>
                 <hr>
-                <li><router-link v-if='false' to="#" class="headElements">العناصر المحفوظة<i class="bookmark_border fontSize24"></i></router-link></li>
+                <li><router-link v-if='false' to="#" class="headElements"><i class="bookmark_border fontSize24"></i>العناصر المحفوظة</router-link></li>
                 <hr v-if='false'>
-                <li><a @click="chatra" class="headElements">تواصل معنا</a></li>
+                <li><a @click="chatra" class="headElements">{{$t("more.connectUs")}}</a></li>
                 <hr>
-                <li><router-link to="/privacy-policy" class="headElements">بنود سياسة الخصوصية</router-link></li>
+                <li><router-link to="/privacy-policy" class="headElements">{{$t("more.terms")}}</router-link></li>
                 <hr>
-                <li><router-link to="#" class="headElements">حول البرنامج</router-link></li>
+                <li><router-link to="#" class="headElements">{{$t("more.about")}}</router-link></li>
                 <hr>
-                <li><a @click="signout" class="signOutElements">تسجيل الخروج<i class="exit_to_app fontSize24"></i></a></li>
+                <li><a @click="signout" class="signOutElements"><i class="exit_to_app fontSize24"></i>{{$t("more.signOut")}}</a></li>
                 </ul>
             </div>
         </div>  
@@ -28,7 +28,6 @@
 import Cookies from 'js-cookie'
 
 export default {
-    
     methods : {
         signout() {
             Cookies.remove('logedinUser')
@@ -46,6 +45,11 @@ export default {
     },
     destroyed(){
         Chatra('hide')
+    },
+    'computed': {
+        textAlgin: function () {
+            return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+        }
     }
 }
 </script>

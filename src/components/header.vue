@@ -7,9 +7,9 @@
             <i class="arrow_forward"></i>
         </a>
         <img src="@/../image/grinn.svg" v-if="logo">
-        <p v-if="Setting">الإعدادات</p>
+        <p v-if="Setting">{{$t("setting.settings")}}</p>
         <button @click="newPostSend" :disabled="buttonOptions" class="share" v-if="share">
-            نشر
+            {{$t("newPost.share")}}
         </button>
     </header>
 </template>

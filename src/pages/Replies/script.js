@@ -243,4 +243,39 @@ export default {
       this.$router.push("/home");
     }
   },
+  'computed': {
+    textAlgin: function () {
+        return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+    },
+    has_icons_R: function () {
+      return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';
+    },
+    has_icons_L: function () {
+      return (this.$i18n.locale == 'ar') ? 'has-icons-left' : 'has-icons-right';
+    },
+    personWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'right: -15px; laft: auto;' : 'left: -15px; right: auto;';
+    },
+    personAnswerWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'float: right;' : 'float: left;';
+    },
+    menuPostWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'left: 10px;' : 'right: 10px;';
+    },
+    menuWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'float: left;' : 'float: right;';
+    },
+    dirRTL: function () {
+      return (this.$i18n.locale == 'ar') ? 'directionRTL' : 'directionLTR';
+    },
+    is_way_R: function () {
+      return (this.$i18n.locale == 'ar') ? 'right' : 'left';
+    },
+    is_way_L: function () {
+      return (this.$i18n.locale == 'ar') ? 'left' : 'right';
+    },
+    rotateSendIcon: function () {
+      return (this.$i18n.locale == 'ar') ? '' : '-webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);';
+    },
+  }
 }

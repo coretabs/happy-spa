@@ -742,7 +742,6 @@ header a i {
 }
 
 .enterMail .paraContent {
-  text-align: right;
   padding-right: 18px;
 }
 
@@ -994,8 +993,15 @@ header a i {
 }
 
 .headContent ul li {
-  direction: ltr;
   margin: 0.5em 0;
+}
+.languages {
+  margin: 0 20px 10px 20px;
+  padding: 0 15px;
+}
+.languages li {
+  list-style-type: initial;
+  cursor: pointer;
 }
 
 .mainMenu ul li a i {
@@ -1276,7 +1282,6 @@ hr {
 
 /*              ****** profile ******               */
 .left,
-.backgroundSend .myMenu,
 .signImage {
   left: 0;
 }
@@ -1332,7 +1337,8 @@ hr {
   color: #cdd6da;
 }
 
-.reverse {
+.reverse,
+.directionLTR {
   direction: ltr;
 }
 
@@ -1405,7 +1411,7 @@ hr {
 }
 
 .backgroundSend .myMenu {
-  padding-left: 8px;
+  padding: 0 8px;
   top: 10px;
   line-height: 2.25;
   z-index: 50
@@ -1572,7 +1578,6 @@ hr {
 .answer .personPost {
   position: inherit;
   top: 0;
-  right: -15px;
   margin: 0;
 }
 
@@ -1580,7 +1585,6 @@ hr {
   position: inherit;
   top: 0;
   margin: 6px 0;
-  float: left;
 }
 
 .reply .answer div {
@@ -1595,7 +1599,7 @@ hr {
 .answerPara p {
   line-height: 1.5;
   color: #142833;
-  padding: 0px 20px 0px;
+  padding: 8.5px 20px 8.5px;
   font-size: 12px;
 }
 
@@ -1864,7 +1868,6 @@ hr {
   z-index: 50;
   background-color: white;
   border-radius: 10px;
-  left: 10px;
   top: 50px;
 }
 

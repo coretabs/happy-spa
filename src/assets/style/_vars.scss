@@ -10,6 +10,7 @@ $zero: 0;
 $fifty: 50;
 
 $left: left;
+$right: right;
 
 $inherit: inherit;
 
@@ -148,3 +149,11 @@ $auto: auto;
     border-radius: 50px;
     outline: 0px solid $gray-color;
   }
+
+/*   ***** vars *****   */
+.txtR {
+    text-align: $right;
+}
+.txtL {
+    text-align: $left;
+}

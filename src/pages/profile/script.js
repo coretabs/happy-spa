@@ -233,5 +233,25 @@ export default {
         }
       });
     }
+  },
+  'computed': {
+    personWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'right: -15px; laft: auto;' : 'left: -15px; right: auto;';
+    },
+    menuPostWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'left: 10px;' : 'right: 10px;';
+    },
+    menuWay: function () {
+      return (this.$i18n.locale == 'ar') ? 'float: left;' : 'float: right;';
+    },
+    dirRTL: function () {
+      return (this.$i18n.locale == 'ar') ? 'directionRTL' : 'directionLTR';
+    },
+    is_way_R: function () {
+      return (this.$i18n.locale == 'ar') ? 'right' : 'left';
+    },
+    is_way_L: function () {
+      return (this.$i18n.locale == 'ar') ? 'left' : 'right';
+    }
   }
 };

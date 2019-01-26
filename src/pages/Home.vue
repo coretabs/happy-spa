@@ -9,21 +9,21 @@
           <div class="slider">
             <div class="slide">
               <div class="opinion">
-                <p>تمتع بإجراء محادثات مع اصدقائك على الكمبيوتر والهاتف</p>
+                <p>{{$t("home.applicationIdea_1")}}</p>
               </div>
             </div>
           </div>
           <div class="slider">
             <div class="slide">
               <div class="opinion">
-                <p>متاح على العديد من الانظمة الاساسية</p>
+                <p>{{$t("home.applicationIdea_2")}}</p>
               </div>
             </div>
           </div>
           <div class="slider">
             <div class="slide">
               <div class="opinion">
-                <p>شارك اللحظات الجميلة</p>
+                <p>{{$t("home.applicationIdea_3")}}</p>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
             <div class="slide">
               <div class="opinion">
                 <p>
-                  اجعل عائلتك واصدقائك اقرب مع           
+                  {{$t("home.applicationIdea_4")}}           
                   <br>
                   grinn
                 </p>
@@ -41,7 +41,7 @@
           <div class="slider">
             <div class="slide">
               <div class="opinion">
-                <p>شارك مشاعرك مع العديد من الملصقات الرائعة</p>
+                <p>{{$t("home.applicationIdea_5")}}</p>
               </div>
             </div>
           </div>
@@ -51,15 +51,15 @@
     <footer class="contentPageFooter orderFooterTop absolute">
       <div class="buttonStarted">
         <router-link to="/signup"> 
-          فلنبدأ
+          {{$t("home.begin")}}
         </router-link>
       </div>
     
       <div class="paraFooter">
         <p>
-          هل لديك حساب بالفعل؟
+          {{$t("home.logIn_para")}}
           <router-link to='/login'>
-            <a>تسجيل الدخول</a>
+            <a>{{$t("home.logIn_link")}}</a>
           </router-link>
         </p>
       </div>
