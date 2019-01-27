@@ -126,8 +126,11 @@ export default {
       this.menu ? this.showMenu(this.postid) : "";
       this.$emit('confirm' , {
         msg : "هل تريد حقا حذف المنشور",
-        yes: root.deletePost,
-        no : () => {}
+        yes: () => {
+          root.deletePost();
+          this.$scroll.allow();
+        },
+        no: () => this.$scroll.allow()
       })
     },
     showMenu(postid) {
@@ -138,10 +141,10 @@ export default {
       });
       if (this.menu) {
         $(".grayContentPage").classList.add("blur");
-        $("html").classList.add("overflowHidden");
+        this.$scroll.deny();
       } else {
         $(".grayContentPage").classList.remove("blur");
-        $("html").classList.remove("overflowHidden");
+        this.$scroll.allow();
       }
     },
     deletePost() {

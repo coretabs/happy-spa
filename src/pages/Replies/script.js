@@ -7,7 +7,7 @@ export default {
       postid: this.$route.query.postid,
       commentid: this.$route.query.commentid,
       avatar: "",
-      replies : '',
+      replies : [],
       replyTxt: "",
       username: '',
       menuCmt: false,
@@ -47,12 +47,14 @@ export default {
         this.getComment()
         this.$api.replies.replies(this.postid, this.commentid , this.pagination.page)
         .then (re => {
-          this.replies = [...this.replies, ...re.results]
-          this.loading = false
-          this.pagination.loading = false
-          this.pagination.next = re.next
-          this.pagination.previous = re.previous
-          this.cacheIt()
+          if(!re.message) {
+            this.replies = [...this.replies, ...re.results]
+            this.loading = false
+            this.pagination.loading = false
+            this.pagination.next = re.next
+            this.pagination.previous = re.previous
+            this.cacheIt()
+          }
         })
       }
     },

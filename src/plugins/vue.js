@@ -1,19 +1,19 @@
 import VueDataLoading from "@/components/vue-data-loading";
 import Report from "@/components/report";
 import ErrorMsg from "@/components/error-msg";
-import Overlay from '@/components/overlay';
-import Header from '@/components/header';
-import LargeHeader from '@/components/large-header';
-import Footer from '@/components/footer';
-import Confirm from '@/components/Confirm';
-import ResultPost from '@/components/result-post';
-import ResultPerson from '@/components/result-person';
-import PrivacyPolicy from '@/components/privacy-policy';
+import Overlay from "@/components/overlay";
+import Header from "@/components/header";
+import LargeHeader from "@/components/large-header";
+import Footer from "@/components/footer";
+import Confirm from "@/components/Confirm";
+import ResultPost from "@/components/result-post";
+import ResultPerson from "@/components/result-person";
+import PrivacyPolicy from "@/components/privacy-policy";
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
 import VeeValidate from "vee-validate";
-import { EmojiPickerPlugin } from 'vue-emoji-picker'
+import { EmojiPickerPlugin } from "vue-emoji-picker";
 import "@/api/api";
 
 const Plugins = {
@@ -22,16 +22,20 @@ const Plugins = {
     Vue.component("Report", Report);
     Vue.component("ErrorMsg", ErrorMsg);
     Vue.component("Confirm", Confirm);
-    Vue.component("Overlay" , Overlay);
-    Vue.component("app-header" , Header);
-    Vue.component("large-header" , LargeHeader);
-    Vue.component("app-footer" , Footer);
-    Vue.component("result-post" , ResultPost);
-    Vue.component("result-person" , ResultPerson);
-    Vue.component("app-policy" , PrivacyPolicy);
+    Vue.component("Overlay", Overlay);
+    Vue.component("app-header", Header);
+    Vue.component("large-header", LargeHeader);
+    Vue.component("app-footer", Footer);
+    Vue.component("result-post", ResultPost);
+    Vue.component("result-person", ResultPerson);
+    Vue.component("app-policy", PrivacyPolicy);
   },
-  addVars: Vue => {
+  addGVars: Vue => {
     window.$ = e => document.querySelector(e);
+    Vue.prototype.$scroll = {
+      allow: () => $("html").classList.remove("overflowHidden"),
+      deny: () => $("html").classList.add("overflowHidden")
+    };
   },
   chatreInit: (d, w, c) => {
     w.ChatraID = "Ty9iqgBujvxhx94bB";
@@ -49,7 +53,7 @@ const Plugins = {
     this.addComponents(vue);
     this.chatreInit(document, window, "Chatra");
     this.chatraSettings();
-    this.addVars(vue);
+    this.addGVars(vue);
   },
   validators: {
     password: {
@@ -80,9 +84,7 @@ VeeValidate.Validator.extend("password2", Plugins.validators.password2, {
 });
 
 Vue.use(Plugins);
-
 Vue.use(VeeValidate, {
   events: "keyup"
 });
-
 Vue.use(EmojiPickerPlugin);

@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 export default {
   data: () => {
     return {
-      comments: "",
+      comments: [],
       id: "",
       avatar: "",
       commentTxt: "",
@@ -42,6 +42,7 @@ export default {
         this.$api.comments
           .postComments(this.id, this.pagination.page)
           .then(re => {
+            if(!re.message)
             this.comments = [...this.comments, ...re.results];
             this.loading = false;
             this.pagination.loading = false;

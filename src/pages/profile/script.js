@@ -35,20 +35,23 @@ export default {
         this.links = Cookies.getJSON("logedinUser").user.profile.link;
         this.loading = false;
       } else {
-        this.$api.user.profile(this.$route.query.id)
+        this.$api.user
+          .profile(this.$route.query.id)
           .then(re => {
             this.user = re;
             this.links = this.user.profile.link;
             this.loading = false;
           })
           .catch(er => {
-            this.$emit('error' , {
-              msg : "هذا الحساب غير موجود", 
+            this.$emit("error", {
+              msg: "هذا الحساب غير موجود",
               callback: () => {
-                this.$router.push(`/profile?id=${Cookies.getJSON("logedinUser").user.username}`)
-                this.getInfo()
-                this.getPosts()
-              }  
+                this.$router.push(
+                  `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
+                );
+                this.getInfo();
+                this.getPosts();
+              }
             });
           });
       }
@@ -74,7 +77,8 @@ export default {
         this.loading = false;
         this.pagination.loading = false;
       } else {
-        this.$api.posts.profile(this.$route.query.id, this.pagination.page)
+        this.$api.posts
+          .profile(this.$route.query.id, this.pagination.page)
           .then(re => {
             this.posts = [...this.posts, ...re.results];
             this.loading = false;
@@ -158,13 +162,16 @@ export default {
       }
     },
     showConfirm() {
-      let root = this
+      let root = this;
       this.menu ? this.showMenu(this.postid) : "";
-      this.$emit('confirm' , {
-        msg : "هل تريد حقا حذف المنشور",
-        yes: root.deletePost,
-        no : () => {}
-      })
+      this.$emit("confirm", {
+        msg: "هل تريد حقا حذف المنشور",
+        yes: () => {
+          root.deletePost();
+          this.$scroll.allow();
+        },
+        no: () => this.$scroll.allow()
+      });
     },
     showMenu(postid) {
       this.menu = !this.menu;
@@ -174,10 +181,10 @@ export default {
       });
       if (this.menu) {
         $(".grayContentPage ").classList.add("blur");
-        $("html").classList.add("overflowHidden");
+        this.$scroll.deny();
       } else {
         $(".grayContentPage").classList.remove("blur");
-        $("html").classList.remove("overflowHidden");
+        this.$scroll.allow();
       }
     },
     deletePost() {
@@ -234,24 +241,26 @@ export default {
       });
     }
   },
-  'computed': {
-    personWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'right: -15px; laft: auto;' : 'left: -15px; right: auto;';
+  computed: {
+    personWay: function() {
+      return this.$i18n.locale == "ar"
+        ? "right: -15px; laft: auto;"
+        : "left: -15px; right: auto;";
     },
-    menuPostWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'left: 10px;' : 'right: 10px;';
+    menuPostWay: function() {
+      return this.$i18n.locale == "ar" ? "left: 10px;" : "right: 10px;";
     },
-    menuWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'float: left;' : 'float: right;';
+    menuWay: function() {
+      return this.$i18n.locale == "ar" ? "float: left;" : "float: right;";
     },
-    dirRTL: function () {
-      return (this.$i18n.locale == 'ar') ? 'directionRTL' : 'directionLTR';
+    dirRTL: function() {
+      return this.$i18n.locale == "ar" ? "directionRTL" : "directionLTR";
     },
-    is_way_R: function () {
-      return (this.$i18n.locale == 'ar') ? 'right' : 'left';
+    is_way_R: function() {
+      return this.$i18n.locale == "ar" ? "right" : "left";
     },
-    is_way_L: function () {
-      return (this.$i18n.locale == 'ar') ? 'left' : 'right';
+    is_way_L: function() {
+      return this.$i18n.locale == "ar" ? "left" : "right";
     }
   }
 };

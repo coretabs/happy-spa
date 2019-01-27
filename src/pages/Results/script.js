@@ -62,10 +62,10 @@ export default {
 
             if (this.menu) {
               $(".grayContentPage").classList.add("blur");
-              $("html").classList.add("overflowHidden");
+              this.$scroll.deny();
             } else {
               $(".grayContentPage").classList.remove("blur");
-              $("html").classList.remove("overflowHidden");
+              this.$scroll.allow();
             }
         },
         selectedResearch: function() {

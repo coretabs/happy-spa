@@ -51,6 +51,7 @@ export default {
             this.$emit('error' , {
               msg : "الرجاء التحقق من اسم المستخدم وكلمة المرور",  
             })
+            this.loading = false;
           })
       } else {
         this.$emit('error' , {

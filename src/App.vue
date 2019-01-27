@@ -1,15 +1,7 @@
 <template>
   <div>
-    <error-msg 
-      :closeError="closeError" 
-      :errorMsg="error.msg" 
-      :class="{'block' : error.box}"
-    ></error-msg>
-    <report 
-      :class="{'block' : report.box}" 
-      :closeReport="closeReport" 
-      :postid="report.postid"
-    ></report>
+    <error-msg :closeError="closeError" :errorMsg="error.msg" :class="{'block' : error.box}"></error-msg>
+    <report :class="{'block' : report.box}" :closeReport="closeReport" :postid="report.postid"></report>
     <confirm
       :class="{'block' : confirm.box}"
       :yes="confirm.yes"
@@ -50,35 +42,38 @@ export default {
       error: {
         box: false,
         msg: "",
-        callback : ''
+        callback: ""
       },
       confirm: {
         box: false,
-        msg: '',
+        msg: "",
         yes: () => {},
-        no: () => {},
+        no: () => {}
       }
     };
   },
   methods: {
     reportClick(postid) {
       this.box = true;
+      this.$scroll.deny();
       this.report.box = true;
       this.report.postid = postid;
       console.log(postid);
     },
     errorClick(opt) {
       this.box = true;
+      this.$scroll.deny();
       this.error.box = true;
       this.error.msg = opt.msg;
-      this.error.callback = opt.callback
+      this.error.callback = opt.callback;
     },
-    confirmClick(opt){
-      this.box = true
-      this.confirm.box = true
-      this.confirm.yes = opt.yes
+    confirmClick(opt) {
+      this.box = true;
+      this.$scroll.deny();
+      this.confirm.box = true;
+      this.confirm.yes = opt.yes;
       this.confirm.msg = opt.msg;
-      this.confirm.no = opt.no
+      this.confirm.no = opt.no;
     },
     closeReport() {
       this.report.box = false;
@@ -87,12 +82,12 @@ export default {
     closeError() {
       this.error.box = false;
       this.box = false;
-      this.error.callback ?  this.error.callback() : ''
+      this.error.callback ? this.error.callback() : "";
     },
     closeConfirm() {
       this.confirm.box = false;
       this.box = false;
-    },
+    }
   }
 };
 </script>

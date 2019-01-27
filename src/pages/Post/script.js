@@ -22,7 +22,7 @@ export default {
         loading: true,
         count: 0
       },
-      isAvatar: this.avatar,
+      isAvatar: this.avatar
     };
   },
   created() {
@@ -55,29 +55,32 @@ export default {
 
       if (!!this.$store.state.cache.comments[this.id] && cache) {
         let cache = this.$store.state.cache.comments[this.id];
-        (this.comments = cache.comments), (this.pagination = cache.pagination);
+        this.comments = cache.comments;
+        this.pagination = cache.pagination;
         this.loading = false;
         this.pagination.loading = false;
       } else {
         this.$api.comments
           .postComments(this.id, this.pagination.page)
           .then(re => {
-            this.comments = [...this.comments, ...re.results];
-            this.loading = false;
-            this.pagination.loading = false;
-            this.pagination.next = re.next;
-            this.pagination.previous = re.previous;
-            this.cacheIt(true);
+            if (!re.message) {
+              this.comments = [...this.comments, ...re.results];
+              this.loading = false;
+              this.pagination.loading = false;
+              this.pagination.next = re.next;
+              this.pagination.previous = re.previous;
+              this.cacheIt(true);
+            }
           })
           .catch(er => {
             if (er.response.status == 404) {
-              this.$emit('error' , {
-                msg : "المنشور غير موجود او تم حذفه", 
+              this.$emit("error", {
+                msg: "المنشور غير موجود او تم حذفه",
                 callback: () => this.$router.push("/home")
               });
             } else {
-              this.$emit('error' , {
-                msg : "راسلنا رجاء", 
+              this.$emit("error", {
+                msg: "راسلنا رجاء",
                 callback: () => this.$router.push("/more")
               });
             }
@@ -126,8 +129,8 @@ export default {
           })
           .catch(er => {
             if (er.response.status == 404) {
-              this.$emit('error' , {
-                msg : "المنشور غير موجود او تم حذفه", 
+              this.$emit("error", {
+                msg: "المنشور غير موجود او تم حذفه",
                 callback: () => this.$router.push("/home")
               });
             }
@@ -135,22 +138,25 @@ export default {
       }
     },
     showConfirm() {
-      let root = this
+      let root = this;
       this.menu ? this.showMenu(this.postid) : "";
-      this.$emit('confirm' , {
-        msg : "هل تريد حقا حذف المنشور",
-        yes: root.deletePost,
-        no : () => {}
-      })
+      this.$emit("confirm", {
+        msg: "هل تريد حقا حذف المنشور",
+        yes: () => {
+          root.deletePost();
+          this.$scroll.allow();
+        },
+        no: () => this.$scroll.allow()
+      });
     },
     showMenu() {
       this.menu = !this.menu;
       if (this.menu) {
         $(".grayContentPage ").classList.add("blur");
-        $("html").classList.add("overflowHidden");
+        this.$scroll.deny();
       } else {
         $(".grayContentPage").classList.remove("blur");
-        $("html").classList.remove("overflowHidden");
+        this.$scroll.allow();
       }
     },
     commentMenu(commentid) {
@@ -164,8 +170,8 @@ export default {
           this.$store.commit("claerCache");
         });
       } else {
-        this.$emit('error' , {
-          msg : "لا يمكنك حذف اي منشور سوى الخاصة بك"
+        this.$emit("error", {
+          msg: "لا يمكنك حذف اي منشور سوى الخاصة بك"
         });
       }
     },
@@ -174,8 +180,8 @@ export default {
         this.$store.commit("postToEdit", this.post);
         this.$router.push("/newpost?editmode=true");
       } else {
-        this.$emit('error' , {
-          msg : "لا يمكنك تعديل اي منشور سوى الخاصة بك"
+        this.$emit("error", {
+          msg: "لا يمكنك تعديل اي منشور سوى الخاصة بك"
         });
       }
     },
@@ -409,39 +415,43 @@ export default {
       }
     }
   },
-  'computed': {
-    textAlgin: function () {
-        return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+  computed: {
+    textAlgin: function() {
+      return this.$i18n.locale == "ar" ? "txtR" : "txtL";
     },
-    has_icons_R: function () {
-      return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';
+    has_icons_R: function() {
+      return this.$i18n.locale == "ar" ? "has-icons-right" : "has-icons-left";
     },
-    has_icons_L: function () {
-      return (this.$i18n.locale == 'ar') ? 'has-icons-left' : 'has-icons-right';
+    has_icons_L: function() {
+      return this.$i18n.locale == "ar" ? "has-icons-left" : "has-icons-right";
     },
-    personWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'right: -15px; laft: auto;' : 'left: -15px; right: auto;';
+    personWay: function() {
+      return this.$i18n.locale == "ar"
+        ? "right: -15px; laft: auto;"
+        : "left: -15px; right: auto;";
     },
-    personAnswerWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'float: right;' : 'float: left;';
+    personAnswerWay: function() {
+      return this.$i18n.locale == "ar" ? "float: right;" : "float: left;";
     },
-    menuPostWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'left: 10px;' : 'right: 10px;';
+    menuPostWay: function() {
+      return this.$i18n.locale == "ar" ? "left: 10px;" : "right: 10px;";
     },
-    menuWay: function () {
-      return (this.$i18n.locale == 'ar') ? 'float: left;' : 'float: right;';
+    menuWay: function() {
+      return this.$i18n.locale == "ar" ? "float: left;" : "float: right;";
     },
-    dirRTL: function () {
-      return (this.$i18n.locale == 'ar') ? 'directionRTL' : 'directionLTR';
+    dirRTL: function() {
+      return this.$i18n.locale == "ar" ? "directionRTL" : "directionLTR";
     },
-    is_way_R: function () {
-      return (this.$i18n.locale == 'ar') ? 'right' : 'left';
+    is_way_R: function() {
+      return this.$i18n.locale == "ar" ? "right" : "left";
     },
-    is_way_L: function () {
-      return (this.$i18n.locale == 'ar') ? 'left' : 'right';
+    is_way_L: function() {
+      return this.$i18n.locale == "ar" ? "left" : "right";
     },
-    rotateSendIcon: function () {
-      return (this.$i18n.locale == 'ar') ? '' : '-webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);';
-    },
+    rotateSendIcon: function() {
+      return this.$i18n.locale == "ar"
+        ? ""
+        : "-webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);";
+    }
   }
 };

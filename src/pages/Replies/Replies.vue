@@ -12,7 +12,7 @@
       @infinite-scroll="update"
       @pull-down="update(true , false)"
     >
-    <div slot="completed" v-if="!replies.length > 0">{{$t("replies.first_respond")}}</div>
+    <div slot="completed" v-if="replies.length > 0">{{$t("replies.first_respond")}}</div>
       <div id="bodyComments" v-if="comment">
         <div class="bodyAnswer">
           <div class="answer">
@@ -68,7 +68,7 @@
         </div>
         <div
           class="bodyAnswer reply"
-          v-if="comment.replies_count != 0"
+          v-if="replies.length > 0"
           v-for="reply in replies"
           :key="reply.id"
         >
@@ -127,12 +127,12 @@
               :class="textAlgin"
               :disabled="loading"
               type="text"
-              v-model="commentTxt"
+              v-model="replyTxt"
               rows="1"
               :placeholder="$t('replies.report')"
             ></textarea>
             <div class="leftTextarea" :class="is_way_L">
-              <a @click="addcomment" class="icon is-small">
+              <a @click="addReply" class="icon is-small">
                 <i class="keyboard_arrow_left fontSize20" :class="rotateSendIcon"></i>
               </a>
               <a v-if="false" class="icon is-small">
