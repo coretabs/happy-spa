@@ -5,7 +5,7 @@ import Overlay from "@/components/overlay";
 import Header from "@/components/header";
 import LargeHeader from "@/components/large-header";
 import Footer from "@/components/footer";
-import Confirm from "@/components/Confirm";
+import Confirm from "@/components/confirm";
 import ResultPost from "@/components/result-post";
 import ResultPerson from "@/components/result-person";
 import PrivacyPolicy from "@/components/privacy-policy";
