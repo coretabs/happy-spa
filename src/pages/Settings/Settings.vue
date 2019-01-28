@@ -30,9 +30,9 @@
 
 <script>
 import Cookies from 'js-cookie'
+import Vue from 'vue';
 
 export default {
-    name: 'LaguageSwitcher',
     data: () => {
         return {
             languages: [
@@ -46,14 +46,15 @@ export default {
                 }
             ],
             isShow: false,
+            browserLang: ''
         }
     },
     methods : {
         changeLang(lang) {
             this.$i18n.locale = lang;
+            Cookies.set('locale', lang);
             this.isShow = false;
-            console.log(this.$i18n.locale);
-            
+            console.log("i18n.locale = " + this.$i18n.locale);
         }
     },
     'computed': {

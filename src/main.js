@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/index.js'
-import  {i18n} from  './i18n/i18n.js'
+import  {i18n} from  './plugins/i18n.js'
 import store from './store/store'
 import '@/../css/bulma.min.css'
 import '@/../css/style.css'

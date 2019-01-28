@@ -27,7 +27,7 @@
                 >{{ comment.author }}</router-link>
               </div>
               <div class="personMenu" :style="menuWay">
-                <div v-if="comment.author == username" class="myMenu">
+                <div v-if="comment.author == username" class="myMenu" :class="[dirRTL, is_way_L]">
                   <a @click="commentMenu(comment.id)" class="left whiteGray">
                     <i class="more_vert"></i>
                   </a>
@@ -80,7 +80,7 @@
               <router-link :to="`/profile?id=${reply.author}`" class="personName">{{ reply.author }}</router-link>
             </div>
             <div class="personMenu" :style="menuWay">
-              <div v-if="reply.author == username" class="myMenu">
+              <div v-if="reply.author == username" class="myMenu" :class="[dirRTL, is_way_L]">
                 <a @click="commentReplyMenu(reply.id)" class="left whiteGray">
                   <i class="more_vert"></i>
                 </a>
@@ -129,11 +129,11 @@
               type="text"
               v-model="replyTxt"
               rows="1"
-              :placeholder="$t('replies.report')"
+              :placeholder="$t('replies.writePost')"
             ></textarea>
             <div class="leftTextarea" :class="is_way_L">
               <a @click="addReply" class="icon is-small">
-                <i class="keyboard_arrow_left fontSize20" :class="rotateSendIcon"></i>
+                <i class="keyboard_arrow_left fontSize20" :style="rotateSendIcon"></i>
               </a>
               <a v-if="false" class="icon is-small">
                 <i class="sentiment_satisfied fontSize20"></i>
