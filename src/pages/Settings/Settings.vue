@@ -13,7 +13,10 @@
                 <hr>
                 <a @click="isShow=!isShow">{{$t("setting.language")}}</a>
                     <ul v-if="isShow" class="languages" :class="statDirection">
-                        <li class="headElements"  v-for="lang in languages" :key="lang.title" @click="changeLang(lang.language)">{{lang.title}}</li>
+                        <li class="headElements"  v-for="lang in languages" :key="lang.title" @click="changeLang(lang.language)">
+                            <flag :iso="lang.flag" :squared=false /> 
+                            {{lang.title}}
+                        </li>
                     </ul>
                 <hr>
                 <router-link to="/changepassword">{{$t("setting.changePassword")}}</router-link>
@@ -38,11 +41,13 @@ export default {
             languages: [
                 {
                     language: 'ar',
-                    title: 'العربية'
+                    title: 'العربية',
+                    flag: 'sa'
                 },
                 {
                     language: 'en',
-                    title: 'English'
+                    title: 'English',
+                    flag: 'us'
                 }
             ],
             isShow: false,

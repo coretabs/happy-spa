@@ -14,6 +14,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import VeeValidate from "vee-validate";
 import { EmojiPickerPlugin } from "vue-emoji-picker";
+import FlagIcon from 'vue-flag-icon';
 import "@/api/api";
 
 const Plugins = {
@@ -88,3 +89,4 @@ Vue.use(VeeValidate, {
   events: "keyup"
 });
 Vue.use(EmojiPickerPlugin);
+Vue.use(FlagIcon);

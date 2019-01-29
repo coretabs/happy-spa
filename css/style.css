@@ -1000,7 +1000,6 @@ header a i {
   padding: 0 15px;
 }
 .languages li {
-  list-style-type: initial;
   cursor: pointer;
 }
 
