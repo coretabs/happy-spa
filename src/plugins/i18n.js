@@ -49,6 +49,27 @@ const messages = {
             signUp_para: 'ليس لديك حساب؟',
             signUp_link: 'تسجيل'
         },
+        loadingPost: {
+            drag_refresh: 'إسحب للتحديث',
+            released_update: 'أطلق للتحديث',
+            updating: 'جار التحديث...',
+            more: 'جار الحصول على المزيد...',
+            no_more: 'لا يوجد المزيد :('
+        },
+        confirm: {
+            yes: 'نعم',
+            no: 'لا'
+        },
+        error_msg: {
+            close: 'اغلاق'
+        },
+        report: {
+            choose_reason: 'اختر سبباً للإبلاغ عن هذا المنشور',
+            spam: 'محتوى عشوائي',
+            violence: 'محتوى عنيف',
+            nude: 'عري / محتوى جنسي',
+            send: 'ارسال'
+        },
         newPost: {
             share: 'نشر',
             imgAndVedio: 'صورة / فيديو',
@@ -186,6 +207,27 @@ const messages = {
             gmail: 'gmail',
             signUp_para: 'You do not have an account?',
             signUp_link: 'Sign Up'
+        },
+        loadingPost: {
+            drag_refresh: 'Drag to refresh',
+            released_update: 'Released for update',
+            updating: 'Updating ...',
+            more: 'More ...',
+            no_more: 'There is no more :('
+        },
+        confirm: {
+            yes: 'yes',
+            no: 'no'
+        },
+        error_msg: {
+            close: 'Close'
+        },
+        report: {
+            choose_reason: 'Choose a reason to report this publication',
+            spam: 'Spam',
+            violence: 'Violence',
+            nude: 'nude',
+            send: 'send'
         },
         newPost: {
             share: 'send',

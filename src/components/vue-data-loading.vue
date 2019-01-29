@@ -6,13 +6,13 @@
       v-show="PULL_DOWN === pull.type"
     >
       <div class="header-text" v-show="!pull.available">
-        <slot :name="PULL_DOWN + '-before'">إسحب للتحديث</slot>
+        <slot :name="PULL_DOWN + '-before'">{{$t("loadingPost.drag_refresh")}}</slot>
       </div>
       <div class="header-text" v-show="pull.available && PULL_DOWN !== loadingType">
-        <slot :name="PULL_DOWN + '-ready'">أطلق للتحديث</slot>
+        <slot :name="PULL_DOWN + '-ready'">{{$t("loadingPost.released_update")}}</slot>
       </div>
       <div class="header-text" v-show="PULL_DOWN === loadingType">
-        <slot :name="PULL_DOWN + '-loading'">جار التحديث...</slot>
+        <slot :name="PULL_DOWN + '-loading'">{{$t("loadingPost.updating")}}</slot>
       </div>
     </div>
 
@@ -38,13 +38,13 @@
       v-show="loading && INFINITE_SCROLL === loadingType"
     >
       <div class="footer-text">
-        <slot :name="INFINITE_SCROLL + '-loading'">جار الحصول على المزيد...</slot>
+        <slot :name="INFINITE_SCROLL + '-loading'">{{$t("loadingPost.more")}}</slot>
       </div>
     </div>
 
     <div class="loading-footer" :style="{height: distance + 'px'}" v-show="!loading && completed">
       <div class="footer-text">
-        <slot name="completed">لا يوجد المزيد :(</slot>
+        <slot name="completed">{{$t("loadingPost.no_more")}}</slot>
       </div>
     </div>
   </div>

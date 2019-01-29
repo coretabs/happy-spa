@@ -4,8 +4,8 @@
       <i class="report"></i>
     </span>
     <h2>{{confirmMsg}}</h2>
-    <a @click="yes() ; closeConfirm()  " class="close">نعم</a>
-    <a @click="no() ; closeConfirm()  " class="close">لا</a>
+    <a @click="yes() ; closeConfirm()  " class="close">{{$t("confirm.yes")}}</a>
+    <a @click="no() ; closeConfirm()  " class="close">{{$t("confirm.no")}}</a>
   </div>
 </template>
 
