@@ -125,7 +125,7 @@ export default {
       let root = this
       this.menu ? this.showMenu(this.postid) : "";
       this.$emit('confirm' , {
-        msg : "هل تريد حقا حذف المنشور",
+        msg : this.$t('userHome.confirm_delete'),
         yes: () => {
           root.deletePost();
           this.$scroll.allow();

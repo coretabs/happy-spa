@@ -32,8 +32,8 @@
         
         <div class="paraFooter">
                 <p>
-                    ليس لديك حساب؟
-                    <router-link to="/signup">تسجيل</router-link>
+                    {{$t('forgotPassword.no_account')}}
+                    <router-link to="/signup">{{$t('forgotPassword.sign_up')}}</router-link>
                 </p>
             </div>
         </footer>

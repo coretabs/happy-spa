@@ -44,7 +44,7 @@ export default {
           })
           .catch(er => {
             this.$emit("error", {
-              msg: "هذا الحساب غير موجود",
+              msg: this.$t('profile.not_exist'),
               callback: () => {
                 this.$router.push(
                   `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
@@ -165,7 +165,7 @@ export default {
       let root = this;
       this.menu ? this.showMenu(this.postid) : "";
       this.$emit("confirm", {
-        msg: "هل تريد حقا حذف المنشور",
+        msg: this.$t('profile.confirm_delete'),
         yes: () => {
           root.deletePost();
           this.$scroll.allow();

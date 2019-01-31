@@ -95,7 +95,7 @@ export default {
         this.$i18n.locale = Cookies.get('locale');
         console.log(this.$i18n.locale);
     } else {
-        this.browserLang = navigator.language || navigator.userLanguage;
+        this.browserLang = navigator.language || navigator.userLanguage || "en";
         console.log(this.browserLang)
         if (this.browserLang.includes("-")) {
             var browserSplit = this.browserLang.split("-")

@@ -86,7 +86,7 @@
               <textarea
                 dir="auto"
                 class="textarea"
-                :class="textAlgin"
+                :class="dirRTL"
                 :disabled="loading"
                 type="text"
                 v-model="commentTxt"

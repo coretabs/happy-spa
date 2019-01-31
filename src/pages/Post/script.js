@@ -14,7 +14,7 @@ export default {
       username: "",
       onClose: "",
       confirm: false,
-      confirmMsg: "هل تريد فعل ذلك حقاً",
+      confirmMsg: "$t('post.confirmMsg')",
       pagination: {
         page: 0,
         previous: "",
@@ -75,12 +75,12 @@ export default {
           .catch(er => {
             if (er.response.status == 404) {
               this.$emit("error", {
-                msg: "المنشور غير موجود او تم حذفه",
+                msg: this.$t('post.not_exist'),
                 callback: () => this.$router.push("/home")
               });
             } else {
               this.$emit("error", {
-                msg: "راسلنا رجاء",
+                msg: this.$t('post.contact_us'),
                 callback: () => this.$router.push("/more")
               });
             }
@@ -130,7 +130,7 @@ export default {
           .catch(er => {
             if (er.response.status == 404) {
               this.$emit("error", {
-                msg: "المنشور غير موجود او تم حذفه",
+                msg: this.$t('post.contact_us'),
                 callback: () => this.$router.push("/home")
               });
             }
@@ -141,7 +141,7 @@ export default {
       let root = this;
       this.menu ? this.showMenu(this.postid) : "";
       this.$emit("confirm", {
-        msg: "هل تريد حقا حذف المنشور",
+        msg: this.$t('post.confirm_delete'),
         yes: () => {
           root.deletePost();
           this.$scroll.allow();
@@ -171,7 +171,7 @@ export default {
         });
       } else {
         this.$emit("error", {
-          msg: "لا يمكنك حذف اي منشور سوى الخاصة بك"
+          msg: this.$t('post.cant_delete')
         });
       }
     },
@@ -181,7 +181,7 @@ export default {
         this.$router.push("/newpost?editmode=true");
       } else {
         this.$emit("error", {
-          msg: "لا يمكنك تعديل اي منشور سوى الخاصة بك"
+          msg: this.$t('post.cant_edit')
         });
       }
     },
@@ -416,9 +416,6 @@ export default {
     }
   },
   computed: {
-    textAlgin: function() {
-      return this.$i18n.locale == "ar" ? "txtR" : "txtL";
-    },
     has_icons_R: function() {
       return this.$i18n.locale == "ar" ? "has-icons-right" : "has-icons-left";
     },

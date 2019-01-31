@@ -50,7 +50,7 @@ export default {
     submitFile(e) {
       const file = this.$refs.file.files[0];
       if (file.size > 1024 * 1024 * 5) {
-        this.$emit("error", { msg: "لا يمكنك رفع اكثر من 5 ميجا بايت" });
+        this.$emit("error", { msg: this.$t('newPost.upload_5MP') });
         this.enabled = true;
         e.preventDefault();
       } else {
@@ -97,9 +97,6 @@ export default {
     }
   },
   computed: {
-    textAlgin: function() {
-      return this.$i18n.locale == "ar" ? "txtR" : "txtL";
-    },
     dirRTL: function() {
       return this.$i18n.locale == "ar" ? "directionRTL" : "directionLTR";
     },

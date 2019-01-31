@@ -47,7 +47,9 @@ const messages = {
             facbook: 'فيس بوك',
             gmail: 'جيميل',
             signUp_para: 'ليس لديك حساب؟',
-            signUp_link: 'تسجيل'
+            signUp_link: 'تسجيل',
+            check: 'الرجاء التحقق من اسم المستخدم وكلمة المرور',
+            required: 'كل من المستخدم و كلمة المرور مطلوبان'
         },
         loadingPost: {
             drag_refresh: 'إسحب للتحديث',
@@ -75,17 +77,21 @@ const messages = {
             imgAndVedio: 'صورة / فيديو',
             gif: 'صور متحركة',
             camera: 'كاميرا',
-            addFunPost: 'أضف شيئاً مضحكاً'
+            addFunPost: 'أضف شيئاً مضحكاً',
+            upload_5MP: 'لا يمكنك رفع اكثر من 5 ميجا بايت'
         },
         profile: {
             edit: 'تعديل',
             delete: 'حذف',
-            report: 'تبليغ'
+            report: 'تبليغ',
+            confirm_delete: 'هل تريد حقا حذف المنشور',
+            not_exist: 'هذا الحساب غير موجود'
         },
         userHome: {
             edit: 'تعديل',
             delete: 'حذف',
-            report: 'تبليغ'
+            report: 'تبليغ',
+            confirm_delete: 'هل تريد حقا حذف المنشور',
         },
         post: {
             first_comment: 'كن أول من يعلق',
@@ -93,14 +99,23 @@ const messages = {
             delete: 'حذف',
             report: 'تبليغ',
             more: 'إقرأ المزيد',
-            writePost: 'اكتب تعليق...'
+            writePost: 'اكتب تعليق...',
+            confirmMsg: 'هل تريد فعل ذلك حقاً',
+            not_exist: 'المنشور غير موجود او تم حذفه',
+            contact_us: 'راسلنا رجاء',
+            confirm_delete: 'هل تريد حقا حذف المنشور',
+            cant_delete: 'لا يمكنك حذف اي منشور سوى الخاصة بك',
+            cant_edit: 'لا يمكنك تعديل اي منشور سوى الخاصة بك'
         },
         postComments: {
             first_comment: 'كن أول من يعلق',
             edit: 'تعديل',
             delete: 'حذف',
             report: 'تبليغ',
-            writePost: 'اكتب تعليق...'
+            writePost: 'اكتب تعليق...',
+            not_exist: 'المنشور غير موجود او تم حذفه',
+            contact_us: 'راسلنا رجاء',
+
         },
         replies: {
             first_respond: 'كن أول من يرد',
@@ -161,7 +176,16 @@ const messages = {
             forgotPassword: 'هل نسيت كلمة المرور؟',
             passwordRecovery: 'قم بإدخال بريدك الإلكتروني هنا لكي تصلك التعليمات الخاصة باستعادة كلمة المرور',
             enterEmail: 'البريد الإلكتروني',
-            send: 'إرسال'
+            send: 'إرسال',
+            no_account: 'ليس لديك حساب؟',
+            sign_up: 'تسجيل'
+        },
+        contactUs: {
+            contact_us: 'تواصل معنا',
+            userName: 'اسم المستخدم',
+            email: 'أدخل بريدك الإلكتروني',
+            note: 'اكتب ملاحظتك هنا ...',
+            send: 'ارسال'
         }
     }, 
     en: {
@@ -206,7 +230,9 @@ const messages = {
             facbook: 'facebook',
             gmail: 'gmail',
             signUp_para: 'You do not have an account?',
-            signUp_link: 'Sign Up'
+            signUp_link: 'Sign Up',
+            check: 'Please check your username and password',
+            required: 'Both user and password are required',
         },
         loadingPost: {
             drag_refresh: 'Drag to refresh',
@@ -234,17 +260,21 @@ const messages = {
             imgAndVedio: 'Image / video',
             gif: 'gif',
             camera: 'Camera',
-            addFunPost: 'Add something funny'
+            addFunPost: 'Add something funny',
+            upload_5MP: 'You can not upload more than 5 MB'
         },
         profile: {
             edit: 'edit',
             delete: 'delete',
-            report: 'report'
+            report: 'report',
+            confirm_delete: 'Do you really want to delete the publication',
+            not_exist: 'This account does not exist'
         },
         userHome: {
             edit: 'edit',
             delete: 'delete',
-            report: 'report'
+            report: 'report',
+            confirm_delete: 'Do you really want to delete the publication',
         },
         post: {
             first_comment: 'Be the first to comment',
@@ -252,21 +282,29 @@ const messages = {
             delete: 'delete',
             report: 'report',
             more: 'read more',
-            writePost: '...Write a comment'
+            writePost: 'Write a comment...',
+            confirmMsg: 'Do you really want to do that',
+            not_exist: 'The publication does not exist or has been deleted',
+            contact_us: 'Please contact us',
+            confirm_delete: 'Do you really want to delete the publication',
+            cant_delete: 'You can not delete any publication except your own',
+            cant_edit: 'You can not edit any publication except your own'
         },
         postComments: {
             first_comment: 'Be the first to comment',
             edit: 'edit',
             delete: 'delete',
             report: 'report',
-            writePost: '...Write a comment'
+            writePost: 'Write a comment...',
+            not_exist: 'The publication does not exist or has been deleted',
+            contact_us: 'Please contact us',
         },
         replies: {
             first_respond: 'Be the first to respond',
             edit: 'edit',
             delete: 'delete',
             report: 'report',
-            writePost: '...Write a comment'
+            writePost: 'Write a comment...'
         },
         verificationStep: {
             activate: 'Activate your account',
@@ -320,6 +358,15 @@ const messages = {
             forgotPassword: 'did you forget your password?',
             passwordRecovery: 'Enter your email here to receive password recovery instructions',
             enterEmail: 'email',
+            send: 'send',
+            no_account: 'Do not have an account?',
+            sign_up: 'Sign Up'
+        },
+        contactUs: {
+            contact_us: 'contact us',
+            userName: 'user name',
+            email: 'Enter your email address',
+            note: 'Write your note here ...',
             send: 'send'
         }
     }

@@ -7,7 +7,7 @@
       <div class="contentPageHeader">
         <div class="field">
           <div class="control" :class="has_icons_R">
-            <input class="input" :class="textAlgin" type="text" :placeholder="$t('logIn.name_mail')" v-model="username">
+            <input class="input" :class="dirRTL" type="text" :placeholder="$t('logIn.name_mail')" v-model="username" dir="auto">
             <span class="icon is-small" :class="is_way_R">
               <i class="person fontSize20"></i>
             </span>
@@ -16,7 +16,7 @@
 
         <div class="field">
           <p class="control" :class="[has_icons_R, has_icons_L]">
-            <input class="input password" :class="textAlgin" id="pwd" :type="passwordType" :placeholder="$t('logIn.password')" v-model="password">
+            <input class="input password" :class="dirRTL" id="pwd" :type="passwordType" :placeholder="$t('logIn.password')" v-model="password" dir="auto">
             <span class="icon is-small" :class="is_way_R">
               <i class="outline-https fontSize15"></i>
             </span>

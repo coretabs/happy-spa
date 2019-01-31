@@ -1169,7 +1169,6 @@ hr {
 
 .funPost textarea {
   height: 10em;
-  direction: rtl;
 }
 
 .funPost textarea,
@@ -1793,7 +1792,6 @@ hr {
   padding-right: 3em;
   padding-left: 3em;
   font-weight: bold;
-  direction: rtl;
 }
 
 .chat a {
