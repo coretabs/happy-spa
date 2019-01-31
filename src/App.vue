@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   name: "App",
   data: function() {
@@ -87,6 +88,23 @@ export default {
     closeConfirm() {
       this.confirm.box = false;
       this.box = false;
+    }
+  },
+  created() {
+    if (Cookies.get('locale')) {
+        this.$i18n.locale = Cookies.get('locale');
+        console.log(this.$i18n.locale);
+    } else {
+        this.browserLang = navigator.language || navigator.userLanguage || "en";
+        console.log(this.browserLang)
+        if (this.browserLang.includes("-")) {
+            var browserSplit = this.browserLang.split("-")
+            this.$i18n.locale = browserSplit[0];
+            console.log(this.$i18n.locale)
+        } else {
+            this.$i18n.locale = this.browserLang;
+            console.log(this.$i18n.locale)
+        }
     }
   }
 };

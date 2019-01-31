@@ -114,7 +114,7 @@
                   <i @click="showMenu(post.id)" class="more_vert"></i>
                 </a>
               </div>
-              <div v-if="menu && post.id == postid" class="menuPost box-shadow center absolute" :class="menuPostWay">
+              <div v-if="menu && post.id == postid" class="menuPost box-shadow center absolute" :style="menuPostWay">
                 <a @click="editPost" v-if="post.author == username" class="class">{{$t("profile.edit")}}</a>
                 <hr v-if="post.author == username">
                 <a

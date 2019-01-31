@@ -56,7 +56,7 @@
                     dir="auto"
                     v-model="postContent"
                     class="textarea is-large"
-                    :class="textAlgin"
+                    :class="dirRTL"
                     type="text"
                     :placeholder="$t('newPost.addFunPost')"
                   ></textarea>

@@ -22,7 +22,6 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService/TermsOfService";
 import ConnectUs from "@/pages/ConnectUs/ConnectUs";
 
-import { defaultLocale, i18n } from "../i18n/i18n.js";
 
 Vue.use(Router);
 

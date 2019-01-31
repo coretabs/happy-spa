@@ -42,7 +42,7 @@
                 <p dir="auto" class="relative">{{comment.content}}</p>
               </div>
             </div> 
-            <div class="communion">
+            <div class="communion" :class="dirRTL">
               <a @click="likeComment(comment.id)"><span>{{comment.likes_count}}</span><i :class="{golden: comment.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
               <a @click="dislikeComment(comment.id)"><span>{{comment.dislikes_count}}</span><i :class="{golden: comment.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
               <a @click=" ; $router.push({path : 'replies' , query : {postid : id , commentid : comment.id}  })"><span>{{comment.replies_count}}</span><i class="question_answer"></i></a>
@@ -66,7 +66,7 @@
                 <p dir="auto">{{comment.top_reply.content}}</p>
               </div>
             </div> 
-            <div class="communion">
+            <div class="communion" :class="dirRTL">
               <a @click="likeReply(comment.id)"><span>{{comment.top_reply.likes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'liked'}"  class="outline-thumb_up"></i></a>
               <a @click="dislikeReply(comment.id)"><span>{{comment.top_reply.dislikes_count}}</span><i :class="{golden: comment.top_reply.reaction == 'disliked'}" class="outline-thumb_down"></i></a>
               <a href="#" class="headElements center CMTtime" :class="is_way_L">
@@ -86,7 +86,7 @@
               <textarea
                 dir="auto"
                 class="textarea"
-                :class="textAlgin"
+                :class="dirRTL"
                 :disabled="loading"
                 type="text"
                 v-model="commentTxt"

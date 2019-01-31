@@ -54,7 +54,8 @@
             :placeholder="$t('information.firstName')"
             v-validate="'required|alpha_spaces'"
             name="firstName"
-            :class="[textAlgin, 
+            dir="auto"
+            :class="[dirRTL, 
             { 
               'is-danger': fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false,
               'wrongValue': fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false,
@@ -73,8 +74,9 @@
             name="lastName"
             v-model="userInfo.profile.last_name" 
             type="text"
+            dir="auto"
             :placeholder="$t('information.lastName')"
-            :class="[textAlgin, 
+            :class="[dirRTL, 
             { 
               'is-danger': fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false,
               'wrongValue': fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false,
@@ -93,8 +95,9 @@
             v-validate="'required|alpha_dash'"
             type="text" 
             v-model="userInfo.username" 
+            dir="auto" 
             :placeholder="$t('information.userName')"
-            :class="[textAlgin, 
+            :class="[dirRTL, 
             { 
               'is-danger': fields.username ? !fields.username.valid && fields.username.changed : false,
               'wrongValue': fields.username ? !fields.username.valid && fields.username.changed : false,
@@ -118,8 +121,9 @@
             type="date"
             name="date"
             v-validate = "'date_format:YYY/MM/DD'"
+            dir="auto"
             :placeholder="$t('information.birthday')"
-            :class="[textAlgin, 
+            :class="[dirRTL, 
             { 
               'is-danger': fields.date ? !fields.date.valid && fields.date.changed : false,
               'wrongValue': fields.date ? !fields.date.valid && fields.date.changed : false,
@@ -135,7 +139,7 @@
 
       <div class="field">
         <p class="control" :class="has_icons">
-          <input class="input" :class="textAlgin" type="text" v-model="userInfo.profile.location" :placeholder="$t('information.city')">
+          <input class="input" dir="auto" :class="dirRTL" type="text" v-model="userInfo.profile.location" :placeholder="$t('information.city')">
           <span class="icon is-small" :class="is_way">
             <i class="person_pin_circle"></i>
           </span>
@@ -144,7 +148,7 @@
 
       <div class="field">
         <div class="control">
-          <textarea class="textarea" :class="textAlgin" v-model="userInfo.profile.bio" type="text" :placeholder="$t('information.cv')"></textarea>
+          <textarea class="textarea" dir="auto" :class="dirRTL" v-model="userInfo.profile.bio" type="text" :placeholder="$t('information.cv')"></textarea>
         </div>
       </div>
 

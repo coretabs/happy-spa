@@ -1,21 +1,21 @@
 <template>
   <div id="box-report">
     
-    <h1>اختر سبباً للإبلاغ عن هذا المنشور</h1>
+    <h1>{{$t("report.choose_reason")}}</h1>
     
     <div class="items">
       <input v-model="reason" value="SPAM"  id="item1" type="radio" name="repot">
-      <label for="item1">محتوى عشوائي</label>
+      <label for="item1">{{$t("report.spam")}}</label>
 
       <input v-model="reason" value="VIOLENCE"  id="item2" type="radio" name="repot">
-      <label for="item2">محتوى عنيف</label>
+      <label for="item2">{{$t("report.violence")}}</label>
 
       <input v-model="reason" value="nude"  id="item3" type="radio" name="repot">
-      <label for="item3">عري / محتوى جنسي</label>
+      <label for="item3">{{$t("report.nude")}}</label>
     </div>
 
     <div class="submit-report">
-      <a @click="reportDone" class="close">ارسال</a>
+      <a @click="reportDone" class="close">{{$t("report.send")}}</a>
     </div>
     
   </div>

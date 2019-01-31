@@ -13,7 +13,10 @@
                 <hr>
                 <a @click="isShow=!isShow">{{$t("setting.language")}}</a>
                     <ul v-if="isShow" class="languages" :class="statDirection">
-                        <li class="headElements"  v-for="lang in languages" :key="lang.title" @click="changeLang(lang.language)">{{lang.title}}</li>
+                        <li class="headElements"  v-for="lang in languages" :key="lang.title" @click="changeLang(lang.language)">
+                            <flag :iso="lang.flag" :squared=false /> 
+                            {{lang.title}}
+                        </li>
                     </ul>
                 <hr>
                 <router-link to="/changepassword">{{$t("setting.changePassword")}}</router-link>
@@ -30,30 +33,33 @@
 
 <script>
 import Cookies from 'js-cookie'
+import Vue from 'vue';
 
 export default {
-    name: 'LaguageSwitcher',
     data: () => {
         return {
             languages: [
                 {
                     language: 'ar',
-                    title: 'العربية'
+                    title: 'العربية',
+                    flag: 'sa'
                 },
                 {
                     language: 'en',
-                    title: 'English'
+                    title: 'English',
+                    flag: 'us'
                 }
             ],
             isShow: false,
+            browserLang: ''
         }
     },
     methods : {
         changeLang(lang) {
             this.$i18n.locale = lang;
+            Cookies.set('locale', lang);
             this.isShow = false;
-            console.log(this.$i18n.locale);
-            
+            console.log("i18n.locale = " + this.$i18n.locale);
         }
     },
     'computed': {

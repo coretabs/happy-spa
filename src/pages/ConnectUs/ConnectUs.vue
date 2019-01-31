@@ -1,7 +1,7 @@
 <template>
   <div class="grayContentPage height-max">
 
-    <large-header>تواصل معنا</large-header>
+    <large-header>{{$t("contactUs.contact_us")}}</large-header>
 
     <div class="backList box-shadow main-policy directionRTL">
         <div class="contentPageHeader">
@@ -9,13 +9,15 @@
             <img src="@/../image/world.svg" class="mainPoster">
             
             <div class="field">
-                <div class="control has-icons-right">
+                <div class="control" :class="has_icons_R">
                 <input 
                     class="input"
+                    :class="dirRTL"
+                    dir="auto"
                     type="text" 
-                    placeholder="اسم المستخدم"
+                    :placeholder="$t('contactUs.userName')"
                 >
-                <span class="icon is-small is-right">
+                <span class="icon is-small" :class="is_way_R">
                     <i class="person fontSize20"></i>
                 </span>
                 </div>
@@ -23,9 +25,9 @@
             </div>
 
             <div class="field">
-                <p class="control has-icons-right">
-                    <input class="input" type="email" placeholder="أدخل بريدك الإلكتروني">
-                    <span class="icon is-small is-right">
+                <p class="control" :class="has_icons_R">
+                    <input class="input" :class="dirRTL" dir="auto" type="email" :placeholder="$t('contactUs.email')">
+                    <span class="icon is-small" :class="is_way_R">
                     <i class="mail fontSize18"></i>
                     </span>
                 </p>
@@ -33,7 +35,7 @@
 
             <div class="field">
                 <div class="control">
-                <textarea class="textarea" type="text" placeholder="اكتب ملاحظتك هنا ..."></textarea>
+                <textarea class="textarea" :class="dirRTL" dir="auto" type="text" :placeholder="$t('contactUs.note')"></textarea>
                 </div>
             </div>
 
@@ -41,7 +43,7 @@
                 <div class="field">
                     <p class="control">
                         <button class="button is-success">
-                        حفظ
+                        {{$t("contactUs.send")}}
                         </button>
                     </p>
                 </div>
@@ -51,3 +53,5 @@
     </div>
   </div>
 </template>
+
+<script src='./script.js'></script>

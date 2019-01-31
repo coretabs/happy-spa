@@ -53,12 +53,12 @@ export default {
           .catch(er => {
             if (er.response.status == 404) {
               this.$emit("error", {
-                msg: "المنشور غير موجود او تم حذفه",
+                msg: this.$t('postComments.not_exist'),
                 callback: () => this.$router.push("/home")
               });
             } else {
               this.$emit('error' , {
-                msg : "راسلنا رجاء", 
+                msg : this.$t('postComments.contact_us'), 
                 callback: () => this.$router.push("/more")
               });
             }
@@ -273,9 +273,6 @@ export default {
     }
   },
   'computed': {
-    textAlgin: function () {
-        return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
-    },
     has_icons_R: function () {
       return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';
     },

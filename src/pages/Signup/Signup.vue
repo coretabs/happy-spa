@@ -15,7 +15,7 @@
               dir="auto"
               type="email" 
               :placeholder="$t('signUp.email')"
-              :class="[textAlgin, { 
+              :class="[dirRTL, { 
                 'is-danger': fields['email'] ? !fields['email'].valid && fields['email'].changed : false,
                 'is-success': fields['email'] ? fields['email'].valid && fields['email'].changed : false 
               }]"
@@ -40,7 +40,7 @@
               name="password1"
               dir="auto"
               v-validate="'required|password'" 
-              :class="[textAlgin, { 
+              :class="[dirRTL, { 
                 'is-danger': fields['password1'] ? !fields['password1'].valid && fields['password1'].changed : false,
                 'is-success': fields['password1'] ? fields['password1'].valid && fields['password1'].changed : false 
               }]"
@@ -72,7 +72,7 @@
               :type="passwordType"
               :placeholder="$t('signUp.password')"
               v-validate="{is : password1 , required : true}" 
-              :class="[textAlgin, { 
+              :class="[dirRTL, { 
                 'is-danger': fields['password2'] && fields['password1'] ? !fields['password2'].valid && fields['password1'].valid  && fields['password2'].changed : false,
                 'is-success': fields['password2'] && fields['password1']? fields['password2'].valid && fields['password1'].valid  && fields['password2'].changed : false 
               }]"

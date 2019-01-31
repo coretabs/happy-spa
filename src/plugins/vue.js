@@ -5,7 +5,7 @@ import Overlay from "@/components/overlay";
 import Header from "@/components/header";
 import LargeHeader from "@/components/large-header";
 import Footer from "@/components/footer";
-import Confirm from "@/components/Confirm";
+import Confirm from "@/components/confirm";
 import ResultPost from "@/components/result-post";
 import ResultPerson from "@/components/result-person";
 import PrivacyPolicy from "@/components/privacy-policy";
@@ -14,6 +14,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import VeeValidate from "vee-validate";
 import { EmojiPickerPlugin } from "vue-emoji-picker";
+import FlagIcon from 'vue-flag-icon';
 import "@/api/api";
 
 const Plugins = {
@@ -88,3 +89,4 @@ Vue.use(VeeValidate, {
   events: "keyup"
 });
 Vue.use(EmojiPickerPlugin);
+Vue.use(FlagIcon);

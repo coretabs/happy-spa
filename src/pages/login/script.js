@@ -49,13 +49,13 @@ export default {
           })
           .catch(er => {
             this.$emit('error' , {
-              msg : "الرجاء التحقق من اسم المستخدم وكلمة المرور",  
+              msg : this.$t('logIn.check'),  
             })
             this.loading = false;
           })
       } else {
         this.$emit('error' , {
-          msg : "كل من المستخدم و كلمة المرور مطلوبان"
+          msg : this.$t('logIn.required')
         })
       }
     }
@@ -68,8 +68,8 @@ export default {
     }
   },
   'computed': {
-    textAlgin: function () {
-      return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+    dirRTL: function() {
+      return this.$i18n.locale == "ar" ? "directionRTL" : "directionLTR";
     },
     has_icons_R: function () {
       return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';

@@ -124,16 +124,16 @@
             <textarea
               dir="auto"
               class="textarea"
-              :class="textAlgin"
+              :class="dirRTL"
               :disabled="loading"
               type="text"
               v-model="replyTxt"
               rows="1"
-              :placeholder="$t('replies.report')"
+              :placeholder="$t('replies.writePost')"
             ></textarea>
             <div class="leftTextarea" :class="is_way_L">
               <a @click="addReply" class="icon is-small">
-                <i class="keyboard_arrow_left fontSize20" :class="rotateSendIcon"></i>
+                <i class="keyboard_arrow_left fontSize20" :style="rotateSendIcon"></i>
               </a>
               <a v-if="false" class="icon is-small">
                 <i class="sentiment_satisfied fontSize20"></i>

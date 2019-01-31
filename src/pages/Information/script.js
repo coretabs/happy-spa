@@ -80,8 +80,8 @@ export default {
     }
   },
   'computed': {
-      textAlgin: function () {
-          return (this.$i18n.locale == 'ar') ? 'txtR' : 'txtL';
+      dirRTL: function() {
+        return this.$i18n.locale == "ar" ? "directionRTL" : "directionLTR";
       },
       has_icons: function () {
         return (this.$i18n.locale == 'ar') ? 'has-icons-right' : 'has-icons-left';

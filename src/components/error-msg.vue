@@ -4,7 +4,7 @@
       <i class="report"></i>
     </span>
     <h2>{{errorMsg}}</h2>
-    <a @click="closeError()" class="close">Close</a>
+    <a @click="closeError()" class="close">{{$t("error_msg.close")}}</a>
   </div>
 </template>
 
