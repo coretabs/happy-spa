@@ -21,7 +21,7 @@ export default {
     })
   }),
   getSocial : () => new Promise ( (resolve , reject) => {
-    axios.get(`/api/v1/social/`)
+    axios.get(`/api/v1/auth/user/links`)
     .then (res => {
       resolve(res.data)
     }).catch(err => {
@@ -29,8 +29,8 @@ export default {
       console.log(err.response)
     })
   }),
-  deleteSocial : id => new Promise ( (resolve , reject) => {
-    axios.delete(`/api/v1/social/${id}`)
+  editSocial : links => new Promise ( (resolve , reject) => {
+    axios.put(`/api/v1/auth/user/links/` , links)
     .then (res => {
       resolve(res.data)
     }).catch(err => {
@@ -38,8 +38,4 @@ export default {
       console.log(err.response)
     })
   }),
-  addSocial : link => new  Promise ( (resolve , reject) => { 
-    
-  })
-
 }

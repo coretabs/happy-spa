@@ -26,7 +26,7 @@
                   class="personName"
                 >{{ comment.author }}</router-link>
               </div>
-              <div class="personMenu" :style="menuWay">
+              <div class="personMenu" v-if="false"  :style="menuWay">
                 <div v-if="comment.author == username" class="myMenu">
                   <a @click="commentMenu(comment.id)" class="left whiteGray">
                     <i class="more_vert"></i>
@@ -79,7 +79,7 @@
               </router-link>
               <router-link :to="`/profile?id=${reply.author}`" class="personName">{{ reply.author }}</router-link>
             </div>
-            <div class="personMenu" :style="menuWay">
+            <div class="personMenu" v-if="false"  :style="menuWay">
               <div v-if="reply.author == username" class="myMenu">
                 <a @click="commentReplyMenu(reply.id)" class="left whiteGray">
                   <i class="more_vert"></i>

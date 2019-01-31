@@ -29,8 +29,8 @@
             </div>
           </div>
           <hr>
-          <div class="mySocial center" v-if="user.profile.link.length != 0">
-            <a v-for="link in fillteredLinks" :href="link.link">
+          <div class="mySocial center" v-if="fillteredLinks.length > 0">
+            <a v-for="link in fillteredLinks" :href="link.link" v-if="link.link">
               <i class="social-fa">{{link.app}}</i>
             </a>
           </div>
@@ -174,7 +174,7 @@
                       class="personName"
                     >{{post.top_comment.author}}</router-link>
                   </div>
-                  <div class="personMenu" :style="menuWay">
+                  <div class="personMenu" v-if="false"  :style="menuWay">
                     <div class="myMenu">
                       <a class="left whiteGray">
                         <i class="more_vert"></i>

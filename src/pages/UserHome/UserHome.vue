@@ -144,7 +144,7 @@
                       class="personName"
                     >{{post.top_comment.author}}</router-link>
                   </div>
-                  <div class="personMenu" :style="menuWay">
+                  <div class="personMenu" v-if="false"  :style="menuWay">
                     <div class="myMenu">
                       <a class="left whiteGray">
                         <i class="more_vert"></i>

@@ -21,7 +21,7 @@
                     <router-link :to="`/profile?id=${comment.author}`" class="personName">{{comment.author}}</router-link>
                 </div>
                 
-                <div class="personMenu" :style="menuWay">
+                <div class="personMenu" v-if="false"  :style="menuWay">
                     <div v-if="comment.author == username" class="myMenu" :class="[dirRTL, is_way_L]">
                         <a @click="commentMenu(comment.id)" class="whiteGray">
                             <i class="more_vert"></i>

@@ -221,24 +221,12 @@ export default {
   },
   watch: {
     links: function(newLinks) {
-      this.links.forEach(link => {
-        switch (Object.keys(link)[0]) {
-          case "FB":
-            this.fillteredLinks.push({ app: "F", link: link.FB });
-            break;
-
-          case "IG":
-            this.fillteredLinks.push({ app: "I", link: link.IG });
-            break;
-
-          case "YT":
-            this.fillteredLinks.push({ app: "Y", link: link.YT });
-            break;
-
-          default:
-            break;
-        }
-      });
+      for (let lnk in this.links) {
+        this.fillteredLinks.push ({
+          app : lnk == 'facebook' ? 'facebook2' : lnk,
+          link: this.links[lnk]
+        }) 
+      }
     }
   },
   computed: {

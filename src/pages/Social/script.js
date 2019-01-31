@@ -1,40 +1,42 @@
+import Cookies from "js-cookie";
 export default {
   data: () => {
     return {
       links: {
-        IG: "",
-        FB: "",
-        YT: ""
+        facebook: "",
+        twitter: "",
+        youtube: "",
+        instagram: ""
       },
-      ids: {},
+      apps: {
+        fb: "facebook",
+        tw: "twitter",
+        yt: "youtube",
+        ig: "instagram"
+      },
       count: 0,
-      socialApps: [
-        { app: "YouTube", key: "YT" },
-        { app: "FaceBook", key: "FB" },
-        { app: "InstaGram", key: "IG" }
-      ],
-      loading: true,
+      loading: true
     };
   },
   methods: {
     getLinks() {
       this.$api.user.getSocial().then(re => {
         this.loading = false;
-        if (re.length > 0) {
-          re.forEach(link => {
-            this.links[link.social_app] = link.social_link;
-            this.ids[link.social_app] = link.id;
-            this.count++;
-          });
-        }
+        this.links = re;
       });
     },
-    deleteLink(id, app) {
-      if (id) {
-        this.$api.user.deleteSocial(id);
-        this.links[app] = "";
-      }
-    },  
+    deleteLink(link) {
+      this.links[link] = "";
+    },
+    saveLinks() {
+      this.loading= true
+      let user = Cookies.getJSON("logedinUser");
+      this.$api.user.editSocial(this.links).then(re => {
+        this.loading= false
+        user.user.profile.link = re;
+        Cookies.set("logedinUser", user);
+      });
+    }
   },
   created() {
     this.getLinks();
