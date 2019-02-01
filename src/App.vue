@@ -1,6 +1,7 @@
 <template>
   <div>
     <error-msg :closeError="closeError" :errorMsg="error.msg" :class="{'block' : error.box}"></error-msg>
+    <alert-msg :closeAlert="closeAlert" :alertMsg="alert.msg" :class="{'block' : alert.box}"></alert-msg>
     <report :class="{'block' : report.box}" :closeReport="closeReport" :postid="report.postid"></report>
     <confirm
       :class="{'block' : confirm.box}"
@@ -14,6 +15,8 @@
       :closeReport="closeReport"
       :error="error.box"
       :closeError="closeError"
+      :alert="alert.box"
+      :closeAlert="closeAlert"
       :confirm="confirm.box"
       :closeConfirm="closeConfirm"
     ></overlay>
@@ -22,6 +25,7 @@
         class="relative"
         @openReport="reportClick($event)"
         @error="errorClick($event)"
+        @alert="alertClick($event)"
         @confirm="confirmClick($event)"
         :class="{'nopostblur' : box }"
       />
@@ -41,6 +45,11 @@ export default {
         postid: ""
       },
       error: {
+        box: false,
+        msg: "",
+        callback: ""
+      },
+      alert: {
         box: false,
         msg: "",
         callback: ""
@@ -68,6 +77,13 @@ export default {
       this.error.msg = opt.msg;
       this.error.callback = opt.callback;
     },
+    alertClick(opt) {
+      this.box = true;
+      this.$scroll.deny();
+      this.alert.box = true;
+      this.alert.msg = opt.msg;
+      this.alert.callback = opt.callback;
+    },
     confirmClick(opt) {
       this.box = true;
       this.$scroll.deny();
@@ -84,6 +100,11 @@ export default {
       this.error.box = false;
       this.box = false;
       this.error.callback ? this.error.callback() : "";
+    },
+    closeAlert() {
+      this.alert.box = false;
+      this.box = false;
+      this.alert.callback ? this.alert.callback() : "";
     },
     closeConfirm() {
       this.confirm.box = false;

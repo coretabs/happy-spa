@@ -1,6 +1,7 @@
 import VueDataLoading from "@/components/vue-data-loading";
 import Report from "@/components/report";
 import ErrorMsg from "@/components/error-msg";
+import AlertMsg from "@/components/alert-msg";
 import Overlay from "@/components/overlay";
 import Header from "@/components/header";
 import LargeHeader from "@/components/large-header";
@@ -22,6 +23,7 @@ const Plugins = {
     Vue.component("VueDataLoading", VueDataLoading);
     Vue.component("Report", Report);
     Vue.component("ErrorMsg", ErrorMsg);
+    Vue.component("AlertMsg", AlertMsg);
     Vue.component("Confirm", Confirm);
     Vue.component("Overlay", Overlay);
     Vue.component("app-header", Header);

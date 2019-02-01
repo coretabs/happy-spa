@@ -41,7 +41,7 @@ export default {
             });
         } else {
           this.$emit('error' , {
-            msg : 'جميع الحقول مطلوبة', 
+            msg : this.$t('signUp.fields_required'), 
           });
           this.button = this.errors.items.length != 0;
         }
