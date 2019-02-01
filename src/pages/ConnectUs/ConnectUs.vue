@@ -11,23 +11,41 @@
             <div class="field">
                 <div class="control" :class="has_icons_R">
                 <input 
-                    class="input"
-                    :class="dirRTL"
+                    class="input" 
+                    name="username" 
+                    v-model="username" 
+                    v-validate="'required|alpha_dash|min:3'" 
+                    :class="[dirRTL, 
+                        { 
+                        'is-danger': fields.username ? !fields.username.valid && fields.username.changed : false,
+                        'wrongValue': fields.username ? !fields.username.valid && fields.username.changed : false,
+                        'is-success': fields.username ? fields.username.valid && fields.username.changed : false 
+                        }]" 
                     dir="auto"
                     type="text" 
                     :placeholder="$t('contactUs.userName')"
-                    v-model="username"
                 >
                 <span class="icon is-small" :class="is_way_R">
                     <i class="person fontSize20"></i>
                 </span>
                 </div>
-                <p v-if="fields.username ? !fields.username.valid && fields.username.changed : false" class="help is-danger">{{$t('contactUs.characters')}}</p>
+                <p v-if="fields.username ? !fields.username.valid && fields.username.changed : false" class="help is-danger">{{$t('contactUs.characters3')}}</p>
             </div>
 
             <div class="field">
                 <p class="control" :class="has_icons_R">
-                    <input class="input" :class="dirRTL" dir="auto" type="email" :placeholder="$t('contactUs.email')" v-model="email">
+                    <input class="input" 
+                    v-validate="'required|email'" 
+                    name="email" 
+                    :class="[dirRTL, { 
+                        'is-danger': fields['email'] ? !fields['email'].valid && fields['email'].changed : false,
+                        'is-success': fields['email'] ? fields['email'].valid && fields['email'].changed : false 
+                    }]" 
+                    dir="auto" 
+                    type="email" 
+                    :placeholder="$t('contactUs.email')" 
+                    v-model="email" 
+                    >
                     <span class="icon is-small" :class="is_way_R">
                     <i class="mail fontSize18"></i>
                     </span>
@@ -35,9 +53,35 @@
             </div>
 
             <div class="field">
-                <div class="control">
-                <textarea class="textarea" :class="dirRTL" dir="auto" type="text" :placeholder="$t('contactUs.note')" v-model="message"></textarea>
+                <div class="control subject" :class="has_icons_R">
+                <div class="select is-rounded" :class="dirRTL">
+                    <select class=" fullWidth" v-model="title">
+                        <option>{{$t('contactUs.subjects.forgot_password')}}</option>
+                        <option>{{$t('contactUs.subjects.activation')}}</option>
+                        <option>{{$t('contactUs.subjects.Other')}}</option>
+                    </select>
                 </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                <textarea 
+                class="textarea" 
+                v-validate="'required|alpha_dash|min:3'" 
+                name="textarea"
+                :class="[dirRTL, 
+                    { 
+                    'is-danger': fields.textarea ? !fields.textarea.valid && fields.textarea.changed : false,
+                    'wrongValue': fields.textarea ? !fields.textarea.valid && fields.textarea.changed : false,
+                    'is-success': fields.textarea ? fields.textarea.valid && fields.textarea.changed : false 
+                    }]" 
+                dir="auto" 
+                type="text" 
+                :placeholder="$t('contactUs.note')" 
+                v-model="message"
+                ></textarea>
+                </div>
+                <p v-if="fields.textarea ? !fields.textarea.valid && fields.textarea.changed : false" class="help is-danger">{{$t('contactUs.characters3')}}</p>
             </div>
 
             <footer class="lastDivision borderRadius50 width80 orderFooterBottom">    

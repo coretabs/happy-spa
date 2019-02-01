@@ -63,7 +63,7 @@
             }]"
           >
         </div>
-        <p v-if="fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false" class="help is-danger">يجب ان لا يقل الأسم عن 3 احرف</p>
+        <p v-if="fields.firstName ? !fields.firstName.valid && fields.firstName.changed : false" class="help is-danger">{{$t('information.characters')}}</p>
       </div>
 
       <div class="field">
@@ -84,7 +84,7 @@
             }]"
           >
         </div>
-        <p v-if="fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false" class="help is-danger">يجب ان لا يقل الأسم عن 3 احرف</p>
+        <p v-if="fields.lastName ? !fields.lastName.valid && fields.lastName.changed : false" class="help is-danger">{{$t('information.characters')}}</p>
       </div>
 
       <div class="field">
@@ -108,7 +108,7 @@
             <i class="person fontSize20"></i>
           </span>
         </div>
-        <p v-if="fields.username ? !fields.username.valid && fields.username.changed : false" class="help is-danger">يجب ان لا يقل عن 3 احرف</p>
+        <p v-if="fields.username ? !fields.username.valid && fields.username.changed : false" class="help is-danger">{{$t('information.characters')}}</p>
       </div>
 
       <div class="field">

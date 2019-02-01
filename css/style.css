@@ -469,6 +469,7 @@ header a i {
 }
 
 .contentPageHeader input,
+.subject .select select,
 .contentPageHeader .icon,
 .contentPageHeader .control button,
 .footer .control button,
@@ -766,7 +767,8 @@ header a i {
   font-size: 12px;
 }
 
-.linkSSM .select {
+.linkSSM .select,
+.subject .select {
   height: 3rem !important;
   width: 100%;
 }

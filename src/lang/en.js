@@ -149,7 +149,8 @@ export const en = {
         userName: 'user name',
         birthday: 'birthday',
         city: 'city',
-        cv: '... Type your curriculum vitae'
+        cv: '... Type your curriculum vitae',
+        characters: 'Must be at least 3 characters',
     },
     manageEmail: {
         manageE_mail: 'manage email',
@@ -184,7 +185,13 @@ export const en = {
         send: 'send',
         required: 'Both your username and email and your note are required',
         check: 'Please check your username and email address',
-        characters: 'Must be at least 3 characters',
-        thx: 'Thanks for contacting us'
+        characters3: 'Must be at least 3 characters',
+        characters6: 'Must be at least 6 characters',
+        thx: 'Thanks for contacting us',
+        subjects: {
+            forgot_password: 'I forgot the password',
+            activation: 'I did not receive the activation message',
+            Other: 'Other'
+        }
     }
 }

@@ -6,6 +6,7 @@ export default {
       username: "",
       email: "",
       message: "",
+      title: "",
       content: {},
       loading: false,
     }
@@ -18,6 +19,7 @@ export default {
         this.content = {
           name: this.username,
           email: this.email,
+          subject: this.title,
           body: this.message
         };
         this.$api.auth
@@ -47,8 +49,6 @@ export default {
     if (Cookies.getJSON("logedinUser")) {
       this.username = Cookies.getJSON("logedinUser").user.username;
       this.email = Cookies.getJSON("logedinUser").user.email;
-    } else {
-      this.$router.push(`/login`);
     }
   },
   computed: {

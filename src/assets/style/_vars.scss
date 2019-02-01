@@ -150,6 +150,15 @@ $auto: auto;
     outline: 0px solid $gray-color;
   }
 
+/*   ***** connect us *****   */
+
+.select:not(.is-multiple):not(.is-loading):hover::after {
+    border-color: $gray-color
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: $normal-color
+}
+
 /*   ***** vars *****   */
 .txtR {
     text-align: $right;
