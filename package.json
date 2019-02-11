@@ -24,13 +24,13 @@
     "sass-loader": "^7.1.0",
     "serve-static": "^1.13.2",
     "vee-validate": "^2.1.1",
-    "vue": "^2.5.17",
+    "vue": "^2.6.5",
     "vue-emoji-picker": "^1.0.1",
     "vue-flag-icon": "^1.0.6",
     "vue-i18n": "^8.7.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "yarn": "^1.10.1"
+    "vuetify": "^1.5.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -97,7 +97,7 @@
     "url-loader": "^1.1.2",
     "vue-loader": "^13.7.3",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.17",
+    "vue-template-compiler": "^2.6.5",
     "webpack": "^3.12.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-cli": "^3.1.2",

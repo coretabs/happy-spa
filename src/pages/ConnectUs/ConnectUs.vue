@@ -63,6 +63,23 @@
                 </div>
                 </div>
             </div>
+
+            <div class="field" v-if="title == 'غير ذلك'">
+                <p class="control" :class="has_icons_R">
+                    <input class="input" 
+                    v-validate="'required|alpha'" 
+                    name="title" 
+                    :class="[dirRTL, { 
+                        'is-danger': fields['title'] ? !fields['title'].valid && fields['title'].changed : false,
+                        'is-success': fields['title'] ? fields['title'].valid && fields['title'].changed : false 
+                    }]" 
+                    dir="auto" 
+                    type="text" 
+                    v-model="usrTitle" 
+                    >
+                </p>
+            </div>
+
             <div class="field">
                 <div class="control">
                 <textarea 
@@ -84,10 +101,11 @@
                 <p v-if="fields.textarea ? !fields.textarea.valid && fields.textarea.changed : false" class="help is-danger">{{$t('contactUs.characters3')}}</p>
             </div>
 
+            
             <footer class="lastDivision borderRadius50 width80 orderFooterBottom">    
                 <div class="field">
                     <p class="control">
-                        <button class="button is-success" :class="{'is-loading' : loading }" :disabled='loading' @click="sendContact">
+                        <button class="button is-success" :class="{'is-loading' : loading }" :disabled='loading || fields.textarea ? !fields.textarea.valid && fields.textarea.changed : false' @click="sendContact">
                         {{$t("contactUs.send")}}
                         </button>
                     </p>

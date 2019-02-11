@@ -16,6 +16,7 @@ import Cookies from "js-cookie";
 import VeeValidate from "vee-validate";
 import { EmojiPickerPlugin } from "vue-emoji-picker";
 import FlagIcon from 'vue-flag-icon';
+import Vuetify from 'vuetify';
 import "@/api/api";
 
 const Plugins = {
@@ -92,3 +93,4 @@ Vue.use(VeeValidate, {
 });
 Vue.use(EmojiPickerPlugin);
 Vue.use(FlagIcon);
+Vue.use(Vuetify);
