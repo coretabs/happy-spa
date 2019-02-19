@@ -17,6 +17,7 @@ import VeeValidate from "vee-validate";
 import { EmojiPickerPlugin } from "vue-emoji-picker";
 import FlagIcon from 'vue-flag-icon';
 import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css'
 import "@/api/api";
 
 const Plugins = {
@@ -93,4 +94,11 @@ Vue.use(VeeValidate, {
 });
 Vue.use(EmojiPickerPlugin);
 Vue.use(FlagIcon);
-Vue.use(Vuetify);
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#3f51b5',
+    secondary: '#b0bec5',
+    accent: '#8c9eff',
+    error: '#b71c1c'
+  }
+});

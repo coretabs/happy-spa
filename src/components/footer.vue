@@ -1,33 +1,27 @@
 <template>
-  <footer class="bottomFooter box-shadow">
-    <ul>
-      <li>
-        <router-link :class="{actieFooterLink: this.home == 'isHome'}" to="/home" v-if>
-          <i class="home fontSize30"></i>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="#">
-          <i class="notifications fontSize30"></i>
-        </router-link>
-      </li>
-      <li>
-        <router-link :class="{actieFooterLink: this.newpost == 'isNewpost'}" to="/newpost">
-          <i class="add_box fontSize30"></i>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="#">
-          <i class="explore fontSize28"></i>
-        </router-link>
-      </li>
-      <li>
-        <router-link :class="{actieFooterLink: this.profile == 'isProfile'}" to="/profile">
-          <i class="person fontSize30"></i>
-        </router-link>
-      </li>
-    </ul>
-  </footer>
+  <v-footer z-index="60" height="50" app inset class="box-shadow white">
+    <v-layout
+      justify-center
+      row
+      wrap
+    >
+      <v-btn flat inset @click="$router.push('/home')" v-if>
+        <i :class="activeHome" class="home fontSize30"></i>
+      </v-btn>
+      <v-btn flat @click="$router.push('#')">
+        <i class="notifications fontSize30 blue-grey--text lighten-3"></i>
+      </v-btn>
+      <v-btn flat @click="$router.push('/newpost')">
+        <i :class="activeNewpost" class="add_box fontSize30"></i>
+      </v-btn>
+      <v-btn flat @click="$router.push('#')">
+        <i class="explore fontSize28 blue-grey--text lighten-3"></i>
+      </v-btn>
+      <v-btn flat @click="$router.push('/profile')">
+        <i :class="activeProfile" class="person fontSize30"></i>
+      </v-btn>
+    </v-layout>
+  </v-footer>
 </template>
 
 <script>
@@ -35,8 +29,40 @@ export default {
   props: ["home", "newpost", "profile", "isAvatar"],
   data() {
     return {
-      footerChat: false
+      footerChat: false,
     };
+  },
+  computed: {
+    activeHome() {
+      return this.home == 'isHome' 
+        ? 'yellow--text accent-3'
+        : 'blue-grey--text lighten-3'
+    },
+    activeNewpost() {
+      return this.newpost == 'isNewpost'
+        ? 'yellow--text accent-3'
+        : 'blue-grey--text lighten-3'
+    },
+    activeProfile() {
+      return this.profile == 'isProfile'
+        ? 'yellow--text accent-3'
+        : 'blue-grey--text lighten-3'
+    }
   }
-};
+}
 </script>
+
+<style lang="scss">
+    @import '../assets/style/vars';
+
+    footer {
+      z-index: 60!important;
+      .layout {
+        button {
+          height: 50px;
+          margin: 0;
+          width: 20%;
+        }
+      }
+    }
+</style>

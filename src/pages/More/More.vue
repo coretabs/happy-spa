@@ -9,7 +9,7 @@
                 <hr>
                 <li><router-link v-if='false' to="#" class="headElements"><i class="bookmark_border fontSize24"></i>العناصر المحفوظة</router-link></li>
                 <hr v-if='false'>
-                <li><a @click="chatra" class="headElements">{{$t("more.connectUs")}}</a></li>
+                <li><router-link to="/connect-us" class="headElements">{{$t("more.connectUs")}}</router-link></li>
                 <hr>
                 <li><router-link to="/privacy-policy" class="headElements">{{$t("more.terms")}}</router-link></li>
                 <hr>

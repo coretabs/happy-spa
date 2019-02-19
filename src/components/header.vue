@@ -1,17 +1,21 @@
 <template>
-    <header class="topHeader box-shadow">
-        <router-link to="/more" class="left" v-if="mainMenu">
-            <i class="more_vert"></i>
-        </router-link>
-        <a @click="$router.go(-1)" v-if="backArrow">
-            <i class="arrow_forward"></i>
-        </a>
-        <img src="@/../image/grinn.svg" v-if="logo">
-        <p v-if="Setting">{{$t("setting.settings")}}</p>
-        <button @click="newPostSend" :disabled="buttonOptions" class="share" v-if="share">
+    <v-toolbar app height="50" class="box-shadow white">
+        <v-spacer></v-spacer>
+        <v-btn icon class="btn-icon" @click="$router.go(-1)" v-if="backArrow">
+            <i class="arrow_forward text-bold fontSize30"></i>
+        </v-btn>
+        <img class="grinn" src="@/../image/grinn.svg" v-if="logo">
+        <v-toolbar-title>
+            <p class="center" v-if="Setting">{{$t("setting.settings")}}</p>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn flat dark small round @click="newPostSend" :disabled="buttonOptions" class="share fontSize18 yellow accent-3" v-if="share">
             {{$t("newPost.share")}}
-        </button>
-    </header>
+        </v-btn>
+        <v-btn flat fab small @click="$router.push('/more')" class="left header-menu" v-if="mainMenu">
+            <i class="more_vert fontSize30"></i>
+        </v-btn>
+    </v-toolbar>
 </template>
 
 <script>
@@ -60,3 +64,46 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+    @import '../assets/style/vars';
+
+    nav {
+        z-index: 60!important;
+        .v-toolbar__content {
+            .btn-icon {
+                position: fixed;
+                margin: $auto;
+                font-weight: bold;
+                color: $dark-blue-color;
+                cursor: pointer;
+                z-index: 5;
+            }
+            .grinn {
+                position: fixed;
+                left: 0;
+                right: 0;
+                height: inherit;
+                width: 3em;
+                margin: auto;
+            }
+            .share {
+                margin: 0;
+                cursor: pointer;
+                z-index: 5;
+            }
+            .header-menu {
+                margin: 0;
+            }
+        }
+        .v-toolbar__title {
+            margin: $auto;
+            p {
+                margin: $auto;
+                font-weight: bold;
+                color: $dark-blue-color;
+            }
+        }
+    }
+
+</style>
