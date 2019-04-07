@@ -29,12 +29,14 @@ export default {
       this.links[link] = "";
     },
     saveLinks() {
-      this.loading= true
+      this.loading= true;
       let user = Cookies.getJSON("logedinUser");
       this.$api.user.editSocial(this.links).then(re => {
         this.loading= false
         user.user.profile.link = re;
         Cookies.set("logedinUser", user);
+        console.log(re);
+        console.log(user);
       });
     }
   },

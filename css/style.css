@@ -23,6 +23,10 @@ body::-webkit-scrollbar-thumb {
   outline: 0px solid #b0bec5;
 }
 
+:after, :before {
+  vertical-align: initial !important;
+}
+
 header,
 footer,
 a,
@@ -466,6 +470,9 @@ header a i {
 .lastDivision .control button.is-success:focus:not(:active),
 .button.is-success[disabled] {
   box-shadow: 0 0 0 0.125em rgb(255, 230, 0);
+}
+.lastDivision .control {
+  margin-bottom: 0;
 }
 
 .contentPageHeader input,
@@ -1131,7 +1138,7 @@ hr {
   display: inherit;
   color: #142833;
   background-color: white;
-  padding: 5px 8px;
+  padding: 7px 9px;
   border-radius: 50%;
 }
 
@@ -1794,6 +1801,7 @@ hr {
   padding-right: 3em;
   padding-left: 3em;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .chat a {

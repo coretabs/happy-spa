@@ -33,7 +33,7 @@
             </div>
             <div class="myImage" :class="dirRTL">
               <input type="file" @change="uploadFile($event)" accept="image/gif">
-              <a href="#" style="padding: 0 2px;">
+              <a href="#" style="padding: 2px;">
                 <i class="gif" style="font-size: 36px;"></i>
               </a>
               <p>{{$t("newPost.gif")}}</p>

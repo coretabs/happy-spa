@@ -130,9 +130,6 @@
               'is-success': fields.date ? fields.date.valid && fields.date.changed : false
             }]"
           >
-          <span class="icon is-small" :class="is_way">
-            <i class="date_range fontSize18"></i>
-          </span>
         </p>
         <p v-if="fields.date ? !fields.date.valid && fields.date.changed : false" class="help is-danger"> أدخل تاريخ صالح من فضلك </p>
       </div>
