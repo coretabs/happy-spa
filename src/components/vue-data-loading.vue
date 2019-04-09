@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import Cookies from "js-cookie";
 export default {
   props: {
     loading: {
@@ -100,7 +101,8 @@ export default {
 
       PULL_UP: "pull-up",
       PULL_DOWN: "pull-down",
-      INFINITE_SCROLL: "infinite-scroll"
+      INFINITE_SCROLL: "infinite-scroll",
+      count: 0,
     };
   },
   computed: {
@@ -130,6 +132,7 @@ export default {
         top,
         bottom: window.innerHeight - (height + top + this.offset)
       };
+      
     },
     setLoadingType(type = null) {
       this.loadingType = type;

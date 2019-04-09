@@ -32,8 +32,11 @@ export default {
         Cookies.getJSON("logedinUser").user.username == this.$route.query.id
       ) {
         this.user = Cookies.getJSON("logedinUser").user;
-        this.links = Cookies.getJSON("logedinUser").user.profile.link;
+        //this.links = Cookies.getJSON("logedinUser").user.profile.link;
         this.loading = false;
+        this.$api.user.getSocial().then(re => {
+          this.links = re;
+        });
       } else {
         this.$api.user
           .profile(this.$route.query.id)
