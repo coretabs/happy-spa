@@ -93,7 +93,7 @@
                   class="class wrongValue"
                 >{{$t("userHome.delete")}}</a>
                 <hr v-if="post.author == username">
-                <a class="class" @click="$emit('openReport' , post.id)">{{$t("userHome.report")}}</a>
+                <a class="class" v-if="post.author != username" @click="$emit('openReport' , post.id)">{{$t("userHome.report")}}</a>
               </div>
               <div class="personPost" :class="[is_way_R, dirRTL]">
                 <router-link :to="`/profile?id=${post.author}`">

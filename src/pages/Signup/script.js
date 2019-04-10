@@ -51,7 +51,7 @@ export default {
   created() {
     if (Cookies.getJSON("logedinUser")) {
       this.$router.push(
-        `/profile?id=${Cookies.getJSON("logedinUser").user.username}/`
+        `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
       );
     }
   },

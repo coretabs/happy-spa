@@ -279,6 +279,15 @@ img {
   }
 }
 
+#overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+}
+
 /*                   footer home page                */
 
 .footer {
@@ -305,7 +314,8 @@ img {
   font-weight: bold;
   font-size: 20px;
   border-radius: 50px;
-  padding: 7.5px 42%;
+  padding: 10px 0;
+  display: block;
 }
 
 .paraFooter {
@@ -335,40 +345,6 @@ img {
 /*           ****** sign in page ******               */
 
 /*                  main sign in                       */
-
-.mianHeader {
-  width: 100%;
-}
-
-.mianHeader img {
-  width: 100%;
-  height: 180px;
-}
-
-.mianHeader a {
-  position: absolute;
-  color: #142833;
-  margin-right: 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  z-index: 5;
-}
-
-.mianHeader a i,
-header a i {
-  font-size: 30px !important;
-  font-weight: bold !important;
-}
-
-.mianHeader p {
-  width: 100%;
-  text-align: center;
-  color: #142833;
-  font-size: 25px;
-  position: absolute;
-  padding-top: 50px;
-  font-weight: bold;
-}
 
 .fontSize12 {
   font-size: 12px !important;

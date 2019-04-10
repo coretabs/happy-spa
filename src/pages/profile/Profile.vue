@@ -9,7 +9,7 @@
         <app-header a2="menu" a3="image"></app-header>
         <div class="backList box-shadow" v-if="user">
           <div class="aboutMe center">
-            <a :href="user.avatar_url">
+            <a>
               <img :src="user.avatar_url">
             </a>
             <h1 id="h">{{user.profile.displayed_name}}</h1>
@@ -123,7 +123,7 @@
                   class="class wrongValue"
                 >{{$t("profile.delete")}}</a>
                 <hr v-if="post.author == username">
-                <a class="class" @click="$emit('openReport' , post.id)">{{$t("profile.report")}}</a>
+                <a class="class" v-if="post.author != username" @click="$emit('openReport' , post.id)">{{$t("userHome.report")}}</a>
               </div>
               <div class="personPost" :class="[is_way_R, dirRTL]">
                 <router-link :to="`/profile?id=${post.author}`">
