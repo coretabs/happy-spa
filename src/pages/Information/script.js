@@ -1,4 +1,3 @@
-
 import Cookies from 'js-cookie'
 export default {
   data: () => {
@@ -18,7 +17,7 @@ export default {
       previweUrl: '',
       inf: new FormData(),
       disable: this.errors ? this.errors.items.length != 0 : false,
-      loading : false
+      loading : false,
     }
   },
   methods: {

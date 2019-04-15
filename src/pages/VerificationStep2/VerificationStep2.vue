@@ -28,3 +28,22 @@
 
     </div>
 </template>
+
+<script>
+import Cookies from 'js-cookie'
+export default {
+    data: () => {
+        return {
+
+        };
+    },
+    methods: {
+        
+    },
+    created() {
+        if (Cookies.getJSON('logedinUser').user.email_status) {
+            this.$router.push(`/profile`);
+        }
+    }
+}
+</script>

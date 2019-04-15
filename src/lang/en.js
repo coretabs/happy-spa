@@ -1,4 +1,8 @@
 export const en = {
+    mixins: {
+        CHKfull_name: 'please write your first name and last name',
+        verification: 'Please activate your email address'
+    },
     home: {
         applicationIdea_1: 'Have fun conversations with your friends on your computer and phone',
         applicationIdea_2: 'Available on many basic systems',

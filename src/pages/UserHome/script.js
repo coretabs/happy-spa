@@ -1,6 +1,8 @@
+import {check_email_status} from '@/mixins/check';
 import Cookies from "js-cookie";
 
 export default {
+  mixins: [check_email_status],
   data: () => {
     return {
       posts: "",

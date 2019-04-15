@@ -1,7 +1,9 @@
+import {check_email_status} from '@/mixins/check'
 import Cookies from "js-cookie";
 import EmojiPicker from "vue-emoji-picker";
 
 export default {
+  mixins: [check_email_status],
   data: () => {
     return {
       username: "",

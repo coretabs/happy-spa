@@ -1,4 +1,8 @@
 export const ar = {
+    mixins: {
+        CHKfull_name: 'الرجاء كتابة اسمك الاول و الاخير',
+        verification: 'الرجاء تفعيل بريدك الالكتروني'
+    },
     home: {
         applicationIdea_1: 'تمتع بإجراء محادثات مع اصدقائك على الكمبيوتر والهاتف',
         applicationIdea_2: 'متاح على العديد من الانظمة الاساسية',
