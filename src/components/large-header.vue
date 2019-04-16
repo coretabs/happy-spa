@@ -22,7 +22,7 @@
     .mianHeader {
         background: none;
         box-shadow: none;
-        margin-bottom: 50px;
+        margin-bottom: 100px;
         .v-toolbar__content {
             padding: 0;
             button {

@@ -91,16 +91,5 @@ export default {
     },
     created() {
         this.search = this.$route.query.result;
-    },
-    /*mounted() {
-        var self = this;
-        axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(res => {
-            self.results =res.data;
-            console.log('Data ', res.data);
-        })
-        .catch(err => {
-            console.log('Error ',err.response);
-        })
-    }, */
+    }
 }

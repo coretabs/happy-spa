@@ -2,8 +2,8 @@ import {check_email_status} from '@/mixins/check';
 import Cookies from "js-cookie";
 
 export default {
-  mixins: [check_email_status],
   name: "Profile",
+  mixins: [check_email_status],
   data() {
     return {
       user: "",
@@ -212,17 +212,16 @@ export default {
   },
   created() {
     if (this.$route.query.id) {
-      this.getInfo();
-      this.getPosts(false, true);
-    } else if (Cookies.getJSON("logedinUser")) {
-      this.$router.push(
-        `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
-      );
-      this.getInfo();
-      this.getPosts(false, true);
-    } else {
-      this.$router.push(`/login`);
-    }
+      if (Cookies.getJSON("logedinUser")) {
+          this.$router.push(
+            `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
+          );
+          this.getInfo();
+          this.getPosts(false, true);
+        } else {
+          this.$router.push("/login");
+        }
+      }
   },
   watch: {
     links: function(newLinks) {

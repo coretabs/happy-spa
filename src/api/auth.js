@@ -29,4 +29,14 @@ export default {
       console.log(err.response)
     })
   }),
+  confirmation: data => new Promise((resolve, reject) => {
+    axios.post("/api/v1/auth/confirmation/", data)
+    .then(res => {
+      resolve(res.data)
+    })
+    .catch(err => {
+      reject(err)
+      console.log(err.response)
+    })
+  }),
 }

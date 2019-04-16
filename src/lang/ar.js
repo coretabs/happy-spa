@@ -1,6 +1,6 @@
 export const ar = {
     mixins: {
-        CHKfull_name: 'الرجاء كتابة اسمك الاول و الاخير',
+        CHKfull_name: 'الرجاء كتابة اسمك الاول و الاخير واسم المستخدم',
         verification: 'الرجاء تفعيل بريدك الالكتروني'
     },
     home: {

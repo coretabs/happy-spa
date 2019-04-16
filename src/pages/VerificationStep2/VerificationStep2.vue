@@ -20,7 +20,7 @@
             <div class="paraFooter">
                 <p>
                     {{$t('verificationStep.receiveActivate')}}
-                    <a href="#">{{$t('verificationStep.re_send')}}</a>
+                    <a @click="re_send">{{$t('verificationStep.re_send')}}</a>
                 </p>
             </div>
             
@@ -34,11 +34,27 @@ import Cookies from 'js-cookie'
 export default {
     data: () => {
         return {
-
+            detail: {},
+            email: ""
         };
     },
     methods: {
-        
+        re_send() {
+            this.detail = {
+                email: Cookies.getJSON('logedinUser').user.email
+            }
+            this.$api.auth
+            .confirmation(this.detail)
+            .then(re => {
+                this.$emit("alert", {
+                msg: this.$t("verificationStep.activateEmail")
+              });
+            })
+            .catch(er => {
+                console.log("error");
+                console.log(er)
+            })
+        }
     },
     created() {
         if (Cookies.getJSON('logedinUser').user.email_status) {

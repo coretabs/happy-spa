@@ -1,6 +1,6 @@
 export const en = {
     mixins: {
-        CHKfull_name: 'please write your first name and last name',
+        CHKfull_name: 'please write your first and last name and username',
         verification: 'Please activate your email address'
     },
     home: {
