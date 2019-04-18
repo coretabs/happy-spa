@@ -32,10 +32,12 @@
 </template>
 
 <script>
+import {check_email_status} from '@/mixins/check';
 import Cookies from 'js-cookie'
 import Vue from 'vue';
 
 export default {
+    mixins: [check_email_status],
     data: () => {
         return {
             languages: [

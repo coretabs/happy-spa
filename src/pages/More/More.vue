@@ -56,13 +56,19 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import {check_email_status} from '@/mixins/check';
+import Cookies from 'js-cookie';
+const STORAGE_EMAIL = 'email-storage';
+const STORAGE_PASSWORD = 'password-storage';
 
 export default {
+    mixins: [check_email_status],
     methods : {
         signout() {
             Cookies.remove('logedinUser')
             this.$router.push('/')
+            localStorage.removeItem(STORAGE_EMAIL);
+            localStorage.removeItem(STORAGE_PASSWORD);
         },
         chatra(){
             Chatra('openChat', true)
