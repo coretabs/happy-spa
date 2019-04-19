@@ -28,6 +28,7 @@ export const en = {
         termsOfService: 'Terms of use ',
         and: 'and ',
         privacyPolicy: 'Privacy Policy',
+        activateEmail: 'The activation email has been sent to your email address',
         another: 'Or register by',
         facbook: 'facebook',
         gmail: 'gmail',
@@ -64,6 +65,9 @@ export const en = {
         close: 'Close'
     },
     alert_msg: {
+        close: 'Close'
+    },
+    next: {
         close: 'Close'
     },
     report: {

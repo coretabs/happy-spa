@@ -10,6 +10,12 @@
       :confirmMsg="confirm.msg"
       :closeConfirm="closeConfirm"
     ></confirm>
+    <next 
+      :class="{'block' : next.box}" 
+      :ok="next.ok" 
+      :nextMsg="next.msg" 
+      :closeNext="closeNext"
+    ></next>
     <overlay
       :report="report.box"
       :closeReport="closeReport"
@@ -19,6 +25,8 @@
       :closeAlert="closeAlert"
       :confirm="confirm.box"
       :closeConfirm="closeConfirm"
+      :next="next.box"
+      :closeNext="closeNext"
     ></overlay>
     <transition name="pages-anim">
       <router-view
@@ -27,6 +35,7 @@
         @error="errorClick($event)"
         @alert="alertClick($event)"
         @confirm="confirmClick($event)"
+        @next="nextClick($event)"
         :class="{'nopostblur' : box }"
       />
     </transition>
@@ -59,6 +68,11 @@ export default {
         msg: "",
         yes: () => {},
         no: () => {}
+      },
+      next: {
+        box: false,
+        msg: "",
+        ok: () => {}
       }
     };
   },
@@ -92,6 +106,13 @@ export default {
       this.confirm.msg = opt.msg;
       this.confirm.no = opt.no;
     },
+    nextClick(opt) {
+      this.box = true;
+      this.$scroll.deny();
+      this.next.box = true;
+      this.next.ok = opt.ok;
+      this.next.msg = opt.msg;
+    },
     closeReport() {
       this.report.box = false;
       this.box = false;
@@ -108,6 +129,10 @@ export default {
     },
     closeConfirm() {
       this.confirm.box = false;
+      this.box = false;
+    },
+    closeNext() {
+      this.next.box = false;
       this.box = false;
     }
   },

@@ -12,6 +12,8 @@ export default {
       info: {},
       button: false,
       buttonLoading: false,
+      menu: false,
+      page: ""
     };
   },
   methods: {
@@ -34,9 +36,20 @@ export default {
           this.$api.auth
             .singup(this.info)
             .then(re => {
-              this.$router.push("/login");
+              console.log("work");
+              this.menu = true;
+              console.log(this.menu);
+              this.$scroll.allow();
+              this.$emit("next", {
+                msg: this.$t('signUp.activateEmail'),
+                ok: () => {
+                  this.$router.push("/login");
+                }
+              });
             })
             .catch(er => {
+              this.menu = false;
+              this.$scroll.allow();
               this.$emit('error' , {
                 msg : er.response.data[Object.keys(er.response.data)[0]][0], 
               });
@@ -51,6 +64,17 @@ export default {
         }
       });
     },
+    showMenu(page) {
+      this.menu = !this.menu;
+      this.page = page;
+      if (this.menu) {
+        $(".grayContentPage ").classList.add("blur");
+        this.$scroll.deny();
+      } else {
+        $(".grayContentPage").classList.remove("blur");
+        this.$scroll.allow();
+      }
+    }
   },
   created() {
     if (Cookies.getJSON("logedinUser")) {

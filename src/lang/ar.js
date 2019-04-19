@@ -28,6 +28,7 @@ export const ar = {
         termsOfService: 'شروط الإستخدام ',
         and: 'و ',
         privacyPolicy: 'سياسة الخصوصية',
+        activateEmail: 'تم إرسال رسالة التفعيل إلى بريدك الإلكتروني',
         another: 'أو تسجيل عن طريق',
         facbook: 'فيس بوك',
         gmail: 'جيميل',
@@ -64,6 +65,9 @@ export const ar = {
         close: 'اغلاق'
     },
     alert_msg: {
+        close: 'اغلاق'
+    },
+    next: {
         close: 'اغلاق'
     },
     report: {

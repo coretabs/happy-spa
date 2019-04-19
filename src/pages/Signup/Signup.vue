@@ -2,6 +2,8 @@
   <div>
     <div class="grayContentPage">
 
+      <div v-if="menu" @click="showMenu" id="overlay"></div>
+
       <large-header>{{$t("signUp.new_user")}}</large-header>
 
       <div class="contentPageHeader">

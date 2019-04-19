@@ -7,6 +7,7 @@ import Header from "@/components/header";
 import LargeHeader from "@/components/large-header";
 import Footer from "@/components/footer";
 import Confirm from "@/components/confirm";
+import Next from "@/components/next";
 import ResultPost from "@/components/result-post";
 import ResultPerson from "@/components/result-person";
 import PrivacyPolicy from "@/components/privacy-policy";
@@ -27,6 +28,7 @@ const Plugins = {
     Vue.component("ErrorMsg", ErrorMsg);
     Vue.component("AlertMsg", AlertMsg);
     Vue.component("Confirm", Confirm);
+    Vue.component("Next", Next);
     Vue.component("Overlay", Overlay);
     Vue.component("app-header", Header);
     Vue.component("large-header", LargeHeader);
