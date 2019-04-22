@@ -36,9 +36,7 @@ export default {
           this.$api.auth
             .singup(this.info)
             .then(re => {
-              console.log("work");
               this.menu = true;
-              console.log(this.menu);
               this.$scroll.allow();
               this.$emit("next", {
                 msg: this.$t('signUp.activateEmail'),

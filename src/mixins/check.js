@@ -13,8 +13,9 @@ export const check_email_status = {
             this.CHKfirst_name = fullName[0];
             this.CHKlast_name = fullName[1];
             this.userName = Cookies.getJSON('logedinUser').user.username
-            console.log('mixin works');
-            if (this.CHKfirst_name == "" && this.CHKlast_name == "" && this.userName == "") {
+            if (this.CHKfirst_name != "" && this.CHKlast_name != "" && this.userName != "") {
+              
+            } else {
               this.$emit("alert", { msg: this.$t('mixins.CHKfull_name') });
               this.$router.push(`/information`);
             }

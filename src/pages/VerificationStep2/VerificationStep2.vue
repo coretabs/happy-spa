@@ -35,7 +35,8 @@ export default {
     data: () => {
         return {
             detail: {},
-            email: ""
+            email: "",
+            user: ""
         };
     },
     methods: {
@@ -54,11 +55,31 @@ export default {
                 console.log("error");
                 console.log(er)
             })
+        },
+        isActivate() {
+            this.user = Cookies.getJSON('logedinUser');
+            this.$api.user
+            .profile(this.user.user.username)
+            .then(re => {
+                console.log(Cookies.getJSON('logedinUser'));
+                console.log(re);
+                this.user.user = re;
+                this.$store.commit("setUserInfo", re);
+                this.$store.commit("claerCache");
+                Cookies.set("logedinUser", this.user);
+                console.log(Cookies.getJSON('logedinUser'));
+                if (Cookies.getJSON('logedinUser').user.email_status) {
+                this.$router.push(`/profile`);
+            }
+            })
+            .catch(er => {
+                console.log(er)
+            })
         }
     },
     created() {
-        if (Cookies.getJSON('logedinUser').user.email_status) {
-            this.$router.push(`/profile`);
+        if (Cookies.getJSON('logedinUser')) {
+            this.isActivate();
         }
     }
 }
