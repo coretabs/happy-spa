@@ -61,13 +61,9 @@ export default {
             this.$api.user
             .profile(this.user.user.username)
             .then(re => {
-                console.log(Cookies.getJSON('logedinUser'));
-                console.log(re);
                 this.user.user = re;
-                this.$store.commit("setUserInfo", re);
-                this.$store.commit("claerCache");
+                
                 Cookies.set("logedinUser", this.user);
-                console.log(Cookies.getJSON('logedinUser'));
                 if (Cookies.getJSON('logedinUser').user.email_status) {
                 this.$router.push(`/profile`);
             }

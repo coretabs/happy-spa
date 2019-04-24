@@ -45,7 +45,6 @@ export default {
           this.loading = true
           this.$api.user.setInformation(this.inf)
             .then(re => {
-              console.log(re, Cookies.getJSON('logedinUser'))
               let logedinUser = Cookies.getJSON('logedinUser')
               logedinUser.user = re
               this.$store.state.cache.profile[re.username] ? this.$store.state.cache.profile[re.username].user = re : ''

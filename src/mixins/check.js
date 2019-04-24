@@ -18,6 +18,7 @@ export const check_email_status = {
             } else {
               this.$emit("alert", { msg: this.$t('mixins.CHKfull_name') });
               this.$router.push(`/information`);
+              this.$scroll.allow();
             }
           } else {
             this.$emit("alert", { msg: this.$t('mixins.verification') });
