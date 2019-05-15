@@ -211,9 +211,9 @@ export default {
     }
   },
   created() {
-    if (this.$route.query.id) {
+    if (!this.$route.query.id) {
       if (Cookies.getJSON("logedinUser")) {
-          this.$router.push(
+          this.$router.replace(
             `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
           );
           this.getInfo();

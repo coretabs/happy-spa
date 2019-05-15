@@ -13,6 +13,7 @@ Cookies.getJSON('logedinUser') ? axios.defaults.headers.common['authorization'] 
 window.axios = axios
 
 const api = {
+  logOut : () => axios.defaults.headers.common['authorization'] = '',
   user,
   auth,
   comments,

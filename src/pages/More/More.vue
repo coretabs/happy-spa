@@ -69,6 +69,7 @@ export default {
             this.$router.push('/')
             localStorage.removeItem(STORAGE_EMAIL);
             localStorage.removeItem(STORAGE_PASSWORD);
+            this.$api.logOut()
         },
         chatra(){
             Chatra('openChat', true)
