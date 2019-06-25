@@ -26,7 +26,7 @@
               <i class="mail fontSize15"></i>
             </span>
           </div>
-          <p v-if="fields['email'] ? !fields['email'].valid && fields['email'].changed : false" class="help is-danger" :class="textAlgin">
+          <p v-if="fields['email'] ? !fields['email'].valid && fields['email'].changed : false" class="help wrongValue" :class="textAlgin">
             {{$t("signUp.wrongEmail")}}
           </p>
         </div>
@@ -55,7 +55,7 @@
               <i :class="icon + ' fontSize20'"></i>
             </span>
           </p>
-          <p v-if="fields['password1'] ? !fields['password1'].valid && fields['password1'].changed : false" class="help is-danger" :class="textAlgin">
+          <p v-if="fields['password1'] ? !fields['password1'].valid && fields['password1'].changed : false" class="help wrongValue" :class="textAlgin">
             {{$t("signUp.invalidpassword")}} <br>
             {{$t("signUp.least_one_number")}} <br>
             {{$t("signUp.least_one_letter")}} <br>
@@ -86,7 +86,7 @@
               <i :class="icon + ' fontSize20'"></i>
             </span>
           </p>
-          <p v-if="fields['password2'] ? !fields['password2'].valid && fields['password2'].changed : false" class="help is-danger" :class="textAlgin">
+          <p v-if="fields['password2'] ? !fields['password2'].valid && fields['password2'].changed : false" class="help wrongValue" :class="textAlgin">
             {{$t("signUp.samePassword")}}
           </p>
         </div>

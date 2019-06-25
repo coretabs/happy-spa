@@ -343,6 +343,170 @@ img {
 
 
 /*           ****** sign in page ******               */
+.field .control .input, .field .control .textarea, .field .control select {
+  background-color: #fff;
+    border-color: #dbdbdb;
+    color: #363636;
+    -webkit-box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+    box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+    max-width: 100%;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 400;
+}
+
+.file-cta, 
+.file-name, 
+.input, 
+.pagination-ellipsis, 
+.pagination-link, 
+.pagination-next, 
+.pagination-previous, 
+.select select, 
+.textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(.375em - 1px);
+  padding-left: calc(.625em - 1px);
+  padding-right: calc(.625em - 1px);
+  padding-top: calc(.375em - 1px);
+  position: relative;
+  vertical-align: top;  
+}
+
+.field:not(:last-child) {
+  margin-bottom: .75rem;
+}
+
+.control {
+  font-size: 1rem;
+  position: relative;
+  text-align: left;
+}
+
+.textarea:not([rows]) {
+  max-height: 600px;
+  min-height: 120px;
+}
+
+.select select {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+  border-color: #dbdbdb;
+  box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+  
+}
+
+.navbar-link::after, .select:not(.is-multiple):not(.is-loading)::after {
+  border: 3px solid transparent;
+  border-radius: 2px;
+  border-right: 0;
+  border-top: 0;
+  content: " ";
+  display: block;
+  height: .625em;
+  margin-top: -.4375em;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  width: .625em;
+}
+
+.field p {
+  margin: 0;
+}
+
+.control.has-icons-right .input, 
+.control.has-icons-right .select select {
+  padding-right: 2.25em;
+}
+
+.control.has-icons-right .icon.is-right {
+  right: 0;
+}
+
+.control.has-icons-left .input, 
+.control.has-icons-left .select select {
+  padding-right: 2.25em;
+}
+
+.control.has-icons-left .icon.is-left {
+  left: 0;
+}
+
+.control.has-icons-left .icon, 
+.control.has-icons-right .icon {
+  color: #dbdbdb;
+  height: 2.25em;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 2.25em;
+  z-index: 4;
+}
+
+.icon {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+hr {
+  background-color: #f5f5f5;
+  border: none;
+  display: block;
+  height: 2px;
+}
+
+.input.is-large, .textarea.is-large {
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.wrapper[data-v-ed1f8fc6] {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-top: 2rem;
+}
 
 /*                  main sign in                       */
 
@@ -402,9 +566,9 @@ img {
 .footer .control button,
 .chat textarea,
 .personChat img,
-.search-input input {
-  border-radius: 50px;
-
+.search-input input,
+.select {
+  border-radius: 50px!important;
 }
 
 .contentPageHeader,
@@ -426,6 +590,7 @@ img {
 .lastDivision .control button {
   width: 100%;
   background-color: #ffe600;
+  color: #fff;
 }
 
 .contentPageHeader .control button:hover,
@@ -853,11 +1018,6 @@ img {
 }
 
 /*           ****** manage email page ******               */
-
-.control.has-icons-right .input,
-.control.has-icons-right .select select {
-  padding-right: 3em;
-}
 
 .control .has-icons-right .icon,
 .search-input .cleanSearch {
@@ -1680,7 +1840,7 @@ hr {
 
 .settingList a {
   display: block;
-  padding: 15px;
+  padding: 15px 5%;
 }
 
 /*           ****** Notification ******                 */

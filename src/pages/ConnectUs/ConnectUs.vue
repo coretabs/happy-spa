@@ -55,7 +55,7 @@
             <div class="field">
                 <div class="control subject" :class="has_icons_R">
                 <div class="select is-rounded" :class="dirRTL">
-                    <select class=" fullWidth" v-model="title">
+                    <select class=" fullWidth borderRadius50" v-model="title">
                         <option>{{$t('contactUs.subjects.forgot_password')}}</option>
                         <option>{{$t('contactUs.subjects.activation')}}</option>
                         <option>{{$t('contactUs.subjects.Other')}}</option>

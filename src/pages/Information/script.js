@@ -14,12 +14,14 @@ export default {
           link: []
         },
         username: '',
-        avatar: ''
+        avatar: '',
       },
       previweUrl: '',
       inf: new FormData(),
       disable: this.errors ? this.errors.items.length != 0 : false,
       loading : false,
+      userName: '',
+      userNameChanged: '',
     }
   },
   methods: {
@@ -38,6 +40,7 @@ export default {
       this.inf.append('profile.birth_date', this.userInfo.profile.birth_date)
     },
     sendInformation() {
+      
       this.$validator.validate().then(noErrors => {
         if(noErrors) {
           this.formData()
@@ -45,23 +48,37 @@ export default {
           this.loading = true
           this.$api.user.setInformation(this.inf)
             .then(re => {
+              this.userName = Cookies.getJSON('logedinUser').user.username;
               let logedinUser = Cookies.getJSON('logedinUser')
               logedinUser.user = re
               this.$store.state.cache.profile[re.username] ? this.$store.state.cache.profile[re.username].user = re : ''
               Cookies.set('logedinUser', logedinUser, {
                 expires: 365
               })
-              this.$router.push(`/profile`)
-              this.disable = false
-              this.loding = false
+              this.userNameChanged = this.userInfo.username;
+              console.log(this.userName);
+              console.log(this.userNameChanged);
+              if (this.userName != this.userNameChanged) {
+                Cookies.remove('logedinUser')
+                this.$router.push('/login')
+                this.$api.logOut()
+                this.disable = false
+                this.loding = false
+              } else {
+                this.$router.push(`/profile`)
+                this.disable = false
+                this.loding = false
+              }
             })
             .catch(er => {
               this.disable = false
               this.loding = false
+              console.log(Cookies.getJSON('logedinUser'))
               console.log(er.response)
             })
         }
       })
+      
     }
   },
   created() {
