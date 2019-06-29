@@ -13,11 +13,16 @@ export default new Vuex.Store({
         comments : {},
         replies : {},
         post : {}
-      }
+      },
+      Rlogin : {}
+      
     },
     mutations : {
       setUserInfo (state, info) {
         state.userInfo = info
+      },
+      set_SignUp (state, info) {
+        state.Rlogin = info
       },
       postToEdit (state, post) {
         state.postToEdit = post

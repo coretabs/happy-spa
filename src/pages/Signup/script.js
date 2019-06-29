@@ -1,6 +1,4 @@
 import Cookies from "js-cookie";
-const STORAGE_EMAIL = 'email-storage';
-const STORAGE_PASSWORD = 'password-storage';
 export default {
   data: () => {
     return {
@@ -37,6 +35,7 @@ export default {
             .singup(this.info)
             .then(re => {
               this.menu = true;
+              this.$store.commit('set_SignUp', this.info);
               this.$scroll.allow();
               this.$emit("next", {
                 msg: this.$t('signUp.activateEmail'),
@@ -52,8 +51,6 @@ export default {
                 msg : er.response.data[Object.keys(er.response.data)[0]][0], 
               });
             });
-            localStorage.setItem(STORAGE_EMAIL, JSON.stringify(this.email));
-            localStorage.setItem(STORAGE_PASSWORD, JSON.stringify(this.password1));
         } else {
           this.$emit('error' , {
             msg : this.$t('signUp.fields_required'), 

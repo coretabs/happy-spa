@@ -1,6 +1,5 @@
 import Cookies from "js-cookie";
-const STORAGE_EMAIL = 'email-storage';
-const STORAGE_PASSWORD = 'password-storage';
+
 
 export default {
   name: "LoginPage",
@@ -63,15 +62,16 @@ export default {
     }
   },
   created() {
+    console.log(this.$store.state.Rlogin.email)
     if (Cookies.getJSON("logedinUser")) {
       this.$router.push(
         `/home?id=${Cookies.getJSON("logedinUser").user.username}/`
       );
     }
 
-    if (JSON.parse(localStorage.getItem(STORAGE_EMAIL) || '""') && JSON.parse(localStorage.getItem(STORAGE_PASSWORD) || '""')) {
-      this.username = JSON.parse(localStorage.getItem(STORAGE_EMAIL) || '""');
-      this.password = JSON.parse(localStorage.getItem(STORAGE_PASSWORD) || '""');
+    if (this.$store.state.Rlogin.email && this.$store.state.Rlogin.password1) {
+      this.username = this.$store.state.Rlogin.email;
+      this.password = this.$store.state.Rlogin.password1;
       this.postInfo()
       
     }

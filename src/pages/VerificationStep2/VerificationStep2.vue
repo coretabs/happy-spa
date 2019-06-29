@@ -65,7 +65,7 @@ export default {
                 
                 Cookies.set("logedinUser", this.user);
                 if (Cookies.getJSON('logedinUser').user.email_status) {
-                this.$router.push(`/profile`);
+                this.$router.push(`/information`);
             }
             })
             .catch(er => {
