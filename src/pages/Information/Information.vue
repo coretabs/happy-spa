@@ -118,7 +118,7 @@
             v-model="userInfo.profile.birth_date" 
             onfocus="(this.type='date')"
             onblur="(this.type='text')"
-            type="date"
+            type="text"
             name="date"
             v-validate = "'date_format:YYY/MM/DD'"
             dir="auto"
@@ -130,8 +130,11 @@
               'is-success': fields.date ? fields.date.valid && fields.date.changed : false
             }]"
           >
+          <span class="icon is-small" :class="is_way">
+            <i class="date_range fontSize20"></i>
+          </span>
         </p>
-        <p v-if="fields.date ? !fields.date.valid && fields.date.changed : false" class="help is-danger"> أدخل تاريخ صالح من فضلك </p>
+        <p v-if="fields.date ? !fields.date.valid && fields.date.changed : false" class="help is-danger">{{$t('information.characters')}}</p>
       </div>
 
       <div class="field">

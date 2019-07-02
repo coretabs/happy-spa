@@ -156,6 +156,7 @@ export const en = {
         lastName: 'Last Name',
         userName: 'User Name',
         birthday: 'Birthday',
+        checkBirthday: 'Please enter a valid date',
         city: 'City',
         cv: '... Type your curriculum vitae',
         characters: 'Must be at least 3 characters',

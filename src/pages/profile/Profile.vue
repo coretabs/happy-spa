@@ -20,12 +20,12 @@
           </div>
           <div class="aboutMyInfo center">
             <div class="place">
-              <span>{{user.profile.location}}</span>
-              <i class="location fontSize15"></i>
+              <span class="whiteGray">{{user.profile.location}}</span>
+              <i class="location fontSize15 whiteGray"></i>
             </div>
             <div class="birth">
-              <span>{{user.profile.birth_date}}</span>
-              <i class="date_range fontSize15"></i>
+              <span class="whiteGray">{{user.profile.birth_date}}</span>
+              <i class="date_range fontSize15 whiteGray"></i>
             </div>
           </div>
           <hr>

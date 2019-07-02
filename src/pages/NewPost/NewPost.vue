@@ -60,7 +60,7 @@
                     type="text"
                     :placeholder="$t('newPost.addFunPost')"
                   ></textarea>
-                  <emoji-picker @emoji="insert" :search="search">
+                  <emoji-picker @emoji="insert" :search="search" v-if="false">
                     <div
                       class="emoji-invoker"
                       slot="emoji-invoker"

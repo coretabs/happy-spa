@@ -3,7 +3,7 @@
     <div class="grayContentPage">
       <large-header>{{$t("social.manage_links")}}</large-header>
 
-      <div class="contentPageHeader">
+      <div class="socialPage contentPageHeader">
         <img src="@/../image/social-ideas.svg" class="mainPoster">
 
         <ul id="menuItems" v-for="app in apps">

@@ -34,7 +34,6 @@ export default {
         Cookies.getJSON("logedinUser").user.username == this.$route.query.id
       ) {
         this.user = Cookies.getJSON("logedinUser").user;
-        //this.links = Cookies.getJSON("logedinUser").user.profile.link;
         this.loading = false;
         this.$api.user.getSocial().then(re => {
           this.links = re;
@@ -211,16 +210,14 @@ export default {
     }
   },
   created() {
-    if (!this.$route.query.id) {
-      if (Cookies.getJSON("logedinUser")) {
-          this.$router.replace(
-            `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
-          );
-          this.getInfo();
-          this.getPosts(false, true);
-        } else {
-          this.$router.push("/login");
-        }
+    if (Cookies.getJSON("logedinUser")) {
+        this.$router.replace(
+          `/profile?id=${Cookies.getJSON("logedinUser").user.username}`
+        );
+        this.getInfo();
+        this.getPosts(false, true);
+      } else {
+        this.$router.push("/login");
       }
   },
   watch: {

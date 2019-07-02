@@ -157,6 +157,7 @@ export const ar = {
         lastName: 'الإسم الأخير',
         userName: 'اسم المستخدم',
         birthday: 'تاريخ الميلاد',
+        checkBirthday: 'أدخل تاريخ صالح من فضلك',
         city: 'المدينة',
         cv: 'اكتب سيرتك الذاتية...',
         characters: 'يجب ان لا يقل عن 3 احرف',

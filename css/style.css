@@ -346,7 +346,7 @@ img {
 .field .control .input, .field .control .textarea, .field .control select {
   background-color: #fff;
     border-color: #dbdbdb;
-    color: #363636;
+    color: #142833;
     -webkit-box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
     box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
     max-width: 100%;
@@ -391,6 +391,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: calc(.375em - 1px);
   position: relative;
   vertical-align: top;  
+}
+
+.textarea {
+  min-width: 100%;
+  resize: vertical;
 }
 
 .field:not(:last-child) {
@@ -908,10 +913,8 @@ hr {
   width: 60% !important;
 }
 
-.linkSM-input {
-  color: #142833;
+.socialPage .linkSM-input {
   border-radius: 40px 0 0 40px !important;
-  box-shadow: none;
   font-size: 12px;
 }
 
@@ -1316,7 +1319,6 @@ hr {
   height: 10em;
 }
 
-.funPost textarea,
 .addWasm input {
   padding: 0;
   border: none;
@@ -1461,23 +1463,19 @@ hr {
   color: #142833 !important;
 }
 
-.whiteGray {
+.whiteGray,
+.aboutMe p,
+.mySocial a,
+.mySend .myMenu a,
+.allCommunion .communion a,
+.allCommunion .share4All a,
+.settingList a {
   color: #cdd6da !important;
 }
 
 .aboutMe h1 {
   font-size: 20px;
   font-weight: bold;
-}
-
-.aboutMe p,
-.aboutMyInfo,
-.mySocial a,
-.mySend .myMenu a,
-.allCommunion .communion a,
-.allCommunion .share4All a,
-.settingList a {
-  color: #cdd6da;
 }
 
 .reverse,
@@ -1832,7 +1830,7 @@ hr {
   color: #142833;
   font-weight: bold;
   display: table;
-  padding: 2px 15px 15px;
+  padding: 5px 15px 15px;
   border-radius: 10px 10px 0 0;
   position: absolute;
   z-index: 9;
