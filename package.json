@@ -14,13 +14,16 @@
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js"
   },
+  "config": {
+    "unsafe-perm": true
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "connect-history-api-fallback": "^1.5.0",
     "express": "^4.16.4",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "serve-static": "^1.13.2",
     "vee-validate": "^2.1.1",
@@ -78,7 +81,7 @@
     "mocha": "^5.2.0",
     "nightwatch": "^1.0.11",
     "node-notifier": "^5.1.2",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.14",
