@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueI18n from "vue-i18n";
 import {ar} from "@/lang/ar";
 import {en} from "@/lang/en";
-import axios from "axios";
 
 Vue.use(VueI18n);
 

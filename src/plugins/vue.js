@@ -14,10 +14,10 @@ import PrivacyPolicy from "@/components/privacy-policy";
 import Vue from "vue";
 import axios from "axios";
 import Cookies from "js-cookie";
-import VeeValidate from "vee-validate";
+import * as VeeValidate from "vee-validate";
 import { EmojiPickerPlugin } from "vue-emoji-picker";
 import FlagIcon from 'vue-flag-icon';
-import Vuetify from 'vuetify';
+import * as Vuetify from 'vuetify/lib';
 import 'vuetify/dist/vuetify.min.css'
 import "@/api/api";
 
@@ -81,6 +81,7 @@ const Plugins = {
       buttonText: "#ffe600",
       buttonBg: "#ffffff"
     });
+    
     Chatra("hide");
   }
 };
